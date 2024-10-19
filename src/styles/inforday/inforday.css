@@ -1,0 +1,106 @@
+.is-inforday {
+  font-family: "Inter", serif;
+  margin-top: 50px;
+  height: auto;
+}
+.is-inforday .banner {
+  padding: 0px 5px 3px 5px;
+  background-color: #636463;
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 12px;
+}
+.is-inforday .detail-day {
+  background-color: white;
+  border-radius: 10px;
+  height: auto;
+}
+.is-inforday .detail-day .detail-days {
+  height: auto;
+}
+.is-inforday .detail-day .detail-days li {
+  width: 100%;
+  height: auto;
+  font-size: 20px;
+  margin-top: 7px;
+}
+.is-inforday .detail-day .detail-days li span {
+  font-size: 24px;
+  color: #006e33;
+}
+.is-inforday .detail-day .detail-days li p {
+  margin-bottom: 0;
+  margin-left: 8px;
+}
+.is-inforday .detail-day .detail-days li a {
+  text-decoration: none;
+  color: #006e33;
+}
+.is-inforday .detail-day .detail-days li a .icon {
+  padding-left: 10px;
+  padding-right: 7px;
+  font-size: 16px;
+}
+.is-inforday .detail-day .detail-days li .day {
+  color: #f60;
+  font-weight: 700;
+  font-size: 20px;
+  border: 1px solid #bcccc3;
+  padding: 4px 6px;
+  letter-spacing: 3px;
+  margin-left: 5px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+.is-inforday .detail-day .detail-days li .am-lich {
+  color: #0b730b;
+  font-weight: 700;
+  font-size: 20px;
+  border: 1px solid #bcccc3;
+  padding: 4px 6px;
+  letter-spacing: 3px;
+  margin-left: 5px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+.is-inforday .hagtag .banners {
+  margin-right: 10px;
+  padding: 0px 5px 3px 5px;
+  background-color: #636463;
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+@media only screen and (max-width: 320px) {
+  .detail-days li {
+    width: 100%;
+  }
+  .detail-days li p {
+    font-size: 10px;
+  }
+  .detail-days li a {
+    font-size: 10px;
+  }
+  .detail-days li a .icon {
+    font-size: 5px;
+  }
+  .detail-days li .day {
+    font-size: 10px;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 375px) {
+  .detail-days li p {
+    font-size: 15px;
+  }
+  .detail-days li a {
+    font-size: 15px;
+  }
+  .detail-days li a .icon {
+    font-size: 6px;
+  }
+}/*# sourceMappingURL=inforday.css.map */

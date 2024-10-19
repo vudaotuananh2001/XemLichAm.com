@@ -1,0 +1,79 @@
+Để tính ngày thứ (thứ trong tuần), và Can Chi cho ngày tháng âm lịch, chúng ta cần thực hiện các bước sau:
+
+1. Tính ra ngày thứ trong tuần 
+ => công thức : dayOfWeek = (jd +1) / 7 
+	kết quả:
+		 0: Chủ nhật
+		 1 : Thứ 2
+		 2 : Thứ 3
+		 3 : thứ 4
+		 4 : Thứ 5
+		 5 : Thứ 6
+		 6 : Thứ 7
+
+2. Tính Can-Chi cho ngày âm lịch :
+- để tính Can-Chi cho ngày âm lịch , chúng ta phải dựa vào chu kỳ Can Chi của thiên can và địa địa chỉ. Can Chi có chu kỳ 60 năm và cứ lặp lại. Để tính Can-Chi cho ngày và tháng, chúng ta sử dụng công thức tính từ ngày Julius(JD)
+sau đó suy ra Can- Chi của ngày và tháng theo chu kỳ
+=> Công thức tính JD
+JD = dd + [(153 * m +2) /5] + 356 * y + (y/4) - (y/100) + (y/400) -32045 
+Chi tiết:
+ - dd,mm,yy : ngày , tháng, năm hiện tại dương lịch ý
+a = Math.floor((14 - mm)/12);
+y  = yy + 4800 - a;
+m = mm + 12 * a -3 ;
+
+vào mã code: 
+function jdFromDate(dd, mm, yy) {
+    var a = Math.floor((14 - mm) / 12);
+    var y = yy + 4800 - a;
+    var m = mm + 12 * a - 3;
+    var jd = dd + Math.floor((153 * m + 2) / 5) + 365 * y + Math.floor(y / 4) - Math.floor(y / 100) + Math.floor(y / 400) - 32045;
+    if (jd < 2299161) {
+        jd = dd + Math.floor((153 * m + 2) / 5) + 365 * y + Math.floor(y / 4) - 32083;
+    }
+    return jd;
+}
+ 
+=> if (jd < 2299161) :Ngày 15/10/1582 là ngày mà lịch Gregorian chính thức được áp dụng thay thế lịch Julius ở hầu hết các quốc gia châu Âu. Trước ngày này, người ta sử dụng lịch Julius để đo đếm ngày tháng. Ngày này tương ứng với giá trị JD = 2299161.
++ Lịch Julius: Là lịch cổ hơn và có cách tính toán khác so với lịch Gregorian. Nó được sử dụng từ thời Julius Caesar cho đến khi lịch Gregorian ra đời vào năm 1582.
++ Lịch Gregorian: Là lịch mà hầu hết các nước hiện đại sử dụng ngày nay. Nó được Giáo hoàng Gregory XIII giới thiệu vào năm 1582 để thay thế lịch Julius.
+
+
+a ) Tính Can-Chi cho ngày
+	- Can của ngày tính theo công thức :
+		canDay = (JD + 9) /10
+	- Chi của ngày theo công thức :
+		chiDay = (JD +1) / 12
+
+b ) Tính Can-Chi cho tháng
+	- Công thức tính năm_can 
+		năm_can = (yy + 6) %10)
+	- Can của tháng :
+		canMonth = (năm_can * 2 + tháng - 2) / 10
+	- Chi của thánh :
+		chiMonth = (tháng + 2) /12 
+c ) Bảng Can-Chi
+	- Thiên Can (Can) : chu kỳ 10
+		0: Giáp
+		1: Ất
+		2: Bính
+		3: Đinh
+		4: Mậu
+		5: Kỷ
+		6: Canh
+		7: Tân
+		8: Nhâm
+		9: Quý
+	- Địa Chi(Chi) : chu kỳ 12
+		0: Tý
+		1: Sửu
+		2: Dần
+		3: Mão
+		4: Thìn
+		5: Tỵ
+		6: Ngọ 
+		7: Mùi
+		8: Thân
+		9: Dậu
+		10: Tuất
+		11: Hợi	

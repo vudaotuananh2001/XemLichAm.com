@@ -1,0 +1,133 @@
+.is-inforday {
+    font-family: "Inter", serif;
+    margin-top: 50px;
+    height: auto;
+
+    .banner {
+        padding: 0px 5px 3px 5px;
+        background-color: #636463;
+        color: white;
+        border-radius: 10px;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    .detail-day {
+        background-color: white;
+        border-radius: 10px;
+        height: auto;
+
+        .detail-days {
+            height: auto;
+
+            li {
+                width: 100%;
+                height: auto;
+                font-size: 20px;
+                margin-top: 7px;
+
+                span {
+                    font-size: 24px;
+                    color: #006e33;
+                }
+
+                p {
+                    margin-bottom: 0;
+                    margin-left: 8px;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: #006e33;
+
+                    .icon {
+                        padding-left: 10px;
+                        padding-right: 7px;
+                        font-size: 16px;
+                    }
+                }
+
+                .day {
+                    color: #f60;
+                    font-weight: 700;
+                    font-size: 20px;
+                    border: 1px solid #bcccc3;
+                    padding: 4px 6px;
+                    letter-spacing: 3px;
+                    margin-left: 5px;
+                    border-radius: 4px;
+                    -moz-border-radius: 4px;
+                    -webkit-border-radius: 4px;
+                }
+
+                .am-lich {
+                    color: #0b730b;
+                    font-weight: 700;
+                    font-size: 20px;
+                    border: 1px solid #bcccc3;
+                    padding: 4px 6px;
+                    letter-spacing: 3px;
+                    margin-left: 5px;
+                    border-radius: 4px;
+                    -moz-border-radius: 4px;
+                    -webkit-border-radius: 4px;
+                }
+            }
+        }
+    }
+
+    .hagtag {
+        .banners {
+            margin-right: 10px;
+            padding: 0px 5px 3px 5px;
+            background-color: #636463;
+            color: white;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 320px) {
+    .detail-days {
+        li {
+            width: 100%;
+
+            p {
+                font-size: 10px;
+            }
+
+            a {
+                font-size: 10px;
+
+                .icon {
+                    font-size: 5px;
+                }
+            }
+
+            .day {
+                font-size: 10px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 375px) {
+    .detail-days {
+        li {
+            p {
+                font-size: 15px;
+            }
+
+            a {
+                font-size: 15px;
+
+                .icon {
+                    font-size: 6px;
+                }
+            }
+        }
+    }
+}

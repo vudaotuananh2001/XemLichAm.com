@@ -1,0 +1,18 @@
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 56px;
+    font-family: "Inter", serif;
+    background-color: #006E33;
+
+    .time {
+        background-color: #006E33;
+    }
+
+    .navbar-expand-lg .navbar-nav .dropdown-menu {
+        top: 46px;
+        border-radius: 0;
+
+    }
+}

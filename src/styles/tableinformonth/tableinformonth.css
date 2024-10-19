@@ -1,0 +1,95 @@
+.is_infor_day {
+  font-family: "Inter", serif;
+}
+.is_infor_day .good-day {
+  font-size: 11pt;
+  color: red;
+  font-weight: 700;
+}
+.is_infor_day .bad-day {
+  font-size: 11pt;
+  color: #95149a;
+  font-weight: 700;
+}
+
+.title-month {
+  font-family: "Inter", serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  width: 100%;
+  height: 45px;
+  background-color: #006E33;
+  color: white;
+}
+.title-month a .triangle-left {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12.5px 13px 12.5px 0;
+  border-color: transparent white transparent transparent;
+}
+.title-month a .triangle-right {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12.5px 0 12.5px 13px;
+  border-color: transparent transparent transparent white;
+}
+
+.table {
+  font-family: "Inter", serif;
+}
+.table thead tr th {
+  background-color: #117B11;
+  color: white;
+  text-align: center;
+  border: 1px solid #0B730B;
+  border-top: 1px solid #758675;
+}
+.table tbody tr td {
+  border: 1px solid #0B730B;
+}
+.table tbody tr td a {
+  text-decoration: none;
+  color: black;
+}
+.table tbody tr td a .infors {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-around;
+}
+.table tbody tr td a .infors .day {
+  color: black;
+  font-weight: bold;
+}
+.table tbody tr td a .infors .circle {
+  width: 10px;
+  height: 10px;
+  background-color: #0B730B;
+  border-radius: 10px;
+}
+.table tbody tr td a .ngayam {
+  text-align: center;
+}
+.table tbody tr td a .namedayam {
+  text-align: center;
+}
+
+@media only screen and (max-width: 321px) {
+  .table thead th {
+    font-size: 10px;
+  }
+  .is_infor_day .good-day {
+    font-size: 14px;
+  }
+  .is_infor_day .bad-day {
+    font-size: 14px;
+  }
+}
+@media only screen and (min-widrh: 321px) and (max-width: 375px) {
+  .table thead th {
+    font-size: 12px;
+  }
+}/*# sourceMappingURL=tableinformonth.css.map */

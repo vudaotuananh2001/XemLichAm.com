@@ -1,0 +1,32 @@
+.title-detail-days {
+    width: 100%;
+    height: 50px;
+    background-color: #006E33;
+    text-align: center;
+    padding-top: 12px;
+    font-weight: 700;
+    color: #fff;
+    font-size: 19px;
+    font-family: "Inter", serif;
+}
+
+.table {
+    width: 100%;
+
+    tbody tr {
+
+
+        td {
+            font-family: "Inter", serif;
+
+            .title-row-table {
+                width: 25px;
+            }
+
+            p {
+                margin-bottom: 0;
+                font-family: "Inter", serif;
+            }
+        }
+    }
+}
