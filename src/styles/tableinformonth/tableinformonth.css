@@ -77,9 +77,12 @@
   text-align: center;
 }
 
-@media only screen and (max-width: 321px) {
+@media only screen and (max-width: 425px) {
   .table thead th {
     font-size: 10px;
+  }
+  .table tbody td a .namedayam {
+    display: none;
   }
   .is_infor_day .good-day {
     font-size: 14px;

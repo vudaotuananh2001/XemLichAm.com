@@ -5,7 +5,7 @@ import '../styles/tableinformonth/tableinformonth.css';
 const TableInforMonth = () => {
     return (
         <>
-            <div className="container">
+            <div className="mt-3">
                 <div className="is_infor_day d-flex">
                     <span className="good-day">MÀU ĐỎ : NGÀY TỐT</span>,
                     <span className="bad-day">MÀU TÍM : NGÀY XẤU</span>

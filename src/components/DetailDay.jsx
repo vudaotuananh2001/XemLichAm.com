@@ -1,8 +1,8 @@
 import React from "react";
+import {getInforDayCan, getInforDayChi} from "../DataTime/FuntionTime.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/detaildays/detaildays.css';
-const DetailDays = () => {
-    const input = "Tốc Hỷ là bạn trùng phùng Gặp trùng gặp bạn vợ chồng sánh đôi Có tài có lộc hẳn hoi Cầu gì cũng được mừng vui thỏa lòng";
+const DetailDays = ({ negativeDay }) => {
 
     const splitString1 = (input) => {
         const words = input.split(' ').filter(word => word.length > 0);
@@ -34,7 +34,7 @@ const DetailDays = () => {
 
         return lines;
     };
-    const lines = splitString1(input);
+    
     const splitString2 = (input) => {
         const words = input.split(' ').filter(word => word.length > 0);
         const lines = [];
@@ -73,11 +73,20 @@ const DetailDays = () => {
 
         return lines;
     };
-    const result = splitString2(input);
+    const data = negativeDay.departure_direction;
+    const dataDepartureTime  = negativeDay.departureTime;
+    const nameDay = negativeDay.nameDay;
+    
+    const canChiNameDay = nameDay.split(' ')
+    
+    const dataCan = getInforDayCan(canChiNameDay[0]);
+    const dataChi = getInforDayChi(canChiNameDay[1]);
+    const lucdieu = negativeDay.lucdieu;
 
+    const lines = splitString1(lucdieu.verse);
     return (
         <>
-            <div className="container">
+            <div className="mt-3">
                 <div className="title-detail-days">
                     XEM NGÀY TỐT XẤU HÔM NAY
                 </div>
@@ -85,11 +94,11 @@ const DetailDays = () => {
                     <tbody>
                         <tr>
                             <td className="title-row-table"><b>Giờ Hoàng Đạo</b></td>
-                            <td>Sửu (1:00-2:59) ; Thìn (7:00-8:59) ; Ngọ (11:00-12:59) ; Mùi (13:00-14:59) ; Tuất (19:00-20:59) ; Hợi (21:00-22:59)</td>
+                            <td>{negativeDay.detailZodiacHour}</td>
                         </tr>
                         <tr>
                             <td className="title-row-table"><b>Giờ Hắc Đạo</b></td>
-                            <td>Tí (23:00-0:59) ; Dần (3:00-4:59) ; Mão (5:00-6:59) ; Tỵ (9:00-10:59) ; Thân (15:00-16:59) ; Dậu (17:00-18:59)</td>
+                            <td>{negativeDay.blackHour}</td>
                         </tr>
                         <tr>
                             <td className="title-row-table"><b>Ngũ Hành</b></td>
@@ -103,15 +112,15 @@ const DetailDays = () => {
                         <tr>
                             <td className="title-row-table"><b>Bành Tổ Bách Kỵ Nhật</b></td>
                             <td>
-                                <p>-<b> Tân</b> : “Bất hợp tương chủ nhân bất thường” - Không nên tiến hành trộn tương, chủ không được nếm qua</p>
-                                <p>-<b> Hợi</b> : “Bất giá thú tất chủ phân trương” - Không nên tiến hành các việc liên quan đến cưới hỏi để tránh ly biệt</p>
+                                <p>-<b> {canChiNameDay[0]}</b> : “{dataCan.names}” - {dataCan.detail}</p>
+                                <p>-<b> {canChiNameDay[1]}</b> : “{dataChi.names}” - {dataChi.detail} </p>
                             </td>
                         </tr>
                         <tr>
                             <td className="title-row-table"><b>Khổng Minh Lục Diệu</b></td>
                             <td>
-                                <p>Ngày: <b> Tốc Hỷ </b>-  tức ngày Tốt vừa.</p>
-                                <p>Buổi sáng tốt, nhưng chiều xấu nên cần làm nhanh. Niềm vui nhanh chóng, nên dùng để mưu đại sự, sẽ thành công mau lẹ hơn. Tốt nhất là tiến hành công việc vào buổi sáng, càng sớm càng tốt.</p>
+                                <p>Ngày: <b> {lucdieu.names} </b>-  {lucdieu.detail}</p>
+                                <p>{lucdieu.description}</p>
                                 " {lines.map((line, index) => (
                                     <p key={index}>{line}</p>
                                 ))}
@@ -128,10 +137,10 @@ const DetailDays = () => {
                                 <p><b>Ngoại lệ </b>:</p>
                                 <p>- Tại Mùi, Hợi, Mão đều tốt. Tại Mùi: đăng viên rất tốt nhưng phạm vào Phục Đoạn (Kiêng cữ như trên).Trương: Nguyệt Lộc (con nai): Nguyệt tinh, sao tốt. Việc mai táng và hôn nhân thuận lợi.</p>
                                 <p>Buổi sáng tốt, nhưng chiều xấu nên cần làm nhanh. Niềm vui nhanh chóng, nên dùng để mưu đại sự, sẽ thành công mau lẹ hơn. Tốt nhất là tiến hành công việc vào buổi sáng, càng sớm càng tốt.</p>
-                                "{result.map((line, index) => (
+                                {/* "{result.map((line, index) => (
                                     <p key={index}>{line}</p>
                                 ))}
-                                "
+                                " */}
                             </td>
                         </tr>
                         <tr>
@@ -159,16 +168,18 @@ const DetailDays = () => {
                         <tr>
                             <td className="title-row-table"><b>Hướng xuất hành</b></td>
                             <td>
-                                <p>Xuất hành hướng Tây Nam để đón 'Hỷ Thần'. Xuất hành hướng Tây Nam để đón 'Tài Thần'.
-                                    Tránh xuất hành hướng Đông Bắc gặp Hạc Thần (xấu)</p>
+                                <p>{data.good}</p>
+                                <p>{data.bad}</p>
                             </td>
                         </tr>
                         <tr>
                             <td className="title-row-table"><b>Giờ xuất hành Theo Lý Thuần Phong</b></td>
                             <td>
-                                <p><b>Từ 11h-13h (Ngọ) và từ 23h-01h (Tý)</b> : Tin vui sắp tới, nếu cầu lộc, cầu tài thì đi hướng Nam. Đi công việc gặp gỡ có nhiều may mắn. Người đi có tin về. Nếu chăn nuôi đều gặp thuận lợi.</p>
-                                <p><b>Từ 11h-13h (Ngọ) và từ 23h-01h (Tý)</b> : Tin vui sắp tới, nếu cầu lộc, cầu tài thì đi hướng Nam. Đi công việc gặp gỡ có nhiều may mắn. Người đi có tin về. Nếu chăn nuôi đều gặp thuận lợi.</p>
-                                <p><b>Từ 11h-13h (Ngọ) và từ 23h-01h (Tý)</b> : Tin vui sắp tới, nếu cầu lộc, cầu tài thì đi hướng Nam. Đi công việc gặp gỡ có nhiều may mắn. Người đi có tin về. Nếu chăn nuôi đều gặp thuận lợi.</p>
+                            {Array.isArray(dataDepartureTime) && dataDepartureTime.map((item, index) => (
+                                <p key={index}>
+                                    <b>{item.time}</b> : {item.detail}
+                                </p>
+                            ))}
                             </td>
                         </tr>
                     </tbody>

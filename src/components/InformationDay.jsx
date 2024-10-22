@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import '../styles/inforday/inforday.css';
 
-const InformationDay = () => {
+const InformationDay = ({ negativeDay }) => {   
+    const dataKhongMinh =  negativeDay.giant;
     return (
         <div className="container pt-3 is-inforday">
             <h3>Lịch âm hôm nay</h3>
@@ -18,31 +19,31 @@ const InformationDay = () => {
                         <Link>
                             <FontAwesomeIcon className="icon" icon={faMagnifyingGlass} />Lịch :
                         </Link>
-                        <span className="day">12-10-2024</span>
+                        <span className="day">{negativeDay.positive_day}</span>
                     </li>
                     <li className="d-flex align-items-center">
                         <span>&#10022;</span>
                         <p>Ngày <b>Âm Lịch:</b></p>
-                        <span className="am-lich">12-10-2024</span>
+                        <span className="am-lich">{negativeDay.negative_day}</span>
                     </li>
                     <li className="d-flex align-items-center">
                         <span>&#10022;</span>
                         <p>Ngày trong tuần: &nbsp;&nbsp;</p>
-                        <b>Thứ Bảy</b>
+                        <b>{negativeDay.rank}</b>
                     </li>
                     <li className="d-flex align-items-center">
                         <span>&#10022;</span>
-                        <p>Ngày &nbsp;<b>Kỷ Dậu</b> tháng <b>Kỷ Dậu</b> năm <b>Kỷ Dậu</b></p>
+                        <p>Ngày &nbsp;<b>{negativeDay.nameDay}</b> tháng <b>{negativeDay.nameMonth}</b> năm <b>{negativeDay.nameYear}</b></p>
                     </li>
                 </div>
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 detail-days mt-2">
                     <li className="d-flex align-items-center">
                         <span>&#10022;</span>
-                        <p>Ngày <b>Bạch Hổ Đầu</b> : xuất hành, cầu tài đều được, đi đâu đều thông đạt cả</p>
+                        <p>Ngày <b>{dataKhongMinh.name}</b> : {dataKhongMinh.detail}</p>
                     </li>
                     <li className="d-flex align-items-center mt-4">
                         <span>&#10022;</span>
-                        <p>Giờ:<b>Hoàng Đạo</b> : Tý (23-1), Dần (3-5), Mão (5-7), Ngọ (11-13), Mùi (13-15), Dậu (17-19)</p>
+                        <p>Giờ:<b>Hoàng Đạo</b> : {negativeDay.zodiac_hour}</p>    
                     </li>
                 </div>
             </div>

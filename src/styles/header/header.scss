@@ -5,14 +5,17 @@ header {
     height: 56px;
     font-family: "Inter", serif;
     background-color: #006E33;
+    transition: height 0.3s ease; /* Optional transition for smooth height change */
+}
 
-    .time {
+@media only screen and (max-width: 1023px) {
+    header {
+       #navbarNavDropdown {
         background-color: #006E33;
+       }
     }
 
-    .navbar-expand-lg .navbar-nav .dropdown-menu {
-        top: 46px;
-        border-radius: 0;
-
+    .collapse {
+        background-color: #006E33; /* Match the header background color */
     }
 }

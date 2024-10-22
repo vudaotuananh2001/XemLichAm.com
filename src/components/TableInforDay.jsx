@@ -1,12 +1,18 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/tableInforDay/tableinforday.css';
-const TableInfoDay = () => {
+
+const TableInfoDay = ({negativeDay}) => {
+    const positiveDay = negativeDay.positive_day;
+    let day =positiveDay.split('-');
+    const negatives = negativeDay.negative_day;
+    let negative =negatives.split('-');
+    
     return (
         <>
-            <div className="container mt-3">
+            <div className=" mt-3">
                 <div className="table-title">
-                    ÂM LỊCH NGÀY 12 THÁNG 10 2024
+                    ÂM LỊCH NGÀY {day[0]} THÁNG {day[1]} {day[2]}
                 </div>
                 <div className="table-content">
                     <table className="table">
@@ -18,18 +24,25 @@ const TableInfoDay = () => {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Tháng 10 Năm 2024</td>
-                                <td>Tháng 9 Năm 2024</td>
+                                <td>Tháng {day[1]} Năm {day[2]}</td> 
+                                <td>Tháng {negative[1]} Năm {negative[2]}</td>
                             </tr>
                             <tr>
-                                <td className="duonglich">12</td>
-                                <td className="amlich">10</td>
+                                <td>
+                                    <h6 className="duonglich">{day[0]}</h6>
+                                </td>
+                                <td>
+                                    <h6 className="amlich">{negative[0]}</h6>
+                                    <h6 className="detail-day">Ngày : <b>{negativeDay.nameDay}</b>, Tháng : <b>{negativeDay.nameMonth}</b></h6>
+                                    <h6 className="detail-day">Tiết khí <b>{negativeDay.tietKhi}</b></h6>
+                                </td>
+
                             </tr>
                             <tr>
                                 <td className="color-house" colSpan="2">Giờ Hoàng Đạo (Giờ Tốt)</td>
                             </tr>
                             <tr>
-                                <td className="detail-color-house" colSpan="2">Tý (23-1), Dần (3-5), Mão (5-7), Ngọ (11-13), Mùi (13-15), Dậu (17-19)</td>
+                                <td className="detail-color-house" colSpan="2">{negativeDay.zodiac_hour}</td>
                             </tr>
                         </tbody>
                     </table>

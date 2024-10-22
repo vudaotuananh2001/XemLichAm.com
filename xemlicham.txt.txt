@@ -41,9 +41,9 @@ function jdFromDate(dd, mm, yy) {
 
 a ) Tính Can-Chi cho ngày
 	- Can của ngày tính theo công thức :
-		canDay = (JD + 9) /10
+		canDay = (JD + 9)  % 10
 	- Chi của ngày theo công thức :
-		chiDay = (JD +1) / 12
+		chiDay = (JD +1) % 12
 
 b ) Tính Can-Chi cho tháng
 	- Công thức tính năm_can 
