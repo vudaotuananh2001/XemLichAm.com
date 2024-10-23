@@ -609,6 +609,7 @@ const thapNhiBatTu = {
     }
 }
 
+
 export {gioXuatHanh, timeData, gioHoangDao,
      gioHacDao, detailGioHoangDao, 
      nguHanhChi, nguHanhCan, huongXuatHanh,

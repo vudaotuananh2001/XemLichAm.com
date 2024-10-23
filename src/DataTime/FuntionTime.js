@@ -52,8 +52,9 @@ const getNameMonth =(dd, mm, yy)=> {
 
 // lấy ra thông tin tên của năm
 const getNameYear =(yy)=> {
-    const canYear = (yy + 6) % 10;
-    const chiYear = (yy + 8) % 12;
+    const year = Number(yy); 
+    const canYear = (year + 6) % 10;
+    const chiYear = (year + 8) % 12;
     const canName = allCan[canYear];
     const chiName = allChi[chiYear];
     return `${canName} ${chiName}`;
@@ -345,7 +346,6 @@ const departureDirection =(chi)=> {
     let tietKhi  ='';
     const day = Number(dd.getDate());
     const month = Number(dd.getMonth() + 1);
-    console.log(day, month);
     
     if(day >= 4 && day < 18 && month === 2){
         tietKhi = 'Lập Xuân';
@@ -401,14 +401,154 @@ const departureDirection =(chi)=> {
 
  const getKhongMinhLucDieu =(chi)=> {
     const valueChi = allChi[chi];
-    console.log(valueChi);
     return khongMinhLucDieu[valueChi];
  }
+
+ const cacNgayKy = (dd, valueday) => { 
+    const ngayAm = dd.split('-');
+    const day = Number(ngayAm[0]);
+    const month = Number(ngayAm[1]);
+    const years = Number(ngayAm[2]);
+
+    const nameDay = getNameDay(valueday.getDate(), valueday.getMonth() + 1, valueday.getFullYear());
+    const canNameDay = nameDay.split(' ');
+    const chiNameDay = nameDay.split(' ');
+
+    const nameYear = getNameYear(years);
+    const nameCanYear = nameYear.split(' ');
+    let ngayKy = [];
+
+    // Ngày Tam Nương
+    if ([3, 18, 22, 27].includes(day)) {
+        ngayKy.push({
+            name: 'Ngày Tam Nương',
+            detail: 'Là ngày xấu, ngày này kỵ tiến hành các việc trọng đại như khai trương, xuất hành, cưới hỏi, động thổ, sửa chữa hay cất nhà,...'
+        });
+    }
+
+    // Ngày Nguyệt Kỵ
+    if ([5, 14, 23].includes(day)) {
+        ngayKy.push({
+            name: 'Ngày Nguyệt Kỵ',
+            detail: '“Mùng năm, mười bốn, hai ba - Đi chơi còn thiệt, nữa là đi buôn ...”'
+        });
+    }
+
+    // Ngày Dương Công Kỵ Nhật
+    const dcknDays = [
+        { day: 13, month: 1 }, { day: 11, month: 2 }, { day: 9, month: 3 }, 
+        { day: 7, month: 4 }, { day: 5, month: 5 }, { day: 3, month: 6 }, 
+        { day: 8, month: 7 }, { day: 27, month: 7 }, { day: 27, month: 8 },
+        { day: 25, month: 9 }, { day: 23, month: 10 }, { day: 22, month: 11 }, 
+        { day: 19, month: 12 }
+    ];
+
+    if (dcknDays.some(d => d.day === day && d.month === month)) {
+        ngayKy.push({
+            name: 'Ngày Dương Công Kỵ Nhật',
+            detail: 'Là ngày xấu, trăm sự đều không nên làm. Đặc biệt rất xấu cho: động thổ, tôn tạo tu sửa, khởi công, cất nóc, xây mộ phần, an táng...'
+        });
+    }
+
+    // Ngày Sát Chủ Dương
+    const satChuDươngMonths = {
+        'Tý': [2],
+        'Sửu': [2, 3, 7, 9],
+        'Tuất': [4],
+        'Thìn': [5, 6, 8, 10, 12],
+        'Mùi': [11]
+    };
+
+    if (satChuDươngMonths[chiNameDay[1]]?.includes(month)) {
+        ngayKy.push({
+            name: 'Ngày Sát Chủ Dương',
+            detail: 'Ngày này kỵ tiến hành các việc liên quan đến xây dựng, cưới hỏi, buôn bán, mua bán nhà, nhận việc, đầu tư.'
+        });
+    }
+
+    //  ngày sát chủ dương
+    const satChuAmMonth = {
+        'Tý' : [1],
+        'Tỵ' : [2],
+        'Mùi' : [3],
+        'Mão' : [4],
+        'Thân' : [5],
+        'Tuất' : [6],
+        'Hợi': [7],
+        'Sửu' : [8],
+        'Ngọ' : [9],
+        'Dậu' : [10],
+        'Dần' : [11],
+        'Thìn' : [12]
+    }
+    if (satChuAmMonth[chiNameDay[1]]?.includes(month)) {
+        ngayKy.push({
+            name: 'Ngày Sát Chủ Âm',
+            detail: 'Ngày Sát Chủ Âm là ngày kỵ các việc về mai táng, tu sửa mộ phần.'
+        });
+    }
+
+    // Ngày thụ tử
+    const thuTu = {
+        'Tuất' : [1],
+        'Thìn' : [2],
+        'Hợi' : [3],
+        'Tỵ' : [4],
+        'Tí' : [5],
+        'Ngọ' : [6],
+        'Sửu': [7],
+        'Mùi' : [8],
+        'Dần' : [9],
+        'Thân' : [10],
+        'Mão' : [11],
+        'Dậu' : [12]
+    }
+
+    if (thuTu[chiNameDay[1]]?.includes(month)) {
+        ngayKy.push({
+            name: 'Ngày Thụ Tử',
+            detail: 'Ngày này trăm sự đều kỵ không nên tiến hành bất cứ việc gì.'
+        });
+    }
+
+    // ngày Thần Thất
+    if (
+    (nameCanYear[0] === 'Giáp' && (canNameDay[0] === 'Ngọ' || canNameDay[0] === 'Mùi')) ||
+    (nameCanYear[0] === 'Ất' && (canNameDay[0] === 'Thìn' || canNameDay[0] === 'Tỵ')) ||
+    (nameCanYear[0] === 'Bính' && (canNameDay[0] === 'Tí' || canNameDay[0] === 'Sửu' || canNameDay[0] === 'Dần' || canNameDay[0] === 'Mão')) ||
+    (nameCanYear[0] === 'Đinh' && (canNameDay[0] === 'Tuất' || canNameDay[0] === 'Hợi')) ||
+    (nameCanYear[0] === 'Mậu' && (canNameDay[0] === 'Thân' || canNameDay[0] === 'Dậu'))
+) {
+    ngayKy.push({
+        name: 'Kim Thần Thất',
+        detail: 'Tránh làm những công việc quan trọng, đi xa, ký kết hợp đồng, hay bắt đầu dự án lớn...'
+    });
+}
+    return ngayKy;
+};
+
+const thapNhiKienTruc = (dd, lunarMonth, lunarDay) => {
+    const kienTruData = [
+        'Trực Kiến',
+        'Trực Trừ',
+        'Trực Mãn',
+        'Trực Bình',
+        'Trực Định',
+        'Trực Chấp',
+        'Trực Phá',
+        'Trực Nguy',
+        'Trực Thành',
+        'Trực Thu',
+        'Trực Khai',
+        'Trực Bế',
+    ];
+};
 
 
 export { canNgay, chiNgay, 
     jdFormDate, layGioHoangDao ,getNameDay,
     getNameMonth, getNameYear, convertSolar2Lunar,rankOffWeek,
     departureDirection, layGioHoangDaoChiTiet, layGioHacDao, departureTime,
-    getInforDayCan, getInforDayChi, getKhongMinh, lichTietKhi, getKhongMinhLucDieu
+    getInforDayCan, getInforDayChi, getKhongMinh, lichTietKhi, 
+    getKhongMinhLucDieu, cacNgayKy, thapNhiKienTruc
 };

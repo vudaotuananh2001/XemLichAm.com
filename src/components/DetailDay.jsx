@@ -76,13 +76,12 @@ const DetailDays = ({ negativeDay }) => {
     const data = negativeDay.departure_direction;
     const dataDepartureTime  = negativeDay.departureTime;
     const nameDay = negativeDay.nameDay;
-    
     const canChiNameDay = nameDay.split(' ')
-    
     const dataCan = getInforDayCan(canChiNameDay[0]);
     const dataChi = getInforDayChi(canChiNameDay[1]);
     const lucdieu = negativeDay.lucdieu;
-
+    const ngayKy = negativeDay.ngayKy;
+    
     const lines = splitString1(lucdieu.verse);
     return (
         <>
@@ -99,6 +98,23 @@ const DetailDays = ({ negativeDay }) => {
                         <tr>
                             <td className="title-row-table"><b>Giờ Hắc Đạo</b></td>
                             <td>{negativeDay.blackHour}</td>
+                        </tr>
+                        <tr>
+                            <td className="title-row-table"><b>Các Ngày Kỵ</b></td>
+                            {
+                                ngayKy.length > 0 ? (
+                                    <>
+                                        <p>Phạm phải ngày:</p>
+                                        {
+                                            ngayKy.map((ngay, index) => (
+                                                <p key={index}><b>{ngay.name}</b>: {ngay.detail}</p>
+                                            ))
+                                        }
+                                    </>
+                                ) : (
+                                    <td><p>Không phạm bất kỳ ngày Nguyệt kỵ, Nguyệt tận, Tam Nương, Dương Công Kỵ Nhật nào.</p></td>
+                                )
+                            }
                         </tr>
                         <tr>
                             <td className="title-row-table"><b>Ngũ Hành</b></td>

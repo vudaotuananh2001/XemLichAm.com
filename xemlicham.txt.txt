@@ -77,3 +77,49 @@ c ) Bảng Can-Chi
 		9: Dậu
 		10: Tuất
 		11: Hợi	
+
+=> Các ngạy kỵ (công thức) tất cả các ngày đều là ngày âm lịch
+	* Tam nương : ngày 3, 7, 18, 22, 27 âm Lịch :=> ý nghĩa :  Là ngày xấu, ngày này kỵ tiến hành các việc trọng đại như khai trương, xuất hành, cưới hỏi, động thổ, sửa chữa hay cất nhà,...
+	* Ngày nguyệt kỵ : 5, 14, 23 âm lịch (vì các số cộng lại = 5) : ý nghĩa  => “Mùng năm, mười bốn, hai ba - Đi chơi còn thiệt, nữa là đi buôn”
+	* Dương Công Kỵ Nhật : mùng 5 tháng 1, mùng 3 tháng 3, ngày 13 tháng 5, ngày 7 tháng 7 , 25 tháng 10 âm Lịch 
+	* Ngày Sát Chủ Dương :  =>
+	 link : https://mogi.vn/news/ngay-sat-chu-178437/#:~:text=Ng%C3%A0y%20s%C3%A1t%20ch%E1%BB%A7%20d%C6%B0%C6%A1ng%20l%C3%A0%20g%C3%AC%3F,-Ng%C3%A0y%20s%C3%A1t%20ch%E1%BB%A7&text=Ng%C3%A0y%20s%C3%A1t%20ch%E1%BB%A7%20d%C6%B0%C6%A1ng%20l%C3%A0%20nh%E1%BB%AFng%20ng%C3%A0y%20ki%C3%AAng%20k%E1%BB%B5%20nh%E1%BB%AFng,h%E1%BB%A3p%20%C4%91%E1%BB%93ng%2C%20nh%E1%BA%ADm%20ch%E1%BB%A9c%2C%E2%80%A6
+		ngày Tý : tháng Giêng (Tháng 1 âm)
+		ngày sửu : tháng 2 , 3, 7, 9
+		ngày Tuất : Tháng 4
+		ngày thìn : tháng 5, 6, 8, 10, 12
+		ngày Mùi : tháng 11
+	* Ngày Sát Chủ Âm :ý nghĩa :  Ngày Sát Chủ Âm là ngày kỵ các việc về mai táng, tu sửa mộ phần.
+		Tháng 1: Ngày Tý
+		Tháng 2: Ngày Tỵ
+		Tháng 3: Ngày Mùi
+		Tháng 4: Ngày Mão
+		Tháng 5: Ngày Thân
+		Tháng 6: Ngày Tuất
+		Tháng 7: Ngày Hợi
+		Tháng 8: Ngày Sửu
+		Tháng 9: Ngày Ngọ
+		Tháng 10: Ngày Dậu
+		Tháng 11: Ngày Dần
+		Tháng 12: Ngày Thìn
+	* Ngày Thụ Tử : link : https://movinghouse.vn/phong-thuy/ngay-tho-tu/    :=> Ngày này trăm sự đều kỵ không nên tiến hành bất cứ việc gì.
+		Tháng 1: Ngày Tuất
+		Tháng 2: Ngày Thìn
+		Tháng 3: Ngày Hợi
+		Tháng 4: Ngày Tỵ
+		Tháng 5: Ngày Tý
+		Tháng 6: Ngày Ngọ
+		Tháng 7: Ngày Sửu
+		Tháng 8: Ngày Mùi
+		Tháng 9: Ngày Dần
+		Tháng 10: Ngày Thân
+q		Tháng 12: Ngày Dậu
+	* Kim Thần Thất : Tránh làm những công việc quan trọng, đi xa, ký kết hợp đồng, hay bắt đầu dự án lớn...
+
+=> còn lại : Không phạm bất kỳ ngày Nguyệt kỵ, Nguyệt tận, Tam Nương, Dương Công Kỵ Nhật nào.
+
+
+=> Thập nhị kiến trừ chưa làm được. đang làm
+
+
+			

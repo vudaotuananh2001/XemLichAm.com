@@ -20,7 +20,9 @@ import {
   departureTime,
   getKhongMinh,
   lichTietKhi,
-  getKhongMinhLucDieu
+  getKhongMinhLucDieu,
+  cacNgayKy,
+  thapNhiKienTruc
 } from "../DataTime/FuntionTime.js";
 import "../styles/common.css";
 const Home = () => {
@@ -45,7 +47,9 @@ const Home = () => {
       detail :''
     },
     tietKhi :'',
-    lucdieu :{}
+    lucdieu :{},
+    ngayKy : []
+    
   });
 
   const day = new Date();
@@ -58,6 +62,7 @@ const Home = () => {
     const chi = chiNgay(dd, mm, yy);
 
     const nameDay = getNameDay(dd, mm, yy);
+    
     const gioHoangDao = layGioHoangDao(chi);
     const departure_Time = departureTime(chi);
     const detailZodiacHour = layGioHoangDaoChiTiet(chi);
@@ -69,7 +74,7 @@ const Home = () => {
 
     // Chuyển đổi ngày âm
     let ngayam = convertSolar2Lunar(dd, mm, yy, 7);
-
+    
     // Ngày dương lịch
     let ngayduong = `${dd}-${mm}-${yy}`;
 
@@ -79,8 +84,9 @@ const Home = () => {
     const getGiant = getKhongMinh(Number(getInforNgayAm[0]), Number(getInforNgayAm[1]));
     const tietKhi = lichTietKhi(day);
      const lucdieu = getKhongMinhLucDieu(chi);
-     console.log(lucdieu);
+    const ngayKy = cacNgayKy(ngayam, day);
      
+
     setNegativeDay((prevState) => ({
       ...prevState,
       is_check_data: true,
@@ -97,7 +103,8 @@ const Home = () => {
       rank: rank,
       giant : getGiant,
       tietKhi : tietKhi,
-      lucdieu :lucdieu
+      lucdieu :lucdieu,
+      ngayKy : ngayKy
     }));
   }, [dd, mm, yy]);
 
