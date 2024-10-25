@@ -22,7 +22,8 @@ import {
   lichTietKhi,
   getKhongMinhLucDieu,
   cacNgayKy,
-  thapNhiKienTruc
+  thapNhiKienTruc, 
+  startInDay
 } from "../DataTime/FuntionTime.js";
 import "../styles/common.css";
 const Home = () => {
@@ -48,7 +49,8 @@ const Home = () => {
     },
     tietKhi :'',
     lucdieu :{},
-    ngayKy : []
+    ngayKy : [],
+    thapNhi: {}
     
   });
 
@@ -73,10 +75,10 @@ const Home = () => {
     const nameYear = getNameYear(yy);
 
     // Chuyển đổi ngày âm
-    let ngayam = convertSolar2Lunar(dd, mm, yy, 7);
+    const ngayam = convertSolar2Lunar(dd, mm, yy, 7);
     
     // Ngày dương lịch
-    let ngayduong = `${dd}-${mm}-${yy}`;
+    const ngayduong = `${dd}-${mm}-${yy}`;
 
     // Tính toán thứ trong tuần của ngày
     const rank = rankOffWeek(dd, mm, yy);
@@ -85,7 +87,10 @@ const Home = () => {
     const tietKhi = lichTietKhi(day);
      const lucdieu = getKhongMinhLucDieu(chi);
     const ngayKy = cacNgayKy(ngayam, day);
-     
+    const thapNhi = thapNhiKienTruc(ngayam, nameDay);
+    const  inforStart = startInDay(nameDay, ngayam)
+    console.log(inforStart);
+    
 
     setNegativeDay((prevState) => ({
       ...prevState,
@@ -104,7 +109,8 @@ const Home = () => {
       giant : getGiant,
       tietKhi : tietKhi,
       lucdieu :lucdieu,
-      ngayKy : ngayKy
+      ngayKy : ngayKy,
+      thapNhi : thapNhi
     }));
   }, [dd, mm, yy]);
 

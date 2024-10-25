@@ -527,28 +527,326 @@ const departureDirection =(chi)=> {
     return ngayKy;
 };
 
-const thapNhiKienTruc = (dd, lunarMonth, lunarDay) => {
-    const kienTruData = [
-        'Trực Kiến',
-        'Trực Trừ',
-        'Trực Mãn',
-        'Trực Bình',
-        'Trực Định',
-        'Trực Chấp',
-        'Trực Phá',
-        'Trực Nguy',
-        'Trực Thành',
-        'Trực Thu',
-        'Trực Khai',
-        'Trực Bế',
-    ];
+// funtion lấy ra thông tin các trực theo ngày tháng
+const thapNhiKienTruc = (ngayAmLich, nameDay) => {
+    // Tách ngày và tháng âm lịch từ 'ngayAmLich'
+    const day = ngayAmLich.split('-');
+    const date = Number(day[0]);  // Ngày âm lịch
+    const month = Number(day[1]); // Tháng âm lịch
+
+    // Tách chi của ngày từ 'nameDay'
+    const name = nameDay.split('-');
+    const chiDay = name[1]; // Ví dụ: Tuất, Hợi, Dần,...
+    console.log(ngayAmLich);
+    console.log(nameDay);
+    // Danh sách các Trực
+    const kienTruData = {
+        1: {
+            name: 'Trực Kiến',
+            description1 : "Khai trương, nhậm chức, cưới hỏi, trồng cây, đền ơn đáp nghĩa. Xuất hành đặng lợi, sinh con rất tốt.",
+            description2 : "Động thổ, chôn cất, đào giếng, lợp nhà."
+        },
+        2: {
+            name: 'Trực Trừ',
+            description1 : " Động đất, ban nền đắp nền, thờ cúng Táo Thần, cầu thầy chữa bệnh bằng cách mổ xẻ hay châm cứu, bốc thuốc, xả tang, khởi công làm lò nhuộm lò gốm, nữ nhân khởi đầu uống thuốc chữa bệnh.",
+            description3 : "Đẻ con nhằm ngày này khó nuôi, nên làm Âm Đức cho con, nam nhân kỵ khởi đầu uống thuốc."
+        },
+        3: {
+            name: 'Trực Mãn',
+            description1 : "Xuất hành, đi đường thủy, cho vay, thu nợ, mua hàng, bán hàng, nhập kho, đặt táng, kê gác, sửa chữa, lắp đặt máy, thuê thêm người, vào học kỹ nghệ, làm chuồng gà ngỗng vịt.",
+            description3 : "Lên quan lãnh chức, uống thuốc, vào làm hành chính, dâng nộp đơn từ."
+        },
+        4: {
+            name: 'Trực Binh',
+            description1 : "Nhập vào kho, đặt táng, gắn cửa, kê gác, đặt yên chỗ máy, sửa chữa làm tàu, khai trương tàu thuyền, các việc bồi đắp thêm ( như bồi bùn, đắp đất, lót đá, xây bờ kè.) Lót giường đóng giường, thừa kế tước phong hay thừa kế sự nghiệp, các vụ làm cho khuyết thủng ( như đào mương, móc giếng, xả nước.)"
+        },
+        5: {
+            name: 'Trực Định',
+            description1 : "Động thổ, san nền, đắp nền, làm hay sửa phòng bếp, lắp đặt máy móc, nhập học, làm lễ cầu thân, nộp đơn dâng sớ, sửa hay làm tàu thuyền, khai trương tàu thuyền, khởi công làm lò. Mua nuôi thêm súc vật.",
+            description2 : "Thưa kiện, xuất hành đi xa"
+        },
+        6: {
+            name: 'Trực Chấp',
+            description1 : " Lập khế ước, giao dịch, động thổ san nền, cầu thầy chữa bệnh, đi săn thú cá, tìm bắt trộm cướp. Xây đắp nền-tường.",
+            description2 : "Dời nhà, đi chơi xa, mở cửa hiệu buôn bán, xuất tiền của."
+        },
+        7: {
+            name: 'Trực Phá',
+            description4 : "Là ngày Nhật Nguyệt tương xung. Ngày có trực Phá muôn việc làm vào ngày này đều bất lợi, chỉ nên phá dỡ nhà cửa."
+        },
+        8: {
+            name: 'Trực Nguy',
+            description4 : "Nói đến Trực Nguy là nói đến sự Nguy hiểm, suy thoái. Chính vì thế ngày có trực Nguy là ngày xấu, tiến hành muôn việc đều hung."
+        },
+        9: {
+            name: 'Trực Thành',
+            description1 : "Lập khế ước, giao dịch, cho vay, thu nợ, mua hàng, bán hàng, xuất hành, đi tàu thuyền, khởi tạo, động thổ, san nền đắp nền, gắn cửa, đặt táng, kê gác, dựng xây kho vựa, làm hay sửa chữa phòng bếp, thờ phụng Táo Thần, lắp đặt máy móc ( hay các loại máy ), gặt lúa, đào ao giếng, tháo nước, cầu thầy chữa bệnh, mua gia súc, các việc trong vụ chăn nuôi, nhập học, làm lễ cầu thân, cưới gả, kết hôn, thuê người, nộp đơn dâng sớ, học kỹ nghệ, làm hoặc sửa tàu thuyền, khai trương tàu thuyền, vẽ tranh, tu sửa cây cối.",
+            description2 : "Kiện tụng, tranh chấp."
+        },
+       10: {
+        name: 'Trực Thâu',
+        description1 : "Cấy lúa, gặt lúa, mua trâu, nuôi tằm, đi săn thú cá, tu sửa cây cối. Động thổ, san nền đắp nền, nữ nhân khởi ngày uống thuốc chưa bệnh, lên quan lãnh chức, thừa kế chức tước hay sự nghiệp, vào làm hành chính, nộp đơn dâng sớ.",
+        description2 : "Bắt đầu công việc mới, kỵ đi du  lịch, kỵ tang lễ."
+    },
+       11: {
+        name: 'Trực Khai',
+        description1 : "  Xuất hành, đi tàu thuyền, khởi tạo, động thổ, san nền đắp nền, dựng xây kho vựa, làm hay sửa phòng bếp, thờ cúng Táo Thần, đóng giường lót giường, may áo, lắp đặt cỗ máy dệt hay các loại máy, cấy lúa gặt lúa, đào ao giếng, tháo nước, các việc trong vụ chăn nuôi, mở thông hào rãnh, cầu thầy chữa bệnh, bốc thuốc, uống thuốc, mua trâu, làm rượu, nhập học, học kỹ nghệ, vẽ tranh, tu sửa cây cối.",
+        description2 : " Chôn cất"
+    },
+       12: {
+           name: 'Trực Bế',
+           description1 : " Xây đắp tường, đặt táng, gắn cửa, kê gác, làm cầu. Khởi công lò nhuộm lò gốm, uống thuốc, trị bệnh (nhưng chớ trị bệnh mắt), tu sửa cây cối.",
+           description2 : "Lên quan nhậm chức, thừa kế chức tước hay sự nghiệp, nhập học, chữa bệnh mắt."
+       }
+    };
+
+    let baseTruc = 1; 
+    if (month === 9 && chiDay === 'Tuất') {
+        baseTruc = 1;  
+    }else {
+        for (let i = 1; i <= 12; i++) {
+            if(baseTruc === 12){
+                baseTruc = 1;
+                return kienTruData[1]; 
+            }
+            if (i === baseTruc) {
+                const index = (date + baseTruc) % 12;
+                baseTruc = baseTruc + 1;
+                if (typeof kienTruData[index + 1] === 'object') {
+                    return kienTruData[index + 1];  
+                }
+                return kienTruData[index + 1];
+            }
+        }
+    }
+    if (month === 10 && chiDay === 'Tuất') {
+        baseTruc = 1;  // 
+    }else {
+        for (let i = 1; i <= 12; i++) {
+            if (i === baseTruc) {
+                if(baseTruc === 12){
+                    return kienTruData[1]; 
+                }
+                const index = (date + baseTruc) % 12;
+                baseTruc = baseTruc + 1;
+                if (typeof kienTruData[index + 1] === 'object') {
+                    return kienTruData[index + 1];  
+                }
+                return kienTruData[index + 1];
+            }
+        }
+    }
+
+    if (month === 11 && chiDay === 'Tý') {
+        baseTruc = 1;  // 
+    }else {
+        for (let i = 1; i <= 12; i++) {
+            if (i === baseTruc) {
+                if(baseTruc === 12){
+                    return kienTruData[1]; 
+                }
+                const index = (date + baseTruc) % 12
+                baseTruc = baseTruc + 1;
+                if (typeof kienTruData[index + 1] === 'object') {
+                    return kienTruData[index + 1];  
+                }
+                return kienTruData[index + 1];
+            }
+        }
+    }
+
+    if (month === 12 && chiDay === 'Sửu') {
+        baseTruc = 1;  // 
+    }else {
+        for (let i = 1; i <= 12; i++) {
+            if (i === baseTruc) {
+                const index = (date + baseTruc) % 12;
+                if (typeof kienTruData[index + 1] === 'object') {
+                    return kienTruData[index + 1];  
+                }
+                return kienTruData[index + 1];
+            }
+        }
+    }
+
+    if (month === 1 && chiDay === 'Sửu') {
+        baseTruc = 1;  // 
+    }else {
+        for (let i = 1; i <= 12; i++) {
+            if (i === baseTruc) {
+                const index = (date + baseTruc) % 12;
+                if (typeof kienTruData[index + 1] === 'object') {
+                    return kienTruData[index + 1];  
+                }
+                return kienTruData[index + 1];
+            }
+        }
+    }
+    return kienTruData[baseTruc];
 };
 
+const startInDay =(nameDay, ngayAm)=> {
+    const day = nameDay.split(' ');
+    const name = day[1];
+    const name2 = day[0];
+    console.log(name);
+    
+    const monthOfDay = ngayAm.split('-');
+    const month = Number(monthOfDay[1]);
+    console.log(month);
+    let  startGood = [];
+
+    if((month === 1 && name === 'Đinh') || (month === 2 && name === 'Thân') ||
+    (month === 3 && name === 'Nhâm') || (month === 4 && name === 'Tân') || 
+    (month === 5 && name === 'Hợi') || (month === 6 && name === 'Giáp') ||
+    (month === 7 && name === 'Quý') || (month === 8 && name === 'Dần') ||
+    (month === 9 && name === 'Bính') || (month === 10 && name === 'Ất') ||
+    (month === 11 && name === 'Tỵ') || (month === 12 && name === 'Canh')
+    ){
+        startGood.push('Thiên Đức: Tốt cho mọi việc.')
+    }
+
+    if((month === 1 && name === 'Bính') || (month === 2 && name === 'Giáp') ||
+    (month === 3 && name === 'Nhâm') || (month === 4 && name === 'Canh') || 
+    (month === 5 && name === 'Bính') || (month === 6 && name === 'Giáp') ||
+    (month === 7 && name === 'Nhâm') || (month === 8 && name === 'Canh') ||
+    (month === 9 && name === 'Bính') || (month === 10 && name === 'Giáp') ||
+    (month === 11 && name === 'Nhâm') || (month === 12 && name === 'Nhâm')
+    ){
+        startGood.push('Nguyệt Đức: Tốt cho mọi việc.')
+    }
+
+    if((month === 1 && name === 'Tuất') || (month === 2 && name === 'Hợi') ||
+    (month === 3 && name === 'Tý') || (month === 4 && name === 'Sửu') || 
+    (month === 5 && name === 'Dần') || (month === 6 && name === 'Mão') ||
+    (month === 7 && name === 'Thìn') || (month === 8 && name === 'Tỵ') ||
+    (month === 9 && name === 'Ngọ') || (month === 10 && name === 'Mùi') ||
+    (month === 11 && name === 'Thân') || (month === 12 && name === 'Dậu')
+    ){
+        startGood.push('Sao Thiên Hỷ: tốt mọi việc, nhất là việc cưới hỏi')
+    }
+
+    if((month === 1 && name === 'Thìn') || (month === 2 && name === 'Tỵ') ||
+    (month === 3 && name === 'Ngọ') || (month === 4 && name === 'Mùi') || 
+    (month === 5 && name === 'Thân') || (month === 6 && name === 'Dậu') ||
+    (month === 7 && name === 'Tuất') || (month === 8 && name === 'Hợi') ||
+    (month === 9 && name === 'Tý') || (month === 10 && name === 'Sửu') ||
+    (month === 11 && name === 'Dần') || (month === 12 && name === 'Mão')
+    ){
+        startGood.push('Sao Thiên Phú: tốt mọi việc, nhất là xây dựng, khai trương, an táng')
+    }
+
+
+    if((month === 1 && name === 'Tuất') || (month === 2 && name === 'Hợi') ||
+    (month === 3 && name === 'Tý') || (month === 4 && name === 'Sửu') || 
+    (month === 5 && name === 'Dần') || (month === 6 && name === 'Mão') ||
+    (month === 7 && name === 'Thìn') || (month === 8 && name === 'Tỵ') ||
+    (month === 9 && name === 'Ngọ') || (month === 10 && name === 'Mùi') ||
+    (month === 11 && name === 'Thân') || (month === 12 && name === 'Dậu')
+    ){
+        startGood.push('Sao Thiên Hỷ: tốt mọi việc, nhất là việc cưới hỏi')
+    }
+
+    if((month === 1 && name2 === 'Giáp' || name2 === "Ất") || (month === 2 && name2 === 'Giáp' || name2 === 'Ất') ||
+    (month === 3 && name2 === 'Giáp' || name2 === 'Ất') || (month === 4 && name2 === 'Bính' || name2 === 'Đinh') || 
+    (month === 5 && name2 === 'Bính' || name2 === 'Đinh') || (month === 6 && name2 === 'Bính' || name2 === 'Đinh') ||
+    (month === 7 && name2 === 'Canh'|| name2 === 'Tân') || (month === 8 && name2 === 'Canh' || name2 === 'Tân') ||
+    (month === 9 && name2 === 'Canh' || name2 === 'Tân') || (month === 10 && name2 === 'Nhâm' || name2 === 'Quý') ||
+    (month === 11 && name2 === 'Nhâm' || name2 === 'Quý') || (month === 12 && name2 === 'Nhâm' || name2 === 'Quý')
+    ){
+        startGood.push('Sao Thiên Quý: tốt mọi việc')
+    }
+
+    if((month === 1 && name === 'Dần') || (month === 2 && name === 'Dần') ||
+    (month === 3 && name === 'Dần') || (month === 4 && name === 'Tỵ') || 
+    (month === 5 && name === 'Tỵ') || (month === 6 && name === 'Tỵ') ||
+    (month === 7 && name === 'Thân') || (month === 8 && name === 'Thân') ||
+    (month === 9 && name === 'Thân') || (month === 10 && name === 'Hợi') ||
+    (month === 11 && name === 'Hợi') || (month === 12 && name === 'Hợi')
+    ){
+        startGood.push('Sao Phúc Hậu: tốt cho việc cầu tài, khai trương')
+    }
+
+    if((month === 1 && name === 'Ngọ') || (month === 2 && name === 'Ngọ') ||
+    (month === 3 && name === 'Ngọ') || (month === 4 && name === 'Dậu') || 
+    (month === 5 && name === 'Dậu') || (month === 6 && name === 'Dậu') ||
+    (month === 7 && name === 'Tý') || (month === 8 && name === 'Tý') ||
+    (month === 9 && name === 'Tý') || (month === 10 && name === 'Mão') ||
+    (month === 11 && name === 'Mão') || (month === 12 && name === 'Mão')
+    ){
+        startGood.push(' Sao Dân Nhật, Thời Đức: tốt mọi việc')
+    }
+
+
+    if((month === 1 && name2 === 'Tý' || name2 === "Sửu") || (month === 2 && name2 === 'Tý' || name2 === "Sửu") ||
+    (month === 3 && name2 === 'Tý' || name2 === "Sửu") || (month === 4 && name2 === 'Thìn' || name2 === 'Tỵ') || 
+    (month === 5 && name2 === 'Thìn' || name2 === 'Tỵ') || (month === 6 && name2 === 'Thìn' || name2 === 'Tỵ') ||
+    (month === 7 && name2 === 'Ngọ'|| name2 === 'Mùi') || (month === 8 && name2 === 'Ngọ'|| name2 === 'Mùi') ||
+    (month === 9 && name2 === 'Ngọ'|| name2 === 'Mùi') || (month === 10 && name2 === 'Thân' || name2 === 'Tuất') ||
+    (month === 11 && name2 === 'Thân' || name2 === 'Tuất') || (month === 12 && name2 === 'Thân' || name2 === 'Tuất')
+    ){
+        startGood.push(' Sao Đại Hồng Sa: tốt mọi việc')
+    }
+
+    if((month === 1 && name === 'Dậu') || (month === 2 && name === 'Mùi') ||
+    (month === 3 && name === 'Tỵ') || (month === 4 && name === 'Mão') || 
+    (month === 5 && name === 'Sửu') || (month === 6 && name === 'Hợi') ||
+    (month === 7 && name === 'Dậu') || (month === 8 && name === 'Mùi') ||
+    (month === 9 && name === 'Tỵ') || (month === 10 && name === 'Mão') ||
+    (month === 11 && name === 'Sửu') || (month === 12 && name === 'Hợi')
+    ){
+        startGood.push('Sao Âm Đức: tốt mọi việc')
+    }
+
+    if((month === 1 && name === 'Hợi') || (month === 2 && name === 'Thìn') ||
+    (month === 3 && name === 'Sửu') || (month === 4 && name === 'Ngọ') || 
+    (month === 5 && name === 'Mão') || (month === 6 && name === 'Thân') ||
+    (month === 7 && name === 'Tỵ') || (month === 8 && name === 'Tuất') ||
+    (month === 9 && name === 'Mùi') || (month === 10 && name === 'Tỵ') ||
+    (month === 11 && name === 'Dậu') || (month === 12 && name === 'Dần')
+    ){
+        startGood.push('Sao U Vi Tinh: tốt mọi việc')
+    }
+
+    if((month === 1 && name === 'Mùi') || (month === 2 && name === 'Sửu') ||
+    (month === 3 && name === 'Thân') || (month === 4 && name === 'Dần') || 
+    (month === 5 && name === 'Dậu') || (month === 6 && name === 'Mão') ||
+    (month === 7 && name === 'Tuất') || (month === 8 && name === 'Thìn') ||
+    (month === 9 && name === 'Hợi') || (month === 10 && name === 'Tỵ') ||
+    (month === 11 && name === 'Tý') || (month === 12 && name === 'Ngọ')
+    ){
+        startGood.push('Sao Kính Tâm: tốt với việc tang tế')
+    }
+
+    if((month === 1 && name === 'Sửu') || (month === 2 && name === 'Tý') ||
+    (month === 3 && name === 'Hợi') || (month === 4 && name === 'Tuất') || 
+    (month === 5 && name === 'Dậu') || (month === 6 && name === 'Thân') ||
+    (month === 7 && name === 'Mùi') || (month === 8 && name === 'Ngọ') ||
+    (month === 9 && name === 'Tỵ') || (month === 10 && name === 'Thìn') ||
+    (month === 11 && name === 'Mão') || (month === 12 && name === 'Dần')
+    ){
+        startGood.push('Sao Tuế Hợp: tốt mọi việc')
+    }
+
+    if((month === 1 && name === 'Thân') || (month === 2 && name === 'Thân') ||
+    (month === 3 && name === 'Dậu') || (month === 4 && name === 'Dậu') || 
+    (month === 5 && name === 'Tuất') || (month === 6 && name === 'Tuất') ||
+    (month === 7 && name === 'Hợi') || (month === 8 && name === 'Hợi') ||
+    (month === 9 && name === 'Ngọ') || (month === 10 && name === 'Ngọ') ||
+    (month === 11 && name === 'Mùi') || (month === 12 && name === 'Mùi')
+    ){
+        startGood.push('Sao Nguyệt Giải: tốt mọi việc')
+    }
+
+    console.log(startGood);
+    
+    return startGood;
+}
 
 export { canNgay, chiNgay, 
     jdFormDate, layGioHoangDao ,getNameDay,
     getNameMonth, getNameYear, convertSolar2Lunar,rankOffWeek,
     departureDirection, layGioHoangDaoChiTiet, layGioHacDao, departureTime,
     getInforDayCan, getInforDayChi, getKhongMinh, lichTietKhi, 
-    getKhongMinhLucDieu, cacNgayKy, thapNhiKienTruc
+    getKhongMinhLucDieu, cacNgayKy, thapNhiKienTruc, startInDay
 };

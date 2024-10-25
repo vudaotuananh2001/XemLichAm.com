@@ -81,6 +81,8 @@ const DetailDays = ({ negativeDay }) => {
     const dataChi = getInforDayChi(canChiNameDay[1]);
     const lucdieu = negativeDay.lucdieu;
     const ngayKy = negativeDay.ngayKy;
+    const thapNhi = negativeDay.thapNhi;
+    console.log('Thâp nhị', thapNhi);
     
     const lines = splitString1(lucdieu.verse);
     return (
@@ -103,14 +105,14 @@ const DetailDays = ({ negativeDay }) => {
                             <td className="title-row-table"><b>Các Ngày Kỵ</b></td>
                             {
                                 ngayKy.length > 0 ? (
-                                    <>
-                                        <p>Phạm phải ngày:</p>
+                                    <td>
+                                       <p className="mb-0">Phạm phải ngày:</p>
                                         {
                                             ngayKy.map((ngay, index) => (
-                                                <p key={index}><b>{ngay.name}</b>: {ngay.detail}</p>
+                                                <p className="mb-0" key={index}><b>{ngay.name}</b>: {ngay.detail}</p>
                                             ))
                                         }
-                                    </>
+                                    </td>
                                 ) : (
                                     <td><p>Không phạm bất kỳ ngày Nguyệt kỵ, Nguyệt tận, Tam Nương, Dương Công Kỵ Nhật nào.</p></td>
                                 )
@@ -161,12 +163,15 @@ const DetailDays = ({ negativeDay }) => {
                         </tr>
                         <tr>
                             <td className="title-row-table"><b>Thập Nhị Kiến Trừ</b></td>
-                            <td>
-                                <p><b>Trực Trừ</b></p>
-                                <p><b> Nên làm</b> : Động đất, ban nền đắp nền, thờ cúng Táo Thần, cầu thầy chữa bệnh bằng cách mổ xẻ hay châm cứu, bốc thuốc, xả tang, khởi công làm lò nhuộm lò gốm, nữ nhân khởi đầu uống thuốc chữa bệnh.</p>
-                                <p><b> Không nên</b> : </p>
-                                <p><b>Chú ý</b> : Đẻ con nhằm ngày này khó nuôi, nên làm Âm Đức cho con, nam nhân kỵ khởi đầu uống thuốc.</p>
-                            </td>
+                            {(thapNhi.description1 || thapNhi.description2 || thapNhi.description3 || thapNhi.description4) && (
+                                <td>
+                                    <p><b>{thapNhi.name}</b></p>
+                                    {thapNhi.description1 && <p><b>Nên làm</b> : {thapNhi.description1}</p>}
+                                    {thapNhi.description2 && <p><b>Không nên</b> : {thapNhi.description2}</p>}
+                                    {thapNhi.description3 && <p><b>Chú ý</b> : {thapNhi.description3}</p>}
+                                    {thapNhi.description4 && <p><b>Chú ý</b> : {thapNhi.description4}</p>}
+                                </td>
+                            )}
                         </tr>
                         <tr>
                             <td className="title-row-table"><b>Ngọc Hạp Thông Thư</b></td>
