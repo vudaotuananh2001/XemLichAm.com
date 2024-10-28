@@ -24,7 +24,8 @@ import {
   cacNgayKy,
   thapNhiKienTruc, 
   startInDay,
-  startBadDay
+  startBadDay, 
+  nguHanh
 } from "../DataTime/FuntionTime.js";
 import "../styles/common.css";
 const Home = () => {
@@ -50,7 +51,8 @@ const Home = () => {
     ngayKy : [],
     thapNhi: {}, 
     startGood : [],
-    startBad : []
+    startBad : [],
+    nguHanhDay : {}
     
   });
 
@@ -91,6 +93,8 @@ const Home = () => {
     const thapNhi = thapNhiKienTruc(ngayam, nameDay);
     const  inforStart = startInDay(nameDay, ngayam);
     const startBadDays = startBadDay(nameDay, ngayam);
+    const nguHanhs = nguHanh(nameDay);
+    console.log(nguHanhs);
     
     setNegativeDay((prevState) => ({
       ...prevState,
@@ -112,7 +116,8 @@ const Home = () => {
       ngayKy : ngayKy,
       thapNhi : thapNhi,
       startGood : inforStart,
-      startBad : startBadDays
+      startBad : startBadDays,
+      nguHanhDay : nguHanhs
     }));
   }, [dd, mm, yy]);
 

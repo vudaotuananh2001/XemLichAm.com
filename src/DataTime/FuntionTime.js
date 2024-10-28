@@ -856,8 +856,8 @@ const startInDay =(nameDay, ngayAm)=> {
 
     if ((month === 1 && name === 'Kỷ') || 
     (month === 2 && name === 'Mậu') ||
-    (month === 4 && name === 'Tân' || name === 'Quý') || 
-    (month === 5 &&  name === 'Tân'|| name === 'Nhâm') || 
+    (month === 4 && (name === 'Tân' || name === 'Quý')) || 
+    (month === 5 &&  (name === 'Tân'|| name === 'Nhâm')) || 
     (month === 7 && name === 'Ất') || 
     (month === 8 && name === 'Giáp') || 
     (month === 10 && name === 'Đinh') ||
@@ -1434,33 +1434,35 @@ const startInDay =(nameDay, ngayAm)=> {
         startGood.push('Sao Ngọc Đường Hoàng Đạo: Tốt mọi việc');
     }
 
-    if((month === 1|| month === 2 || month === 3 && name === 'Hợi' || name === "Tý")||
-    (month === 4|| month === 5 || month === 6 && name === 'Dần' || name === "Mão")  ||
-    (month === 7|| month === 8 || month === 9 && name === 'Thìn' || name === "Sửu") ||
-    (month === 10|| month === 11 || month === 12 && name === 'Thân' || name === "Dậu")){
+    if(((month === 1|| month === 2 || month === 3) && (name === 'Hợi' || name === "Tý"))||
+    ((month === 4|| month === 5 || month === 6) && (name === 'Dần' || name === "Mão"))  ||
+    ((month === 7|| month === 8 || month === 9) && (name === 'Thìn' || name === "Sửu")) ||
+    ((month === 10|| month === 11 || month === 12) && (name === 'Thân' || name === "Dậu"))){
         startGood.push('Sao Mẫu Thương: Tốt về cầu tài lộc, khai trương');    
     }
 
-    if((month === 1|| month === 2 || month === 3 && name === 'Tý' || name === "Sửu")||
-    (month === 4|| month === 5 || month === 6 && name === 'Thìn' || name === "Tỵ")  ||
-    (month === 7|| month === 8 || month === 9 && name === 'Ngọ' || name === "Mùi") ||
-    (month === 10|| month === 11 || month === 12 && name === 'Thân' || name === "Tuất")){
+    if ((((month === 1 || month === 2 || month === 3) && (name === 'Tý' || name === "Sửu"))) ||
+    (((month === 4 || month === 5 || month === 6) && (name === 'Thìn' || name === "Tỵ"))) ||
+    (((month === 7 || month === 8 || month === 9) && (name === 'Ngọ' || name === "Mùi"))) ||
+    (((month === 10 || month === 11 || month === 12) && (name === 'Thân' || name === "Tuất")))) {
         startGood.push('Đại Hồng Sa: Tốt mọi việc');    
-    }
+}
 
-    if((month === 1|| month === 2 || month === 3 && nameDay === 'Mậu Dần')||
-    (month === 4 || month === 6 && nameDay === 'Giáp Ngọ')  ||
-    (month === 7|| month === 8 || month === 9 && nameDay === 'Mậu Thân') ||
-    (month === 10 || month === 12 && nameDay === 'Giáp Tý')){
+
+    if(((month === 1|| month === 2 || month === 3) && nameDay === 'Mậu Dần')||
+    ((month === 4 || month === 6) && nameDay === 'Giáp Ngọ')  ||
+    ((month === 7|| month === 8 || month === 9) && nameDay === 'Mậu Thân') ||
+    ((month === 10 || month === 12) && nameDay === 'Giáp Tý')){
         startGood.push('Thiên Xá: Tốt cho tế tự, giải oan, trừ được các sao xấu, chỉ kiêng kỵ động thổ. Nếu gặp trực khai thì rất tốt tức là ngày thiên xá gặp sinh khí');    
     }
 
-    if((month === 1|| month === 2 || month === 3 && name === 'Giáp' || name === "Ất")||
-    (month === 4|| month === 5 || month === 6 && name === 'Bính' || name === "Đinh")  ||
-    (month === 7|| month === 8 || month === 9 && name === 'Canh' || name === "Tân") ||
-    (month === 10|| month === 11 || month === 12 && name === 'Nhâm' || name === "Quý")){
+    if ((((month === 1 || month === 2 || month === 3) && (name === 'Giáp' || name === "Ất"))) ||
+    (((month === 4 || month === 5 || month === 6) && (name === 'Bính' || name === "Đinh"))) ||
+    (((month === 7 || month === 8 || month === 9) && (name === 'Canh' || name === "Tân"))) ||
+    (((month === 10 || month === 11 || month === 12) && (name === 'Nhâm' || name === "Quý")))) {
         startGood.push('Đại Hồng Sa: Tốt mọi việc');    
     }
+
     return startGood;
 }
 
@@ -2175,11 +2177,10 @@ const startBadDay =(nameDay, ngayAm)=> {
         startBad.push('Sao Nguyệt phá: Xấu về xây dựng nhà cửa');
     }
 
-    if ((month === 1 || month === 2 || month === 3 && name === 'Tý' || name === 'Dậu' || name === 'Sửu' ) ||
-        (month === 4 || month === 5 || month === 6 && name === 'Thân' || name === 'Tý' || name === 'Thìn') ||
-        (month === 7 || month === 8 || month === 9 && name === 'Hợi' || name === 'Mão' || name === 'Mùi') || 
-        (month === 10 || month === 11 || month === 12 && name === 'Dần' || name === 'Ngọ' || name === 'Tuất')
-    ) {
+    if ((((month === 1 || month === 2 || month === 3) && (name === 'Tý' || name === 'Dậu' || name === 'Sửu')) ||
+     ((month === 4 || month === 5 || month === 6) && (name === 'Thân' || name === 'Tý' || name === 'Thìn')) ||
+     ((month === 7 || month === 8 || month === 9) && (name === 'Hợi' || name === 'Mão' || name === 'Mùi')) ||
+     ((month === 10 || month === 11 || month === 12) && (name === 'Dần' || name === 'Ngọ' || name === 'Tuất')))) {
         startBad.push('Sao Hoang vu: Xấu mọi việc');
     }
 
@@ -2188,13 +2189,13 @@ const startBadDay =(nameDay, ngayAm)=> {
     ((month === 7 || month === 8 || month === 9) && name === 'Dậu') ||
     ((month === 10 || month === 11 || month === 12) && name === 'Tý')) {
     startBad.push('Sao Nguyệt Kiến chuyển sát: Kỵ động thổ');
-}
+    }
 
-    if(((month === 1 || month === 2 || month === 3 )&& name === 'Tý') ||
-    ((month === 4 || month === 5 || month === 6) && name === 'Mão') || 
-    ((month === 7 || month === 8 || month === 9) && name === 'Ngọ')||
-    ((month === 1 || month === 11 || month === 12) && name === 'Dậu')){
-        startBad.push('Sao 	Lỗ ban sát: Kỵ khởi tạo');
+    if ((((month === 1 || month === 2 || month === 3) && name === 'Tý') ||
+     ((month === 4 || month === 5 || month === 6) && name === 'Mão') || 
+     ((month === 7 || month === 8 || month === 9) && name === 'Ngọ') ||
+     ((month === 10 || month === 11 || month === 12) && name === 'Dậu'))) {
+        startBad.push('Sao Lỗ ban sát: Kỵ khởi tạo');
     }
 
     if(((month === 1 || month === 2 || month === 3) && name === 'Thìn') ||
@@ -2301,11 +2302,546 @@ const startBadDay =(nameDay, ngayAm)=> {
     return startBad;
 }
 
+const nguHanh =(nameDay)=> {
+    if(nameDay === 'Ất Sửu'){
+        return  {
+            name : 'tức Can khắc Chi (Mộc khắc Thổ), ngày này là ngày cát trung bình (chế nhật).',
+            napAm : 'Ngày Hải Trung Kim, kỵ các tuổi: Kỷ Mùi và Quý Mùi.',
+            description :'Ngày này thuộc hành Kim khắc với hành Mộc, ngoại trừ các tuổi: Kỷ Hợi vì Kim khắc mà được lợi.',
+            detail :'Ngày Sửu lục hợp với Tý, tam hợp với Tỵ và Dậu thành Kim cục. Xung Mùi, hình Tuất, hại Ngọ, phá Thìn, tuyệt Mùi.',
+            detail2 : 'Tam Sát kỵ mệnh các tuổi Dần, Ngọ, Tuất.'
+        }
+    }else if(nameDay === 'Giáp Tý'){
+        return  {
+            name : 'tức Chi sinh Can (Thủy sinh Mộc), ngày này là ngày cát (nghĩa nhật).',
+            napAm : 'Ngày Hải Trung Kim, kỵ các tuổi: Mậu Ngọ và Nhâm Ngọ.',
+            description :'Ngày này thuộc hành Kim khắc với hành Mộc, ngoại trừ các tuổi: Mậu Tuất vì Kim khắc nên được lợi.',
+            detail :'Ngày Tý lục hợp với Sửu, tam hợp với Thìn và Thân thành Thủy cục. Xung Ngọ, hình Mão, hại Mùi, phá Dậu, tuyệt Tỵ.',
+            detail2 : ''
+        }
+    } else if(nameDay === 'Bính Dần'){
+        return  {
+            name : 'tức Chi sinh Can (Mộc sinh Hỏa), ngày này là ngày cát (nghĩa nhật).',
+            napAm : 'Ngày Lô Trung Hỏa, kỵ các tuổi: Canh Thân và Nhâm Thân.',
+            description :'Ngày này thuộc hành Hỏa khắc với hành Kim, ngoại trừ các tuổi: Nhâm Thân và Giáp Ngọ thuộc hành Kim nhưng không sợ Hỏa.',
+            detail :'Ngày Dần lục hợp với Hợi, tam hợp với Ngọ và Tuất thành Hỏa cục. Xung Thân, hình Tỵ, hại Tỵ, phá Hợi, tuyệt Dậu.',
+            detail2 : ''
+        }
+    }else if(nameDay === 'Đinh Mão'){
+        return  {
+            name : 'tức Chi sinh Can (Mộc sinh Hỏa), ngày này là ngày cát (nghĩa nhật).',
+            napAm : ' Ngày Lô Trung Hỏa, kỵ các tuổi: Tân Dậu và Quý Dậu.',
+            description :'Ngày này thuộc hành Hỏa khắc với hành Kim, ngoại trừ các tuổi: Quý Dậu và Ất Mùi thuộc hành Kim nhưng không sợ Hỏa.',
+            detail :'Ngày Mão lục hợp với Tuất, tam hợp với Mùi và Hợi thành Mộc cục. Xung Dậu, hình Tý, hại Thìn, phá Ngọ, tuyệt Thân.',
+            detail2 : ''
+        }
+    }
+    
+    else if(nameDay === 'Mậu Thìn'){
+        return  {
+            name : 'tức Can Chi tương đồng (cùng Thổ), ngày này là ngày cát.',
+            napAm : 'Ngày Đại Lâm Mộc, kỵ các tuổi: Nhâm Tuất và Bính Tuất.',
+            description :'Ngày này thuộc hành Mộc khắc với hành Thổ, ngoại trừ các tuổi: Canh Ngọ, Mậu Thân và Bính Thìn thuộc hành Thổ không sợ Mộc.',
+            detail :' Ngày Thìn lục hợp với Dậu, tam hợp với Tý và Thân thành Thủy cục. Xung Tuất, hình Thìn, hình Mùi, hại Mão, phá Sửu, tuyệt Tuất.',
+            detail2 : 'Tam Sát kỵ mệnh các tuổi Tỵ, Dậu, Sửu.'
+        }
+    }else if(nameDay === 'Kỷ Tỵ'){
+        return  {
+            name : ' tức Chi sinh Can (Hỏa sinh Thổ), ngày này là ngày cát (nghĩa nhật).',
+            napAm : ' Ngày Đại Lâm Mộc, kỵ các tuổi: Quý Hợi và Đinh Hợi.',
+            description :'Ngày này thuộc hành Mộc khắc với hành Thổ, ngoại trừ các tuổi: Tân Mùi, Kỷ Dậu và Đinh Tỵ thuộc hành Thổ không sợ Mộc.',
+            detail :'  Ngày Tỵ lục hợp với Thân, tam hợp với Sửu và Dậu thành Kim cục. Xung Hợi, hình Thân, hại Dần, phá Thân, tuyệt Tý.',
+            detail2 : ''
+        }
+    }else if(nameDay === 'Canh Ngọ'){
+        return  {
+            name : 'tức Chi khắc Can (Hỏa khắc Kim), là ngày hung (phạt nhật).',
+            napAm : 'Ngày Lộ Bàng Thổ, kỵ các tuổi: Giáp Tý và Bính Tý.',
+            description :'Ngày này thuộc hành Thổ khắc với hành Thủy, ngoại trừ các tuổi: Bính Ngọ và Nhâm Tuất thuộc hành Thủy không sợ Thổ.',
+            detail :' Ngày Ngọ lục hợp với Mùi, tam hợp với Dần và Tuất thành Hỏa cục. Xung Tý, hình Ngọ, hình Dậu, hại Sửu, phá Mão, tuyệt Hợi.',
+            detail2 : ''
+        }
+    }else if(nameDay === 'Tân Mùi'){
+        return  {
+            name : 'tức Chi sinh Can (Thổ sinh Kim), ngày này là ngày cát (nghĩa nhật).',
+            napAm : 'Ngày Lộ Bàng Thổ, kỵ các tuổi: Ất Sửu và Đinh Sửu.',
+            description :'Ngày này thuộc hành Thổ khắc với hành Thủy, ngoại trừ các tuổi: Đinh Mùi, Quý Hợi thuộc hành Thủy không sợ Thổ.',
+            detail :'Ngày Mùi lục hợp với Ngọ, tam hợp với Mão và Hợi thành Mộc cục. Xung Sửu, hình Sửu, hại Tý, phá Tuất, tuyệt Sửu.',
+            detail2 : 'Tam Sát kỵ mệnh các tuổi Thân, Tý, Thìn.'
+        }
+    }else if(nameDay === 'Nhâm Thân'){
+        return  {
+            name : 'tức Chi sinh Can (Kim sinh Thủy), ngày này là ngày cát (nghĩa nhật).',
+            napAm : 'Ngày Kiếm Phong Kim, kỵ các tuổi: Bính Dần và Canh Dần.',
+            description :'Ngày này thuộc hành Kim khắc với hành Mộc, ngoại trừ các tuổi: Mậu Tuất vì Kim khắc mà được lợi.',
+            detail :' Ngày Thân lục hợp với Tỵ, tam hợp với Tý và Thìn thành Thủy cục. Xung Dần, hình Dần, hình Hợi, hại Hợi, phá Tỵ, tuyệt Mão.',
+            detail2 : ''
+        }
+    }else if(nameDay === 'Quý Dậu'){
+        return  {
+            name : 'tức Chi sinh Can (Kim sinh Thủy), ngày này là ngày cát (nghĩa nhật).',
+            napAm : 'Ngày Kiếm Phong Kim, kỵ các tuổi: Đinh Mão và Tân Mão.',
+            description :'Ngày này thuộc hành Kim khắc với hành Mộc, ngoại trừ các tuổi: Kỷ Hợi vì Kim khắc mà được lợi.',
+            detail :'Ngày Dậu lục hợp với Thìn, tam hợp với Sửu và Tỵ thành Kim cục. Xung Mão, hình Dậu, hại Tuất, phá Tý, tuyệt Dần.',
+            detail2 : ''
+        }
+    }
+    else if(nameDay === 'Ất Hợi'){
+        return  {
+            name : 'tức Chi sinh Can (Thủy sinh Mộc), ngày này là ngày cát (nghĩa nhật).',
+            napAm : 'Ngày Sơn Đầu Hỏa, kỵ các tuổi: Kỷ Tỵ và Tân Tỵ.',
+            description :'Ngày này thuộc hành Hỏa khắc với hành Kim, ngoại trừ các tuổi: Quý Dậu và Ất Mùi thuộc hành Kim không sợ Hỏa.',
+            detail :' Ngày Hợi lục hợp với Dần, tam hợp với Mão và Mùi thành Mộc cục. Xung Tỵ, hình Hợi, hại Thân, phá Dần, tuyệt Ngọ.',
+            detail2 : ''
+        }
+    }else if(nameDay === 'Giáp Tuất'){
+        return  {
+            name : 'tức Can khắc Chi (Mộc khắc Thổ), ngày này là ngày cát trung bình (chế nhật).',
+            napAm : 'Ngày Sơn Đầu Hỏa, kỵ các tuổi: Mậu Thìn và Canh Thìn.',
+            description :'Ngày này thuộc hành Hỏa khắc với hành Kim, ngoại trừ các tuổi: Nhâm Thân và Giáp Ngọ thuộc hành Kim không sợ Hỏa.',
+            detail :'Ngày Tuất lục hợp với Mão, tam hợp với Dần và Ngọ thành Hỏa cục. Xung Thìn, hình Mùi, hại Dậu, phá Mùi, tuyệt Thìn.',
+            detail2 : 'Tam Sát kỵ mệnh các tuổi Hợi, Mão, Mùi.'
+        }
+    }
+    else if(nameDay === 'Đinh Sữu'){
+        return  {
+            name : 'tức Can sinh Chi (Hỏa sinh Thổ), ngày này là ngày cát (bảo nhật).',
+            napAm : 'Ngày Giản Hạ Thủy, kỵ các tuổi: Tân Mùi và Kỷ Mùi.',
+            description :'Ngày này thuộc hành Thủy khắc với hành Hỏa, ngoại trừ các tuổi: Kỷ Sửu, Đinh Dậu và Kỷ Mùi thuộc hành Hỏa không sợ Thủy.',
+            detail :' Ngày Sửu lục hợp với Tý, tam hợp với Tỵ và Dậu thành Kim cục. Xung Mùi, hình Tuất, hại Ngọ, phá Thìn, tuyệt Mùi.',
+            detail2 : 'Tam Sát kỵ mệnh các tuổi Dần, Ngọ, Tuất.'
+        }
+    }
+    else if(nameDay === 'Bính Tý'){
+        return  {
+            name : 'tức Chi khắc Can (Thủy khắc Hỏa), là ngày hung (phạt nhật).',
+            napAm : 'Ngày Giản Hạ Thủy, kỵ các tuổi: Canh Ngọ và Mậu Ngọ.',
+            description :'Ngày này thuộc hành Thủy khắc với hành Hỏa, ngoại trừ các tuổi: Mậu Tý, Bính Thân và Mậu Ngọ thuộc hành Hỏa không sợ Thủy.',
+            detail :'Ngày Tý lục hợp với Sửu, tam hợp với Thìn và Thân thành Thủy cục. Xung Ngọ, hình Mão, hại Mùi, phá Dậu, tuyệt Tỵ.',
+            detail2 : ''
+        }
+    }
+    else if(nameDay === 'Mậu Dần'){
+        return  {
+            name : 'tức Chi khắc Can (Mộc khắc Thổ), là ngày hung (phạt nhật).',
+            napAm : 'Ngày Thành Đầu Thổ, kỵ các tuổi: Nhâm Thân và Giáp Thân.',
+            description :'Ngày này thuộc hành Thổ khắc với hành Thủy, ngoại trừ các tuổi: Bính Ngọ và Nhâm Tuất thuộc hành Thủy không sợ Thổ.',
+            detail :'Ngày Dần lục hợp với Hợi, tam hợp với Ngọ và Tuất thành Hỏa cục. Xung Thân, hình Tỵ, hại Tỵ, phá Hợi, tuyệt Dậu.',
+            detail2 : ''
+        }
+    }
+    else if(nameDay === 'Kỷ Mão'){
+        return  {
+            name : 'tức Chi khắc Can (Mộc khắc Thổ), là ngày hung (phạt nhật).',
+            napAm : 'Ngày Thành Đầu Thổ, kỵ các tuổi: Quý Dậu và Ất Dậu.',
+            description :'Ngày này thuộc hành Thổ khắc với hành Thủy, ngoại trừ các tuổi: Đinh Mùi và Quý Hợi thuộc hành Thủy không sợ Thổ.',
+            detail :'Ngày Mão lục hợp với Tuất, tam hợp với Mùi và Hợi thành Mộc cục. Xung Dậu, hình Tý, hại Thìn, phá Ngọ, tuyệt Thân.',
+            detail2 : ''
+        }
+    }
+    else if(nameDay === 'Canh Thìn'){
+        return  {
+            name : 'tức Chi sinh Can (Thổ sinh Kim), ngày này là ngày cát (nghĩa nhật).',
+            napAm : 'Ngày Bạch Lạp Kim, kỵ các tuổi: Giáp Tuất và Mậu Tuất.',
+            description :'Ngày này thuộc hành Kim khắc với hành Mộc, ngoại trừ các tuổi: Mậu Tuất vì Kim khắc mà được lợi.',
+            detail :'Ngày Thìn lục hợp với Dậu, tam hợp với Tý và Thân thành Thủy cục. Xung Tuất, hình Thìn, hình Mùi, hại Mão, phá Sửu, tuyệt Tuất.',
+            detail2 : 'Tam Sát kỵ mệnh các tuổi Tỵ, Dậu, Sửu.'
+        }
+    }
+    else if(nameDay === 'Tân Tỵ'){
+        return  {
+            name : 'tức Chi khắc Can (Hỏa khắc Kim), là ngày hung (phạt nhật).',
+            napAm : 'Ngày Bạch Lạp Kim, kỵ các tuổi: Ất Hợi và Kỷ Hợi.',
+            description :'Ngày này thuộc hành Kim khắc với hành Mộc, ngoại trừ các tuổi: Kỷ Hợi vì Kim khắc mà được lợi.',
+            detail :'Ngày Tỵ lục hợp với Thân, tam hợp với Sửu và Dậu thành Kim cục. Xung Hợi, hình Thân, hại Dần, phá Thân, tuyệt Tý.',
+            detail2 : ''
+        }
+    }
+    else if( nameDay === 'Quý Mùi'){
+        return  {
+            name : 'tức Chi khắc Can (Thổ khắc Thủy), là ngày hung (phạt nhật).',
+            napAm : 'Ngày Dương Liễu Mộc, kỵ các tuổi: Đinh Sửu và Tân Sửu.',
+            description :'Ngày này thuộc hành Mộc khắc với hành Thổ, ngoại trừ các tuổi: Tân Mùi, Kỷ Dậu và Đinh Tỵ thuộc hành Thổ không sợ Mộc.',
+            detail :'Ngày Mùi lục hợp với Ngọ, tam hợp với Mão và Hợi thành Mộc cục. Xung Sửu, hình Sửu, hại Tý, phá Tuất, tuyệt Sửu.',
+            detail2 : 'Tam Sát kỵ mệnh các tuổi Thân, Tý, Thìn.'
+        }
+    }
+    else if(nameDay === 'Nhâm Ngọ'){
+        return  {
+            name : 'tức Can khắc Chi (Thủy khắc Hỏa), ngày này là ngày cát trung bình (chế nhật).',
+            napAm : 'Ngày Dương Liễu Mộc, kỵ các tuổi: Bính Tý và Canh Tý.',
+            description :'Ngày này thuộc hành Mộc khắc với hành Thổ, ngoại trừ các tuổi: Canh Ngọ, Mậu Thân và Bính Thìn thuộc hành Thổ không sợ Mộc.',
+            detail :'Ngày Ngọ lục hợp với Mùi, tam hợp với Dần và Tuất thành Hỏa cục. Xung Tý, hình Ngọ, hình Dậu, hại Sửu, phá Mão, tuyệt Hợi.',
+            detail2 : ''
+        }
+    }
+    else if(nameDay === 'Ất Dậu'){
+        return  {
+            name : 'tức Chi khắc Can (Kim khắc Mộc), là ngày hung (phạt nhật).',
+            napAm : 'Ngày Tuyền Trung Thủy, kỵ các tuổi: Kỷ Mão và Đinh Mão.',
+            description :'Ngày này thuộc hành Thủy khắc với hành Hỏa, ngoại trừ các tuổi: Kỷ Sửu, Đinh Dậu và Kỷ Mùi thuộc hành Hỏa không sợ Thủy.',
+            detail :'Ngày Dậu lục hợp với Thìn, tam hợp với Sửu và Tỵ thành Kim cục. Xung Mão, hình Dậu, hại Tuất, phá Tý, tuyệt Dần.',
+            detail2 : ''
+        }
+    }
+    else if(nameDay === 'Giáp Thân'){
+        return  {
+            name : 'tức Chi khắc Can (Kim khắc Mộc), là ngày hung (phạt nhật).',
+            napAm : 'Ngày Tuyền Trung Thủy, kỵ các tuổi: Mậu Dần và Bính Dần.',
+            description :'Ngày này thuộc hành Thủy khắc với hành Hỏa, ngoại trừ các tuổi: Mậu Tý, Bính Thân và Mậu Ngọ thuộc hành Hỏa không sợ Thủy.',
+            detail :'Ngày Thân lục hợp với Tỵ, tam hợp với Tý và Thìn thành Thủy cục. Xung Dần, hình Dần, hình Hợi, hại Hợi, phá Tỵ, tuyệt Mão.',
+            detail2 : ''
+        }
+    }
+    else if(nameDay === 'Đinh Hợi'){
+        return  {
+            name : 'tức Chi khắc Can (Thủy khắc Hỏa), là ngày hung (phạt nhật).',
+            napAm : 'Ngày Ốc Thượng Thổ, kỵ các tuổi: Tân Tỵ và Quý Tỵ.',
+            description :'Ngày này thuộc hành Thổ khắc với hành Thủy, ngoại trừ các tuổi: Đinh Mùi và Quý Hợi thuộc hành Thủy không sợ Thổ.',
+            detail :'Ngày Hợi lục hợp với Dần, tam hợp với Mão và Mùi thành Mộc cục. Xung Tỵ, hình Hợi, hại Thân, phá Dần, tuyệt Ngọ.',
+            detail2 : ''
+        }
+    }
+    else if(nameDay === 'Bính Tuất'){
+        return  {
+            name : 'tức Can sinh Chi (Hỏa sinh Thổ), ngày này là ngày cát (bảo nhật).',
+            napAm : 'Ngày Ốc Thượng Thổ, kỵ các tuổi: Canh Thìn và Nhâm Thìn.',
+            description :'Ngày này thuộc hành Thổ khắc với hành Thủy, ngoại trừ các tuổi: Bính Ngọ và Nhâm Tuất thuộc hành Thủy không sợ Thổ.',
+            detail :'Ngày Tuất lục hợp với Mão, tam hợp với Dần và Ngọ thành Hỏa cục. Xung Thìn, hình Mùi, hại Dậu, phá Mùi, tuyệt Thìn.',
+            detail2 : 'Tam Sát kỵ mệnh các tuổi Hợi, Mão, Mùi.'
+        }
+    }
+    else if(nameDay === 'Kỷ Sửu'){
+        return  {
+            name : 'tức Can Chi tương đồng (cùng Thổ), ngày này là ngày cát.',
+            napAm : 'Ngày Phích Lịch Hỏa, kỵ các tuổi: Quý Mùi và Ất Mùi.',
+            description :'Ngày này thuộc hành Hỏa khắc với hành Kim, ngoại trừ các tuổi: Quý Dậu thuộc hành Kim không sợ Hỏa.',
+            detail :'Ngày Sửu lục hợp với Tý, tam hợp với Tỵ và Dậu thành Kim cục. Xung Mùi, hình Tuất, hại Ngọ, phá Thìn, tuyệt Mùi.',
+            detail2 : 'Tam Sát kỵ mệnh các tuổi Dần, Ngọ, Tuất.'
+        }
+    }
+    else if(nameDay === 'Mậu Tí'){
+        return  {
+            name : 'tức Can Chi tương đồng (cùng Thổ), ngày này là ngày cát.',
+            napAm : 'Ngày Phích Lịch Hỏa, kỵ các tuổi: Quý Mùi và Ất Mùi.',
+            description :'Ngày này thuộc hành Hỏa khắc với hành Kim, ngoại trừ các tuổi: Quý Dậu thuộc hành Kim không sợ Hỏa.',
+            detail :'Ngày Sửu lục hợp với Tý, tam hợp với Tỵ và Dậu thành Kim cục. Xung Mùi, hình Tuất, hại Ngọ, phá Thìn, tuyệt Mùi.',
+            detail2 : 'Tam Sát kỵ mệnh các tuổi Dần, Ngọ, Tuất.'
+        }
+    }
+    else if(nameDay === 'Tân Mão'){
+        return  {
+            name : 'tức Can khắc Chi (Kim khắc Mộc), ngày này là ngày cát trung bình (chế nhật).',
+            napAm : 'Ngày Tùng Bách Mộc, kỵ các tuổi: Ất Dậu và Kỷ Dậu.',
+            description :'Ngày này thuộc hành Mộc khắc với hành Thổ, ngoại trừ các tuổi: Tân Mùi, Kỷ Dậu, Đinh Tỵ thuộc hành Thổ không sợ Mộc.',
+            detail :'Ngày Mão lục hợp với Tuất, tam hợp với Mùi và Hợi thành Mộc cục. Xung Dậu, hình Tý, hại Thìn, phá Ngọ, tuyệt Thân.',
+            detail2 : ''
+        }
+    }
+    else if(nameDay === 'Canh Dần'){
+        return  {
+            name : 'tức Can khắc Chi (Kim khắc Mộc), ngày này là ngày cát trung bình (chế nhật).',
+            napAm : 'Nạp âm: Ngày Tùng Bách Mộc, kỵ các tuổi: Giáp Thân và Mậu Thân.',
+            description :'Ngày này thuộc hành Mộc khắc với hành Thổ, ngoại trừ các tuổi: Canh Ngọ, Mậu Thân và Bính Thìn thuộc hành Thổ không sợ Mộc.',
+            detail :'Ngày Dần lục hợp với Hợi, tam hợp với Ngọ và Tuất thành Hỏa cục. Xung Thân, hình Tỵ, hại Tỵ, phá Hợi, tuyệt Dậu.',
+            detail2 : ''
+        }
+    }
+    else if(nameDay === 'Quý Tỵ'){
+        return  {
+            name : 'tức Can khắc Chi (Thủy khắc Hỏa), ngày này là ngày cát trung bình (chế nhật).',
+            napAm : 'Ngày Trường Lưu Thủy, kỵ các tuổi: Đinh Hợi và Ất Hợi.',
+            description :'Ngày này thuộc hành Thủy khắc với hành Hỏa, ngoại trừ các tuổi: Kỷ Sửu, Đinh Dậu và Kỷ Mùi thuộc hành Hỏa không sợ Thủy.',
+            detail :'Ngày Tỵ lục hợp với Thân, tam hợp với Sửu và Dậu thành Kim cục. Xung Hợi, hình Thân, hại Dần, phá Thân, tuyệt Tý.',
+            detail2 : ''
+        }
+    }
+    else if(nameDay === 'Nhâm Thìn'){
+        return  {
+            name : ' tức Chi khắc Can (Thổ khắc Thủy), là ngày hung (phạt nhật).',
+            napAm : 'Ngày Trường Lưu Thủy, kỵ các tuổi: Bính Tuất và Giáp Tuất.',
+            description :'Ngày này thuộc hành Thủy khắc với hành Hỏa, ngoại trừ các tuổi: Mậu Tý, Bính Thân và Mậu Ngọ thuộc hành Hỏa không sợ Thủy.',
+            detail :'Ngày Thìn lục hợp với Dậu, tam hợp với Tý và Thân thành Thủy cục. Xung Tuất, hình Thìn, hình Mùi, hại Mão, phá Sửu, tuyệt Tuất.',
+            detail2 : 'Tam Sát kỵ mệnh các tuổi Tỵ, Dậu, Sửu.'
+        }
+    }
+    else if( nameDay === 'Ất Mùi'){
+        return  {
+            name : 'tức Can khắc Chi (Mộc khắc Thổ), ngày này là ngày cát trung bình (chế nhật).',
+            napAm : 'Ngày Sa Trung Kim, kỵ các tuổi: Kỷ Sửu và Quý Sửu.',
+            description :'Ngày này thuộc hành Kim khắc với hành Mộc, ngoại trừ các tuổi: Kỷ Hợi vì Kim khắc mà được lợi.',
+            detail :'Ngày Mùi lục hợp với Ngọ, tam hợp với Mão và Hợi thành Mộc cục. Xung Sửu, hình Sửu, hại Tý, phá Tuất, tuyệt Sửu.',
+            detail2 : 'Tam Sát kỵ mệnh các tuổi Thân, Tý, Thìn.'
+        }
+    }
+    else if(nameDay === 'Giáp Ngọ'){
+        return  {
+            name : 'tức Can sinh Chi (Mộc sinh Hỏa), ngày này là ngày cát (bảo nhật).',
+            napAm : ' Ngày Sa Trung Kim, kỵ các tuổi: Mậu Tý và Nhâm Tý.',
+            description :'Ngày này thuộc hành Kim khắc với hành Mộc, ngoại trừ các tuổi: Mậu Tuất vì Kim khắc mà được lợi.',
+            detail :'Ngày Ngọ lục hợp với Mùi, tam hợp với Dần và Tuất thành Hỏa cục. Xung Tý, hình Ngọ, hình Dậu, hại Sửu, phá Mão, tuyệt Hợi.',
+            detail2 : ''
+        }
+    }
+    else if(nameDay === 'Bính Thân' ){
+        return  {
+            name : 'tức Can khắc Chi (Hỏa khắc Kim), ngày này là ngày cát trung bình (chế nhật).',
+            napAm : 'Ngày Sơn Hạ Hỏa, kỵ các tuổi: Canh Dần và Nhâm Dần.',
+            description :'Ngày này thuộc hành Hỏa khắc với hành Kim, ngoại trừ các tuổi: Nhâm Thân và Giáp Ngọ thuộc hành Kim không sợ Hỏa.',
+            detail :'Ngày Thân lục hợp với Tỵ, tam hợp với Tý và Thìn thành Thủy cục. Xung Dần, hình Dần, hình Hợi, hại Hợi, phá Tỵ, tuyệt Mão.',
+            detail2 : ''
+        }
+    }
+    else if( nameDay === 'Đinh Dậu'){
+        return  {
+            name : 'tức Can khắc Chi (Hỏa khắc Kim), ngày này là ngày cát trung bình (chế nhật).',
+            napAm : 'Ngày Sơn Hạ Hỏa, kỵ các tuổi: Tân Mão và Quý Mão.',
+            description :'Ngày này thuộc hành Hỏa khắc với hành Kim, ngoại trừ các tuổi: Quý Dậu và Ất Mùi thuộc hành Kim không sợ Hỏa.',
+            detail :'Ngày Dậu lục hợp với Thìn, tam hợp với Sửu và Tỵ thành Kim cục. Xung Mão, hình Dậu, hại Tuất, phá Tý, tuyệt Dần.',
+            detail2 : ''
+        }
+    }
+    else if(nameDay === 'Mậu Tuất'){
+        return  {
+            name : 'tức Can Chi tương đồng (cùng Thổ), ngày này là ngày cát.',
+            napAm : 'Ngày Bình Địa Mộc, kỵ các tuổi: Nhâm Thìn và Giáp Ngọ.',
+            description :'Ngày này thuộc hành Mộc khắc với hành Thổ, ngoại trừ các tuổi: Canh Ngọ, Mậu Thân và Bính Thìn thuộc hành Thổ không sợ Mộc.',
+            detail :'Ngày Tuất lục hợp với Mão, tam hợp với Dần và Ngọ thành Hỏa cục. Xung Thìn, hình Mùi, hại Dậu, phá Mùi, tuyệt Thìn.',
+            detail2 : 'Tam Sát kỵ mệnh tuổi Hợi, Mão, Mùi.'
+        }
+    }
+    else if( nameDay === 'Kỷ Hợi'){
+        return  {
+            name : 'tức Can khắc Chi (Thổ khắc Thủy), ngày này là ngày cát trung bình (chế nhật).',
+            napAm : 'Ngày Bình Địa Mộc, kỵ các tuổi: Quý Tỵ và Ất Mùi.',
+            description :'Ngày này thuộc hành Mộc khắc với hành Thổ, ngoại trừ các tuổi: Tân Mùi, Kỷ Dậu và Đinh Tỵ thuộc hành Thổ không sợ Mộc.',
+            detail :'Ngày Hợi lục hợp với Dần, tam hợp với Mão và Mùi thành Mộc cục. Xung Tỵ, hình Hợi, hại Thân, phá Dần, tuyệt Ngọ.',
+            detail2 : ''
+        }
+    }
+    else if( nameDay === 'Tân Sữu'){
+        return  {
+            name : 'tức Chi sinh Can (Thổ sinh Kim), ngày này là ngày cát (nghĩa nhật).',
+            napAm : 'Ngày Bích Thượng Thổ, kỵ các tuổi: Ất Mùi và Đinh Mùi.',
+            description :'Ngày này thuộc hành Thổ khắc với hành Thủy, ngoại trừ các tuổi: Đinh Mùi và Quý Hợi thuộc hành Thủy không sợ Thổ.',
+            detail :' Ngày Sửu lục hợp với Tý, tam hợp với Tỵ và Dậu thành Kim cục. Xung Mùi, hình Tuất, hại Ngọ, phá Thìn, tuyệt Mùi.',
+            detail2 : 'Tam Sát kỵ mệnh tuổi Dần, Ngọ, Tuất.'
+        }
+    }
+    else if(nameDay === 'Canh Tý'){
+        return  {
+            name : 'tức Can sinh Chi (Kim sinh Thủy), ngày này là ngày cát (bảo nhật).',
+            napAm : 'Ngày Bích Thượng Thổ, kỵ các tuổi: Giáp Ngọ và Bính Ngọ.',
+            description :'Ngày này thuộc hành Thổ khắc với hành Thủy, ngoại trừ các tuổi: Bính Ngọ và Nhâm Tuất thuộc hành Thủy không sợ Thổ.',
+            detail :'Ngày Tý lục hợp với Sửu, tam hợp với Thìn và Thân thành Thủy cục. Xung Ngọ, hình Mão, hại Mùi, phá Dậu, tuyệt Tỵ.',
+            detail2 : ''
+        }
+    }
+    else if( nameDay === 'Quý Mão'){
+        return  {
+            name : 'tức Can sinh Chi (Thủy sinh Mộc), ngày này là ngày cát (bảo nhật).',
+            napAm : 'Ngày Kim Bạc Kim, kỵ các tuổi: Đinh Dậu và Tân Dậu.',
+            description :'Ngày này thuộc hành Kim khắc với hành Mộc, ngoại trừ các tuổi: Kỷ Hợi vì Kim khắc mà được lợi.',
+            detail :'Ngày Mão lục hợp với Tuất, tam hợp với Mùi và Hợi thành Mộc cục. Xung Dậu, hình Tý, hại Thìn, phá Ngọ, tuyệt Thân.',
+            detail2 : ''
+        }
+    }
+    else if(nameDay === 'Nhâm Dần'){
+        return  {
+            name : 'tức Can sinh Chi (Thủy sinh Mộc), ngày này là ngày cát (bảo nhật).',
+            napAm : 'Ngày Kim Bạc Kim, kỵ các tuổi: Bính Thân và Canh Thân.',
+            description :'Ngày này thuộc hành Kim khắc với hành Mộc, ngoại trừ các tuổi: Mậu Tuất vì Kim khắc mà được lợi',
+            detail :'NNgày Dần lục hợp với Hợi, tam hợp với Ngọ và Tuất thành Hỏa cục. Xung Thân, hình Tỵ, hại Tỵ, phá Hợi, tuyệt Dậu.',
+            detail2 : ''
+        }
+    }
+    else if(nameDay === 'Ất Tỵ'){
+        return  {
+            name : 'tức Can sinh Chi (Mộc sinh Hỏa), ngày này là ngày cát (bảo nhật).',
+            napAm : 'Ngày Phúc Đăng Hỏa, kỵ các tuổi: Kỷ Hợi và Tân Hợi.',
+            description :'Ngày này thuộc hành Hỏa khắc với hành Kim, ngoại trừ các tuổi: Quý Dậu và Ất Mùi thuộc hành Kim không sợ Hỏa.',
+            detail :'Ngày Tỵ lục hợp với Thân, tam hợp với Sửu và Dậu thành Kim cục. Xung Hợi, hình Thân, hại Dần, phá Thân, tuyệt Tý.',
+            detail2 : ''
+        }
+    }
+    else if(nameDay === 'Giáp Thìn'){
+        return  {
+            name : 'tức Can khắc Chi (Mộc khắc Thổ), ngày này là ngày cát trung bình (chế nhật).',
+            napAm : 'Ngày Phúc Đăng Hỏa, kỵ các tuổi: Mậu Tuất và Canh Tuất.',
+            description :'Ngày này thuộc hành Hỏa khắc với hành Kim, ngoại trừ các tuổi: Nhâm Thân và Giáp Ngọ thuộc hành Kim không sợ Hỏa.',
+            detail :'Ngày Thìn lục hợp với Dậu, tam hợp với Tý và Thân thành Thủy cục. Xung Tuất, hình Thìn, hình Mùi, hại Mão, phá Sửu, tuyệt Tuất.',
+            detail2 : 'Tam Sát kỵ mệnh các tuổi Tỵ, Dậu, Sửu.'
+        }
+    }
+    else if( nameDay === 'Đinh Mùi'){
+        return  {
+            name : 'tức Can sinh Chi (Hỏa sinh Thổ), ngày này là ngày cát (bảo nhật).',
+            napAm : 'Ngày Thiên Hà Thủy, kỵ các tuổi: Tân Sửu.',
+            description :' Ngày này thuộc hành Thủy khắc với hành Hỏa, ngoại trừ các tuổi: Kỷ Sửu, Đinh Dậu và Kỷ Mùi thuộc hành Hỏa không sợ Thủy.',
+            detail :'Ngày Mùi lục hợp với Ngọ, tam hợp với Mão và Hợi thành Mộc cục. Xung Sửu, hình Sửu, hại Tý, phá Tuất, tuyệt Sửu.',
+            detail2 : 'Tam Sát kỵ mệnh tuổi Thân, Tý, Thìn.'
+        }
+    }
+    else if(nameDay === 'Bính Ngọ'){
+        return  {
+            name : 'tức Can Chi tương đồng (cùng Hỏa), ngày này là ngày cát.',
+            napAm : 'Ngày Thiên Hà Thủy, kỵ các tuổi: Canh Tý.',
+            description :'Ngày này thuộc hành Thủy khắc với hành Hỏa, ngoại trừ các tuổi: Mậu Tý, Bính Thân và Mậu Ngọ thuộc hành Hỏa không sợ Thủy.',
+            detail :'Ngày Ngọ lục hợp với Mùi, tam hợp với Dần và Tuất thành Hỏa cục. Xung Tý, hình Ngọ, hình Dậu, hại Sửu, phá Mão, tuyệt Hợi.',
+            detail2 : ''
+        }
+    }
+
+    else if( nameDay === 'Kỷ Dậu'){
+        return  {
+            name : 'tức Can sinh Chi (Thổ sinh Kim), ngày này là ngày cát (bảo nhật).',
+            napAm : 'Ngày Đại Dịch Thổ, kỵ các tuổi: Nhâm Dần và Giáp Dần.',
+            description :' Ngày này thuộc hành Thổ khắc với hành Thủy, ngoại trừ các tuổi: Bính Ngọ và Nhâm Tuất thuộc hành Thủy không sợ Thổ.',
+            detail :'Ngày Thân lục hợp với Tỵ, tam hợp với Tý và Thìn thành Thủy cục. Xung Dần, hình Dần, hình Hợi, hại Hợi, phá Tỵ, tuyệt Mão',
+            detail2 : ''
+        }
+    }
+    else if(nameDay === 'Mậu Thân'){
+        return  {
+            name : 'tức Can sinh Chi (Thổ sinh Kim), ngày này là ngày cát (bảo nhật).',
+            napAm : 'Ngày Đại Dịch Thổ, kỵ các tuổi: Quý Mão và Ất Mão.',
+            description :' Ngày này thuộc hành Thổ khắc với hành Thủy, ngoại trừ các tuổi: Đinh Mùi và Quý Hợi thuộc hành Thủy không sợ Thổ',
+            detail :'Ngày Dậu lục hợp với Thìn, tam hợp với Sửu và Tỵ thành Kim cục. Xung Mão, hình Dậu, hại Tuất, phá Tý, tuyệt Dần',
+            detail2 : ''
+        }
+    }
+    else if(nameDay === 'Canh Tuất'){
+        return  {
+            name : 'tức Chi sinh Can (Thổ sinh Kim), ngày này là ngày cát (nghĩa nhật).',
+            napAm : ' Ngày Thoa Xuyến Kim, kỵ các tuổi: Giáp Thìn và Mậu Thìn.',
+            description :'Ngày này thuộc hành Kim khắc với hành Mộc, ngoại trừ các tuổi: Mậu Tuất vì Kim khắc mà được lợi.',
+            detail :'Ngày Tuất lục hợp với Mão, tam hợp với Dần và Ngọ thành Hỏa cục. Xung Thìn, hình Mùi, hại Dậu, phá Mùi, tuyệt Thìn.',
+            detail2 : 'Tam Sát kỵ mệnh các tuổi Hợi, Mão, Mùi.'
+        }
+    }
+    else if(nameDay === 'Tân Hợi'){
+        return  {
+            name : 'tức Can sinh Chi (Kim sinh Thủy), ngày này là ngày cát (bảo nhật).',
+            napAm : ' Ngày Thoa Xuyến Kim, kỵ các tuổi: Ất Tỵ và Kỷ Tỵ.',
+            description :'Ngày này thuộc hành Kim khắc với hành Mộc, ngoại trừ các tuổi: Kỷ Hợi vì Kim khắc mà được lợi.',
+            detail :'Ngày Hợi lục hợp với Dần, tam hợp với Mão và Mùi thành Mộc cục. Xung Tỵ, hình Hợi, hại Thân, phá Dần, tuyệt Ngọ.',
+            detail2 : ''
+        }
+    }else if(nameDay === 'Nhâm Tý'){
+        return  {
+            name : 'tức Can Chi tương đồng ( cùng Thủy), ngày này là ngày cát.',
+            napAm : 'Ngày Tang Chá Mộc, kỵ các tuổi: Bính Ngọ và Canh Ngọ.',
+            description :'Ngày này thuộc hành Mộc khắc với hành Thổ, ngoại trừ các tuổi: Canh Ngọ, Mậu Thân và Bính Thìn thuộc hành Thổ không sợ Mộc.',
+            detail :'Ngày Tý lục hợp với Sửu, tam hợp với Thìn và Thân thành Thủy cục. Xung Ngọ, hình Mão, hại Mùi, phá Dậu, tuyệt Tỵ.',
+            detail2 : ''
+        }
+    }else if(nameDay === 'Quý Sửu'){
+        return  {
+            name : 'tức Chi khắc Can (Thổ khắc Thủy), là ngày hung (phạt nhật).',
+            napAm : 'Ngày Tang Chá Mộc, kỵ các tuổi: Đinh Mùi và Tân Mùi.',
+            description :'Ngày này thuộc hành Mộc khắc với hành Thổ, ngoại trừ các tuổi: Tân Mùi, Kỷ Dậu và Đinh Tỵ thuộc hành Thổ không sợ Mộc.',
+            detail :'Ngày Sửu lục hợp với Tý, tam hợp với Tỵ và Dậu thành Kim cục. Xung Mùi, hình Tuất, hại Ngọ, phá Thìn, tuyệt Mùi.',
+            detail2 : 'Tam Sát kỵ mệnh các tuổi Dần, Ngọ, Tuất.'
+        }
+    }else if(nameDay === 'Giáp Dần'){
+        return  {
+            name : 'tức Can Chi tương đồng (cùng Mộc), ngày này là ngày cát.',
+            napAm : 'Ngày Đại Khê Thủy, kỵ các tuổi: Mậu Thân và Bính Thân.',
+            description :'Ngày này thuộc hành Thủy khắc với hành Hỏa, ngoại trừ các tuổi: Mậu Tý, Bính Thân và Mậu Ngọ thuộc hành Hỏa không sợ Thủy.',
+            detail :'Ngày Dần lục hợp với Hợi, tam hợp với Ngọ và Tuất thành Hỏa cục. Xung Thân, hình Tỵ, hại Tỵ, phá Hợi, tuyệt Dậu.',
+            detail2 : ''
+        }
+    }else if(nameDay === 'Ất Mão'){
+        return  {
+            name : 'tức Can Chi tương đồng (cùng Mộc), ngày này là ngày cát.',
+            napAm : 'Ngày Đại Khê Thủy, kỵ các tuổi: Kỷ Dậu và Đinh Dậu.',
+            description :'Ngày này thuộc hành Thủy khắc với hành Hỏa, ngoại trừ các tuổi: Kỷ Sửu, Đinh Dậu và Kỷ Mùi thuộc hành Hỏa không sợ Thủy.',
+            detail :'Ngày Mão lục hợp với Tuất, tam hợp với Mùi và Hợi thành Mộc cục. Xung Dậu, hình Tý, hại Thìn, phá Ngọ, tuyệt Thân.',
+            detail2 : ''
+        }
+    }
+    else if(nameDay === 'Bính Thìn'){
+        return  {
+            name : 'tức Can sinh Chi (Hỏa sinh Thổ), ngày này là ngày cát (bảo nhật).',
+            napAm : 'Ngày Sa Trung Thổ, kỵ các tuổi: Canh Tuất và Nhâm Tuất.',
+            description :'Ngày này thuộc hành Thổ khắc với hành Thủy, ngoại trừ các tuổi: Bính Ngọvà Nhâm Tuất thuộc hành Thủy không sợ Thổ.',
+            detail :'Ngày Thìn lục hợp với Dậu, tam hợp với Tý và Thân thành Thủy cục. Xung Tuất, hình Thìn, hình Mùi, hại Mão, phá Sửu, tuyệt Tuất.',
+            detail2 : 'Tam Sát kỵ mệnh tuổi Tỵ, Dậu, Sửu.'
+        }
+    }else if(nameDay === 'Đinh Tỵ'){
+        return  {
+            name : ' tức Can Chi tương đồng (cùng Hỏa), ngày này là ngày cát.',
+            napAm : 'Ngày Sa Trung Thổ, kỵ các tuổi: Tân Hợi và Quý Hợi.',
+            description :'Ngày này thuộc hành Thổ khắc với hành Thủy, ngoại trừ các tuổi: Đinh Mùi và Quý Hợi thuộc hành Thủy không sợ Thổ.',
+            detail :'Ngày Tỵ lục hợp với Thân, tam hợp với Sửu và Dậu thành Kim cục. Xung Hợi, hình Thân, hại Dần, phá Thân, tuyệt Tý.',
+            detail2 : ''
+        }
+    }else if(nameDay === 'Mậu Ngọ'){
+        return  {
+            name : 'tức Chi sinh Can (Hỏa sinh Thổ), ngày này là ngày cát (nghĩa nhật).',
+            napAm : 'Ngày Thiên Thượng Hỏa, kỵ các tuổi: Nhâm Tý và Giáp Tý.',
+            description :'Ngày này thuộc hành Hỏa khắc với hành Kim, ngoại trừ các tuổi: Nhâm Thân và Giáp Ngọ thuộc hành Kim không sợ Hỏa.',
+            detail :'Ngày Ngọ lục hợp với Mùi, tam hợp với Dần và Tuất thành Hỏa cục. Xung Tý, hình Ngọ, hình Dậu, hại Sửu, phá Mão, tuyệt Hợi.',
+            detail2 : ''
+        }
+    }else if(nameDay === 'Kỷ Mùi'){
+        return  {
+            name : 'tức Can Chi tương đồng (cùng Thổ), ngày này là ngày cát.',
+            napAm : 'Ngày Thiên Thượng Hỏa, kỵ các tuổi: Quý Sửu và Ất Sửu.',
+            description :'Ngày này thuộc hành Hỏa khắc với hành Kim, ngoại trừ các tuổi: Quý Dậu và Ất Mùi thuộc hành Kim không sợ Hỏa.',
+            detail :'Ngày Mùi lục hợp với Ngọ, tam hợp với Mão và Hợi thành Mộc cục. Xung Sửu, hình Sửu, hại Tý, phá Tuất, tuyệt Sửu.',
+            detail2 : 'Tam Sát kỵ mệnh các tuổi Thân, Tý, Thìn.'
+        }
+    }else if(nameDay === 'Canh Thân'){
+        return  {
+            name : 'tức Can Chi tương đồng (cùng Kim), ngày này là ngày cát.',
+            napAm : 'Ngày Thạch Lựu Mộc, kỵ các tuổi: Giáp Dần và Mậu Dần.',
+            description :'Ngày này thuộc hành Mộc khắc với hành Thổ, ngoại trừ các tuổi: Canh Ngọ, Mậu Thân và Bính Thìn thuộc hành Thổ không sợ Mộc.',
+            detail :'Ngày Thân lục hợp với Tỵ, tam hợp với Tý và Thìn thành Thủy cục. Xung Dần, hình Dần, hình Hợi, hại Hợi, phá Tỵ, tuyệt Mão.',
+            detail2 : ''
+        }
+    }else if(nameDay === 'Tân Dậu'){
+        return  {
+            name : 'tức Can Chi tương đồng (cùng Kim), ngày này là ngày cát.',
+            napAm : 'Ngày Thạch Lựu Mộc, kỵ các tuổi: Ất Mão và Kỷ Mão.',
+            description :'Ngày này thuộc hành Mộc khắc với hành Thổ, ngoại trừ các tuổi: Tân Mùi, Kỷ Dậu và Đinh Tỵ thuộc hành Thổ không sợ Mộc.',
+            detail :'Ngày Dậu lục hợp với Thìn, tam hợp với Sửu và Tỵ thành Kim cục. Xung Mão, hình Dậu, hại Tuất, phá Tý, tuyệt Dần.',
+            detail2 : ''
+        }
+    }else if(nameDay === 'Nhâm Tuất'){
+        return  {
+            name : 'tức Chi khắc Can (Thổ khắc Thủy), là ngày hung (phạt nhật).',
+            napAm : 'Ngày Đại Hải Thủy, kỵ các tuổi: Bính Thìn và Giáp Thìn.',
+            description :'Ngày này thuộc hành Thủy khắc với hành Hỏa, ngoại trừ các tuổi: Mậu Tý, Bính Thân và Mậu Ngọ thuộc hành Hỏa không sợ Thủy.',
+            detail :'Ngày Tuất lục hợp với Mão, tam hợp với Dần và Ngọ thành Hỏa cục. Xung Thìn, hình Mùi, hại Dậu, phá Mùi, tuyệt Thìn.',
+            detail2 : 'Tam Sát kỵ mệnh các tuổi Hợi, Mão, Mùi.'
+        }
+    }else if(nameDay === 'Quý Hợi'){
+        return  {
+            name : ' tức Can Chi tương đồng (Thủy), ngày này là ngày cát.',
+            napAm : ' Ngày Đại Hải Thủy, kỵ các tuổi: Đinh Tỵ và Ất Tỵ.',
+            description :'Ngày này thuộc hành Thủy khắc với hành Hỏa, ngoại trừ các tuổi: Kỷ Sửu, Đinh Dậu và Kỷ Mùi thuộc hành Hỏa không sợ Thủy.',
+            detail :'Ngày Tuất lục hợp với Mão, tam hợp với Dần và Ngọ thành Hỏa cục. Xung Thìn, hình Mùi, hại Dậu, phá Mùi, tuyệt Thìn.',
+            detail2 : 'Ngày Hợi lục hợp với Dần, tam hợp với Mão và Mùi thành Mộc cục. Xung Tỵ, hình Hợi, hại Thân, phá Dần, tuyệt Ngọ.'
+        }
+    }else if(nameDay === 'Giáp Tý'){
+        return  {
+            name : 'tức Chi sinh Can (Thủy sinh Mộc), ngày này là ngày cát (nghĩa nhật).',
+            napAm : ' Ngày Hải Trung Kim, kỵ các tuổi: Mậu Ngọ và Nhâm Ngọ.',
+            description :'Ngày này thuộc hành Kim khắc với hành Mộc, ngoại trừ các tuổi: Mậu Tuất vì Kim khắc nên được lợi.',
+            detail :'Ngày Tý lục hợp với Sửu, tam hợp với Thìn và Thân thành Thủy cục. Xung Ngọ, hình Mão, hại Mùi, phá Dậu, tuyệt Tỵ.',
+            detail2 : ''
+        }
+    }
+
+    // bắt đầu từ ngày ất sửu
+}
+
 
 export { canNgay, chiNgay, 
     jdFormDate, layGioHoangDao ,getNameDay,
     getNameMonth, getNameYear, convertSolar2Lunar,rankOffWeek,
     departureDirection, layGioHoangDaoChiTiet, layGioHacDao, departureTime,
     getInforDayCan, getInforDayChi, getKhongMinh, lichTietKhi, 
-    getKhongMinhLucDieu, cacNgayKy, thapNhiKienTruc, startInDay, startBadDay
+    getKhongMinhLucDieu, cacNgayKy, thapNhiKienTruc, startInDay, startBadDay, nguHanh
 };

@@ -86,6 +86,10 @@ const DetailDays = ({ negativeDay }) => {
     const lines = splitString1(lucdieu.verse);
     const startGood = negativeDay.startGood;
     const startBad = negativeDay.startBad;
+    const dataNguHanh = negativeDay.nguHanhDay;
+    console.log(dataNguHanh);
+    
+    
     return (
         <>
             <div className="mt-3">
@@ -122,10 +126,11 @@ const DetailDays = ({ negativeDay }) => {
                         <tr>
                             <td className="title-row-table"><b>Ngũ Hành</b></td>
                             <td>
-                                <p>Ngày : <b>Tân Hợi </b>- tức Can sinh Chi (Kim sinh Thủy), ngày này là ngày cát (bảo nhật).</p>
-                                <p>- Nạp âm: Ngày Thoa Xuyến Kim, kỵ các tuổi: Ất Tỵ và Kỷ Tỵ.</p>
-                                <p>- Ngày này thuộc hành Kim khắc với hành Mộc, ngoại trừ các tuổi: Kỷ Hợi vì Kim khắc mà được lợi.</p>
-                                <p>- Ngày Hợi lục hợp với Dần, tam hợp với Mão và Mùi thành Mộc cục. Xung Tỵ, hình Hợi, hại Thân, phá Dần, tuyệt Ngọ.</p>
+                                <p>Ngày : <b>{negativeDay.nameDay} </b>- {dataNguHanh.name}</p>
+                                <p>- Nạp âm: {dataNguHanh.napAm}</p>
+                                <p>- {dataNguHanh.description}</p>
+                                <p>- {dataNguHanh.detail}</p>
+                                {dataNguHanh.detail2 && <p>- {dataNguHanh.detail2}</p>}
                             </td>
                         </tr>
                         <tr>
