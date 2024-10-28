@@ -74,6 +74,7 @@ const DetailDays = ({ negativeDay }) => {
         return lines;
     };
     const data = negativeDay.departure_direction;
+    
     const dataDepartureTime  = negativeDay.departureTime;
     const nameDay = negativeDay.nameDay;
     const canChiNameDay = nameDay.split(' ')
@@ -82,9 +83,9 @@ const DetailDays = ({ negativeDay }) => {
     const lucdieu = negativeDay.lucdieu;
     const ngayKy = negativeDay.ngayKy;
     const thapNhi = negativeDay.thapNhi;
-    console.log('Thâp nhị', thapNhi);
-    
     const lines = splitString1(lucdieu.verse);
+    const startGood = negativeDay.startGood;
+    const startBad = negativeDay.startBad;
     return (
         <>
             <div className="mt-3">
@@ -177,13 +178,17 @@ const DetailDays = ({ negativeDay }) => {
                             <td className="title-row-table"><b>Ngọc Hạp Thông Thư</b></td>
                             <td>
                                 <p><b>Sao tốt</b> : </p>
-                                <p>- Thiên Đức Hợp: Tốt cho mọi việc.</p>
-                                <p>- Nguyệt Đức Hợp: Tốt cho mọi việc, kỵ việc kiện tụng.</p>
-                                <p>- Thiên Quý: Tốt cho mọi việc.</p>
-                                <p>- Thiên Thành: Tốt cho mọi việc.</p>
+                                {
+                                    startGood.map((iteam, index) => (
+                                        <p key ={index}> - {iteam} </p>
+                                    ))
+                                }
                                 <p><b>Sao xấu</b> : </p>
-                                <p>- Kiếp Sát: Kỵ việc xuất hành, giá thú (cưới hỏi), an táng hay xây dựng. </p>
-                                <p>- Hoang Vu: Xấu cho mọi công việc.</p>
+                                {
+                                    startBad.map((iteams, indexs) => (
+                                        <p key ={indexs}> - {iteams} </p>
+                                    ))
+                                }
                             </td>
                         </tr>
                         <tr>

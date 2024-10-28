@@ -537,8 +537,6 @@ const thapNhiKienTruc = (ngayAmLich, nameDay) => {
     // Tách chi của ngày từ 'nameDay'
     const name = nameDay.split('-');
     const chiDay = name[1]; // Ví dụ: Tuất, Hợi, Dần,...
-    console.log(ngayAmLich);
-    console.log(nameDay);
     // Danh sách các Trực
     const kienTruData = {
         1: {
@@ -688,165 +686,1574 @@ const thapNhiKienTruc = (ngayAmLich, nameDay) => {
 const startInDay =(nameDay, ngayAm)=> {
     const day = nameDay.split(' ');
     const name = day[1];
-    const name2 = day[0];
-    console.log(name);
-    
     const monthOfDay = ngayAm.split('-');
     const month = Number(monthOfDay[1]);
-    console.log(month);
-    let  startGood = [];
-
-    if((month === 1 && name === 'Đinh') || (month === 2 && name === 'Thân') ||
-    (month === 3 && name === 'Nhâm') || (month === 4 && name === 'Tân') || 
-    (month === 5 && name === 'Hợi') || (month === 6 && name === 'Giáp') ||
-    (month === 7 && name === 'Quý') || (month === 8 && name === 'Dần') ||
-    (month === 9 && name === 'Bính') || (month === 10 && name === 'Ất') ||
-    (month === 11 && name === 'Tỵ') || (month === 12 && name === 'Canh')
-    ){
-        startGood.push('Thiên Đức: Tốt cho mọi việc.')
+    let startGood = [];
+    if ((month === 1 && name === 'Đinh') || 
+    (month === 2 && name === 'Thân') ||
+    (month === 3 && name === 'Nhâm') || 
+    (month === 4 && name === 'Tân') || 
+    (month === 5 && name === 'Hợi') || 
+    (month === 6 && name === 'Giáp') ||
+    (month === 7 && name === 'Quý') || 
+    (month === 8 && name === 'Dần') || 
+    (month === 9 && name === 'Bính') || 
+    (month === 10 && name === 'Ất') ||
+    (month === 11 && name === 'Tỵ') || 
+    (month === 12 && name === 'Canh')
+    ) {
+    startGood.push('Sao Thiên Đức: Tốt mọi việc');
     }
 
-    if((month === 1 && name === 'Bính') || (month === 2 && name === 'Giáp') ||
-    (month === 3 && name === 'Nhâm') || (month === 4 && name === 'Canh') || 
-    (month === 5 && name === 'Bính') || (month === 6 && name === 'Giáp') ||
-    (month === 7 && name === 'Nhâm') || (month === 8 && name === 'Canh') ||
-    (month === 9 && name === 'Bính') || (month === 10 && name === 'Giáp') ||
-    (month === 11 && name === 'Nhâm') || (month === 12 && name === 'Nhâm')
-    ){
-        startGood.push('Nguyệt Đức: Tốt cho mọi việc.')
+    if ((month === 1 && name === 'Nhâm') || 
+    (month === 2 && name === 'Tý') ||
+    (month === 3 && name === 'Đinh') || 
+    (month === 4 && name === 'Bính') || 
+    (month === 5 && name === 'Dần') || 
+    (month === 6 && name === 'Kỷ') ||
+    (month === 7 && name === 'Mậu') || 
+    (month === 8 && name === 'Hợi') || 
+    (month === 9 && name === 'Tân') || 
+    (month === 10 && name === 'Canh') ||
+    (month === 11 && name === 'Thân') || 
+    (month === 12 && name === 'Ất')
+    ) {
+        startGood.push('Thiên Đức Hợp: Tốt mọi việc');
     }
 
-    if((month === 1 && name === 'Tuất') || (month === 2 && name === 'Hợi') ||
-    (month === 3 && name === 'Tý') || (month === 4 && name === 'Sửu') || 
-    (month === 5 && name === 'Dần') || (month === 6 && name === 'Mão') ||
-    (month === 7 && name === 'Thìn') || (month === 8 && name === 'Tỵ') ||
-    (month === 9 && name === 'Ngọ') || (month === 10 && name === 'Mùi') ||
-    (month === 11 && name === 'Thân') || (month === 12 && name === 'Dậu')
-    ){
-        startGood.push('Sao Thiên Hỷ: tốt mọi việc, nhất là việc cưới hỏi')
-    }
-
-    if((month === 1 && name === 'Thìn') || (month === 2 && name === 'Tỵ') ||
-    (month === 3 && name === 'Ngọ') || (month === 4 && name === 'Mùi') || 
-    (month === 5 && name === 'Thân') || (month === 6 && name === 'Dậu') ||
-    (month === 7 && name === 'Tuất') || (month === 8 && name === 'Hợi') ||
-    (month === 9 && name === 'Tý') || (month === 10 && name === 'Sửu') ||
-    (month === 11 && name === 'Dần') || (month === 12 && name === 'Mão')
-    ){
-        startGood.push('Sao Thiên Phú: tốt mọi việc, nhất là xây dựng, khai trương, an táng')
-    }
-
-
-    if((month === 1 && name === 'Tuất') || (month === 2 && name === 'Hợi') ||
-    (month === 3 && name === 'Tý') || (month === 4 && name === 'Sửu') || 
-    (month === 5 && name === 'Dần') || (month === 6 && name === 'Mão') ||
-    (month === 7 && name === 'Thìn') || (month === 8 && name === 'Tỵ') ||
-    (month === 9 && name === 'Ngọ') || (month === 10 && name === 'Mùi') ||
-    (month === 11 && name === 'Thân') || (month === 12 && name === 'Dậu')
-    ){
-        startGood.push('Sao Thiên Hỷ: tốt mọi việc, nhất là việc cưới hỏi')
-    }
-
-    if((month === 1 && name2 === 'Giáp' || name2 === "Ất") || (month === 2 && name2 === 'Giáp' || name2 === 'Ất') ||
-    (month === 3 && name2 === 'Giáp' || name2 === 'Ất') || (month === 4 && name2 === 'Bính' || name2 === 'Đinh') || 
-    (month === 5 && name2 === 'Bính' || name2 === 'Đinh') || (month === 6 && name2 === 'Bính' || name2 === 'Đinh') ||
-    (month === 7 && name2 === 'Canh'|| name2 === 'Tân') || (month === 8 && name2 === 'Canh' || name2 === 'Tân') ||
-    (month === 9 && name2 === 'Canh' || name2 === 'Tân') || (month === 10 && name2 === 'Nhâm' || name2 === 'Quý') ||
-    (month === 11 && name2 === 'Nhâm' || name2 === 'Quý') || (month === 12 && name2 === 'Nhâm' || name2 === 'Quý')
-    ){
-        startGood.push('Sao Thiên Quý: tốt mọi việc')
-    }
-
-    if((month === 1 && name === 'Dần') || (month === 2 && name === 'Dần') ||
-    (month === 3 && name === 'Dần') || (month === 4 && name === 'Tỵ') || 
-    (month === 5 && name === 'Tỵ') || (month === 6 && name === 'Tỵ') ||
-    (month === 7 && name === 'Thân') || (month === 8 && name === 'Thân') ||
-    (month === 9 && name === 'Thân') || (month === 10 && name === 'Hợi') ||
-    (month === 11 && name === 'Hợi') || (month === 12 && name === 'Hợi')
-    ){
-        startGood.push('Sao Phúc Hậu: tốt cho việc cầu tài, khai trương')
-    }
-
-    if((month === 1 && name === 'Ngọ') || (month === 2 && name === 'Ngọ') ||
-    (month === 3 && name === 'Ngọ') || (month === 4 && name === 'Dậu') || 
-    (month === 5 && name === 'Dậu') || (month === 6 && name === 'Dậu') ||
-    (month === 7 && name === 'Tý') || (month === 8 && name === 'Tý') ||
-    (month === 9 && name === 'Tý') || (month === 10 && name === 'Mão') ||
-    (month === 11 && name === 'Mão') || (month === 12 && name === 'Mão')
-    ){
-        startGood.push(' Sao Dân Nhật, Thời Đức: tốt mọi việc')
+    if ((month === 1 && name === 'Bính') || 
+    (month === 2 && name === 'Giáp') ||
+    (month === 3 && name === 'Nhâm') || 
+    (month === 4 && name === 'Canh') || 
+    (month === 5 && name === 'Bính') || 
+    (month === 6 && name === 'Giáp') ||
+    (month === 7 && name === 'Nhâm') || 
+    (month === 8 && name === 'Canh') || 
+    (month === 9 && name === 'Bính') || 
+    (month === 10 && name === 'Giáp') ||
+    (month === 11 && name === 'Nhâm') || 
+    (month === 12 && name === 'Canh')
+    ) {
+        startGood.push('Nguyệt Đức: Tốt mọi việc');
     }
 
 
-    if((month === 1 && name2 === 'Tý' || name2 === "Sửu") || (month === 2 && name2 === 'Tý' || name2 === "Sửu") ||
-    (month === 3 && name2 === 'Tý' || name2 === "Sửu") || (month === 4 && name2 === 'Thìn' || name2 === 'Tỵ') || 
-    (month === 5 && name2 === 'Thìn' || name2 === 'Tỵ') || (month === 6 && name2 === 'Thìn' || name2 === 'Tỵ') ||
-    (month === 7 && name2 === 'Ngọ'|| name2 === 'Mùi') || (month === 8 && name2 === 'Ngọ'|| name2 === 'Mùi') ||
-    (month === 9 && name2 === 'Ngọ'|| name2 === 'Mùi') || (month === 10 && name2 === 'Thân' || name2 === 'Tuất') ||
-    (month === 11 && name2 === 'Thân' || name2 === 'Tuất') || (month === 12 && name2 === 'Thân' || name2 === 'Tuất')
-    ){
-        startGood.push(' Sao Đại Hồng Sa: tốt mọi việc')
+    if ((month === 1 && name === 'Tân') || 
+    (month === 2 && name === 'Kỷ') ||
+    (month === 3 && name === 'Đinh') || 
+    (month === 4 && name === 'Ất') || 
+    (month === 5 && name === 'Tân') || 
+    (month === 6 && name === 'Kỷ') ||
+    (month === 7 && name === 'Đinh') || 
+    (month === 8 && name === 'Ất') || 
+    (month === 9 && name === 'Tân') || 
+    (month === 10 && name === 'Kỷ') ||
+    (month === 11 && name === 'Đinh') || 
+    (month === 12 && name === 'Ất')
+    ) {
+        startGood.push('Nguyệt Đức Hợp : Tốt mọi việc, kỵ tố tụng');
     }
 
-    if((month === 1 && name === 'Dậu') || (month === 2 && name === 'Mùi') ||
-    (month === 3 && name === 'Tỵ') || (month === 4 && name === 'Mão') || 
-    (month === 5 && name === 'Sửu') || (month === 6 && name === 'Hợi') ||
-    (month === 7 && name === 'Dậu') || (month === 8 && name === 'Mùi') ||
-    (month === 9 && name === 'Tỵ') || (month === 10 && name === 'Mão') ||
-    (month === 11 && name === 'Sửu') || (month === 12 && name === 'Hợi')
-    ){
-        startGood.push('Sao Âm Đức: tốt mọi việc')
+    if ((month === 1 && name === 'Tuất') || 
+    (month === 2 && name === 'Hợi') ||
+    (month === 3 && name === 'Tý') || 
+    (month === 4 && name === 'Sửu') || 
+    (month === 5 && name === 'Dần') || 
+    (month === 6 && name === 'Mão') ||
+    (month === 7 && name === 'Thìn') || 
+    (month === 8 && name === 'Tỵ') || 
+    (month === 9 && name === 'Ngọ') || 
+    (month === 10 && name === 'Mùi') ||
+    (month === 11 && name === 'Thân') || 
+    (month === 12 && name === 'Dậu')
+    ) {
+        startGood.push('Sao Thiên Hỷ(trực thành): Tốt mọi việc, nhất là hôn thú');
     }
 
-    if((month === 1 && name === 'Hợi') || (month === 2 && name === 'Thìn') ||
-    (month === 3 && name === 'Sửu') || (month === 4 && name === 'Ngọ') || 
-    (month === 5 && name === 'Mão') || (month === 6 && name === 'Thân') ||
-    (month === 7 && name === 'Tỵ') || (month === 8 && name === 'Tuất') ||
-    (month === 9 && name === 'Mùi') || (month === 10 && name === 'Tỵ') ||
-    (month === 11 && name === 'Dậu') || (month === 12 && name === 'Dần')
-    ){
-        startGood.push('Sao U Vi Tinh: tốt mọi việc')
+    if ((month === 1 && name === 'Thìn') || 
+    (month === 2 && name === 'Tỵ') ||
+    (month === 3 && name === 'Ngọ') || 
+    (month === 4 && name === 'Mùi') || 
+    (month === 5 && name === 'Thân') || 
+    (month === 6 && name === 'Dậu') ||
+    (month === 7 && name === 'Tuất') || 
+    (month === 8 && name === 'Hợi') || 
+    (month === 9 && name === 'Tý') || 
+    (month === 10 && name === 'Sửu') ||
+    (month === 11 && name === 'Dần') || 
+    (month === 12 && name === 'Mão')
+    ) {
+        startGood.push('Sao Thiên Phú(trực mãn): Tốt mọi việc, nhất là xây dựng nhà cửa, khai trương và an táng');
     }
 
-    if((month === 1 && name === 'Mùi') || (month === 2 && name === 'Sửu') ||
-    (month === 3 && name === 'Thân') || (month === 4 && name === 'Dần') || 
-    (month === 5 && name === 'Dậu') || (month === 6 && name === 'Mão') ||
-    (month === 7 && name === 'Tuất') || (month === 8 && name === 'Thìn') ||
-    (month === 9 && name === 'Hợi') || (month === 10 && name === 'Tỵ') ||
-    (month === 11 && name === 'Tý') || (month === 12 && name === 'Ngọ')
-    ){
-        startGood.push('Sao Kính Tâm: tốt với việc tang tế')
+    if ((month === 1 && name === 'Tý') || 
+    (month === 2 && name === 'Sửu') ||
+    (month === 3 && name === 'Dần') || 
+    (month === 4 && name === 'Mão') || 
+    (month === 5 && name === 'Thìn') || 
+    (month === 6 && name === 'Tỵ') ||
+    (month === 7 && name === 'Ngọ') || 
+    (month === 8 && name === 'Mùi') || 
+    (month === 9 && name === 'Thân') || 
+    (month === 10 && name === 'Dậu') ||
+    (month === 11 && name === 'Tuất') || 
+    (month === 12 && name === 'Hợi')
+    ) {
+        startGood.push('Sao Sinh Khí(trực khai): Tốt mọi việc, nhất là làm nhà, sửa nhà, động thổ, trồng cây');
     }
 
-    if((month === 1 && name === 'Sửu') || (month === 2 && name === 'Tý') ||
-    (month === 3 && name === 'Hợi') || (month === 4 && name === 'Tuất') || 
-    (month === 5 && name === 'Dậu') || (month === 6 && name === 'Thân') ||
-    (month === 7 && name === 'Mùi') || (month === 8 && name === 'Ngọ') ||
-    (month === 9 && name === 'Tỵ') || (month === 10 && name === 'Thìn') ||
-    (month === 11 && name === 'Mão') || (month === 12 && name === 'Dần')
-    ){
-        startGood.push('Sao Tuế Hợp: tốt mọi việc')
+    if ((month === 1 && name === 'Kỷ') || 
+    (month === 2 && name === 'Mậu') ||
+    (month === 4 && name === 'Tân' || name === 'Quý') || 
+    (month === 5 &&  name === 'Tân'|| name === 'Nhâm') || 
+    (month === 7 && name === 'Ất') || 
+    (month === 8 && name === 'Giáp') || 
+    (month === 10 && name === 'Đinh') ||
+    (month === 11 && name === 'Bính')
+    ) {
+        startGood.push('Sao Thiên Phúc: Tốt mọi việc');
     }
 
-    if((month === 1 && name === 'Thân') || (month === 2 && name === 'Thân') ||
-    (month === 3 && name === 'Dậu') || (month === 4 && name === 'Dậu') || 
-    (month === 5 && name === 'Tuất') || (month === 6 && name === 'Tuất') ||
-    (month === 7 && name === 'Hợi') || (month === 8 && name === 'Hợi') ||
-    (month === 9 && name === 'Ngọ') || (month === 10 && name === 'Ngọ') ||
-    (month === 11 && name === 'Mùi') || (month === 12 && name === 'Mùi')
-    ){
-        startGood.push('Sao Nguyệt Giải: tốt mọi việc')
+    if ((month === 1 && name === 'Mùi') || 
+    (month === 2 && name === 'Dậu') ||
+    (month === 3 && name === 'Hợi') || 
+    (month === 4 && name === 'Sửu') || 
+    (month === 5 && name === 'Mão') || 
+    (month === 6 && name === 'Tỵ') ||
+    (month === 7 && name === 'Mùi') || 
+    (month === 8 && name === 'Dậu') || 
+    (month === 9 && name === 'Hợi') || 
+    (month === 10 && name === 'Sửu') ||
+    (month === 11 && name === 'Mão') || 
+    (month === 12 && name === 'Tỵ')
+    ) {
+        startGood.push('Sao Thiên thành (Ngọc đường Hoàng Đạo): Tốt mọi việc');
     }
 
-    console.log(startGood);
+    if ((month === 1 && name === 'Tuất') || 
+    (month === 2 && name === 'Tý') ||
+    (month === 3 && name === 'Dần') || 
+    (month === 4 && name === 'Thìn') || 
+    (month === 5 && name === 'Ngọ') || 
+    (month === 6 && name === 'Thân') ||
+    (month === 7 && name === 'Tuất') || 
+    (month === 8 && name === 'Tý') || 
+    (month === 9 && name === 'Dần') || 
+    (month === 10 && name === 'Thìn') ||
+    (month === 11 && name === 'Ngọ') || 
+    (month === 12 && name === 'Thân')
+    ) {
+        startGood.push('Sao Thiên Quan trùng với Tư mệnh Hoàng Đạo: Tốt mọi việc');
+    }
+
+    if ((month === 1 && name === 'Ngọ') || 
+    (month === 2 && name === 'Thân') ||
+    (month === 3 && name === 'Tuất') || 
+    (month === 4 && name === 'Tý') || 
+    (month === 5 && name === 'Dần') || 
+    (month === 6 && name === 'Thìn') ||
+    (month === 7 && name === 'Ngọ') || 
+    (month === 8 && name === 'Thân') || 
+    (month === 9 && name === 'Tuất') || 
+    (month === 10 && name === 'Tý') ||
+    (month === 11 && name === 'Dần') || 
+    (month === 12 && name === 'Thìn')
+    ) {
+        startGood.push(' Sao Thiên Mã (Lộc mã) trùng với Bạch hổ - xấu: Tốt cho việc xuất hành, giao dịch, cầu tài lộc');
+    }
+
+    if ((month === 1 && name === 'Thìn') || 
+    (month === 2 && name === 'Ngọ') ||
+    (month === 3 && name === 'Thân') || 
+    (month === 4 && name === 'Tuất') || 
+    (month === 5 && name === 'Tý') || 
+    (month === 6 && name === 'Dần') ||
+    (month === 7 && name === 'Thìn') || 
+    (month === 8 && name === 'Ngọ') || 
+    (month === 9 && name === 'Thân') || 
+    (month === 10 && name === 'Tuất') ||
+    (month === 11 && name === 'Tý') || 
+    (month === 12 && name === 'Dần')
+    ) {
+        startGood.push('Sao Thiên Tài trùng ngày Kim Quỹ Hoàng Đạo: Tốt cho việc cầu tài lộc, khai trương');
+    }
+
+    if ((month === 1 && name === 'Tỵ') || 
+    (month === 2 && name === 'Mùi') ||
+    (month === 3 && name === 'Dậu') || 
+    (month === 4 && name === 'Hợi') || 
+    (month === 5 && name === 'Sửu') || 
+    (month === 6 && name === 'Mão') ||
+    (month === 7 && name === 'Tỵ') || 
+    (month === 8 && name === 'Mùi') || 
+    (month === 9 && name === 'Dậu') || 
+    (month === 10 && name === 'Hợi') ||
+    (month === 11 && name === 'Sửu') || 
+    (month === 12 && name === 'Mão')
+    ) {
+        startGood.push('Sao Địa Tài trùng ngày Bảo quang Hoàng đạo: Tốt cho việc cầu tài lộc, khai trương');
+    }
+
+
+    if ((month === 1 && name === 'Ngọ') || 
+    (month === 2 && name === 'Tỵ') ||
+    (month === 3 && name === 'Tỵ') || 
+    (month === 4 && name === 'Mùi') || 
+    (month === 5 && name === 'Dậu') || 
+    (month === 6 && name === 'Hợi') ||
+    (month === 7 && name === 'Ngọ') || 
+    (month === 8 && name === 'Tỵ') || 
+    (month === 9 && name === 'Tỵ') || 
+    (month === 10 && name === 'Mùi') ||
+    (month === 11 && name === 'Dậu') || 
+    (month === 12 && name === 'Hợi')
+    ) {
+        startGood.push('Sao Nguyệt Tài: Tốt cho việc cầu tài lộc, khai trương, xuất hành, di chuyển, giao dịch');
+    }
+
+    if ((month === 1 && name === 'Bính') || 
+    (month === 2 && name === 'Đinh') ||
+    (month === 3 && name === 'Canh') || 
+    (month === 4 && name === 'Kỷ') || 
+    (month === 5 && name === 'Mậu') || 
+    (month === 6 && name === 'Tân') ||
+    (month === 7 && name === 'Nhâm') || 
+    (month === 8 && name === 'Quý') || 
+    (month === 9 && name === 'Canh') || 
+    (month === 10 && name === 'Ất') ||
+    (month === 11 && name === 'Giáp') || 
+    (month === 12 && name === 'Tân')
+    ) {
+        startGood.push('Sao Nguyệt Ân: Tốt mọi việc');
+    }
+
+    if ((month === 1 && name === 'Nhâm') || 
+    (month === 2 && name === 'Canh') ||
+    (month === 3 && name === 'Bính') || 
+    (month === 4 && name === 'Giáp') || 
+    (month === 5 && name === 'Nhâm') || 
+    (month === 6 && name === 'Canh') ||
+    (month === 7 && name === 'Bính') || 
+    (month === 8 && name === 'Giáp') || 
+    (month === 9 && name === 'Nhâm') || 
+    (month === 10 && name === 'Canh') ||
+    (month === 11 && name === 'Bính') || 
+    (month === 12 && name === 'Giáp')
+    ) {
+        startGood.push('Sao Nguyệt Không: Tốt cho việc làm nhà');
+    }
+
+    if ((month === 1 && name === 'Thân') || 
+    (month === 2 && name === 'Tuất') ||
+    (month === 3 && name === 'Tý') || 
+    (month === 4 && name === 'Dần') || 
+    (month === 5 && name === 'Thìn') || 
+    (month === 6 && name === 'Ngọ') ||
+    (month === 7 && name === 'Thân') || 
+    (month === 8 && name === 'Tuất') || 
+    (month === 9 && name === 'Tý') || 
+    (month === 10 && name === 'Dần') ||
+    (month === 11 && name === 'Thìn') || 
+    (month === 12 && name === 'Ngọ')
+    ) {
+        startGood.push('Sao Minh Tinh: Tốt mọi việc');
+    }
+
+    if ((month === 1 && name === 'Hợi') || 
+    (month === 2 && name === 'Tỵ') ||
+    (month === 3 && name === 'Tý') || 
+    (month === 4 && name === 'Ngọ') || 
+    (month === 5 && name === 'Sửu') || 
+    (month === 6 && name === 'Mùi') ||
+    (month === 7 && name === 'Dần') || 
+    (month === 8 && name === 'Thân') || 
+    (month === 9 && name === 'Mão') || 
+    (month === 10 && name === 'Dậu') ||
+    (month === 11 && name === 'Thìn') || 
+    (month === 12 && name === 'Tuất')
+    ) {
+        startGood.push('Sao Thánh Tâm: Tốt mọi việc, nhất là cầu phúc, tế tự');
+    }
+
+    if ((month === 1 && name === 'Hợi') || 
+    (month === 2 && name === 'Dần') ||
+    (month === 3 && name === 'Tỵ') || 
+    (month === 4 && name === 'Thân') || 
+    (month === 5 && name === 'Hợi') || 
+    (month === 6 && name === 'Dần') ||
+    (month === 7 && name === 'Tỵ') || 
+    (month === 8 && name === 'Thân') || 
+    (month === 9 && name === 'Hợi') || 
+    (month === 10 && name === 'Dần') ||
+    (month === 11 && name === 'Tỵ') || 
+    (month === 12 && name === 'Thân')
+    ) {
+        startGood.push('Sao Ngũ Phú: Tốt mọi việc');
+    }
+
+    if ((month === 1 && name === 'Thìn') || 
+    (month === 2 && name === 'Tỵ') ||
+    (month === 3 && name === 'Ngọ') || 
+    (month === 4 && name === 'Mùi') || 
+    (month === 5 && name === 'Thân') || 
+    (month === 6 && name === 'Dậu') ||
+    (month === 7 && name === 'Tuất') || 
+    (month === 8 && name === 'Hợi') || 
+    (month === 9 && name === 'Tý') || 
+    (month === 10 && name === 'Sửu') ||
+    (month === 11 && name === 'Dần') || 
+    (month === 12 && name === 'Mão')
+    ) {
+        startGood.push('Sao Lộc Khố: Tốt cho việc cầu tài, khai trương, giao dịch');
+    }
+
+    if ((month === 1 && name === 'Dậu') || 
+    (month === 2 && name === 'Mão') ||
+    (month === 3 && name === 'Tuất') || 
+    (month === 4 && name === 'Thìn') || 
+    (month === 5 && name === 'Hợi') || 
+    (month === 6 && name === 'Tỵ') ||
+    (month === 7 && name === 'Tý') || 
+    (month === 8 && name === 'Ngọ') || 
+    (month === 9 && name === 'Sửu') || 
+    (month === 10 && name === 'Mùi') ||
+    (month === 11 && name === 'Dần') || 
+    (month === 12 && name === 'Thân')
+    ) {
+        startGood.push('Sao Phúc Sinh: Tốt mọi việc');
+    }
+
+    if ((month === 1 && name === 'Dậu') || 
+    (month === 2 && name === 'Dần') ||
+    (month === 3 && name === 'Hợi') || 
+    (month === 4 && name === 'Thìn') || 
+    (month === 5 && name === 'Sửu') || 
+    (month === 6 && name === 'Ngọ') ||
+    (month === 7 && name === 'Mão') || 
+    (month === 8 && name === 'Thân') || 
+    (month === 9 && name === 'Tỵ') || 
+    (month === 10 && name === 'Tuất') ||
+    (month === 11 && name === 'Mùi') || 
+    (month === 12 && name === 'Tý')
+    ) {
+        startGood.push('Sao Cát Khánh: Tốt mọi việc');
+    }
+
+    if ((month === 1 && name === 'Dậu') || 
+    (month === 2 && name === 'Mùi') ||
+    (month === 3 && name === 'Tỵ') || 
+    (month === 4 && name === 'Mão') || 
+    (month === 5 && name === 'Sửu') || 
+    (month === 6 && name === 'Hợi') ||
+    (month === 7 && name === 'Dậu') || 
+    (month === 8 && name === 'Mùi') || 
+    (month === 9 && name === 'Tỵ') || 
+    (month === 10 && name === 'Mão') ||
+    (month === 11 && name === 'Sửu') || 
+    (month === 12 && name === 'Hợi')
+    ) {
+        startGood.push('Sao Âm Đức: Tốt mọi việc');
+    }
+
+    if ((month === 1 && name === 'Hợi') || 
+    (month === 2 && name === 'Thìn') ||
+    (month === 3 && name === 'Sửu') || 
+    (month === 4 && name === 'Ngọ') || 
+    (month === 5 && name === 'Mão') || 
+    (month === 6 && name === 'Thân') ||
+    (month === 7 && name === 'Tỵ') || 
+    (month === 8 && name === 'Tuất') || 
+    (month === 9 && name === 'Mùi') || 
+    (month === 10 && name === 'Tý') ||
+    (month === 11 && name === 'Dậu') || 
+    (month === 12 && name === 'Dần')
+    ) {
+        startGood.push('Sao U Vi Tinh: Tốt mọi việc');
+    }
+
+    if ((month === 1 && name === 'Dần') || 
+    (month === 2 && name === 'Mùi') ||
+    (month === 3 && name === 'Thìn') || 
+    (month === 4 && name === 'Dậu') || 
+    (month === 5 && name === 'Ngọ') || 
+    (month === 6 && name === 'Hợi') ||
+    (month === 7 && name === 'Thân') || 
+    (month === 8 && name === 'Sửu') || 
+    (month === 9 && name === 'Tuất') || 
+    (month === 10 && name === 'Mão') ||
+    (month === 11 && name === 'Tý') || 
+    (month === 12 && name === 'Tỵ')
+    ) {
+        startGood.push('Sao Mãn Đức Tinh: Tốt mọi việc');
+    }
+
+    if ((month === 1 && name === 'Mùi') || 
+    (month === 2 && name === 'Sửu') ||
+    (month === 3 && name === 'Thân') || 
+    (month === 4 && name === 'Dần') || 
+    (month === 5 && name === 'Dậu') || 
+    (month === 6 && name === 'Mão') ||
+    (month === 7 && name === 'Tuất') || 
+    (month === 8 && name === 'Thìn') || 
+    (month === 9 && name === 'Hợi') || 
+    (month === 10 && name === 'Tỵ') ||
+    (month === 11 && name === 'Tý') || 
+    (month === 12 && name === 'Ngọ')
+    ) {
+        startGood.push('Sao Kính Tâm: Tốt đối với tang lễ');
+    }
+
+    if ((month === 1 && name === 'Sửu') || 
+    (month === 2 && name === 'Tý') ||
+    (month === 3 && name === 'Hợi') || 
+    (month === 4 && name === 'Tuất') || 
+    (month === 5 && name === 'Dậu') || 
+    (month === 6 && name === 'Thân') ||
+    (month === 7 && name === 'Mùi') || 
+    (month === 8 && name === 'Ngọ') || 
+    (month === 9 && name === 'Tỵ') || 
+    (month === 10 && name === 'Thìn') ||
+    (month === 11 && name === 'Mão') || 
+    (month === 12 && name === 'Dần')
+    ) {
+        startGood.push('Sao Tuế Hợp: Tốt mọi việc');
+    }
+
+    if ((month === 1 && name === 'Thân') || 
+    (month === 2 && name === 'Thân') ||
+    (month === 3 && name === 'Dậu') || 
+    (month === 4 && name === 'Dậu') || 
+    (month === 5 && name === 'Tuất') || 
+    (month === 6 && name === 'Tuất') ||
+    (month === 7 && name === 'Hợi') || 
+    (month === 8 && name === 'Hợi') || 
+    (month === 9 && name === 'Ngọ') || 
+    (month === 10 && name === 'Ngọ') ||
+    (month === 11 && name === 'Mùi') || 
+    (month === 12 && name === 'Mùi')
+    ) {
+        startGood.push('Sao Nguyệt Giải: Tốt mọi việc');
+    }
     
+    if ((month === 2 && name === 'Mão') || 
+    (month === 5 && name === 'Ngọ') ||
+    (month === 11 && name === 'Tý') ||
+    (month === 8 && name === 'Dậu')){
+        startGood.push('Sao Quan Nhật: Tốt mọi việc');
+    }
+
+    if ((month === 1 && name === 'Tỵ') || 
+    (month === 2 && name === 'Tuất') ||
+    (month === 3 && name === 'Mùi') || 
+    (month === 4 && name === 'Tý') || 
+    (month === 5 && name === 'Dậu') || 
+    (month === 6 && name === 'Dần') ||
+    (month === 7 && name === 'Hợi') || 
+    (month === 8 && name === 'Thìn') || 
+    (month === 9 && name === 'Sửu') || 
+    (month === 10 && name === 'Ngọ') ||
+    (month === 11 && name === 'Mão') || 
+    (month === 12 && name === 'Thân')
+    ) {
+        startGood.push('Sao Hoạt Điệu: Tốt, nhưng gặp thụ tử thì xấu');
+    }
+
+    if ((month === 1 && name === 'Thân') || 
+    (month === 2 && name === 'Thân') ||
+    (month === 3 && name === 'Tuất') || 
+    (month === 4 && name === 'Tuất') || 
+    (month === 5 && name === 'Tý') || 
+    (month === 6 && name === 'Tý') ||
+    (month === 7 && name === 'Dần') || 
+    (month === 8 && name === 'Dần') || 
+    (month === 9 && name === 'Thìn') || 
+    (month === 10 && name === 'Thìn') ||
+    (month === 11 && name === 'Ngọ') || 
+    (month === 12 && name === 'Ngọ')
+    ) {
+        startGood.push('Sao Giải Thần: Tốt cho việc tế tự, tố tụng, giải oan (trừ được các sao xấu)');
+    }
+
+    if ((month === 1 && name === 'Thân') || 
+    (month === 2 && name === 'Dần') ||
+    (month === 3 && name === 'Dậu') || 
+    (month === 4 && name === 'Mão') || 
+    (month === 5 && name === 'Tuất') || 
+    (month === 6 && name === 'Thìn') ||
+    (month === 7 && name === 'Hợi') || 
+    (month === 8 && name === 'Tỵ') || 
+    (month === 9 && name === 'Tý') || 
+    (month === 10 && name === 'Ngọ') ||
+    (month === 11 && name === 'Sửu') || 
+    (month === 12 && name === 'Mùi')
+    ) {
+        startGood.push('Sao Phổ Hộ: Tốt mọi việc, làm phúc, giá thú, xuất hành');
+    }
+
+    if ((month === 1 && name === 'Tý') || 
+    (month === 2 && name === 'Ngọ') ||
+    (month === 3 && name === 'Sửu') || 
+    (month === 4 && name === 'Mùi') || 
+    (month === 5 && name === 'Dần') || 
+    (month === 6 && name === 'Thân') ||
+    (month === 7 && name === 'Mão') || 
+    (month === 8 && name === 'Dậu') || 
+    (month === 9 && name === 'Thìn') || 
+    (month === 10 && name === 'Tuất') ||
+    (month === 11 && name === 'Tỵ') || 
+    (month === 12 && name === 'Hợi')
+    ) {
+        startGood.push('Sao Ích Hậu: Tốt mọi việc, nhất là giá thú');
+    }
+
+    if ((month === 1 && name === 'Sửu') || 
+    (month === 2 && name === 'Mùi') ||
+    (month === 3 && name === 'Dần') || 
+    (month === 4 && name === 'Thân') || 
+    (month === 5 && name === 'Mão') || 
+    (month === 6 && name === 'Dậu') ||
+    (month === 7 && name === 'Thìn') || 
+    (month === 8 && name === 'Tuất') || 
+    (month === 9 && name === 'Tỵ') || 
+    (month === 10 && name === 'Hợi') ||
+    (month === 11 && name === 'Ngọ') || 
+    (month === 12 && name === 'Tý')
+    ) {
+        startGood.push('Sao Tục Thế: Tốt mọi việc, nhất là giá thú');
+    }
+
+    if ((month === 1 && name === 'Dần') || 
+    (month === 2 && name === 'Thân') ||
+    (month === 3 && name === 'Mão') || 
+    (month === 4 && name === 'Dậu') || 
+    (month === 5 && name === 'Thìn') || 
+    (month === 6 && name === 'Tuất') ||
+    (month === 7 && name === 'Tỵ') || 
+    (month === 8 && name === 'Hợi') || 
+    (month === 9 && name === 'Ngọ') || 
+    (month === 10 && name === 'Tý') ||
+    (month === 11 && name === 'Mùi') || 
+    (month === 12 && name === 'Sửu')
+    ) {
+        startGood.push('Sao Yếu Yên (Thiên Quý): Tốt mọi việc, nhất là giá thú');
+    }
+
+    if ((month === 1 && name === 'Thân') || 
+    (month === 2 && name === 'Tỵ') ||
+    (month === 3 && name === 'Dần') || 
+    (month === 4 && name === 'Hợi') || 
+    (month === 5 && name === 'Thân') || 
+    (month === 6 && name === 'Tỵ') ||
+    (month === 7 && name === 'Dần') || 
+    (month === 8 && name === 'Hợi') || 
+    (month === 9 && name === 'Thân') || 
+    (month === 10 && name === 'Tỵ') ||
+    (month === 11 && name === 'Dần') || 
+    (month === 12 && name === 'Hợi')
+    ) {
+        startGood.push('Sao Dịch Mã: Tốt mọi việc, nhất là xuất hành');
+    }
+
+    if ((month === 1 && name === 'Hợi') || 
+    (month === 2 && name === 'Tuất') ||
+    (month === 3 && name === 'Dậu') || 
+    (month === 4 && name === 'Thân') || 
+    (month === 5 && name === 'Mùi') || 
+    (month === 6 && name === 'Ngọ') ||
+    (month === 7 && name === 'Tỵ') || 
+    (month === 8 && name === 'Thìn') || 
+    (month === 9 && name === 'Mão') || 
+    (month === 10 && name === 'Dần') ||
+    (month === 11 && name === 'Sửu') || 
+    (month === 12 && name === 'Tý')
+    ) {
+        startGood.push('Sao Lục Hợp: Tốt mọi việc');
+    }
+
+    if ((month === 1 && name === 'Dần') || 
+    (month === 2 && name === 'Dần') ||
+    (month === 3 && name === 'Dần') || 
+    (month === 4 && name === 'Tỵ') || 
+    (month === 5 && name === 'Tỵ') || 
+    (month === 6 && name === 'Tỵ') ||
+    (month === 7 && name === 'Thân') || 
+    (month === 8 && name === 'Thân') || 
+    (month === 9 && name === 'Thân') || 
+    (month === 10 && name === 'Hợi') ||
+    (month === 11 && name === 'Hợi') || 
+    (month === 12 && name === 'Hợi')
+    ) {
+        startGood.push('Sao Phúc Hậu: Tốt về cầu tài lộc, khai trương');
+    }
+
+    if ((month === 1 && name === 'Ngọ') || 
+    (month === 2 && name === 'Ngọ') ||
+    (month === 3 && name === 'Ngọ') || 
+    (month === 4 && name === 'Dậu') || 
+    (month === 5 && name === 'Dậu') || 
+    (month === 6 && name === 'Dậu') ||
+    (month === 7 && name === 'Tý') || 
+    (month === 8 && name === 'Tý') || 
+    (month === 9 && name === 'Tý') || 
+    (month === 10 && name === 'Mão') ||
+    (month === 11 && name === 'Mão') || 
+    (month === 12 && name === 'Mão')
+    ) {
+        startGood.push('Sao Dân Nhật, Thời Đức: Tốt mọi việc');
+    }
+
+    if ((month === 1 && name === 'Tuất') || 
+    (month === 2 && name === 'Sửu') ||
+    (month === 3 && name === 'Dần') || 
+    (month === 4 && name === 'Tỵ') || 
+    (month === 5 && name === 'Dậu') || 
+    (month === 6 && name === 'Mão') ||
+    (month === 7 && name === 'Tý') || 
+    (month === 8 && name === 'Ngọ') || 
+    (month === 9 && name === 'Hợi') || 
+    (month === 10 && name === 'Thìn') ||
+    (month === 11 && name === 'Thân') || 
+    (month === 12 && name === 'Mùi')
+    ) {
+        startGood.push('Sao Hoàng Ân: Tốt mọi việc');
+    }
+
+    if ((month === 1 && name === 'Tý') || 
+    (month === 2 && name === 'Dần') ||
+    (month === 3 && name === 'Thìn') || 
+    (month === 4 && name === 'Ngọ') || 
+    (month === 5 && name === 'Thân') || 
+    (month === 6 && name === 'Tuất') ||
+    (month === 7 && name === 'Tý') || 
+    (month === 8 && name === 'Dần') || 
+    (month === 9 && name === 'Thìn') || 
+    (month === 10 && name === 'Ngọ') ||
+    (month === 11 && name === 'Thân') || 
+    (month === 12 && name === 'Tuất')
+    ) {
+        startGood.push('Sao Thanh Long Hoàng Đạo: Tốt mọi việc');
+    }
+
+    if ((month === 1 && name === 'Sửu') || 
+    (month === 2 && name === 'Mão') ||
+    (month === 3 && name === 'Tỵ') || 
+    (month === 4 && name === 'Mùi') || 
+    (month === 5 && name === 'Dậu') || 
+    (month === 6 && name === 'Hợi') ||
+    (month === 7 && name === 'Sửu') || 
+    (month === 8 && name === 'Mão') || 
+    (month === 9 && name === 'Tỵ') || 
+    (month === 10 && name === 'Mùi') ||
+    (month === 11 && name === 'Dậu') || 
+    (month === 12 && name === 'Hợi')
+    ) {
+        startGood.push('Sao Minh Đường Hoàng Đạo: Tốt mọi việc');
+    }
+
+    if ((month === 1 && name === 'Tỵ') || 
+    (month === 2 && name === 'Mùi') ||
+    (month === 3 && name === 'Dậu') || 
+    (month === 4 && name === 'Hợi') || 
+    (month === 5 && name === 'Sửu') || 
+    (month === 6 && name === 'Mão') ||
+    (month === 7 && name === 'Tỵ') || 
+    (month === 8 && name === 'Mùi') || 
+    (month === 9 && name === 'Dậu') || 
+    (month === 10 && name === 'Hợi') ||
+    (month === 11 && name === 'Sửu') || 
+    (month === 12 && name === 'Mão')
+    ) {
+        startGood.push('Sao Kim Đường Hoàng Đạo: Tốt mọi việc');
+    }
+
+    if ((month === 1 && name === 'Mùi') || 
+    (month === 2 && name === 'Dậu') ||
+    (month === 3 && name === 'Hợi') || 
+    (month === 4 && name === 'Sửu') || 
+    (month === 5 && name === 'Mão') || 
+    (month === 6 && name === 'Tỵ') ||
+    (month === 7 && name === 'Mùi') || 
+    (month === 8 && name === 'Dậu') || 
+    (month === 9 && name === 'Hợi') || 
+    (month === 10 && name === 'Sửu') ||
+    (month === 11 && name === 'Mão') || 
+    (month === 12 && name === 'Tỵ')
+    ) {
+        startGood.push('Sao Ngọc Đường Hoàng Đạo: Tốt mọi việc');
+    }
+
+    if((month === 1|| month === 2 || month === 3 && name === 'Hợi' || name === "Tý")||
+    (month === 4|| month === 5 || month === 6 && name === 'Dần' || name === "Mão")  ||
+    (month === 7|| month === 8 || month === 9 && name === 'Thìn' || name === "Sửu") ||
+    (month === 10|| month === 11 || month === 12 && name === 'Thân' || name === "Dậu")){
+        startGood.push('Sao Mẫu Thương: Tốt về cầu tài lộc, khai trương');    
+    }
+
+    if((month === 1|| month === 2 || month === 3 && name === 'Tý' || name === "Sửu")||
+    (month === 4|| month === 5 || month === 6 && name === 'Thìn' || name === "Tỵ")  ||
+    (month === 7|| month === 8 || month === 9 && name === 'Ngọ' || name === "Mùi") ||
+    (month === 10|| month === 11 || month === 12 && name === 'Thân' || name === "Tuất")){
+        startGood.push('Đại Hồng Sa: Tốt mọi việc');    
+    }
+
+    if((month === 1|| month === 2 || month === 3 && nameDay === 'Mậu Dần')||
+    (month === 4 || month === 6 && nameDay === 'Giáp Ngọ')  ||
+    (month === 7|| month === 8 || month === 9 && nameDay === 'Mậu Thân') ||
+    (month === 10 || month === 12 && nameDay === 'Giáp Tý')){
+        startGood.push('Thiên Xá: Tốt cho tế tự, giải oan, trừ được các sao xấu, chỉ kiêng kỵ động thổ. Nếu gặp trực khai thì rất tốt tức là ngày thiên xá gặp sinh khí');    
+    }
+
+    if((month === 1|| month === 2 || month === 3 && name === 'Giáp' || name === "Ất")||
+    (month === 4|| month === 5 || month === 6 && name === 'Bính' || name === "Đinh")  ||
+    (month === 7|| month === 8 || month === 9 && name === 'Canh' || name === "Tân") ||
+    (month === 10|| month === 11 || month === 12 && name === 'Nhâm' || name === "Quý")){
+        startGood.push('Đại Hồng Sa: Tốt mọi việc');    
+    }
     return startGood;
 }
+
+const startBadDay =(nameDay, ngayAm)=> {
+    const day = nameDay.split(' ');
+    const name = day[1];
+    const monthOfDay = ngayAm.split('-');
+    const month = Number(monthOfDay[1]);
+    let startBad = [];
+
+    if ((month === 1 && name === 'Tỵ') || 
+    (month === 2 && name === 'Tý') ||
+    (month === 3 && name === 'Mùi') || 
+    (month === 4 && name === 'Dần') || 
+    (month === 5 && name === 'Dậu') || 
+    (month === 6 && name === 'Thìn') ||
+    (month === 7 && name === 'Hợi') || 
+    (month === 8 && name === 'Ngọ') || 
+    (month === 9 && name === 'Sửu') || 
+    (month === 10 && name === 'Thân') ||
+    (month === 11 && name === 'Mão') || 
+    (month === 12 && name === 'Tuất')
+    ) {
+        startBad.push('Sao Thiên Cương (hay Diệt Môn): Xấu mọi việc');
+    }
+
+    if ((month === 1 && name === 'Dậu') || 
+    (month === 2 && name === 'Ngọ') ||
+    (month === 3 && name === 'Mão') || 
+    (month === 4 && name === 'Tý') || 
+    (month === 5 && name === 'Dậu') || 
+    (month === 6 && name === 'Ngọ') ||
+    (month === 7 && name === 'Mão') || 
+    (month === 8 && name === 'Tý') || 
+    (month === 9 && name === 'Dậu') || 
+    (month === 10 && name === 'Ngọ') ||
+    (month === 11 && name === 'Mão') || 
+    (month === 12 && name === 'Tý')
+    ) {
+        startBad.push('Sao Thiên Lại: Xấu mọi việc');
+    }
+
+    if ((month === 1 && name === 'Tý') || 
+    (month === 2 && name === 'Mão') ||
+    (month === 3 && name === 'Ngọ') || 
+    (month === 4 && name === 'Dậu') || 
+    (month === 5 && name === 'Tý') || 
+    (month === 6 && name === 'Mão') ||
+    (month === 7 && name === 'Ngọ') || 
+    (month === 8 && name === 'Dậu') || 
+    (month === 9 && name === 'Tý') || 
+    (month === 10 && name === 'Mão') ||
+    (month === 11 && name === 'Ngọ') || 
+    (month === 12 && name === 'Dậu')
+    ) {
+        startBad.push('Sao Thiên Ngục và Thiên Hoả: Xấu mọi việc và xấu về lợp nhà');
+    }
+    
+    if ((month === 1 && name === 'Tỵ') || 
+    (month === 2 && name === 'Dậu') ||
+    (month === 3 && name === 'Sửu') || 
+    (month === 4 && name === 'Tỵ') || 
+    (month === 5 && name === 'Dậu') || 
+    (month === 6 && name === 'Sửu') ||
+    (month === 7 && name === 'Tỵ') || 
+    (month === 8 && name === 'Dậu') || 
+    (month === 9 && name === 'Sửu') || 
+    (month === 10 && name === 'Tỵ') ||
+    (month === 11 && name === 'Dậu') || 
+    (month === 12 && name === 'Sửu')
+    ) {
+        startBad.push('Sao Tiểu Hồng Sa: Xấu mọi việc');
+    }
+
+    if ((month === 1 && name === 'Ngọ') || 
+    (month === 2 && name === 'Mùi') ||
+    (month === 3 && name === 'Thân') || 
+    (month === 4 && name === 'Dậu') || 
+    (month === 5 && name === 'Tuất') || 
+    (month === 6 && name === 'Hợi') ||
+    (month === 7 && name === 'Tý') || 
+    (month === 8 && name === 'Sửu') || 
+    (month === 9 && name === 'Dần') || 
+    (month === 10 && name === 'Mão') ||
+    (month === 11 && name === 'Thìn') || 
+    (month === 12 && name === 'Tỵ')
+    ) {
+        startBad.push('Sao Đại Hao (Tử khí, quan phú): Xấu mọi việc');
+    }
+
+    if ((month === 1 && name === 'Tỵ') || 
+    (month === 2 && name === 'Ngọ') ||
+    (month === 3 && name === 'Mùi') || 
+    (month === 4 && name === 'Thân') || 
+    (month === 5 && name === 'Dậu') || 
+    (month === 6 && name === 'Tuất') ||
+    (month === 7 && name === 'Hợi') || 
+    (month === 8 && name === 'Tý') || 
+    (month === 9 && name === 'Sửu') || 
+    (month === 10 && name === 'Dần') ||
+    (month === 11 && name === 'Mão') || 
+    (month === 12 && name === 'Thìn')
+    ) {
+        startBad.push('Sao Tiểu Hao: Xấu về kinh doanh, cầu tài');
+    }
+
+    if ((month === 1 && name === 'Hợi') || 
+    (month === 2 && name === 'Thân') ||
+    (month === 3 && name === 'Tỵ') || 
+    (month === 4 && name === 'Dần') || 
+    (month === 5 && name === 'Hợi') || 
+    (month === 6 && name === 'Thân') ||
+    (month === 7 && name === 'Tỵ') || 
+    (month === 8 && name === 'Dần') || 
+    (month === 9 && name === 'Hợi') || 
+    (month === 10 && name === 'Thân') ||
+    (month === 11 && name === 'Tỵ') || 
+    (month === 12 && name === 'Dần')
+    ) {
+        startBad.push('Sao Kiếp sát: Kỵ xuất hành, giá thú, an táng, xây dựng');
+    }
+
+    if ((month === 1 && name === 'Hợi') || 
+    (month === 2 && name === 'Tý') ||
+    (month === 3 && name === 'Sửu') || 
+    (month === 4 && name === 'Dần') || 
+    (month === 5 && name === 'Mão') || 
+    (month === 6 && name === 'Thìn') ||
+    (month === 7 && name === 'Tỵ') || 
+    (month === 8 && name === 'Ngọ') || 
+    (month === 9 && name === 'Mùi') || 
+    (month === 10 && name === 'Thân') ||
+    (month === 11 && name === 'Dậu') || 
+    (month === 12 && name === 'Tuất')
+    ) {
+        startBad.push('Sao Địa phá: Kỵ xây dựng');
+    }
+
+    if ((month === 1 && name === 'Dần') || 
+    (month === 2 && name === 'Mão') ||
+    (month === 3 && name === 'Thìn') || 
+    (month === 4 && name === 'Tỵ') || 
+    (month === 5 && name === 'Ngọ') || 
+    (month === 6 && name === 'Mùi') ||
+    (month === 7 && name === 'Thân') || 
+    (month === 8 && name === 'Dậu') || 
+    (month === 9 && name === 'Tuất') || 
+    (month === 10 && name === 'Hợi') ||
+    (month === 11 && name === 'Tý') || 
+    (month === 12 && name === 'Sửu')
+    ) {
+        startBad.push('Sao Thổ phủ: Kỵ xây dựng, động thổ');
+    }
+
+    if ((month === 1 && name === 'Thìn') || 
+    (month === 2 && name === 'Tỵ') ||
+    (month === 3 && name === 'Ngọ') || 
+    (month === 4 && name === 'Mùi') || 
+    (month === 5 && name === 'Thân') || 
+    (month === 6 && name === 'Dậu') ||
+    (month === 7 && name === 'Tuất') || 
+    (month === 8 && name === 'Hợi') || 
+    (month === 9 && name === 'Tý') || 
+    (month === 10 && name === 'Sửu') ||
+    (month === 11 && name === 'Dần') || 
+    (month === 12 && name === 'Mão')
+    ) {
+        startBad.push('Sao Thổ ôn (thiên cẩu): Kỵ xây dựng, đào ao, đào giếng, xấu về tế tự');
+    }
+
+    if ((month === 1 && name === 'Mùi') || 
+    (month === 2 && name === 'Tuất') ||
+    (month === 3 && name === 'Thìn') || 
+    (month === 4 && name === 'Dần') || 
+    (month === 5 && name === 'Ngọ') || 
+    (month === 6 && name === 'Tý') ||
+    (month === 7 && name === 'Dậu') || 
+    (month === 8 && name === 'Thân') || 
+    (month === 9 && name === 'Tỵ') || 
+    (month === 10 && name === 'Hợi') ||
+    (month === 11 && name === 'Tý') || 
+    (month === 12 && name === 'Mão')
+    ) {
+        startBad.push('Sao Thiên ôn: Kỵ xây dựng');
+    }
+
+    if ((month === 1 && name === 'Tuất') || 
+    (month === 2 && name === 'Thìn') ||
+    (month === 3 && name === 'Hợi') || 
+    (month === 4 && name === 'Tỵ') || 
+    (month === 5 && name === 'Tý') || 
+    (month === 6 && name === 'Ngọ') ||
+    (month === 7 && name === 'Sửu') || 
+    (month === 8 && name === 'Mùi') || 
+    (month === 9 && name === 'Dần') || 
+    (month === 10 && name === 'Thân') ||
+    (month === 11 && name === 'Mão') || 
+    (month === 12 && name === 'Dậu')
+    ) {
+        startBad.push('Sao Thụ Tử: Xấu mọi việc (trừ săn bắn tốt)');
+    }
+
+    if ((month === 1 && name === 'Thìn') || 
+    (month === 2 && name === 'Dậu') ||
+    (month === 3 && name === 'Dần') || 
+    (month === 4 && name === 'Mùi') || 
+    (month === 5 && name === 'Tý') || 
+    (month === 6 && name === 'Tỵ') ||
+    (month === 7 && name === 'Tuất') || 
+    (month === 8 && name === 'Mão') || 
+    (month === 9 && name === 'Thân') || 
+    (month === 10 && name === 'Sửu') ||
+    (month === 11 && name === 'Ngọ') || 
+    (month === 12 && name === 'Hợi')
+    ) {
+        startBad.push('Sao Thiên Tặc: Xấu đối với khởi tạo, động thổ, nhập trạch, khai trương');
+    }
+
+    if ((month === 1 && name === 'Sửu') || 
+    (month === 2 && name === 'Tý') ||
+    (month === 3 && name === 'Hợi') || 
+    (month === 4 && name === 'Tuất') || 
+    (month === 5 && name === 'Dậu') || 
+    (month === 6 && name === 'Thân') ||
+    (month === 7 && name === 'Mùi') || 
+    (month === 8 && name === 'Ngọ') || 
+    (month === 9 && name === 'Tỵ') || 
+    (month === 10 && name === 'Thìn') ||
+    (month === 11 && name === 'Mão') || 
+    (month === 12 && name === 'Dần')
+    ) {
+        startBad.push('Sao Địa Tặc: Xấu đối với khởi tạo, an táng, động thổ, xuất hành');
+    }
+
+    if ((month === 1 && name === 'Sửu') || 
+    (month === 2 && name === 'Mùi') ||
+    (month === 3 && name === 'Dần') || 
+    (month === 4 && name === 'Thân') || 
+    (month === 5 && name === 'Mão') || 
+    (month === 6 && name === 'Dậu') ||
+    (month === 7 && name === 'Thìn') || 
+    (month === 8 && name === 'Tuất') || 
+    (month === 9 && name === 'Tỵ') || 
+    (month === 10 && name === 'Hợi') ||
+    (month === 11 && name === 'Ngọ') || 
+    (month === 12 && name === 'Tý')
+    ) {
+        startBad.push('Sao Hoả tai: Xấu đối với làm nhà, lợp nhà');
+    }
+
+    if ((month === 1 && name === 'Tỵ') || 
+    (month === 2 && name === 'Thìn') ||
+    (month === 3 && name === 'Mão') || 
+    (month === 4 && name === 'Dần') || 
+    (month === 5 && name === 'Sửu') || 
+    (month === 6 && name === 'Tý') ||
+    (month === 7 && name === 'Hợi') || 
+    (month === 8 && name === 'Tuất') || 
+    (month === 9 && name === 'Dậu') || 
+    (month === 10 && name === 'Thân') ||
+    (month === 11 && name === 'Mùi') || 
+    (month === 12 && name === 'Ngọ')
+    ) {
+        startBad.push('Sao Nguyệt Hoả và Độc Hoả: Xấu đối với lợp nhà, làm bếp');
+    }
+
+    if ((month === 1 && name === 'Tuất') || 
+    (month === 2 && name === 'Dậu') ||
+    (month === 3 && name === 'Thân') || 
+    (month === 4 && name === 'Mùi') || 
+    (month === 5 && name === 'Ngọ') || 
+    (month === 6 && name === 'Tỵ') ||
+    (month === 7 && name === 'Thìn') || 
+    (month === 8 && name === 'Mão') || 
+    (month === 9 && name === 'Dần') || 
+    (month === 10 && name === 'Sửu') ||
+    (month === 11 && name === 'Tý') || 
+    (month === 12 && name === 'Hợi')
+    ) {
+        startBad.push('Sao Nguyệt Yếm đại hoạ: Xấu đối với xuất hành, giá thú');
+    }
+
+    if ((month === 1 && name === 'Sửu') || 
+    (month === 2 && name === 'Tuất') ||
+    (month === 3 && name === 'Mùi') || 
+    (month === 4 && name === 'Thìn') || 
+    (month === 5 && name === 'Sửu') || 
+    (month === 6 && name === 'Tuất') ||
+    (month === 7 && name === 'Mùi') || 
+    (month === 8 && name === 'Thìn') || 
+    (month === 9 && name === 'Sửu') || 
+    (month === 10 && name === 'Tuất') ||
+    (month === 11 && name === 'Mùi') || 
+    (month === 12 && name === 'Thìn')
+    ) {
+        startBad.push('Sao Nguyệt Hư (Nguyệt Sát): Xấu đối với việc giá thú, mở cửa, mở hàng');
+    }
+
+    if ((month === 1 && name === 'Ngọ') || 
+    (month === 2 && name === 'Dần') ||
+    (month === 3 && name === 'Tý') || 
+    (month === 4 && name === 'Ngọ') || 
+    (month === 5 && name === 'Dần') || 
+    (month === 6 && name === 'Tý') ||
+    (month === 7 && name === 'Ngọ') || 
+    (month === 8 && name === 'Dần') || 
+    (month === 9 && name === 'Tý') || 
+    (month === 10 && name === 'Ngọ') ||
+    (month === 11 && name === 'Dần') || 
+    (month === 12 && name === 'Tý')
+    ) {
+        startBad.push('Sao Hoàng Sa: Xấu đối với xuất hành');
+    }
+
+    if ((month === 1 && name === 'Dần') || 
+    (month === 2 && name === 'Ngọ') ||
+    (month === 3 && name === 'Tuất') || 
+    (month === 4 && name === 'Tỵ') || 
+    (month === 5 && name === 'Dậu') || 
+    (month === 6 && name === 'Sửu') ||
+    (month === 7 && name === 'Thân') || 
+    (month === 8 && name === 'Tý') || 
+    (month === 9 && name === 'Thìn') || 
+    (month === 10 && name === 'Hợi') ||
+    (month === 11 && name === 'Mão') || 
+    (month === 12 && name === 'Mùi')
+    ) {
+        startBad.push('Sao Lục Bất Thành: Xấu đối với xây dựng');
+    }
+
+    if ((month === 1 && name === 'Dậu') || 
+    (month === 2 && name === 'Mùi') ||
+    (month === 3 && name === 'Tỵ') || 
+    (month === 4 && name === 'Mão') || 
+    (month === 5 && name === 'Sửu') || 
+    (month === 6 && name === 'Hợi') ||
+    (month === 7 && name === 'Dậu') || 
+    (month === 8 && name === 'Mùi') || 
+    (month === 9 && name === 'Tỵ') || 
+    (month === 10 && name === 'Mão') ||
+    (month === 11 && name === 'Sửu') || 
+    (month === 12 && name === 'Hợi')
+    ) {
+        startBad.push('Sao Nhân Cách: Xấu đối với giá thú, khởi tạo');
+    }
+
+    if ((month === 1 && name === 'Tỵ') || 
+    (month === 2 && name === 'Mão') ||
+    (month === 3 && name === 'Sửu') || 
+    (month === 4 && name === 'Hợi') || 
+    (month === 5 && name === 'Dậu') || 
+    (month === 6 && name === 'Mùi') ||
+    (month === 7 && name === 'Tỵ') || 
+    (month === 8 && name === 'Mão') || 
+    (month === 9 && name === 'Sửu') || 
+    (month === 10 && name === 'Hợi') ||
+    (month === 11 && name === 'Dậu') || 
+    (month === 12 && name === 'Mùi')
+    ) {
+        startBad.push('Sao Thần Cách: Kỵ tế tự');
+    }
+
+    if ((month === 1 && name === 'Tý') || 
+    (month === 2 && name === 'Dậu') ||
+    (month === 3 && name === 'Ngọ') || 
+    (month === 4 && name === 'Mão') || 
+    (month === 5 && name === 'Tý') || 
+    (month === 6 && name === 'Dậu') ||
+    (month === 7 && name === 'Ngọ') || 
+    (month === 8 && name === 'Mão') || 
+    (month === 9 && name === 'Tý') || 
+    (month === 10 && name === 'Dậu') ||
+    (month === 11 && name === 'Ngọ') || 
+    (month === 12 && name === 'Mão')
+    ) {
+        startBad.push('Sao Phi Ma Sát: Kỵ giá thú nhập trạch');
+    }
+
+    if ((month === 1 && name === 'Ngọ') || 
+    (month === 2 && name === 'Dần') || 
+    (month === 3 && name === 'Thìn') || 
+    (month === 4 && name === 'Dậu') || 
+    (month === 5 && name === 'Mão') || 
+    (month === 6 && name === 'Thân') || 
+    (month === 7 && name === 'Sửu') || 
+    (month === 8 && name === 'Tỵ') || 
+    (month === 9 && name === 'Tý') || 
+    (month === 10 && name === 'Hợi') || 
+    (month === 11 && name === 'Mùi') || 
+    (month === 12 && name === 'Tuất')
+    ) {
+        startBad.push('Sao Ngũ Quỹ: Kỵ xuất hành');
+    }
+
+    if ((month === 1 && name === 'Tỵ') || 
+    (month === 2 && name === 'Tý') || 
+    (month === 3 && name === 'Sửu') || 
+    (month === 4 && name === 'Dần') || 
+    (month === 5 && name === 'Mão') || 
+    (month === 6 && name === 'Tuất') || 
+    (month === 7 && name === 'Hợi') || 
+    (month === 8 && name === 'Ngọ') || 
+    (month === 9 && name === 'Mùi') || 
+    (month === 10 && name === 'Thân') || 
+    (month === 11 && name === 'Dậu') || 
+    (month === 12 && name === 'Thìn')
+    ) {
+        startBad.push('Sao Băng Tiêu Ngọ Hãm: Xấu mọi việc');
+    }
+
+    if ((month === 1 && name === 'Hợi') || 
+    (month === 2 && name === 'Ngọ') || 
+    (month === 3 && name === 'Sửu') || 
+    (month === 4 && name === 'Thân') || 
+    (month === 5 && name === 'Mão') || 
+    (month === 6 && name === 'Tuất') || 
+    (month === 7 && name === 'Tỵ') || 
+    (month === 8 && name === 'Tý') || 
+    (month === 9 && name === 'Mùi') || 
+    (month === 10 && name === 'Dần') || 
+    (month === 11 && name === 'Dậu') || 
+    (month === 12 && name === 'Thìn')
+    ) {
+        startBad.push('Sao Hà Khôi Cẩu Giảo: Kỵ khởi công xây nhà cửa, xấu mọi việc');
+    }
+
+    if ((month === 1 && name === 'Dần') || 
+    (month === 2 && name === 'Tỵ') || 
+    (month === 3 && name === 'Thân') || 
+    (month === 4 && name === 'Hợi') || 
+    (month === 5 && name === 'Mão') || 
+    (month === 6 && name === 'Ngọ') || 
+    (month === 7 && name === 'Dậu') || 
+    (month === 8 && name === 'Tý') || 
+    (month === 9 && name === 'Thìn') || 
+    (month === 10 && name === 'Mùi') || 
+    (month === 11 && name === 'Tuất') || 
+    (month === 12 && name === 'Sửu')
+    ) {
+        startBad.push('Sao Vãng Vong (Thổ kỵ): Kỵ xuất hành, giá thú, cầu tài lộc, động thổ');
+    }
+
+    if ((month === 1 && name === 'Thìn') || 
+    (month === 2 && name === 'Sửu') || 
+    (month === 3 && name === 'Tuất') || 
+    (month === 4 && name === 'Mùi') || 
+    (month === 5 && name === 'Mão') || 
+    (month === 6 && name === 'Tý') || 
+    (month === 7 && name === 'Dậu') || 
+    (month === 8 && name === 'Ngọ') || 
+    (month === 9 && name === 'Dần') || 
+    (month === 10 && name === 'Hợi') || 
+    (month === 11 && name === 'Thân') || 
+    (month === 12 && name === 'Tỵ')
+    ) {
+        startBad.push('Sao Cửu Không: Kỵ xuất hành, cầu tài, khai trương');
+    }
+
+    if ((month === 1 && name === 'Mão') || 
+    (month === 2 && name === 'Tỵ') || 
+    (month === 3 && name === 'Mùi') || 
+    (month === 4 && name === 'Dậu') || 
+    (month === 5 && name === 'Hợi') || 
+    (month === 6 && name === 'Sửu') || 
+    (month === 7 && name === 'Mão') || 
+    (month === 8 && name === 'Tỵ') || 
+    (month === 9 && name === 'Mùi') || 
+    (month === 10 && name === 'Dậu') || 
+    (month === 11 && name === 'Hợi') || 
+    (month === 12 && name === 'Sửu')
+    ) {
+        startBad.push('Sao Chu Tước Hắc Đạo: Kỵ nhập trạch, khai trương');
+    }
+
+    if ((month === 1 && name === 'Giáp') || 
+    (month === 2 && name === 'Ất') || 
+    (month === 3 && name === 'Kỷ') || 
+    (month === 4 && name === 'Bính') || 
+    (month === 5 && name === 'Đinh') || 
+    (month === 6 && name === 'Kỷ') || 
+    (month === 7 && name === 'Canh') || 
+    (month === 8 && name === 'Tân') || 
+    (month === 9 && name === 'Kỷ') || 
+    (month === 10 && name === 'Nhâm') || 
+    (month === 11 && name === 'Quý') || 
+    (month === 12 && name === 'Kỷ')
+    ) {
+        startBad.push('Sao Trùng Tang : Kỵ giá thú, an táng, khởi công xây nhà');
+    }
+
+    if ((month === 1 && name === 'Canh') || 
+    (month === 2 && name === 'Tân') || 
+    (month === 3 && name === 'Kỷ') || 
+    (month === 4 && name === 'Nhâm') || 
+    (month === 5 && name === 'Quý') || 
+    (month === 6 && name === 'Mậu') || 
+    (month === 7 && name === 'Giáp') || 
+    (month === 8 && name === 'Ất') || 
+    (month === 9 && name === 'Kỷ') || 
+    (month === 10 && name === 'Nhâm') || 
+    (month === 11 && name === 'Quý') || 
+    (month === 12 && name === 'Kỷ')
+    ) {
+        startBad.push('Sao Trùng Phục: Kỵ giá thú, an táng');
+    }
+
+    if ((month === 1 && name === 'Ngọ') || 
+    (month === 2 && name === 'Thân') || 
+    (month === 3 && name === 'Tuất') || 
+    (month === 4 && name === 'Tý') || 
+    (month === 5 && name === 'Dần') || 
+    (month === 6 && name === 'Thìn') || 
+    (month === 7 && name === 'Ngọ') || 
+    (month === 8 && name === 'Thân') || 
+    (month === 9 && name === 'Tuất') || 
+    (month === 10 && name === 'Tý') || 
+    (month === 11 && name === 'Dần') || 
+    (month === 12 && name === 'Thìn')
+    ) {
+        startBad.push('Sao Bạch Hổ: Kỵ mai táng');
+    }
+
+    if ((month === 1 && name === 'Dậu') || 
+    (month === 2 && name === 'Hợi') || 
+    (month === 3 && name === 'Tỵ') || 
+    (month === 4 && name === 'Mão') || 
+    (month === 5 && name === 'Sửu') || 
+    (month === 6 && name === 'Mùi') || 
+    (month === 7 && name === 'Dậu') || 
+    (month === 8 && name === 'Hợi') || 
+    (month === 9 && name === 'Tỵ') || 
+    (month === 10 && name === 'Mão') || 
+    (month === 11 && name === 'Sửu') || 
+    (month === 12 && name === 'Mùi')
+    ) {
+        startBad.push('Sao Huyền Vũ: Kỵ mai táng');
+    }
+
+    if ((month === 1 && name === 'Hợi') || 
+    (month === 2 && name === 'Tỵ') || 
+    (month === 3 && name === 'Mão') || 
+    (month === 4 && name === 'Sửu') || 
+    (month === 5 && name === 'Mùi') || 
+    (month === 6 && name === 'Dậu') || 
+    (month === 7 && name === 'Hợi') || 
+    (month === 8 && name === 'Tỵ') || 
+    (month === 9 && name === 'Mão') || 
+    (month === 10 && name === 'Sửu') || 
+    (month === 11 && name === 'Mùi') || 
+    (month === 12 && name === 'Dậu')
+    ) {
+        startBad.push('Sao Câu Trận: Kỵ mai táng');
+    }
+
+    if ((month === 1 && name === 'Dần') || 
+    (month === 2 && name === 'Hợi') || 
+    (month === 3 && name === 'Tỵ') || 
+    (month === 4 && name === 'Thân') || 
+    (month === 5 && name === 'Dần') || 
+    (month === 6 && name === 'Hợi') || 
+    (month === 7 && name === 'Tỵ') || 
+    (month === 8 && name === 'Thân') || 
+    (month === 9 && name === 'Dần') || 
+    (month === 10 && name === 'Hợi') || 
+    (month === 11 && name === 'Tỵ') || 
+    (month === 12 && name === 'Thân')
+    ) {
+        startBad.push('Sao Lôi Công: Xấu với xây dựng nhà cửa');
+    }
+
+    if ((month === 1 && name === 'Tuất') || 
+    (month === 2 && name === 'Hợi') || 
+    (month === 3 && name === 'Tý') || 
+    (month === 4 && name === 'Sửu') || 
+    (month === 5 && name === 'Dần') || 
+    (month === 6 && name === 'Mão') || 
+    (month === 7 && name === 'Thìn') || 
+    (month === 8 && name === 'Tỵ') || 
+    (month === 9 && name === 'Ngọ') || 
+    (month === 10 && name === 'Mùi') || 
+    (month === 11 && name === 'Thân') || 
+    (month === 12 && name === 'Dậu')
+    ) {
+        startBad.push('Sao Cô Thần: Xấu với giá thú');
+    }
+
+    if ((month === 1 && name === 'Thìn') || 
+    (month === 2 && name === 'Tỵ') || 
+    (month === 3 && name === 'Ngọ') || 
+    (month === 4 && name === 'Mùi') || 
+    (month === 5 && name === 'Thân') || 
+    (month === 6 && name === 'Dậu') || 
+    (month === 7 && name === 'Tuất') || 
+    (month === 8 && name === 'Hợi') || 
+    (month === 9 && name === 'Tý') || 
+    (month === 10 && name === 'Sửu') || 
+    (month === 11 && name === 'Dần') || 
+    (month === 12 && name === 'Mão')
+    ) {
+        startBad.push('Sao Quả Tú: Xấu với giá thú');
+    }
+
+    if ((month === 1 && name === 'Tỵ') || 
+    (month === 2 && name === 'Tý') || 
+    (month === 3 && name === 'Mùi') || 
+    (month === 4 && name === 'Mão') || 
+    (month === 5 && name === 'Thân') || 
+    (month === 6 && name === 'Tuất') || 
+    (month === 7 && name === 'Sửu') || 
+    (month === 8 && name === 'Hợi') || 
+    (month === 9 && name === 'Ngọ') || 
+    (month === 10 && name === 'Dậu') || 
+    (month === 11 && name === 'Dần') || 
+    (month === 12 && name === 'Thìn')
+    ) {
+        startBad.push('Sao Sát Chủ: Xấu mọi việc');
+    }
+
+    if ((month === 1 && name === 'Tỵ') || 
+    (month === 2 && name === 'Tý') || 
+    (month === 3 && name === 'Thìn') || 
+    (month === 4 && name === 'Thân') || 
+    (month === 5 && name === 'Ngọ') || 
+    (month === 6 && name === 'Sửu') || 
+    (month === 7 && name === 'Dần') || 
+    (month === 8 && name === 'Dậu') || 
+    (month === 9 && name === 'Mùi') || 
+    (month === 10 && name === 'Hợi') || 
+    (month === 11 && name === 'Mão') || 
+    (month === 12 && name === 'Tuất')
+    ) {
+        startBad.push(' SaoNguyệt Hình: Xấu mọi việc');
+    }
+
+    if ((month === 1 && name === 'Ngọ') || 
+    (month === 2 && name === 'Tý') || 
+    (month === 3 && name === 'Mùi') || 
+    (month === 4 && name === 'Sửu') || 
+    (month === 5 && name === 'Thân') || 
+    (month === 6 && name === 'Dần') || 
+    (month === 7 && name === 'Dậu') || 
+    (month === 8 && name === 'Mão') || 
+    (month === 9 && name === 'Tuất') || 
+    (month === 10 && name === 'Thìn') || 
+    (month === 11 && name === 'Hợi') || 
+    (month === 12 && name === 'Tỵ')
+    ) {
+        startBad.push('Sao Tội chỉ: Xấu với tế tự, kiện cáo');
+    }
+
+    if ((month === 1 && name === 'Tỵ') || 
+    (month === 2 && name === 'Dậu') || 
+    (month === 3 && name === 'Sửu') || 
+    (month === 4 && name === 'Thân') || 
+    (month === 5 && name === 'Tý') || 
+    (month === 6 && name === 'Thìn') || 
+    (month === 7 && name === 'Hợi') || 
+    (month === 8 && name === 'Mão') || 
+    (month === 9 && name === 'Mùi') || 
+    (month === 10 && name === 'Dần') || 
+    (month === 11 && name === 'Ngọ') || 
+    (month === 12 && name === 'Tuất')
+    ) {
+        startBad.push('Sao Ngũ hư: Kỵ khởi tạo, giá thú, an táng');
+    }
+
+    if ((month === 1 && name === 'Thìn') || 
+    (month === 2 && name === 'Tỵ') || 
+    (month === 3 && name === 'Tý') || 
+    (month === 4 && name === 'Tuất') || 
+    (month === 5 && name === 'Hợi') || 
+    (month === 6 && name === 'Mùi') || 
+    (month === 7 && name === 'Dần') || 
+    (month === 8 && name === 'Mão') || 
+    (month === 9 && name === 'Ngọ') || 
+    (month === 10 && name === 'Thân') || 
+    (month === 11 && name === 'Dậu') || 
+    (month === 12 && name === 'Sửu')
+    ) {
+        startBad.push('Sao Không phòng: Kỵ giá thú');
+    }
+
+    if ((month === 1 && name === 'Tỵ') || 
+    (month === 2 && name === 'Dậu') || 
+    (month === 3 && name === 'Sửu') || 
+    (month === 4 && name === 'Thân') || 
+    (month === 5 && name === 'Tý') || 
+    (month === 6 && name === 'Thìn') || 
+    (month === 7 && name === 'Hợi') || 
+    (month === 8 && name === 'Mão') || 
+    (month === 9 && name === 'Mùi') || 
+    (month === 10 && name === 'Dần') || 
+    (month === 11 && name === 'Ngọ') || 
+    (month === 12 && name === 'Tuất')
+    ) {
+        startBad.push('Sao Ngũ hư: Kỵ khởi tạo, giá thú, an táng');
+    }
+
+    if ((month === 1 && name === 'Thân') || 
+    (month === 2 && name === 'Dậu') || 
+    (month === 3 && name === 'Tuất') || 
+    (month === 4 && name === 'Hợi') || 
+    (month === 5 && name === 'Tý') || 
+    (month === 6 && name === 'Sửu') || 
+    (month === 7 && name === 'Dần') || 
+    (month === 8 && name === 'Mão') || 
+    (month === 9 && name === 'Thìn') || 
+    (month === 10 && name === 'Tỵ') || 
+    (month === 11 && name === 'Ngọ') || 
+    (month === 12 && name === 'Mùi')
+    ) {
+        startBad.push('Sao Nguyệt phá: Xấu về xây dựng nhà cửa');
+    }
+
+    if ((month === 1 || month === 2 || month === 3 && name === 'Tý' || name === 'Dậu' || name === 'Sửu' ) ||
+        (month === 4 || month === 5 || month === 6 && name === 'Thân' || name === 'Tý' || name === 'Thìn') ||
+        (month === 7 || month === 8 || month === 9 && name === 'Hợi' || name === 'Mão' || name === 'Mùi') || 
+        (month === 10 || month === 11 || month === 12 && name === 'Dần' || name === 'Ngọ' || name === 'Tuất')
+    ) {
+        startBad.push('Sao Hoang vu: Xấu mọi việc');
+    }
+
+    if (((month === 1 || month === 2 || month === 3) && name === 'Mão') ||
+    ((month === 4 || month === 5 || month === 6) && name === 'Ngọ') || 
+    ((month === 7 || month === 8 || month === 9) && name === 'Dậu') ||
+    ((month === 10 || month === 11 || month === 12) && name === 'Tý')) {
+    startBad.push('Sao Nguyệt Kiến chuyển sát: Kỵ động thổ');
+}
+
+    if(((month === 1 || month === 2 || month === 3 )&& name === 'Tý') ||
+    ((month === 4 || month === 5 || month === 6) && name === 'Mão') || 
+    ((month === 7 || month === 8 || month === 9) && name === 'Ngọ')||
+    ((month === 1 || month === 11 || month === 12) && name === 'Dậu')){
+        startBad.push('Sao 	Lỗ ban sát: Kỵ khởi tạo');
+    }
+
+    if(((month === 1 || month === 2 || month === 3) && name === 'Thìn') ||
+    ((month === 4 || month === 5 || month === 6) && name === 'Mùi') || 
+    ((month === 7 || month === 8 || month === 9) && name === 'Dậu')||
+    ((month === 1 || month === 11 || month === 12) && name === 'Tý')){
+        startBad.push('Sao  Phủ đầu dát: Kỵ khởi tạo');
+    }
+
+    if(((month === 1 || month === 2 || month === 3) && name === 'Thìn') ||
+    ((month === 4 || month === 5 || month === 6) && name === 'Mùi') || 
+    ((month === 7 || month === 8 || month === 9) && name === 'Tuất')||
+    ((month === 1 || month === 11 || month === 12) && name === 'Sửu')
+    ){
+        startBad.push('Sao Tam tang: Kỵ khởi tạo, giá thú, an táng');
+    }
+
+    if(((month === 1 || month === 2 || month === 3) && name === 'Hợi') ||
+    ((month === 4 || month === 5 || month === 6) && name === 'Dần') || 
+    ((month === 7 || month === 8 || month === 9) && name === 'Tỵ') ||
+    ((month === 1 || month === 11 || month === 12) && name === 'Thân')
+    ){
+        startBad.push('Sao Thổ cẩm: Kỵ xây dựng, an táng');
+    }
+
+    if(((month === 1 || month === 2 || month === 3 )&& name === 'Sửu') ||
+    ((month === 4 || month === 5 || month === 6) && name === 'Thìn') || 
+    ((month === 7 || month === 8 || month === 9) && name === 'Mùi') ||
+    ((month === 1 || month === 11 || month === 12) && name === 'Tuất')
+    ){
+        startBad.push('Sao Tứ thời cô quả: Kỵ giá thú');
+    }
+
+     if(((month === 1 || month === 2 || month === 3) && nameDay === 'Ất Mùi') ||
+    ((month === 4 || month === 5 || month === 6) && nameDay === 'Bính Tuất') || 
+    ((month === 7 || month === 8 || month === 9) && nameDay === 'Tân Sửu')||
+    ((month === 1 || month === 11 || month === 12) && nameDay === 'Nhâm Thìn')
+    ){
+        startBad.push('Sao Tứ thời đại mộ: Kỵ an táng');
+    }
+
+    if(((month === 1 || month === 2 || month === 3) && name === 'Dậu') ||
+    ((month === 4 || month === 5 || month === 6 )&& (name === 'Dần'  || name === 'Ngọ')) || 
+    ((month === 7 || month === 8 || month === 9) && name === 'Tuất') ||
+    ((month === 1 || month === 11 || month === 12) && name === 'Tỵ')
+    ){
+        startBad.push('Sao Ly sàng: Kỵ giá thú');
+    }
+
+    if(((month === 1 || month === 2 || month === 3) && nameDay === 'Quý Mão') ||
+    ((month === 4 || month === 5 || month === 6) && nameDay === 'Bính Ngọ') || 
+    ((month === 7 || month === 8 || month === 9) && nameDay === 'Đinh Dậu')||
+    ((month === 1 || month === 11 || month === 12) && nameDay === 'Canh Tý')
+    ){
+        startBad.push('Sao Thiên địa  chính chuyển: Kỵ động thổ');
+    }
+
+    if(((month === 1 || month === 2 || month === 3 )&& nameDay === 'Ất Mão') ||
+    ((month === 4 || month === 5 || month === 6) && nameDay === 'Bính Ngọ') || 
+    ((month === 7 || month === 8 || month === 9) && nameDay === 'Tân Dậu')||
+    ((month === 1 || month === 11 || month === 12) && nameDay === 'Nhâm Tý')
+    ){
+        startBad.push('Sao Thiên địa chuyển sát: Kỵ động thổ');
+    }
+
+    if ((month === 1 && nameDay === 'Canh Tuất') || 
+    (month === 2 && nameDay === 'Tân Dậu') || 
+    (month === 3 && nameDay === 'Canh Thân') || 
+    (month === 4 && nameDay === 'Đinh Mùi') || 
+    (month === 5 && nameDay === 'Bính Ngọ') || 
+    (month === 6 && nameDay === 'Đinh Tỵ') || 
+    (month === 7 && nameDay === 'Giáp Thìn') || 
+    (month === 8 && nameDay === 'Ất Mão') || 
+    (month === 9 && nameDay === 'Giáp Dần') || 
+    (month === 10 && nameDay === 'Quý Sửu') || 
+    (month === 11 && nameDay === 'Nhâm Tý') || 
+    (month === 12 && nameDay === 'Quý Hợi')
+    ) {
+        startBad.push('Sao Âm thác: Kỵ xuất hành, giá thú, an táng');
+    }
+
+    if ((month === 1 && nameDay === 'Giáp Dần') || 
+    (month === 2 && nameDay === 'Ất Mão') || 
+    (month === 3 && nameDay === 'Giáp Thìn') || 
+    (month === 4 && nameDay === 'Đinh Tỵ') || 
+    (month === 5 && nameDay === 'Bính Ngọ') || 
+    (month === 6 && nameDay === 'Đinh Mùi') || 
+    (month === 7 && nameDay === 'Canh Thân') || 
+    (month === 8 && nameDay === 'Tân Dậu') || 
+    (month === 9 && nameDay === 'Canh Tuất') || 
+    (month === 10 && nameDay === 'Quý Hợi') || 
+    (month === 11 && nameDay === 'Nhâm Tý') || 
+    (month === 12 && nameDay === 'Quý Sửu')
+    ) {
+        startBad.push('Sao Dương thác: Kỵ xuất hành, giá thú, an táng');
+    }
+
+    if(month === 1 || month === 2 || month === 3 || month === 4 || month === 5 ||
+        month === 6 || month === 7 || month === 8 || month === 9 || month === 10 ||
+        month === 11 || month === 12 
+     ){
+        startBad.push('Sao Quỷ khốc: Xấu với tế tự, mai táng');
+     }
+    return startBad;
+}
+
 
 export { canNgay, chiNgay, 
     jdFormDate, layGioHoangDao ,getNameDay,
     getNameMonth, getNameYear, convertSolar2Lunar,rankOffWeek,
     departureDirection, layGioHoangDaoChiTiet, layGioHacDao, departureTime,
     getInforDayCan, getInforDayChi, getKhongMinh, lichTietKhi, 
-    getKhongMinhLucDieu, cacNgayKy, thapNhiKienTruc, startInDay
+    getKhongMinhLucDieu, cacNgayKy, thapNhiKienTruc, startInDay, startBadDay
 };

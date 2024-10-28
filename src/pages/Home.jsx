@@ -23,7 +23,8 @@ import {
   getKhongMinhLucDieu,
   cacNgayKy,
   thapNhiKienTruc, 
-  startInDay
+  startInDay,
+  startBadDay
 } from "../DataTime/FuntionTime.js";
 import "../styles/common.css";
 const Home = () => {
@@ -50,7 +51,9 @@ const Home = () => {
     tietKhi :'',
     lucdieu :{},
     ngayKy : [],
-    thapNhi: {}
+    thapNhi: {}, 
+    startGood : [],
+    startBad : []
     
   });
 
@@ -84,14 +87,14 @@ const Home = () => {
     const rank = rankOffWeek(dd, mm, yy);
     const getInforNgayAm  = ngayam.split('-');
     const getGiant = getKhongMinh(Number(getInforNgayAm[0]), Number(getInforNgayAm[1]));
+    
     const tietKhi = lichTietKhi(day);
      const lucdieu = getKhongMinhLucDieu(chi);
     const ngayKy = cacNgayKy(ngayam, day);
     const thapNhi = thapNhiKienTruc(ngayam, nameDay);
-    const  inforStart = startInDay(nameDay, ngayam)
-    console.log(inforStart);
+    const  inforStart = startInDay(nameDay, ngayam);
+    const startBadDays = startBadDay(nameDay, ngayam);
     
-
     setNegativeDay((prevState) => ({
       ...prevState,
       is_check_data: true,
@@ -110,7 +113,9 @@ const Home = () => {
       tietKhi : tietKhi,
       lucdieu :lucdieu,
       ngayKy : ngayKy,
-      thapNhi : thapNhi
+      thapNhi : thapNhi,
+      startGood : inforStart,
+      startBad : startBadDays
     }));
   }, [dd, mm, yy]);
 

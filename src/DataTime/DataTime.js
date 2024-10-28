@@ -318,7 +318,7 @@ const gioXuatHanh = {
 }
 
 const huongXuatHanh = {
-    "Tí": {
+    "Tý": {
         good: "Xuất hành hướng Chính Nam để đón 'Hỷ Thần'. Xuất hành hướng Chính Tây để đón 'Tài Thần'.",
         bad: "Tránh xuất hành hướng Đông Bắc gặp Hạc Thần (xấu)"
     },
