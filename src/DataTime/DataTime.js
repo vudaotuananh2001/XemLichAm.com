@@ -317,57 +317,6 @@ const gioXuatHanh = {
     ]
 }
 
-const huongXuatHanh = {
-    "Tý": {
-        good: "Xuất hành hướng Chính Nam để đón 'Hỷ Thần'. Xuất hành hướng Chính Tây để đón 'Tài Thần'.",
-        bad: "Tránh xuất hành hướng Đông Bắc gặp Hạc Thần (xấu)"
-    },
-    "Sửu": {
-        good: "Xuất hành hướng Đông Nam để đón 'Hỷ Thần'. Xuất hành hướng Chính Tây để đón 'Tài Thần'.",
-        bad: "Tránh xuất hành hướng Đông Bắc gặp Hạc Thần (xấu)"
-    },
-    "Dần": {
-        good: "Xuất hành hướng Đông Bắc để đón 'Hỷ Thần'. Xuất hành hướng Đông Nam để đón 'Tài Thần'.",
-        bad: "Tránh xuất hành hướng Đông Bắc gặp Hạc Thần (xấu)"
-    },
-    "Mão": {
-        good: "Xuất hành hướng Tây Bắc để đón 'Hỷ Thần'. Xuất hành hướng Đông Nam để đón 'Tài Thần'.",
-        bad: "Tránh xuất hành hướng Chính Đông gặp Hạc Thần (xấu)"
-    },
-    "Thìn": {
-        good: "Xuất hành hướng Tây Nam để đón 'Hỷ Thần'. Xuất hành hướng Chính Đông để đón 'Tài Thần'.",
-        bad: "Tránh xuất hành hướng Chính Đông gặp Hạc Thần (xấu)"
-    },
-    "Tỵ": {
-        good: "Xuất hành hướng Chính Nam để đón 'Hỷ Thần'. Xuất hành hướng Chính Đông để đón 'Tài Thần'.",
-        bad: "Tránh xuất hành hướng Chính Đông gặp Hạc Thần (xấu)"
-    },
-    "Ngọ": {
-        good: "Xuất hành hướng Đông Nam để đón 'Hỷ Thần'. Xuất hành hướng Chính Nam để đón 'Tài Thần'.",
-        bad: "Tránh xuất hành hướng Chính Đông gặp Hạc Thần (xấu)"
-    },
-    "Mùi": {
-        good: "Xuất hành hướng Đông Bắc để đón 'Hỷ Thần'. Xuất hành hướng Chính Nam để đón 'Tài Thần'.",
-        bad: "Tránh xuất hành hướng Chính Đông gặp Hạc Thần (xấu)"
-    },
-    "Thân": {
-        good: "Xuất hành hướng Tây Bắc để đón 'Hỷ Thần'. Xuất hành hướng Tây Nam để đón 'Tài Thần'.",
-        bad: "Tránh xuất hành hướng Đông Nam gặp Hạc Thần (xấu)"
-    },
-    "Dậu": {
-        good: "Xuất hành hướng Tây Nam để đón 'Hỷ Thần'. Xuất hành hướng Tây Nam để đón 'Tài Thần'.",
-        bad: "Tránh xuất hành hướng Đông Nam gặp Hạc Thần (xấu)"
-    },
-    "Tuất": {
-        good: "Xuất hành hướng Chính Nam để đón 'Hỷ Thần'. Xuất hành hướng Chính Tây để đón 'Tài Thần'.",
-        bad: "Tránh hướng Đông Nam gặp Hạc Thần (xấu)"
-    },
-    "Hợi": {
-        good: "Xuất hành hướng Đông Nam để đón 'Hỷ Thần'. Xuất hành hướng Chính Tây để đón 'Tài Thần'.",
-        bad: "Tránh xuất hành hướng Đông Nam gặp Hạc Thần (xấu)"
-    }
-};
-
 const timeData = [
     { hour: "Tý", timeDetail: "23:00 - 01:00", time:"23-1" },
     { hour: "Sửu", timeDetail: "01:00 - 03:00" , time : "1-3" },
@@ -612,6 +561,6 @@ const thapNhiBatTu = {
 
 export {gioXuatHanh, timeData, gioHoangDao,
      gioHacDao, detailGioHoangDao, 
-     nguHanhChi, nguHanhCan, huongXuatHanh,
+     nguHanhChi, nguHanhCan,
      khongMinhLucDieu
     }

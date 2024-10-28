@@ -1,6 +1,6 @@
 import { gioXuatHanh,
     gioHoangDao, gioHacDao, detailGioHoangDao, 
-    nguHanhChi, nguHanhCan, huongXuatHanh, khongMinhLucDieu
+    nguHanhChi, nguHanhCan, khongMinhLucDieu
 } from "./DataTime";
 
 const dayOfWeek = ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"];
@@ -64,7 +64,7 @@ const getNameYear =(yy)=> {
 const layGioHoangDao = (chi) => {
     const chiValue = allChi[chi]; 
     const result = gioHoangDao[chiValue] || []; 
-    return result.join(",");
+    return result.join(", ");
 };
 
 // lấy ra chi tiết giờ hoàng đạo
@@ -176,10 +176,62 @@ const rankOffWeek =(dd,mm,yy)=> {
 }
 
 // lấy ra hướng xuất hành theo chi 
-const departureDirection =(chi)=> {
-    const chivalues = allChi[chi];
-    const data = huongXuatHanh[chivalues];
-    return data;
+const departureDirection =(name)=> {
+    const nameDay = name.split(' ');
+    const chivalues = nameDay[0];
+
+    let dataHuongXuatHanh = [];
+    // Hỷ Thần
+    if(chivalues === 'Giáp' || chivalues === 'Kỷ'){
+        dataHuongXuatHanh.push('Hướng Đông Bắc');
+    }else if(chivalues === 'Ất' || chivalues === 'Canh'){
+        dataHuongXuatHanh.push('Hướng Tây Bắc');
+    }else if(chivalues === 'Bính' || chivalues === 'Tân'){
+        dataHuongXuatHanh.push('Hướng Tây Nam');
+    }
+    else if(chivalues === 'Mậu' || chivalues === 'Quý'){
+        dataHuongXuatHanh.push('Hướng Đông Nam');
+    }else{
+        dataHuongXuatHanh.push('Hướng chính Nam');
+    }
+
+    // Thần Tài
+    if(chivalues === 'Giáp' || chivalues === 'Kỷ'){
+        dataHuongXuatHanh.push('Hướng Đông Nam');
+    }else if(chivalues === 'Bính' || chivalues === 'Đinh'){
+        dataHuongXuatHanh.push('Hướng Đông');
+    }else if(chivalues === 'Mậu'){
+        dataHuongXuatHanh.push('Hướng Bắc');
+    }
+    else if(chivalues === 'Kỷ'){
+        dataHuongXuatHanh.push('Hướng Nam');
+    }else if(chivalues === 'Canh' || chivalues === 'Tân'){
+        dataHuongXuatHanh.push('Hướng Tây Nam');
+    }else if(chivalues === 'Nhâm'){
+        dataHuongXuatHanh.push('Hướng Tây');
+    }else {
+        dataHuongXuatHanh.push('Hướng Tây Bắc'); 
+    }
+
+    // Hạc Thần
+   if(name === 'Kỷ Dậu' || name === 'Canh Tuất' || name === 'Tân Hợi' || name === 'Nhâm Tý' || name === 'Quý Sửu' || name === 'Giáp Dần'){
+        dataHuongXuatHanh.push('Hướng Đông Bắc');
+    } else if(name === 'Ất Mão' || name === 'Bính Thìn' || name === 'Đinh Tỵ' || name === 'Mậu Ngọ' || name === 'Kỷ Mùi'){
+        dataHuongXuatHanh.push('Hướng Đông');
+    } else if(name === 'Canh Thân' || name === 'Tân Dậu' || name === 'Nhâm Tuất' || name === 'Quý Hợi' || name === 'Giáp Tý' || name === 'Ất Sửu'){
+        dataHuongXuatHanh.push('Hướng Đông Nam');
+    } else if(name === 'Bính Dần' || name === 'Đinh Mão' || name === 'Mậu Thìn' || name === 'Kỷ Tỵ' || name === 'Canh Ngọ'){
+        dataHuongXuatHanh.push('Hướng Nam');
+    }else if(name === 'Tân Mùi' || name === 'Nhâm Thân' || name === 'Quý Dậu' || name === 'Giáp Tuất' || name === 'Ất Hợi' || name === 'Bính Tý'){
+        dataHuongXuatHanh.push('Hướng Tây Nam');
+    }else if(name === 'Đinh Sửu' || name === 'Mậu Dần' || name === 'Kỷ Mão' || name === 'Canh Thìn' || name === 'Tân Tỵ'){
+        dataHuongXuatHanh.push('Hướng Tây');
+    }else if(name === 'Nhâm Ngọ' || name === 'Quý Mùi' || name === 'Giáp Thân' || name === 'Ất Dậu' || name === 'Bính Tuất' || name === 'Đinh Hợi'){
+        dataHuongXuatHanh.push('Hướng Tây Bắc');
+    }else if(name === 'Mậu Tý' || name === 'Kỷ Sửu' || name === 'Canh Dần' || name === 'Tân Mão' || name === 'Nhâm Thìn'){
+        dataHuongXuatHanh.push('Hướng Tây');
+    }
+    return dataHuongXuatHanh;
 }
 
 // lấy ra giờ xuất hành theo chi

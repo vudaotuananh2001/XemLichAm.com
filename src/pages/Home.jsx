@@ -37,10 +37,7 @@ const Home = () => {
     nameDay: "",
     nameMonth: "",
     nameYear: "",
-    departure_direction: {
-      good: "",
-      bad: "",
-    },
+    departure_direction: [],
     detailZodiacHour: "",
     blackHour: "",
     departureTime: [],
@@ -72,7 +69,7 @@ const Home = () => {
     const departure_Time = departureTime(chi);
     const detailZodiacHour = layGioHoangDaoChiTiet(chi);
     const blackHour = layGioHacDao(chi);
-    const datas = departureDirection(chi);
+    const datas = departureDirection(nameDay);
 
     const nameMonth = getNameMonth(dd, mm, yy);
     const nameYear = getNameYear(yy);

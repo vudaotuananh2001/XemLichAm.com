@@ -194,8 +194,8 @@ const DetailDays = ({ negativeDay }) => {
                         <tr>
                             <td className="title-row-table"><b>Hướng xuất hành</b></td>
                             <td>
-                                <p>{data.good}</p>
-                                <p>{data.bad}</p>
+                                <p>Xuất hành {data[0]} để đón 'Hỷ Thần'. Xuất hành {data[1]} để đón 'Tài Thần'.</p>
+                                <p>Tránh xuất hành {data[2]} gặp 'Hạc Thần' (xấu).</p>
                             </td>
                         </tr>
                         <tr>

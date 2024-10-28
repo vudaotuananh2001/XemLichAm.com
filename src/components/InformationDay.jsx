@@ -7,7 +7,6 @@ import '../styles/inforday/inforday.css';
 
 const InformationDay = ({ negativeDay }) => {   
     const dataKhongMinh =  negativeDay.giant;
-    console.log(dataKhongMinh);
     
     return (
         <div className="container pt-3 is-inforday">
