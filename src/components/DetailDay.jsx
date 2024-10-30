@@ -9,70 +9,50 @@ const DetailDays = ({ negativeDay }) => {
         const lines = [];
         let currentLine = [];
         let lineNumber = 1; // Đếm số dòng để xác định hàng lẻ và chẵn
-
+    
         for (let i = 0; i < words.length; i++) {
             currentLine.push(words[i]);
-
+    
             // Hàng lẻ (6 từ)
             if (lineNumber % 2 !== 0 && currentLine.length === 6) {
-                lines.push(currentLine.join(' '));
+                let line = currentLine.join(' ');
+    
+                // Nếu đây là dòng đầu tiên, thêm dấu ngoặc kép mở
+                if (lines.length === 0) {
+                    line = `"${line}`;
+                }
+    
+                lines.push(line);
                 currentLine = [];
                 lineNumber++; // Tăng số dòng
             }
             // Hàng chẵn (8 từ)
             else if (lineNumber % 2 === 0 && currentLine.length === 8) {
-                lines.push(currentLine.join(' '));
+                let line = currentLine.join(' ');
+    
+                lines.push(line);
                 currentLine = [];
                 lineNumber++; // Tăng số dòng
             }
         }
-
+    
         // Nếu còn từ trong currentLine, thêm chúng vào hàng cuối
         if (currentLine.length > 0) {
-            lines.push(currentLine.join(' '));
+            let line = currentLine.join(' ');
+    
+            // Thêm dấu ngoặc kép đóng vào dòng cuối cùng
+            line += '"';
+            lines.push(line);
+        } else if (lines.length > 0) {
+            // Nếu không còn từ ở dòng cuối và có ít nhất một dòng trước đó,
+            // thêm dấu ngoặc kép đóng vào dòng cuối cùng
+            lines[lines.length - 1] += '"';
         }
-
+    
         return lines;
     };
     
-    const splitString2 = (input) => {
-        const words = input.split(' ').filter(word => word.length > 0);
-        const lines = [];
-        let currentLine = [];
 
-        for (let i = 0; i < words.length; i++) {
-            currentLine.push(words[i]);
-
-            // Nếu đã đủ 7 từ, tạo dòng mới
-            if (currentLine.length === 7) {
-                let line = currentLine.join(' ');
-
-                // Viết hoa chữ cái đầu của dòng
-                line = line.charAt(0).toUpperCase() + line.slice(1);
-
-                // Thêm dấu phẩy cuối dòng
-                line += ',';
-
-                lines.push(line);
-                currentLine = [];
-            }
-        }
-
-        // Xử lý dòng cuối nếu còn từ
-        if (currentLine.length > 0) {
-            let line = currentLine.join(' ');
-
-            // Viết hoa chữ cái đầu của dòng cuối
-            line = line.charAt(0).toUpperCase() + line.slice(1);
-
-            // Thêm dấu phẩy cuối dòng
-            line += ',';
-
-            lines.push(line);
-        }
-
-        return lines;
-    };
     const data = negativeDay.departure_direction;
     
     const dataDepartureTime  = negativeDay.departureTime;
@@ -87,9 +67,56 @@ const DetailDays = ({ negativeDay }) => {
     const startGood = negativeDay.startGood;
     const startBad = negativeDay.startBad;
     const dataNguHanh = negativeDay.nguHanhDay;
-    console.log(dataNguHanh);
+    const thapNhiBat =  negativeDay.thapNhiBatTus;
+    const splitString2 = (input) => {
+        const words = input.split(' ').filter(word => word.length > 0);
+        const lines = [];
+        let currentLine = [];
     
+        for (let i = 0; i < words.length; i++) {
+            currentLine.push(words[i]);
     
+            // Nếu đã đủ 7 từ, tạo dòng mới
+            if (currentLine.length === 7) {
+                let line = currentLine.join(' ');
+    
+                // Viết hoa chữ cái đầu của dòng
+                line = line.charAt(0).toUpperCase() + line.slice(1);
+    
+                // Nếu đây là dòng đầu tiên, thêm dấu ngoặc kép mở
+                if (lines.length === 0) {
+                    line = `"${line}`;
+                }
+    
+                // Thêm dấu phẩy cuối dòng (sẽ bị loại bỏ ở dòng cuối cùng)
+                line += ',';
+    
+                lines.push(line);
+                currentLine = [];
+            }
+        }
+    
+        // Xử lý dòng cuối nếu còn từ
+        if (currentLine.length > 0) {
+            let line = currentLine.join(' ');
+    
+            // Viết hoa chữ cái đầu của dòng cuối
+            line = line.charAt(0).toUpperCase() + line.slice(1);
+    
+            // Thêm dấu ngoặc kép đóng vào dòng cuối cùng, không thêm dấu phẩy
+            line += '"';
+    
+            lines.push(line);
+        } else if (lines.length > 0) {
+            // Nếu không còn từ ở dòng cuối và có ít nhất một dòng trước đó,
+            // loại bỏ dấu phẩy cuối và thêm dấu ngoặc kép đóng vào dòng cuối cùng
+            lines[lines.length - 1] = lines[lines.length - 1].slice(0, -1) + '"';
+        }
+    
+        return lines;
+    };
+    
+    const result = splitString2(thapNhiBat.verse);
     return (
         <>
             <div className="mt-3">
@@ -145,27 +172,31 @@ const DetailDays = ({ negativeDay }) => {
                             <td>
                                 <p>Ngày: <b> {lucdieu.names} </b>-  {lucdieu.detail}</p>
                                 <p>{lucdieu.description}</p>
-                                " {lines.map((line, index) => (
+                                {lines.map((line, index) => (
                                     <p key={index}>{line}</p>
                                 ))}
-                                "
+                                
                             </td>
                         </tr>
                         <tr>
                             <td className="title-row-table"><b>Nhị Thập Bát Tú</b></td>
                             <td>
-                                <p><b> Tên sao</b>: Sao Trương</p>
-                                <p><b> Tên ngày</b>: Trương Nguyệt Lộc - Vạn Tu: Tốt (Kiết Tú) Tướng tinh con nai, chủ trị ngày thứ 2.</p>
-                                <p><b>Nên làm</b>: Khởi công tạo tác trăm việc đều tốt. Trong đó, tốt nhất là che mái dựng hiên, xây cất nhà, trổ cửa dựng cửa, cưới gả, chôn cất, hay làm ruộng, nuôi tằm , làm thuỷ lợi, đặt táng kê gác, chặt cỏ phá đất, cắt áo cũng đều rất tốt.</p>
-                                <p><b>Kiêng cữ</b>: Sửa hay làm thuyền chèo, hoặc đẩy thuyền mới xuống nước.</p>
-                                <p><b>Ngoại lệ </b>:</p>
-                                <p>- Tại Mùi, Hợi, Mão đều tốt. Tại Mùi: đăng viên rất tốt nhưng phạm vào Phục Đoạn (Kiêng cữ như trên).Trương: Nguyệt Lộc (con nai): Nguyệt tinh, sao tốt. Việc mai táng và hôn nhân thuận lợi.</p>
-                                <p>Buổi sáng tốt, nhưng chiều xấu nên cần làm nhanh. Niềm vui nhanh chóng, nên dùng để mưu đại sự, sẽ thành công mau lẹ hơn. Tốt nhất là tiến hành công việc vào buổi sáng, càng sớm càng tốt.</p>
-                                {/* "{result.map((line, index) => (
+                                <p><b>Tên sao</b>: {thapNhiBat.name}</p>
+                                <p><b>Tên ngày</b>: {thapNhiBat.nameDay}</p>
+                                <p><b>Nên làm</b>: {thapNhiBat.shouldDo}</p>
+                                <p><b>Kiêng cữ</b>: {thapNhiBat.abstain}</p>
+                                <p><b>Ngoại lệ</b>:</p>
+                                {thapNhiBat.detail1 && (
+                                    <p>- {thapNhiBat.detail1} <b>{thapNhiBat.nameDetail1}</b> {thapNhiBat.description}</p>
+                                )}
+                                {thapNhiBat.description3 && <p>- {thapNhiBat.description3}</p>}
+                                {thapNhiBat.description4 && <p>- {thapNhiBat.description4}</p>}
+                                {thapNhiBat.description2 && <p>{thapNhiBat.description2}</p>}
+                                {result.map((line, index) => (
                                     <p key={index}>{line}</p>
                                 ))}
-                                " */}
                             </td>
+
                         </tr>
                         <tr>
                             <td className="title-row-table"><b>Thập Nhị Kiến Trừ</b></td>

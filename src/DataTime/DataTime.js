@@ -388,7 +388,7 @@ const nguHanhChi = {
     },
     "Dần": {
         names :"Bất tế tự, quỷ thân bất tường",
-        detai :"Không tế tự, thờ cúng vì quỷ thần không bình thương"
+        detail :"Không tế tự, thờ cúng vì quỷ thần không bình thương"
     },
     "Mão": {
         names : "Bất xuyên tỉnh, tuyền thủy bất hương",
@@ -546,21 +546,381 @@ const khongMinhLucDieu = {
     }
 }
 
-const thapNhiBatTu = {
-    1 : {
-        tenSao : 'Sao Giác',
-        rank : 'chủ trị ngày thứ 5.',
-        nameDay  : "Giác Mộc Giao - Đặng Vũ: Tốt (Bình Tú) Tướng tinh con Giao Long",
-        nenLam : 'Chôn cất hoạn nạn phải ba năm. Dù xây đắp mộ phần hay sửa chữa mộ phần ắt có người chết. Vì vậy, để tránh điềm giữ quý bạn nên chọn một ngày tốt khác để tiến hành chôn cất. Sinh con nhằm ngày Sao Giác chiếu thì sẽ khó nuôi. Tốt nhất đặt tên con theo tên của Sao nó mới được an toàn. Không dùng tên sao này có thể dùng tên Sao của tháng hay của năm cũng mang ý nghĩa tương đương.',
-        ngoaiLe : {
-            
-        }
+const thapNhiBatTu ={
+    'Bích' : {   
+        name: 'Sao Bích',
+        nameDay : 'Bích Thủy Du - Tang Cung: Tốt (Kiết Tú) Tướng tinh con rái cá, chủ trị ngày thứ 4.',
+        shouldDo : 'Khởi công tạo tác mọi việc việc chi cũng tốt. Tốt nhất là việc khai trương, xuất hành, chôn cất, xây cất nhà, trổ cửa, dựng cửa, cưới gả, các vụ thuỷ lợi, tháo nước, chặt cỏ phá đất, cắt áo thêu áo, làm nhiều việc thiện ắt thiện quả sẽ tới mau hơn.',
+        abstain : 'Sao Bích toàn kiết nên không có bất kỳ việc chi phải kiêng cữ.',
+        detail1 : 'Sao Bích Thủy Du tại Mùi, Hợi, Mão trăm việc đều kỵ, nhất là trong Mùa Đông. Riêng ngày Hợi là Sao Bích Đăng Viên nhưng phạm phải',
+        nameDetail1 : ' Phục Đoạn Sát',
+        description :'(nên kiêng cữ như trên).',
+        description2 : 'Bích: Thủy Du (con rái cá): Thủy tinh, sao tốt. Rất tốt cho những việc như: xây cất, mai táng, hôn nhân. Kinh doanh đặc biệt thuận lợi.',
+        description3 : '',
+        description4 : '',
+        verse : 'Bích tinh tạo ác tiến trang điền Ti tâm đại thục phúc thao thiên Nô tỳ tự lai, nhân khẩu tiến Khai môn, phóng thủy xuất anh hiền Mai táng chiêu tài, quan phẩm tiến Gia trung chủ sự lạc thao nhiên Hôn nhân cát lợi sinh quý tử Tảo bá thanh danh khán tổ tiên.'
+    },
+    'Khuê' : {   
+        name: 'Sao Khuê',
+        nameDay : ' Khuê Mộc Lang - Mã Vũ: Xấu (Bình Tú) Tướng tinh con chó sói, chủ trị ngày thứ 5.',
+        shouldDo : 'Tốt cho nhập học, cắt áo, tạo dựng nhà phòng hay ra đi cầu công danh.',
+        abstain : 'Chôn cất, trổ cửa dựng cửa, khai thông đường nước, việc khai trương, đào ao móc giếng, các vụ thưa kiện và đóng giường lót giường. Vì vậy, nếu quý bạn có ý định chôn cất người chết hay khai trường lập nghiệp thì nên chọn một ngày khác để tiến hành.',
+        detail1 : 'Sao Khuê là một trong',
+        nameDetail1 : 'Thất Sát Tinh',
+        description :', nếu đẻ con nhằm ngày này thì nên lấy tên của Sao Khuê cũng có thể lấy tên Sao của năm hay tháng mà đặt cho con dễ nuôi hơn.',
+        description2 : 'Khuê: Mộc Lang (con sói): Mộc tinh, sao xấu. Khắc kỵ động thổ, an táng, khai trương cũng như sửa cửa.',
+        description3 : 'Sao Khuê Hãm Địa tại Thân nên Văn Khoa thất bại. Tại Ngọ thì chỗ Tuyệt gặp Sanh đắc lợi mưu sự, nhất là gặp Canh Ngọ. Tại Thìn thì tốt vừa vừa.',
+        description4 : 'Ngày Thân Sao Khuê Đăng Viên tức Tiến thân danh.',
+        verse : 'Khuê tinh tạo tác đắc trinh tường Gia hạ vinh hòa đại cát xương Nhược thị táng mai âm tốt tử Đương niên định chủ lưỡng tam tang.Khán khán vận kim, hình thương đáo Trùng trùng quan sự, chủ ôn hoàng. Khai môn phóng thủy chiêu tai họa Tam niên lưỡng thứ tổn nhi lang.'
+    },
+    'Lâu' : {   
+        name: 'Sao Lâu',
+        nameDay : ' Lâu Kim Cẩu - Lưu Long: Tốt (Kiết Tú) Tướng tinh con chó, chủ trị ngày thứ 6.',
+        shouldDo : 'Khởi công mọi việc đều rất tốt. Tốt nhất là việc dựng cột, cưới gả, trổ cửa, dựng cửa, cất lầu, làm giàn gác, cắt áo, tháo nước hay các vụ thủy lợi.',
+        abstain : 'Nhất là lót giường, đóng giường và đi đường thủy.',
+        detail1 : '',
+        nameDetail1 : '',
+        description :'',
+        description2 : 'Lâu: Kim Cẩu (con chó): Kim tinh, sao tốt. Tiền bạc thì dồi dào, học hành đỗ đạt cao, việc cưới gả, xây cất rất tốt.',
+        description3 : 'Sao Lâu Kim Cẩu tại Ngày Dậu Đăng Viên ý nghĩa tạo tác đại lợi. Tại Tỵ gọi là Nhập Trù nên rất tốt. Tại Sửu thì tốt v',
+        description4 : 'Gặp ngày cuối tháng thì Sao Lâu phạm Diệt Một: Kỵ cữ làm rượu, vào làm hành chánh, lập lò gốm lò nhuộm, thừa kế sự nghiệp và rất kỵ đi thuyền.',
+        verse : 'Lâu tinh thụ trụ, khởi môn đình Tài vượng, gia hòa, sự sự hưng Ngoại cảnh, tiền tài bách nhật tiến Nhất gia huynh đệ bá thanh danh. Hôn nhân tiến ích, sinh quý tử Ngọc bạch kim lang tương mãn doanh Phóng thủy, khai môn giai cát lợi Nam vinh, nữ quý, thọ khang ninh.'
+    },
+    'Vị' : {   
+        name: 'Sao Vị',
+        nameDay : 'Vị Thổ Trĩ (Kiết Tú) tướng tinh con chim trĩ, chủ trị ngày thứ 7.',
+        shouldDo : 'Khởi tạo tạo tác việc gì cũng tốt. Tốt nhất là cưới gả, xây cất, dọn cỏ, gieo trồng, lấy giống.',
+        abstain : 'Đi thuyền',
+        detail1 : '',
+        nameDetail1 : '',
+        description :'',
+        description2 : '',
+        description3 : 'Sao Vị mất chí khí tại ngày Dần, nhất là ngày Mậu Dần, rất hung, không nên cưới gả, xây cất nhà cửa. Gặp ngày Tuất sao Vị đăng viên nên mưu cầu công danh tốt, nhưng cũng phạm Phục Đoạn, do đó gặp ngày này nên kỵ chôn cất, xuất hành, cưới gả, xây cất...',
+        description4 : '',
+        verse : 'Vị tinh tạo tác sự như hà Phú quý, vinh hoa, hỷ khí đa, Mai táng tiến lâm quan lộc vịTam tai, cửu họa bất phùng tha Hôn nhân ngộ thử gia phú quý Phu phụ tề mi, vĩnh bảo hòa Tòng thử môn đình sinh cát khánh Nhi tôn đại đại bảo kim pha.'
+    },
+    'Mão' : {   
+        name: 'Sao Mão',
+        nameDay : ' Mão Nhật Kê - Vương Lương: Xấu (Hung Tú) Tướng tinh con gà, chủ trị ngày chủ nhật.',
+        shouldDo : 'Xây dựng cũng như tạo tác đều tốt.',
+        abstain : 'Chôn Cất thì ĐẠI KỴ. Cưới gã, khai ngòi phóng thủy, khai trương, xuất hành, đóng giường lót giường, trổ cửa dựng cửa kỵ. Các việc khác đều không hay. Vì vậy, ngày này tuyệt đối không tiến hành chôn cất người chết.',
+        detail1 : '',
+        nameDetail1 : '',
+        description :'',
+        description2 : '',
+        description3 : ' Sao Mão Nhật Kê tại Mùi thì mất chí khí. Tại Ất Mão hay Đinh Mão rất tốt. Ngày Mão Đăng Viên nên cưới gả tốt, ngày Quý Mão nếu tạo tác thì mất tiền của.',
+        description4 : 'Hợp với 8 ngày là Ất Mùi, Đinh Mùi, Tân Mùi, Ất Mão, Đinh Mão, Tân Mão, Ất Hợi và Tân Hợi. Mão: Nhật Kê (con gà): Nhật tinh, sao xấu. Tốt nhất cho việc xây cất. Khắc kỵ việc cưới gả, an táng, gắn cũng như sửa cửa.',
+        verse : 'Mão tinh tạo tác tiến điền ngưu Mai táng quan tai bất đắc hưu Trùng tang nhị nhật, tam nhân tử Mại tận điền viên, bất năng lưu Khai môn, phóng thủy chiêu tai họa Tam tuế hài nhi bạch liễu đầu Hôn nhân bất khả phùng nhật thử Tử biệt sinh ly thật khả sầu.'
+    },
+    'Tất' : {   
+        name: 'Sao Tất',
+        nameDay : 'Tất Nguyệt Ô - Trần Tuấn: Tốt (Kiết Tú) Tướng tinh con quạ, chủ trị ngày thứ 2.',
+        shouldDo : 'Khởi công tạo tác bất kể việc chi đều tốt. Tốt nhất là việc trổ cửa dựng cửa, đào kinh, tháo nước, khai mương, chôn cất, cưới gả, chặt cỏ phá đất hay móc giếng. Những việc khác như khai trương, xuất hành, nhập học, làm ruộng và nuôi tằm cũng tốt.',
+        abstain : 'Việc đi thuyền.',
+        detail1 : '',
+        nameDetail1 : '',
+        description :'',
+        description2 : 'Tất: Nguyệt Ô (con quạ): Nguyệt tinh, sao tốt. Trăm việc đều được tốt đẹp.',
+        description3 : ' Sao Tất Nguyệt Ô tại Thìn, Thân và Tý đều tốt. Tại Thân hiệu là Nguyệt Quải Khôn Sơn, tức là trăng treo đầu núi Tây Nam nên rất là tốt. Sao Tất Đăng Viên ở ngày Thân việc cưới gả hay chôn cất là 2 việc ĐẠI KIẾT.',
+        description4 : '',
+        verse : 'Tất tinh tạo tác chủ quang tiền Mãi dắc điền viên hữu lật tiền Mai táng thử nhật thiêm quan chức Điền tàm đại thực lai phong niên Khai môn phóng thủy đa cát lật Hợp gia nhân khẩu đắc an nhiên Hôn nhân nhược năng phùng thử nhật Sinh đắc hài nhi phúc thọ toàn.'
+    },
+    'Chủy' : {   
+        name: 'Sao Chủy',
+        nameDay : 'Chủy Hỏa Hầu - Phó Tuấn: Xấu (Hung Tú) Tướng tinh con khỉ, chủ trị ngày thứ 3.',
+        shouldDo : 'Sao Chủy không nên làm bất kỳ việc chi.',
+        abstain : 'Khởi công tạo tác việc chi cũng không tốt. KỴ NHẤT là chôn cất và các vụ thuộc về chết chôn như sửa đắp mồ mả, làm sanh phần (làm mồ mã để sẵn), đóng thọ đường (đóng hòm để sẵn). Ngày này tuyệt đối không tiến hành chôn cất người chết để tránh gặp điềm dữ.',
+        detail1 : '',
+        nameDetail1 : '',
+        description :'',
+        description2 : 'Chủy: Hỏa Hầu (con khỉ): Hỏa tinh, sao xấu. Khắc Kỵ xây cất, thưa kiện, hay mai táng. Thi cử gặp nhiều bất lợi.',
+        description3 : 'Sao Chủy Hỏa Hầu tại Tỵ bị đoạt khí, còn Hung thì càng thêm Hung. Tại Dậu rất tốt, vì Sao Chủy Đăng Viên ở Dậu đem khởi động và thăng tiến. Tuy nhiên phạm vào Phục Đoạn Sát (mọi kiêng cữ giống như trên).',
+        description4 : 'Tại Sửu là Đắc Địa, mọi việc ắt nên. Rất hợp với ngày Đinh Sửu và ngày Tân Sửu mọi tạo tác Đại Lợi, nếu chôn cất Phú Quý song toàn.',
+        verse : 'Chủy tinh tạo tác hữu đồ hình Tam niên tất đinh chủ linh đinh Mai táng tốt tử đa do thử Thủ định Dần niên tiện sát nhân Tam tang bất chỉ giai do thử Nhất nhân dược độc nhị nhân thân Gia môn điền địa giai thoán bại Thương khố kim tiền hóa tác cần'
+    },
+    'Sâm' : {   
+        name: 'Sao Sâm',
+        nameDay : 'Sâm Thủy Viên - Đỗ Mậu: Tốt (Bình Tú) Tướng tinh con vượn, chủ trị ngày thứ 4.',
+        shouldDo : 'Nhiều việc khởi công tạo tác tốt như: dựng cửa trổ cửa, xây cất nhà, nhập học, làm thủy lợi, tháo nước đào mương hay đi thuyền.',
+        abstain : 'Cưới gả, đóng giường lót giường, chôn cất hay kết bạn đều không tốt. Vì vậy, để việc cưới gả được trăm điềm tốt quý bạn nên chọn một ngày khác để tiến hành.',
+        detail1 : '',
+        nameDetail1 : '',
+        description :'',
+        description2 : 'Sâm: Thủy Viên (con vượn): Thủy tinh, sao tốt. Rất tốt cho việc mua bán, kinh doanh, xây cất và thi cử đỗ đạt. Kỵ an táng và cưới gả.',
+        description3 : 'Ngày Tuất Sao Sâm Đăng Viên, nên phó nhậm đặng cầu công danh hiển hách.',
+        description4 : '',
+        verse : 'Sâm tinh tạo tác vượng nhân gia Văn tinh triều diệu, đại quang hoa Chỉ nhân tạo tác điền tài vượng Mai táng chiêu tật, táng hoàng sa Khai môn, phóng thủy gia quan chức Phòng phòng tôn tử kiến điền gia Hôn nhân hứa định tao hình khắc Nam nữ chiêu khai mộ lạc hoa.'
+    },
+    'Tỉnh' : {   
+        name: 'Sao Tỉnh',
+        nameDay : 'Tỉnh Mộc Hãn - Diêu Kỳ: Tốt (Bình Tú) Tướng tinh con dê trừu, chủ trị ngày thứ 5.',
+        shouldDo : 'Tạo tác nhiều việc rất tốt như trổ cửa dựng cửa, mở thông đường nước, đào mương móc giếng, đi thuyền, xây cất, nhậm chức hoặc nhập học.',
+        abstain : 'Làm sanh phần, đóng thọ đường, chôn cất hay tu bổ mộ phần.',
+        detail1 : '',
+        nameDetail1 : '',
+        description :'',
+        description2 : 'Tỉnh: Mộc Can (con chim cú): Mộc tinh, sao tốt. Sự nghiệp công danh thành đạt, thăng tiến, việc chăn nuôi và xây cất thuận lợi vô cùng.',
+        description3 : 'Sao Tỉnh Mộc Hãn tại Mùi, Hợi, Mão mọi việc tốt. Tại Mùi là Nhập Miếu nên khởi động vinh quang.',
+        description4 : '',
+        verse : 'Sâm tinh tạo tác vượng nhân gia Văn tinh triều diệu, đại quang hoa Chỉ nhân tạo tác điền tài vượng Mai táng chiêu tật, táng hoàng sa Khai môn, phóng thủy gia quan chức Phòng phòng tôn tử kiến điền gia Hôn nhân hứa định tao hình khắc Nam nữ chiêu khai mộ lạc hoa.'
+    },
+    'Quỷ' : {   
+        name: 'Sao Quỷ',
+        nameDay : 'Quỷ Kim Dương - Vương Phách: Xấu (Hung Tú) Tướng tinh con dê, chủ trị ngày thứ 6.',
+        shouldDo : 'Việc chôn cất, chặt cỏ phá đất hoặc cắt áo đều tốt.',
+        abstain : 'Khởi tạo bất kể việc chi cũng hại. Hại nhất là trổ cửa dựng cửa, tháo nước, việc đào ao giếng, xây cất nhà, cưới gả, động đất, xây tường và dựng cột. Vì vậy, nếu quý bạn đang có ý định động thổ xây nhà hay cưới hỏi thì nên chọn một ngày khác để tiến hành.',
+        detail1 : 'Nhằm ngày 16 Âm  Lịch là ngày',
+        nameDetail1 : 'Diệt Một',
+        description :'kỵ lập lò gốm, lò nhuộm, vào làm hành chính, làm rượu, kỵ nhất là đi thuyền.Quỷ: Kim Dương (con dê): Kim tinh, sao xấu. chôn cất thuận lợi trong việc. Ngược lại bất lợi cho việc xây cất và gả cưới.',
+        description2 : 'Quỷ: Kim Dương (con dê): Kim tinh, sao xấu. chôn cất thuận lợi trong việc. Ngược lại bất lợi cho việc xây cất và gả cưới.',
+        description3 : 'Ngày Tý Đăng Viên thừa kế tước phong rất tốt, đồng thời phó nhiệm may mắn.',
+        description4 : 'Ngày Thân là Phục Đoạn Sát kỵ những việc thừa kế, chia lãnh gia tài, chôn cất, việc xuất hành, khởi công lập lò gốm, lò nhuộm. Nên: dứt vú trẻ em, xây tường, kết dứt điều hung hại, lấp hang lỗ, làm cầu tiêu.',
+        verse : 'Quỷ tinh khởi tạo tất nhân vong Đường tiền bất kiến chủ nhân lang Mai táng thử nhật, quan lộc chí Nhi tôn đại đại cận quân vương Khai môn phóng thủy tu thương tử Hôn nhân phu thê bất cửu trường Tu thổ trúc tường thương sản nữ Thủ phù song nữ lệ uông uông.'
+    },
+    'Liễu' : {   
+        name: 'Sao Liễu',
+        nameDay : 'Liễu Thổ Chương Nhậm Quang: Xấu (Hung tú) Tướng tinh con gấu ngựa, chủ trị ngày thứ 7.',
+        shouldDo : 'Không có bất kỳ việc chi hạp với Sao Liễu.',
+        abstain : 'Khởi công tạo tác việc chi cũng rất bất lợi, hung hại. Hung hại nhất là làm thủy lợi như trổ tháo nước, đào ao lũy, chôn cất, việc sửa cửa dựng cửa, xây đắp. Vì vậy, ngày nay không nên tiến hành bất cứ việc trọng đại gì.',
+        detail1 : '',
+        nameDetail1 : '',
+        description :'',
+        description2 : 'Liễu: Thổ Chướng (con cheo): Thổ tinh, sao xấu. Tiền bạc thì hao hụt, gia đình thì không yên, dễ bị tai nạn. Khắc kỵ cưới gả.',
+        description3 : 'Sao Liễu Thổ Chướng tại Ngọ trăm việc đều tốt. Tại Tỵ thì Đăng Viên: thừa kế hay lên quan lãnh chức đều là hai điều tốt nhất. Tại Dần, Tuất rất suy vi nên kỵ xây cất và chôn cất.',
+        description4 : '',
+        verse : 'Liễu tinh tạo tác chủ tao quan Trú dạ thâu nhàn bất tạm an Mai táng ôn hoàng đa bệnh tử Điền viên thoái tận, thủ cô hàn Khai môn phóng thủy chiêu lung hạt Yêu đà bối khúc tự cung loan Cánh hữu bổng hình nghi cẩn thận Phụ nhân tùy khách tẩu bất hoàn.'
+    },
+    'Tinh' : {   
+        name: 'Sao Tinh',
+        nameDay : 'Tinh Nhật Mã - Lý Trung: Xấu (Bình Tú) Tướng tinh con ngựa, chủ trị ngày chủ nhật.',
+        shouldDo : 'Xây dựng phòng mới.',
+        abstain : 'Chôn cất, cưới gả, mở thông đường nước.',
+        detail1 : '',
+        nameDetail1 : '',
+        description :'',
+        description2 : '',
+        description3 : ' Sao Tinh là một trong Thất Sát Tinh, nếu sinh con nhằm ngày này nên lấy tên Sao đặt tên cho trẻ để dễ nuôi, có thể lấy tên sao của năm, hay sao của tháng cũng được.',
+        description4 : 'Sao Tinh gặp ngày Dần, Ngọ, Tuất đều tốt. Gặp ngày Thân là Đăng Giá (lên xe): xây cất tốt mà chôn cất nguy. Hợp với 7 ngày: Giáp Dần, Nhâm Dần, Giáp Ngọ, Bính Ngọ, Mậu Ngọ, Bính Tuất, Canh Tuất.',
+        verse : 'Tinh tú nhật hảo tạo tân phòng Tiến chức gia quan cận Đế vương Bất khả mai táng tính phóng thủy Hung tinh lâm vị nữ nhân vong Sinh ly, tử biệt vô tâm luyến Tự yếu quy hưu biệt giá lang Khổng tử cửu khúc châu nan độ Phóng thủy, khai câu, thiên mệnh thương.'
+    },
+    'Trương' : {   
+        name: 'Sao Trương',
+        nameDay : 'Trương Nguyệt Lộc - Vạn Tu: Tốt (Kiết Tú) Tướng tinh con nai, chủ trị ngày thứ 2.',
+        shouldDo : 'Khởi công tạo tác trăm việc đều tốt. Trong đó, tốt nhất là che mái dựng hiên, xây cất nhà, trổ cửa dựng cửa, cưới gả, chôn cất, hay làm ruộng, nuôi tằm , làm thuỷ lợi, đặt táng kê gác, chặt cỏ phá đất, cắt áo cũng đều rất tốt.',
+        abstain : 'Sửa hay làm thuyền chèo, hoặc đẩy thuyền mới xuống nước.',
+        detail1 : '',
+        nameDetail1 : '',
+        description :'',
+        description2 : '',
+        description3 : 'Tại Mùi, Hợi, Mão đều tốt. Tại Mùi: đăng viên rất tốt nhưng phạm vào Phục Đoạn (Kiêng cữ như trên). Trương: Nguyệt Lộc (con nai): Nguyệt tinh, sao tốt. Việc mai táng và hôn nhân thuận lợi.',
+        description4 : '',
+        verse : 'Trương tinh nhật hảo tạo long hiên Niên niên tiện kiến tiến trang điền Mai táng bất cửu thăng quan chức Đại đại vi quan cận Đế tiền Khai môn phóng thủy chiêu tài bạch Hôn nhân hòa hợp, phúc miên miên Điền tàm đại lợi, thương khố mãn Bách ban lợi ý, tự an nhiên.'
+    },
+    'Dực' : {   
+        name: 'Sao Dực',
+        nameDay : 'Dực Hỏa Xà - Bi Đồng: Xấu (Hung Tú) Tướng tinh con rắn, chủ trị ngày thứ 3.',
+        shouldDo : 'Nếu cắt áo sẽ đặng được tiền tài.',
+        abstain : 'Những việc như chôn cất, xây cất nhà, đặt táng kê gác, gác đòn đông, cưới gã, trổ cửa gắn cửa, các việc thủy lợi. Vì vậy, nếu quý bạn đang muốn tiến hành các việc trên thì nên chọn một ngày đại cát trong tháng để thực hiện.',
+        detail1 : '',
+        nameDetail1 : '',
+        description :'',
+        description2 : 'Dực: Hỏa Xà (con rắn): Hỏa tinh, sao xấu. Khắc kỵ cưới gả, dựng nhà, hay chôn cất.',
+        description3 : 'Sao Dực Hỏa Xà tại Thân, Tý, Thìn mọi việc rất tốt. Tại Thìn: Vượng Địa là tốt hơn hết. Tại Tý: Đăng Viên rất tốt nên thừa kế sự nghiệp hay lên quan lãnh chức.',
+        description4 : '',
+        verse : 'Dực tinh bất lợi giá cao đường Tam niên nhị tái kiến ôn hoàng Mai táng nhược hoàn phùng thử nhật Tử tôn bất định tẩu tha hương Hôn nhân thử nhật nghi bất lợi Quy gia định thị bất tương đương Khai môn phóng thủy gia tu phá Thiếu nữ tham hoa luyến ngoại lang.'
+    },
+    'Chẩn' : {   
+        name: 'Sao Chẩn',
+        nameDay : 'Chẩn Thủy Dẫn - Lưu Trực: Tốt (Kiết Tú) Tướng tinh con giun, chủ trị ngày thứ 4.',
+        shouldDo : 'Mọi việc khởi công tạo tác rất tốt lành. Tốt nhất là cưới gả, xây cất lầu gác và chôn cất. Các việc khác như xuất hành, dựng phòng, chặt cỏ phá đất, cất trại, cũng tốt.',
+        abstain : 'Việc đi thuyền.',
+        detail1 : '',
+        nameDetail1 : '',
+        description :'',
+        description2 : 'Chẩn: Thủy Dẫn (con trùng): Thủy tinh, sao tốt. Tốt cho những việc gả cưới, xây dựng cũng như an táng.',
+        description3 : 'Sao Chẩn Thủy Dẫn tại Tỵ, Dậu, Sửu đều rất tốt. Tại Sửu: Vượng Địa, tạo tác được thịnh vượng. Tại Tỵ: Đăng Viên là ngôi tôn đại, trăm mưu động ắt thành danh.',
+        description4 : '',
+        verse : 'Chẩn tinh lâm thủy tạo long cung Đại đại vi quan thụ sắc phong Phú quý vinh hoa tăng phúc thọ Khố mãn thương doanh tự xương long Mai táng văn tinh lai chiếu trợ Trạch xá an ninh, bất kiến hung Cánh hữu vi quan, tiên đế sủng Hôn nhân long tử xuất long cung.'
+    },
+    'Giác' : {   
+        name: 'Sao Giác',
+        nameDay : 'Giác Mộc Giao - Đặng Vũ: Tốt (Bình Tú) Tướng tinh con Giao Long, chủ trị ngày thứ 5.',
+        shouldDo : 'Mọi việc tạo tác đều đặng được vinh xương và tấn lợi. Việc hôn nhân hay cưới gả sinh con quý tử. Công danh thăng tiến, khoa cử đỗ đạt cao.',
+        abstain : 'Chôn cất hoạn nạn phải ba năm. Dù xây đắp mộ phần hay sửa chữa mộ phần ắt có người chết. Vì vậy, để tránh điềm giữ quý bạn nên chọn một ngày tốt khác để tiến hành chôn cất. Sinh con nhằm ngày Sao Giác chiếu thì sẽ khó nuôi. Tốt nhất đặt tên con theo tên của Sao nó mới được an toàn. Không dùng tên sao này có thể dùng tên Sao của tháng hay của năm cũng mang ý nghĩa tương đương.',
+        detail1 : 'Sao Giác trúng vào ngày Ngọ là ',
+        nameDetail1 : 'Phục Đoạn Sát',
+        description :'rất kỵ trong việc chôn cất, thừa kế, chia lãnh gia tài, xuất hành và cả khởi công lò nhuộm hoặc lò gốm. Tuy nhiên sao Giác vào ngày này lại nên làm các việc như lấp hang lỗ, xây tường, dứt vú trẻ em, làm cầu tiêu, kết dứt điều hung hại.',
+        description2 : 'Giác: Mộc Giao (con cá sấu): tức là Mộc tinh, sao tốt. Ý nghĩa đỗ đạt, hôn nhân thành tựu. Đồng thời kỵ cải táng và hung táng.',
+        description3 : 'Sao Giác trúng ngày Sóc tức là Diệt Một Nhật: không nên làm rượu, làm hành chính, lập lò gốm lò nhuộm cũng như thừa kế. Đặc biệt Đại Kỵ đi thuyền.',
+        description4 : 'Sao Giác trúng vào ngày Dần là Đăng Viên mang ý nghĩa được ngôi vị cao cả, hay mọi sự đều tốt đẹp.',
+        verse : 'Giác tinh tọa tác chủ vinh xương Ngoại tiến điền tài cập nữ lang Giá thú hôn nhân sinh quý tử Văn nhân cập đệ kiến Quân vương Duy hữu táng mai bất khả dụng Tam niên chi hậu, chủ ôn đậu”.'
+    },
+    'Cang' : {   
+        name: 'Sao Cang',
+        nameDay : ' Cang Kim Long - Ngô Hán: Xấu (Hung Tú) Tướng tinh con Rồng, chủ trị ngày thứ 6.',
+        shouldDo : 'công việc liên quan đến cắt may áo màn sẽ đặng nhiều lộc ăn.',
+        abstain : 'Chôn cất bị Trùng tang. Vì vậy, để tránh điềm giữ quý bạn nên chọn một ngày tốt khác để tiến hành chôn cất. Nếu cưới gả e rằng phòng không giá lạnh. Nếu tranh đấu kiện tụng thì lâm bại. Nếu khởi dựng nhà cửa chết con đầu. Trong 10 hoặc 100 ngày sau thì gặp họa, rồi từ đó lần lần tiêu hết ruộng đất, còn nếu làm quan bị cách chức. Sao Cang thuộc vào Thất Sát Tinh, nhằm ngày này sanh con ắt sẽ khó nuôi. Cho nên lấy tên của Sao để đặt cho con thì được yên lành.',
+        detail1 : 'Sao Cang nhằm vào ngày Rằm là',
+        nameDetail1 : 'Diệt Một Nhật',
+        description :'Cữ làm rượu, thừa kế sự nghiệp, lập lò gốm, lò nhuộm hay vào làm hành chính, thứ nhất đi thuyền chẳng khỏi nguy hại (vì Diệt Một có nghĩa là chìm mất).',
+        description2 : 'Sao Cang: Kim Long (con rồng): Kim tinh, sao xấu. Kỵ gả cưới và xây cất. Đề phòng dễ bị tai nạn.',
+        description3 : 'Sao Cang tại Mùi, Hợi, Mẹo thì trăm việc đều tốt. Thứ nhất tại Mùi.',
+        description4 : '',
+        verse : 'Can tinh tạo tác Trưởng phòng đường Thập nhật chi trung chủ hữu ương Điền địa tiêu ma, quan thất chức Đầu quân định thị hổ lang thương Giá thú, hôn nhân dụng thử nhật Nhi tôn, Tân phụ chủ không phòng Mai táng nhược hoàn phùng thử nhật Đương thời tai họa, chủ trùng tang.'
+    },
+    'Đê' : {   
+        name: 'Sao Đê',
+        nameDay : 'Đê Thổ Lạc - Giả Phục: Xấu (Hung Tú) Tướng tinh con Lạc Đà, chủ trị ngày thứ 7.',
+        shouldDo : 'Sao Đê đại hung, không hợp để làm bất kỳ công việc trọng đại nào.',
+        abstain : 'Không nên khởi công xây dựng, chôn cất, cưới gả và xuất hành. Kỵ nhất là đường thủy. Ngày này sinh con chẳng phải điềm lành nên làm âm đức cho con. Đây chỉ là liệt kê các việc Đại Kỵ, còn các việc khác vẫn nên kiêng cữ. Vì vậy, nếu quý bạn có dự định các công việc liên quan đến khởi công xây dựng, chôn cất, cưới gả và xuất hành quý bạn nên chọn một ngày tốt khác để thực hiện., nhằm ngày này sanh con ắt sẽ khó nuôi. Cho nên lấy tên của Sao để đặt cho con thì được yên lành.',
+        detail1 : '',
+        nameDetail1 : '',
+        description :'',
+        description2 : 'Sao Cang: Kim Long (con rồng): Kim tinh, sao xấu. Kỵ gả cưới và xây cất. Đề phòng dễ bị tai nạn.',
+        description3 : 'Đê Thổ Lạc (con nhím): Thổ tinh, sao xấu. Khắc kỵ các việc: khai trương, động thổ, chôn cất và xuất hành.',
+        description4 : '',
+        verse : 'Đê tinh tạo tác chủ tai hung Phí tận điền viên, thương khố không Mai táng bất khả dụng thử nhật Huyền thằng, điếu khả, họa trùng trùng Nhược thị hôn nhân ly biệt tán Dạ chiêu lãng tử nhập phòng trung Hành thuyền tắc định tạo hướng một Cánh sinh lung ách, tử tôn cùng.'
     }
+    ,
+    'Phòng' : {   
+        name: 'Sao Phòng',
+        nameDay : 'Phòng Nhật Thố - Cảnh Yêm: Tốt (Kiết Tú) Tướng tinh con Thỏ, chủ trị ngày Chủ nhật.',
+        shouldDo : 'Mọi việc khởi công tạo tác đều tốt. Ngày này hợp nhất cho việc cưới gả, xuất hành, xây dựng nhà, chôn cất, đi thuyền, mưu sự, chặt cỏ phá đất và cả cắt áo.',
+        abstain : 'Sao Phòng là Đại Kiết Tinh nên không kỵ bất kỳ việc gì. Vì vậy, ngày này nên tiến hành các việc lớn đặc biệt là mua bán như nhà cửa, đất đai hay xe cộ được nhiều may mắn và thuận lợi.',
+        detail1 : '',
+        nameDetail1 : '',
+        description :'',
+        description2 : '',
+        description3 : 'Sao Phòng tại Đinh Sửu hay Tân Sửu đều tốt. Tại Dậu thì càng tốt hơn, vì Sao Phòng Đăng Viên tại Dậu. Trong 6 ngày Kỷ Tỵ, Kỷ Dậu, Đinh Tỵ, Đinh Sửu, Quý Dậu, Tân Sửu Sao Phòng vẫn tốt với mọi việc khác. Ngoại trừ việc chôn cất là rất kỵ.',
+        description4 : 'Sao Phòng nhằm vào ngày Tỵ là Phục Đoạn Sát: chẳng nên xuất hành, chôn cất, chia lãnh gia tài, thừa kế cũng như khởi công làm lò nhuộm, lò gốm. Tuy nhiên nên xây tường, lấp hang lỗ, dứt vú trẻ em, làm cầu tiêu, kết dứt điều hung hại. Phòng Nhật Thố (con thỏ): Thái dương, sao tốt. Sao này hưng vượng về tài sản, thuận lợi trong cả việc chôn cất cũng như xây cất.',
+        verse : 'Phòng tinh tạo tác điền viên tiến Huyết tài ngưu mã biến sơn cương Cánh chiêu ngoại xứ điền trang trạch Vinh hoa cao quý, phúc thọ khang Mai táng nhược nhiên phùng thử nhật Cao quan tiến chức bái Quân vương Giá thú: Thường nga quy Nguyệt điện Tam niên bào tử chế triều đường.'
+    }
+    ,
+    'Tâm' : {   
+        name: 'Sao Tâm',
+        nameDay : 'Tâm Nguyệt Hồ - Khấu Tuân: Xấu (Hung tú) Tướng tinh con chồn, chủ trị ngày thứ.',
+        shouldDo : ' Hung tú này tạo tác bất kỳ việc chi cũng không hạp.',
+        abstain : 'Khởi công tạo tác việc chi cũng không tránh khỏi hại. Nhất là cưới gả, đóng giường, lót giường, xây cất, chôn cất và tranh tụng. Vì vậy, nên chọn một ngày tốt khác để tiến hành các việc trên, đặc biệt tránh cưới gả nhằm ngày này.',
+        detail1 : '',
+        nameDetail1 : '',
+        description :'',
+        description2 : 'Tâm: Nguyệt Hồ (con chồn): Thái âm, sao xấu. Kỵ cưới gả, xây cất, thưa kiện. Kinh doanh ắt thua lỗ.',
+        description3 : 'Ngày Dần Sao Tâm Đăng Viên, tốt khi dùng làm các việc nhỏ.',
+        description4 : '',
+        verse : 'Tâm tinh tạo tác đại vi hung Cánh tao hình tụng, ngục tù trung Ngỗ nghịch quan phi, điền trạch thoái Mai táng tốt bộc tử tương tòng Hôn nhân nhược thị phùng thử nhật Tử tử nhi vong tự mãn hung Tam niên chi nội liên tạo họa Sự sự giáo quân một thủy chung'
+    }
+    ,
+    'Cơ' : {   
+        name: 'Sao Cơ',
+        nameDay : 'Cơ Thủy Báo - Phùng Dị: Tốt (Kiết Tú) Tướng tinh con Beo, chủ trị ngày thứ 4.',
+        shouldDo : ' Trăm việc khởi tạo đều tốt. Nhất là việc chôn cất, khai trương, xuất hành, tu bổ mồ mã, trổ cửa, các vụ thủy lợi (như tháo nước, khai thông mương rảnh, đào kênh,...)',
+        abstain : 'Các việc lót giường, đóng giường, đi thuyền.',
+        detail1 : 'Ngày Thìn Sao Cơ Đăng Viên lẽ ra rất tốt tuy nhiên lại phạm ',
+        nameDetail1 : 'Phục Đoạn.',
+        description :'Bởi phạm Phục Đoạn thì rất kỵ xuất hành, chôn cất, chia lãnh gia tài, các vụ thừa kế, khởi công làm lò nhuộm lò gốm. Nên: dứt vú trẻ em, kết dứt điều hung hại, xây tường, lấp hang lỗ, làm cầu tiêu.',
+        description2 : 'Cơ: Thủy Báo (con beo): Thủy tinh, sao tốt. Gia đình an lành, yên vui, vượng điền sản, đồng thời sự nghiệp thăng tiến.',
+        description3 : 'Cơ Thủy Báo tại: Thân, Tý, Thìn trăm việc kỵ. Duy tại Tý có thể tạm dùng.',
+        description4 : '',
+        verse : 'Cơ tinh tạo tác chủ cao cường Tuế tuế niên niên đại cát xương Mai táng, tu phần đại cát lợi Điền tàm, ngưu mã biến sơn cương Khai môn, phóng thủy chiêu tài cốc Khiếp mãn kim ngân, cốc mãn thương Phúc ấm cao quan gia lộc vị Lục thân phong lộc, phúc an khang.'
+    },
+    'Vĩ' : {   
+        name: 'Sao Vĩ',
+        nameDay : 'Vĩ Hỏa Hổ - Sầm Bành: Tốt (Kiết Tú) tướng tinh con cọp, chủ trị ngày thứ 3.',
+        shouldDo : 'Mọi việc đều tốt. Các vụ khởi tạo, chôn cất, trổ cửa, đào ao giếng, cưới gả, xây cất, khai mương rạch, các vụ thủy lợi, chặt cỏ phá đất là tốt nhất.',
+        abstain : 'Đóng giường, lót giường, đi thuyền, mua sắm. Vì vậy, ngày này không nên tiến hành mua sắm như ô tô, xe máy, nhà đất ...',
+        detail1 : '',
+        nameDetail1 : '',
+        description :'',
+        description2 : 'Sao Vĩ: Hỏa Hổ (con cọp): Hỏa tinh, sao tốt. Mọi sự hưng vượng, thuận lợi trong việc xuất ngoại, xây cất, và hôn nhân.',
+        description3 : 'Sao Vĩ Hỏa Hổ tại Mùi, Hợi, Mẹo (mão) khắc kỵ chôn cất. Tại Mùi là vị trí Hãm Địa của Sao Vỹ. Tại Kỷ Mẹo rất Hung, còn các ngày Mẹo khác có thể tạm dùng được.',
+        description4 : '',
+        verse : 'Vĩ tinh tạo tác đắc thiên ân Phú quý, vinh hoa, phúc thọ ninh Chiêu tài tiến bảo, tiến điền địa, Hòa hợp hôn nhân, quý tử tôn. Mai táng nhược năng y thử nhật Nam thanh, nữ chính, tử tôn hưng Khai môn, phóng thủy, chiêu điền địa Đại đại công hầu, viễn bá danh.'
+    },
+    'Đẩu' : {   
+        name: 'Sao Đẩu',
+        nameDay : 'Đẩu Mộc Giải - Tống Hữu: Tốt (Kiết Tú). Tướng tinh con cua, chủ trị ngày thứ 5.',
+        shouldDo : 'Khởi tạo trăm việc đều rất tốt. Tốt nhất cho xây đắp, sửa chữa phần mộ, tháo nước, hay trổ cửa, các vụ thủy lợi, chặt cỏ phá đất, may cắt áo mão, hoặc kinh doanh, giao dịch, mưu cầu công danh.',
+        abstain : 'Rất kỵ việc đi thuyền. Nên đặt tên con là Đẩu, Giải hay Trại hoặc theo tên của Sao năm hay tháng đó để đặt sẽ dễ nuôi hơn.',
+        detail1 : '',
+        nameDetail1 : '',
+        description :'',
+        description2 : 'Đẩu: Mộc giải (con cua): Mộc tinh, sao tốt. Nên xây cất, sửa chữa, cưới gả và an táng đều tốt.',
+        description3 : 'Sao Đẩu Mộc Giải tại Tỵ mất sức. Tại Dậu thì tốt. Ngày Sửu Đăng Viên rất tốt nhưng phạm phải Phục Đoạn. Phạm Phục Đoạn thì kỵ việc chôn cất, thừa kế, chia lãnh gia tài, khởi công làm lò nhuộm lò gốm và xuất hành. Nên: dứt vú trẻ em, lấp hang lỗ, làm cầu tiêu, xây tường, kết dứt điều hung hại.',
+        description4 : '',
+        verse : 'Đẩu tinh tạo tác chủ chiêu tài Văn vũ quan viên vị đỉnh thai Điền trạch tiền tài thiên vạn tiến Phần doanh tu trúc, phú quý lai.Khai môn, phóng thủy, chiêu ngưu mã Vượng tài nam nữ chủ hòa hài Ngộ thử cát tinh lai chiến hộ Thời chi phúc khánh, vĩnh vô tai'
+    },
+    'Ngưu' : {   
+        name: 'Sao Ngưu',
+        nameDay : 'Ngưu Kim Ngưu - Sái Tuân: Xấu (Hung Tú). Tướng tinh con trâu, chủ trị ngày thứ 6.',
+        shouldDo : 'Rất tốt đi thuyền, cắt may áo mão.',
+        abstain : 'Khởi công tạo tác bất kỳ việc gì cũng gặp hung hại. Nhất là việc dựng trại, xây cất nhà, trổ cửa, cưới gả, xuất hành đường bộ, làm thủy lợi, nuôi tằm, gieo cấy, khai khẩn cũng như khai trương. Vì vậy, ngày này không nên tiến hành các công việc trọng đại, nên chọn một ngày tốt khác để tiến hành.',
+        detail1 : 'Trúng ngày 14 Âm  lịch là ',
+        nameDetail1 : 'Diệt Một Sát',
+        description :', kiêng cữ: lập lò nhuộm lò gốm, làm rượu, thừa kế sự nghiệp, vào làm hành chánh, nhất là đi thuyền chẳng thể tránh khỏi rủi ro.',
+        description2 : 'Ngưu: Kim Ngưu (con trâu): Kim tinh, sao xấu. Kỵ xây cất, hôn nhân.',
+        description3 : 'Ngày Ngọ Đăng Viên rất tốt. Ngày Tuất thì yên lành. Ngày Dần là Tuyệt Nhật, không nên động tác việc chi, riêng có ngày Nhâm Dần thì dùng được',
+        description4 : 'Sao Ngưu là một trong Thất Sát Tinh, nếu sanh con thì khó nuôi. Lấy tên Sao tháng, của năm hay của ngày để đặt tên cho con kết hợp làm việc Âm Đức ngay trong tháng sinh mới mong nuôi con khôn lớn được.',
+        verse : 'Ngưu tinh tạo tác chủ tai nguy Cửu hoành tam tai bất khả thôi Gia trạch bất an, nhân khẩu thoái Điền tàm bất lợi, chủ nhân suy Giá thú, hôn nhân giai tự tổn Kim ngân tài cốc tiệm vô chi Nhược thị khai môn, tính phóng thủy Ngưu trư dương mã diệc thương bi.'
+    },
+    'Nữ' : {   
+        name: 'Sao Nữ',
+        nameDay : 'Nữ Thổ Bức - Cảnh Đan: Xấu (Hung Tú). Tướng tinh con dơi, chủ trị ngày thứ 7.',
+        shouldDo : 'Hợp kết màn hay may áo.',
+        abstain : 'Khởi công tạo tác trăm việc đều có hại. Trong đó hung hại nhất là khơi đường tháo nước, trổ cửa, đầu đơn kiện cáo, chôn cất. Vì vậy, để tránh điềm giữ quý bạn nên chọn một ngày tốt khác để tiến hành chôn cất.',
+        detail1 : 'Ngày Mẹo là ',
+        nameDetail1 : 'Phục Đoạn Sát',
+        description :'rất kỵ trong việc chôn cất, thừa kế sự nghiệp, xuất hành, khởi công làm lò nhuộm lò gốm, chia lãnh gia tài. Nên: dứt vú trẻ em, lấp hang lỗ, làm cầu tiêu, kết dứt điều hung hại, xây tường.',
+        description2 : 'Nữ: Thổ Bức (con dơi): Thổ tinh, sao xấu. Khắc kỵ chôn cất cũng như cưới gả. Sao này bất lợi khi sinh đẻ.',
+        description3 : 'Sao Nữ Thổ Bức tại Mùi, Hợi, Mẹo (mão) đều gọi chung là đường cùng. Ngày Quý Hợi cùng cực đúng mức, vì là ngày chót của 60 Hoa giáp. Ngày Hợi tuy Sao Nữ Đăng Viên song tốt nhất cũng chẳng nên dùng.',
+        description4 : '',
+        verse : 'Nữ tinh tạo tác tổn bà nương Huynh đệ tương hiềm tựa hổ lang Mai táng sinh tai phùng quỷ quái Điên tà tật bệnh cánh ôn hoàng Vi sự đáo quan, tài thất tán Tả lị lưu liên bất khả đương Khai môn, phóng thủy phùng thử nhật Toàn gia tán bại, chủ ly hương'
+    },
+    'Hư' : {   
+        name: 'Sao Hư',
+        nameDay : 'Hư Nhật Thử - Cái Duyên: Xấu (Hung Tú) Tướng tinh con chuột, chủ trị ngày chủ nhật.',
+        shouldDo : 'Hư có ý nghĩa là hư hoại. Sao Hư mang ý nghĩa không có việc chi hợp.',
+        abstain : 'Tạo tác khởi công trăm việc đều không may. Nhất là việc xây cất nhà cửa, khai trương, cưới gả, trổ cửa, đào kênh rạch hay tháo nước. Vì vậy, nếu quý bạn muốn tiến hành các việc động thổ, xây cất nhà, cưới hỏi,... nên chọn một ngày đại cát khác để thực hiện.',
+        detail1 : 'Sao Hư gặp ngày Tý thì Sao Hư Đăng Viên rất tốt. Tuy nhiên lại phạm',
+        nameDetail1 : 'Phục Đoạn Sát',
+        description :'nên Kỵ thừa kế, chia lãnh gia tài sự nghiệp, chôn cất, xuất hành, khởi công làm lò nhuộm lò gốm. Nên: dứt vú trẻ em, kết dứt điều hung hại, lấp hang lỗ, xây tường, làm cầu tiêu.',
+        description2 : 'Hư: Nhật Thử (con chuột): Nhật tinh, sao xấu. Khắc kỵ xây cất. Gia đạo dễ gặp bất hòa.',
+        description3 : 'Sao Hư gặp Thân, Tý hay Thìn đều tốt. Tại Thìn Đắc Địa tốt hơn hết. 6 ngày: Giáp Tý, Canh Tý, Mậu Thân, Canh Thân, Bính Thìn, Mậu Thìn rất hợp có thể động sự. Trừ ngày Mậu Thìn ra, còn 5 ngày còn lại kỵ chôn cất.',
+        description4 : ' Gặp Huyền Nhật (những ngày 7, 8, 22, 23 Âm  Lịch) thì Sao Hư phạm Diệt Một: ắt chẳng tránh khỏi rủi ro nếu lập lò gốm lò nhuộm, thừa kế. Kiêng cữ: làm rượu, vào làm hành chánh, hơn nhất là đi thuyền.',
+        verse : 'Hư tinh tạo tác chủ tai ương Nam nữ cô miên bất nhất song Nội loạn phong thanh vô lễ tiết Nhi tôn, tức phụ bạn nhân sàng Khai môn, phóng thủy chiêu tai họa Hổ giảo, xà thương cập tốt vong Tam tam ngũ ngũ liên niên bệnh Gia phá, nhân vong, bất khả đương.'
+    },
+    'Nguy' : {   
+        name: 'Sao Nguy',
+        nameDay : ' Nguy Nguyệt Yến - Kiên Đàm: Xấu (Bình Tú) Tướng tinh con chim én, chủ trị ngày thứ 2.',
+        shouldDo : 'Lót giường bình yên, chôn cất rất tốt.',
+        abstain : 'Những việc gác đòn đông, dựng nhà, tháo nước, đào mương rạch, đi thuyền hay trổ cửa. Vì vậy, nếu quý bạn có ý định xây dựng nhà cửa thì nên chọn ngày khác để tiến hành.',
+        detail1 : '',
+        nameDetail1 : '',
+        description :'',
+        description2 : 'Sao Nguy Nguyệt Yến tại Tỵ, Dậu và Sửu trăm việc đều tốt. Trong đó, tại Dậu tốt nhất. Ngày Sửu Sao Nguy Đăng Viên: mọi việc tạo tác đều được quý hiển.',
+        description3 : 'Nguy: Nguyệt Yến (con én): Nguyệt tinh, sao xấu. Khắc kỵ việc khai trương, an táng và xây dựng.',
+        description4 : '',
+        verse : 'Nguy tinh bât khả tạo cao đường Tự điếu, tao hình kiến huyết quan Tam tuế hài nhi tao thủy ách Hậu sinh xuất ngoại bất hoàn lương Mai táng nhược hoàn phùng thử nhật Chu niên bách nhật ngọa cao sàng Khai môn, phóng thủy tạo hình trượng Tam niên ngũ tái diệc bi thương.'
+    },
+    'Thất' : {   
+        name: 'Sao Thất',
+        nameDay : ' Thất Hỏa Trư - Cảnh Thuần: Tốt (Kiết Tú) Tướng tinh con heo, chủ trị ngày thứ 3.',
+        shouldDo : 'Khởi công trăm việc đều đặng tốt. Tốt nhất là tháo nước, các việc thủy lợi, việc đi thuyền, xây cất nhà cửa, trổ cửa, cưới gả, chôn cất hay chặt cỏ phá đất.',
+        abstain : 'Sao Thất Đại Kiết nên không có bất kỳ việc gì phải cữ.',
+        detail1 : 'Ba ngày là: Bính Dần, Nhâm Dần và Giáp Ngọ tốt cho xây dựng, chôn cất, song cũng ngày Dần nhưng ngày Dần khác lại không tốt. Bởi sao Thất gặp ngày Dần là phạm vào ',
+        nameDetail1 : 'Phục Đoạn Sát',
+        description :'(mọi kiêng cữ như trên).',
+        description2 : 'Thất: Hỏa Trư (con lợn): Hỏa tinh, sao tốt. Rất tốt cho việc kinh doanh, hôn nhân, xây cất và chôn cất.',
+        description3 : 'Sao Thất Đại Kiết tại Ngọ, Tuất và Dần nói chung đều tốt, đặc biệt ngày Ngọ Đăng viên rất hiển đạt.',
+        description4 : '',
+        verse : 'Thất tinh tạo tác tiến điền ngưu Nhi tôn đại đại cận quân hầu Phú quý vinh hoa thiên thượng chỉ Thọ như Bành tổ nhập thiên thu Khai môn, phóng thủy chiêu tài bạc Hòa hợp hôn nhân sinh quý nhi Mai táng nhược năng y thử nhật Môn đình hưng vượng, Phúc vô ưu!'
+    }
+
+    // đến Bích
 }
 
 
 export {gioXuatHanh, timeData, gioHoangDao,
      gioHacDao, detailGioHoangDao, 
      nguHanhChi, nguHanhCan,
-     khongMinhLucDieu
+     khongMinhLucDieu, thapNhiBatTu
     }

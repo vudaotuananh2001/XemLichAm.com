@@ -1,6 +1,6 @@
 import { gioXuatHanh,
     gioHoangDao, gioHacDao, detailGioHoangDao, 
-    nguHanhChi, nguHanhCan, khongMinhLucDieu
+    nguHanhChi, nguHanhCan, khongMinhLucDieu, thapNhiBatTu
 } from "./DataTime";
 
 const dayOfWeek = ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"];
@@ -2837,11 +2837,40 @@ const nguHanh =(nameDay)=> {
     // bắt đầu từ ngày ất sửu
 }
 
+// Bảng sao Thập Nhị Bát Tú theo thứ và tuần
+const bangThapNhiBatTu = {
+    5: ["Giác", "Đẩu", "Khuê", "Tỉnh"],
+    6: ["Cang", "Ngưu", "Lâu", "Quỷ"],
+    7: ["Đê", "Nữ", "Vị", "Liễu"],
+    0: ["Phòng", "Hư", "Mão", "Tinh"],  // Chủ nhật là 0
+    1: ["Tâm", "Nguy", "Tất", "Trương"],
+    2: ["Vĩ", "Thất", "Chủy", "Dực"],
+    3: ["Cơ", "Bích", "Sâm", "Chẩn"]
+  };
+  
+  function tinhTuanCuaNgay(ngay) {
+    return (Math.floor((ngay - 1) / 7) + 1) % 4;
+}
+
+// Hàm tính sao Thập Nhị Bát Tú dựa vào ngày và thứ trong tuần
+function tinhThapNhiBatTu(ngay, thu) {
+    const xxxxx = dayOfWeek.indexOf(thu);
+    if (xxxxx === -1) {
+        console.log("Thứ không hợp lệ!");
+        return null;
+    }
+    const dayParts = ngay.split('-'); 
+    const day = Number(dayParts[0]); 
+    const tuan = tinhTuanCuaNgay(day);
+    const datasss = bangThapNhiBatTu[xxxxx][tuan];
+    const detailStart = thapNhiBatTu[datasss];
+    return detailStart;
+}
 
 export { canNgay, chiNgay, 
     jdFormDate, layGioHoangDao ,getNameDay,
     getNameMonth, getNameYear, convertSolar2Lunar,rankOffWeek,
     departureDirection, layGioHoangDaoChiTiet, layGioHacDao, departureTime,
     getInforDayCan, getInforDayChi, getKhongMinh, lichTietKhi, 
-    getKhongMinhLucDieu, cacNgayKy, thapNhiKienTruc, startInDay, startBadDay, nguHanh
+    getKhongMinhLucDieu, cacNgayKy, thapNhiKienTruc, startInDay, startBadDay, nguHanh, tinhThapNhiBatTu
 };

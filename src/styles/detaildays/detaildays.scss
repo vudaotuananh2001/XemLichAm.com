@@ -14,18 +14,16 @@
     width: 100%;
 
     tbody tr {
-
-
         td {
             font-family: "Inter", serif;
-
             .title-row-table {
                 width: 25px;
             }
-
             p {
                 margin-bottom: 0;
                 font-family: "Inter", serif;
+                font-size: 17px;
+                line-height: 1.5rem;
             }
         }
     }
