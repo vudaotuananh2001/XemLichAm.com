@@ -2,110 +2,107 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
 import '../styles/tableinformonth/tableinformonth.css';
-const TableInforMonth = () => {
+
+const TableInforMonth = ({ negativeDay }) => {
+    const listDay = negativeDay.informationDayInMonth || [];
+    const dayOfWeek = ['Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy', 'Chủ Nhật'];
+    
+    // Function to calculate the weekday for a given date
+    const getFirstDayOfWeek = (year, month) => {
+        const date = new Date(year, month - 1, 1);
+        return (date.getDay() + 6) % 7; 
+    };
+
+    const year = negativeDay.years;
+    const month = negativeDay.months;
+    const firstDayOfWeek = getFirstDayOfWeek(year, month);
+    
+    // Create an array to represent the calendar days
+    const totalDaysInMonth = new Date(year, month, 0).getDate();
+    const days = Array.from({ length: totalDaysInMonth }, (_, i) => i + 1);
+    
+    // Create the calendar grid
+    const calendar = Array.from({ length: 6 }, () => Array(7).fill(null)); 
+
+    let dayIndex = 0;
+    for (let week = 0; week < calendar.length; week++) {
+        for (let day = 0; day < calendar[week].length; day++) {
+            if (week === 0 && day < firstDayOfWeek) {
+                calendar[week][day] = null;
+            } else if (dayIndex < days.length) {
+                calendar[week][day] = days[dayIndex];
+                dayIndex++;
+            } else {
+                calendar[week][day] = null;
+            }
+        }
+    }
+
+    // Filter out rows that only contain null values
+    const filteredCalendar = calendar.filter(week => week.some(day => day !== null));
+
     return (
-        <>
-            <div className="mt-3">
-                <div className="is_infor_day d-flex">
-                    <span className="good-day">MÀU ĐỎ : NGÀY TỐT</span>,
-                    <span className="bad-day">MÀU TÍM : NGÀY XẤU</span>
-                </div>
-                <div className="title-month d-flex justify-content-around align-items-center">
-                    <Link to={"/"}>
-                        <span className="triangle-left"></span>
-                    </Link>
-                    <span>LỊCH ÂM THÁNG 10 NĂM 2024</span>
-                    <Link to={"/"}> <span className="triangle-right"></span></Link>
-                </div>
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th>THỨ HAI</th>
-                            <th>THỨ BA</th>
-                            <th>THỨ TƯ</th>
-                            <th>THỨ NĂM</th>
-                            <th>THỨ SÁU</th>
-                            <th>THỨ BẢY</th>
-                            <th>CHỦ NHẬT</th>
-                        </tr>
-                    </thead>
-                    <tbody className="table-body">
-                        <tr >
-                            <td>
-                                <Link to={"#"}>
-                                    <div className="infors">
-                                        <span className="day">1</span>
-                                        <span className="circle"></span>
-                                    </div>
-                                    <h6 className="ngayam">12</h6>
-                                    <h6 className="namedayam">Mậu Tuất</h6>
-                                </Link>
-                            </td>
-                            <td>
-                                <Link to={"#"}>
-                                    <div className="infors">
-                                        <span className="day">1</span>
-                                        <span className="circle"></span>
-                                    </div>
-                                    <h6 className="ngayam">12</h6>
-                                    <h6 className="namedayam">Mậu Tuất</h6>
-                                </Link>
-                            </td>
-                            <td>
-                                <Link to={"#"}>
-                                    <div className="infors">
-                                        <span className="day">1</span>
-                                        <span className="circle"></span>
-                                    </div>
-                                    <h6 className="ngayam">12</h6>
-                                    <h6 className="namedayam">Mậu Tuất</h6>
-                                </Link>
-                            </td>
-                            <td>
-                                <Link to={"#"}>
-                                    <div className="infors">
-                                        <span className="day">1</span>
-                                        <span className="circle"></span>
-                                    </div>
-                                    <h6 className="ngayam">12</h6>
-                                    <h6 className="namedayam">Mậu Tuất</h6>
-                                </Link>
-                            </td>
-                            <td>
-                                <Link to={"#"}>
-                                    <div className="infors">
-                                        <span className="day">1</span>
-                                        <span className="circle"></span>
-                                    </div>
-                                    <h6 className="ngayam">12</h6>
-                                    <h6 className="namedayam">Mậu Tuất</h6>
-                                </Link>
-                            </td>
-                            <td>
-                                <Link to={"#"}>
-                                    <div className="infors">
-                                        <span className="day">1</span>
-                                        <span className="circle"></span>
-                                    </div>
-                                    <h6 className="ngayam">12</h6>
-                                    <h6 className="namedayam">Mậu Tuất</h6>
-                                </Link>
-                            </td>
-                            <td>
-                                <Link to={"#"}>
-                                    <div className="infors">
-                                        <span className="day">1</span>
-                                        <span className="circle"></span>
-                                    </div>
-                                    <h6 className="ngayam">12</h6>
-                                    <h6 className="namedayam">Mậu Tuất</h6>
-                                </Link>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div className="mt-3">
+            <div className="is_infor_day d-flex">
+                <span className="good-day">MÀU ĐỎ : NGÀY TỐT</span>,
+                <span className="bad-day">MÀU TÍM : NGÀY XẤU</span>
             </div>
-        </>
+            <div className="title-month d-flex justify-content-around align-items-center">
+                <Link to={"/"}>
+                    <span className="triangle-left" aria-label="Previous Month"></span>
+                </Link>
+                <span>LỊCH ÂM {month} NĂM {year}</span>
+                <Link to={"/"}>
+                    <span className="triangle-right" aria-label="Next Month"></span>
+                </Link>
+            </div>
+            <table className="table">
+                <thead>
+                    <tr>
+                        {dayOfWeek.map((day, index) => (
+                            <th key={index}>{day}</th>
+                        ))}
+                    </tr>
+                </thead>
+                <tbody className="table-body">
+                    {filteredCalendar.map((week, weekIndex) => (
+                        <tr key={weekIndex}>
+                            {week.map((day, dayIndex) => (
+                                <td key={dayIndex}>
+                                    {day ? (
+                                        <Link to={`/am-lich/nam/${year}/thang/${month}/ngay/${day}`}>
+                                            <div className="infors">
+                                                <span className="day">{day}</span>
+                                                <span 
+                                                    className="circle" 
+                                                    style={{
+                                                        backgroundColor: listDay.find(d => d.ngayDuong === day)?.status === 1 
+                                                            ? 'red' 
+                                                            : listDay.find(d => d.ngayDuong === day)?.status === 2 
+                                                            ? '#95149a' 
+                                                            : 'white'
+                                                    }}
+                                                ></span>
+                                            </div>
+                                            <h6 className="ngayam">
+                                                {listDay.find(d => d.ngayDuong === day)?.amLich || ''}
+                                            </h6>
+                                            <h6 className="namedayam">
+                                                {listDay.find(d => d.ngayDuong === day)?.dayCanChi || ''}
+                                            </h6>
+                                        </Link>
+                                    ) : (
+                                        // Empty slot with green background
+                                        <span></span>
+                                    )}
+                                </td>
+                            ))}
+                        </tr>
+                    ))}
+                </tbody>
+
+            </table>
+        </div>
     );
 }
 

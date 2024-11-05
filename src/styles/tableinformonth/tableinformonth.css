@@ -48,33 +48,35 @@
   border: 1px solid #0B730B;
   border-top: 1px solid #758675;
 }
-.table tbody tr td {
+.table .table-body tr td {
   border: 1px solid #0B730B;
 }
-.table tbody tr td a {
+.table .table-body tr td a {
   text-decoration: none;
   color: black;
 }
-.table tbody tr td a .infors {
+.table .table-body tr td a .infors {
   display: flex;
   margin-top: 20px;
   justify-content: space-around;
 }
-.table tbody tr td a .infors .day {
+.table .table-body tr td a .infors .day {
   color: black;
   font-weight: bold;
 }
-.table tbody tr td a .infors .circle {
+.table .table-body tr td a .infors .circle {
   width: 10px;
   height: 10px;
-  background-color: #0B730B;
   border-radius: 10px;
 }
-.table tbody tr td a .ngayam {
+.table .table-body tr td a .ngayam {
   text-align: center;
 }
-.table tbody tr td a .namedayam {
+.table .table-body tr td a .namedayam {
   text-align: center;
+}
+.table .table-body :hover {
+  background-color: #6EC06E;
 }
 
 @media only screen and (max-width: 425px) {

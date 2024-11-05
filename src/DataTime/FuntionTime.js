@@ -1,15 +1,16 @@
 import { gioXuatHanh,
     gioHoangDao, gioHacDao, detailGioHoangDao, 
-    nguHanhChi, nguHanhCan, khongMinhLucDieu, thapNhiBatTu
+    nguHanhChi, nguHanhCan, khongMinhLucDieu, thapNhiBatTu, ngayHoangDaovaHacDao
 } from "./DataTime";
 
 const dayOfWeek = ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"];
 const allCan = ["Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ", "Canh", "Tân", "Nhâm", "Quý"];
 const allChi = ["Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi"];
 
+// Hàm tính ngày Julian từ ngày, tháng, năm
 const jdFormDate = (dd, mm, yy) => {
     var a = Math.floor((14 - mm) / 12);
-    const y = yy + 4800  - a;
+    const y = yy + 4800 - a;
     const m = mm + 12 * a - 3;
     var jd = dd + Math.floor((153 * m + 2) / 5) + 365 * y + Math.floor(y / 4) - Math.floor(y / 100) + Math.floor(y / 400) - 32045;
     if (jd < 2299161) {
@@ -17,6 +18,114 @@ const jdFormDate = (dd, mm, yy) => {
     }
     return jd;
 };
+
+// Tính ngày Sóc (ngày bắt đầu của tháng âm lịch)
+const getNewMoonDay = (k, timeZone) => {
+    const T = k / 1236.85; // Chu kỳ thiên văn học
+    const dr = Math.PI / 180;
+    let jd1 = 2415020.75933 + 29.53058868 * k + 0.0001178 * T * T - 0.000000155 * T * T * T;
+    jd1 += 0.00033 * Math.sin((166.56 + 132.87 * T - 0.009173 * T * T) * dr);
+    return Math.floor(jd1 + 0.5 + timeZone / 24);
+};
+
+// Tính tọa độ của Mặt Trời
+const getSunLongitude = (jdn, timeZone) => {
+    const T = (jdn - 2451545.0) / 36525;
+    const dr = Math.PI / 180;
+    const M = 357.52910 + 35999.05030 * T - 0.0001559 * T * T - 0.00000048 * T * T * T;
+    const L0 = 280.46645 + 36000.76983 * T + 0.0003032 * T * T;
+    let DL = (1.914600 - 0.004817 * T - 0.000014 * T * T) * Math.sin(M * dr);
+    DL += (0.019993 - 0.000101 * T) * Math.sin(2 * M * dr) + 0.000290 * Math.sin(3 * M * dr);
+    let L = L0 + DL;
+    L = L * dr;
+    L = L - Math.PI * 2 * (Math.floor(L / (Math.PI * 2)));
+    return Math.floor(L / Math.PI * 6);
+};
+
+// Tính tháng âm lịch thứ 11 (gần với Tết âm lịch)
+const getLunarMonth11 = (yy, timeZone) => {
+    const off = jdFormDate(31, 12, yy) - 2415021;
+    const k = Math.floor(off / 29.53058868);
+    let monthStart = getNewMoonDay(k, timeZone);
+    const sunLong = getSunLongitude(monthStart, timeZone);
+    
+    if (sunLong >= 9) {
+        monthStart = getNewMoonDay(k - 1, timeZone);
+    }
+    return monthStart;
+};
+
+// Kiểm tra năm có nhuận không trong lịch âm
+const getLeapMonthOffset = (a11, timeZone) => {
+    const k = Math.floor(0.5 + (a11 - 2415021.076998695) / 29.530588853);
+    let last = 0;
+    let arc = getSunLongitude(getNewMoonDay(k + 1, timeZone), timeZone);
+    let i = 1;
+    do {
+        last = arc;
+        arc = getSunLongitude(getNewMoonDay(k + i + 1, timeZone), timeZone);
+        i++;
+    } while (arc !== last && i < 14);
+    return i - 1;
+};
+
+// Hàm chính để chuyển đổi từ dương lịch sang âm lịch
+const convertSolar2Lunar = (dd, mm, yy, timeZone) => {
+    const dayNumber = jdFormDate(dd, mm, yy);
+    
+    let k = Math.floor((dayNumber - 2415021.076998695) / 29.530588853);
+    let monthStart = getNewMoonDay(k + 1, timeZone);
+    
+    if (monthStart > dayNumber) {
+        monthStart = getNewMoonDay(k, timeZone);
+    }
+    
+    const a11 = getLunarMonth11(yy, timeZone);
+    const b11 = getLunarMonth11(yy + 1, timeZone);
+
+    let lunarDay = dayNumber - monthStart + 1;
+
+    // Tránh trường hợp lunarDay âm
+    if (lunarDay < 1) {
+        return "Ngày không hợp lệ"; // Ngày không hợp lệ
+    }
+
+    let diff = Math.floor((monthStart - a11) / 29);
+    let lunarMonth = diff + 11;
+    let lunarYear = yy;
+
+    if (b11 - a11 > 365) {
+        const leapMonthDiff = getLeapMonthOffset(a11, timeZone);
+        if (diff >= leapMonthDiff) {
+            lunarMonth = diff + 10;
+        }
+    }
+
+    // Điều chỉnh năm âm lịch cho trường hợp chuyển giao năm
+    if (lunarMonth > 12) {
+        lunarMonth -= 12;
+        lunarYear += 1;
+    }
+
+    // Điều chỉnh khi chuyển sang tháng 1, 2 của năm mới nhưng vẫn là tháng 11, 12 của năm cũ
+    if (lunarMonth === 11 && mm === 1) {
+        lunarYear = yy; // Vẫn giữ nguyên năm dương
+    } else if (lunarMonth === 12 && mm === 2) {
+        lunarYear = yy; // Vẫn giữ nguyên năm dương
+    } else if (lunarMonth >= 11 && (mm === 1 || mm === 2)) {
+        lunarYear = yy - 1; // Điều chỉnh năm âm lịch
+    }
+
+    // Kiểm tra nếu lunarMonth là tháng 12 thì chỉ cho phép lunarDay từ 1 đến 30
+    if (lunarMonth === 12) {
+        if (lunarDay > 30) {
+            lunarDay = 30;
+        }
+    }
+
+    return `${lunarDay}-${lunarMonth}-${lunarYear}`;
+};
+
 
 // tính ra can của ngày
 const canNgay = (dd, mm, yy) => {
@@ -80,93 +189,6 @@ const layGioHacDao =(chi)=>{
     const result = gioHacDao[chiValue] || []; 
     return result.join("; ");
 }
-
-
-// Tính ngày Sóc (ngày bắt đầu của tháng âm lịch)
-const getNewMoonDay = (k, timeZone) => {
-    const T = k / 1236.85; // Chu kỳ thiên văn học
-    const dr = Math.PI / 180;
-    let jd1 = 2415020.75933 + 29.53058868 * k + 0.0001178 * T * T - 0.000000155 * T * T * T;
-    jd1 += 0.00033 * Math.sin((166.56 + 132.87 * T - 0.009173 * T * T) * dr);
-    return Math.floor(jd1 + 0.5 + timeZone / 24);
-};
-
-// Tính tọa độ của Mặt Trời
-const getSunLongitude = (jdn, timeZone) => {
-    const T = (jdn - 2451545.0) / 36525;
-    const dr = Math.PI / 180;
-    const M = 357.52910 + 35999.05030 * T - 0.0001559 * T * T - 0.00000048 * T * T * T;
-    const L0 = 280.46645 + 36000.76983 * T + 0.0003032 * T * T;
-    let DL = (1.914600 - 0.004817 * T - 0.000014 * T * T) * Math.sin(M * dr);
-    DL = DL + (0.019993 - 0.000101 * T) * Math.sin(2 * M * dr) + 0.000290 * Math.sin(3 * M * dr);
-    let L = L0 + DL;
-    L = L * dr;
-    L = L - Math.PI * 2 * (Math.floor(L / (Math.PI * 2)));
-    return Math.floor(L / Math.PI * 6);
-};
-
-// Tính tháng âm lịch thứ 11 (gần với Tết âm lịch)
-const getLunarMonth11 = (yy, timeZone) => {
-    const off = jdFormDate(31, 12, yy) - 2415021;
-    const k = Math.floor(off / 29.53058868);
-    let monthStart = getNewMoonDay(k, timeZone);
-    const sunLong = getSunLongitude(monthStart, timeZone);
-    
-    if (sunLong >= 9) {
-        monthStart = getNewMoonDay(k - 1, timeZone);
-    }
-    return monthStart;
-};
-
-// Kiểm tra năm có nhuận không trong lịch âm
-const getLeapMonthOffset = (a11, timeZone) => {
-    const k = Math.floor(0.5 + (a11 - 2415021.076998695) / 29.530588853);
-    let last = 0;
-    let arc = getSunLongitude(getNewMoonDay(k + 1, timeZone), timeZone);
-    let i = 1;
-    do {
-        last = arc;
-        arc = getSunLongitude(getNewMoonDay(k + i + 1, timeZone), timeZone);
-        i++;
-    } while (arc !== last && i < 14);
-    return i - 1;
-};
-
-// Hàm chính để chuyển đổi từ dương lịch sang âm lịch
-const convertSolar2Lunar = (dd, mm, yy, timeZone) => {
-    const dayNumber = jdFormDate(dd, mm, yy);
-    let k = Math.floor((dayNumber - 2415021.076998695) / 29.530588853);
-    let monthStart = getNewMoonDay(k + 1, timeZone);
-
-    if (monthStart > dayNumber) {
-        monthStart = getNewMoonDay(k, timeZone);
-    }
-    
-    const a11 = getLunarMonth11(yy, timeZone);
-    const b11 = getLunarMonth11(yy + 1, timeZone);
-
-    let lunarDay = dayNumber - monthStart + 1;
-    let diff = Math.floor((monthStart - a11) / 29);
-    let lunarMonth = diff + 11;
-    let lunarYear = yy;
-
-    if (b11 - a11 > 365) {
-        const leapMonthDiff = getLeapMonthOffset(a11, timeZone);
-        if (diff >= leapMonthDiff) {
-            lunarMonth = diff + 10;
-        }
-    }
-
-    if (lunarMonth > 12) {
-        lunarMonth = lunarMonth - 12;
-    }
-    
-    if (lunarMonth >= 11 && diff < 4) {
-        lunarYear = yy - 1;
-    }
-
-    return `${lunarDay}-${lunarMonth+1}-${lunarYear}`;
-};
 
 // lấy ra thứ mấy trong tuần 
 const rankOffWeek =(dd,mm,yy)=> {
@@ -396,8 +418,9 @@ const departureDirection =(name)=> {
 
  const lichTietKhi = (dd) => {
     let tietKhi  ='';
-    const day = Number(dd.getDate());
-    const month = Number(dd.getMonth() + 1);
+    const ngayDuong = dd.split('-');
+    const day = Number(ngayDuong[0]);
+    const month = Number(ngayDuong[1]);
     
     if(day >= 4 && day < 18 && month === 2){
         tietKhi = 'Lập Xuân';
@@ -579,161 +602,189 @@ const departureDirection =(name)=> {
     return ngayKy;
 };
 
-// funtion lấy ra thông tin các trực theo ngày tháng
+
+// // funtion lấy ra thông tin các trực theo ngày tháng
+// const thapNhiKienTruc = (ngayAmLich, nameDay) => {
+//     // Tách ngày và tháng âm lịch từ 'ngayAmLich'
+//     const day = ngayAmLich.split('-');
+//     const date = Number(day[0]);  // Ngày âm lịch
+//     const month = Number(day[1]); // Tháng âm lịch
+
+//     // Tách chi của ngày từ 'nameDay'
+//     const name = nameDay.split('-');
+//     const chiDay = name[1]; // Ví dụ: Tuất, Hợi, Dần,...
+//     // Danh sách các Trực
+//     const kienTruData = {
+//         1: {
+//             name: 'Trực Kiến',
+//             description1 : "Khai trương, nhậm chức, cưới hỏi, trồng cây, đền ơn đáp nghĩa. Xuất hành đặng lợi, sinh con rất tốt.",
+//             description2 : "Động thổ, chôn cất, đào giếng, lợp nhà."
+//         },
+//         2: {
+//             name: 'Trực Trừ',
+//             description1 : " Động đất, ban nền đắp nền, thờ cúng Táo Thần, cầu thầy chữa bệnh bằng cách mổ xẻ hay châm cứu, bốc thuốc, xả tang, khởi công làm lò nhuộm lò gốm, nữ nhân khởi đầu uống thuốc chữa bệnh.",
+//             description3 : "Đẻ con nhằm ngày này khó nuôi, nên làm Âm Đức cho con, nam nhân kỵ khởi đầu uống thuốc."
+//         },
+//         3: {
+//             name: 'Trực Mãn',
+//             description1 : "Xuất hành, đi đường thủy, cho vay, thu nợ, mua hàng, bán hàng, nhập kho, đặt táng, kê gác, sửa chữa, lắp đặt máy, thuê thêm người, vào học kỹ nghệ, làm chuồng gà ngỗng vịt.",
+//             description3 : "Lên quan lãnh chức, uống thuốc, vào làm hành chính, dâng nộp đơn từ."
+//         },
+//         4: {
+//             name: 'Trực Binh',
+//             description1 : "Nhập vào kho, đặt táng, gắn cửa, kê gác, đặt yên chỗ máy, sửa chữa làm tàu, khai trương tàu thuyền, các việc bồi đắp thêm ( như bồi bùn, đắp đất, lót đá, xây bờ kè.) Lót giường đóng giường, thừa kế tước phong hay thừa kế sự nghiệp, các vụ làm cho khuyết thủng ( như đào mương, móc giếng, xả nước.)"
+//         },
+//         5: {
+//             name: 'Trực Định',
+//             description1 : "Động thổ, san nền, đắp nền, làm hay sửa phòng bếp, lắp đặt máy móc, nhập học, làm lễ cầu thân, nộp đơn dâng sớ, sửa hay làm tàu thuyền, khai trương tàu thuyền, khởi công làm lò. Mua nuôi thêm súc vật.",
+//             description2 : "Thưa kiện, xuất hành đi xa"
+//         },
+//         6: {
+//             name: 'Trực Chấp',
+//             description1 : " Lập khế ước, giao dịch, động thổ san nền, cầu thầy chữa bệnh, đi săn thú cá, tìm bắt trộm cướp. Xây đắp nền-tường.",
+//             description2 : "Dời nhà, đi chơi xa, mở cửa hiệu buôn bán, xuất tiền của."
+//         },
+//         7: {
+//             name: 'Trực Phá',
+//             description4 : "Là ngày Nhật Nguyệt tương xung. Ngày có trực Phá muôn việc làm vào ngày này đều bất lợi, chỉ nên phá dỡ nhà cửa."
+//         },
+//         8: {
+//             name: 'Trực Nguy',
+//             description4 : "Nói đến Trực Nguy là nói đến sự Nguy hiểm, suy thoái. Chính vì thế ngày có trực Nguy là ngày xấu, tiến hành muôn việc đều hung."
+//         },
+//         9: {
+//             name: 'Trực Thành',
+//             description1 : "Lập khế ước, giao dịch, cho vay, thu nợ, mua hàng, bán hàng, xuất hành, đi tàu thuyền, khởi tạo, động thổ, san nền đắp nền, gắn cửa, đặt táng, kê gác, dựng xây kho vựa, làm hay sửa chữa phòng bếp, thờ phụng Táo Thần, lắp đặt máy móc ( hay các loại máy ), gặt lúa, đào ao giếng, tháo nước, cầu thầy chữa bệnh, mua gia súc, các việc trong vụ chăn nuôi, nhập học, làm lễ cầu thân, cưới gả, kết hôn, thuê người, nộp đơn dâng sớ, học kỹ nghệ, làm hoặc sửa tàu thuyền, khai trương tàu thuyền, vẽ tranh, tu sửa cây cối.",
+//             description2 : "Kiện tụng, tranh chấp."
+//         },
+//        10: {
+//         name: 'Trực Thâu',
+//         description1 : "Cấy lúa, gặt lúa, mua trâu, nuôi tằm, đi săn thú cá, tu sửa cây cối. Động thổ, san nền đắp nền, nữ nhân khởi ngày uống thuốc chưa bệnh, lên quan lãnh chức, thừa kế chức tước hay sự nghiệp, vào làm hành chính, nộp đơn dâng sớ.",
+//         description2 : "Bắt đầu công việc mới, kỵ đi du  lịch, kỵ tang lễ."
+//     },
+//        11: {
+//         name: 'Trực Khai',
+//         description1 : "  Xuất hành, đi tàu thuyền, khởi tạo, động thổ, san nền đắp nền, dựng xây kho vựa, làm hay sửa phòng bếp, thờ cúng Táo Thần, đóng giường lót giường, may áo, lắp đặt cỗ máy dệt hay các loại máy, cấy lúa gặt lúa, đào ao giếng, tháo nước, các việc trong vụ chăn nuôi, mở thông hào rãnh, cầu thầy chữa bệnh, bốc thuốc, uống thuốc, mua trâu, làm rượu, nhập học, học kỹ nghệ, vẽ tranh, tu sửa cây cối.",
+//         description2 : " Chôn cất"
+//     },
+//        12: {
+//            name: 'Trực Bế',
+//            description1 : " Xây đắp tường, đặt táng, gắn cửa, kê gác, làm cầu. Khởi công lò nhuộm lò gốm, uống thuốc, trị bệnh (nhưng chớ trị bệnh mắt), tu sửa cây cối.",
+//            description2 : "Lên quan nhậm chức, thừa kế chức tước hay sự nghiệp, nhập học, chữa bệnh mắt."
+//        }
+//     };
+
+//     let baseTruc = 1; 
+//     if (month === 9 && chiDay === 'Tuất') {
+//         baseTruc = 1;  
+//     }else {
+//         for (let i = 1; i <= 12; i++) {
+//             if(baseTruc === 12){
+//                 baseTruc = 1;
+//                 return kienTruData[1]; 
+//             }
+//             if (i === baseTruc) {
+//                 const index = (date + baseTruc) % 12;
+//                 baseTruc = baseTruc + 1;
+//                 if (typeof kienTruData[index + 1] === 'object') {
+//                     return kienTruData[index + 1];  
+//                 }
+//                 return kienTruData[index + 1];
+//             }
+//         }
+//     }
+//     if (month === 10 && chiDay === 'Tuất') {
+//         baseTruc = 1;  // 
+//     }else {
+//         for (let i = 1; i <= 12; i++) {
+//             if (i === baseTruc) {
+//                 if(baseTruc === 12){
+//                     return kienTruData[1]; 
+//                 }
+//                 const index = (date + baseTruc) % 12;
+//                 baseTruc = baseTruc + 1;
+//                 if (typeof kienTruData[index + 1] === 'object') {
+//                     return kienTruData[index + 1];  
+//                 }
+//                 return kienTruData[index + 1];
+//             }
+//         }
+//     }
+
+//     if (month === 11 && chiDay === 'Tý') {
+//         baseTruc = 1;  // 
+//     }else {
+//         for (let i = 1; i <= 12; i++) {
+//             if (i === baseTruc) {
+//                 if(baseTruc === 12){
+//                     return kienTruData[1]; 
+//                 }
+//                 const index = (date + baseTruc) % 12
+//                 baseTruc = baseTruc + 1;
+//                 if (typeof kienTruData[index + 1] === 'object') {
+//                     return kienTruData[index + 1];  
+//                 }
+//                 return kienTruData[index + 1];
+//             }
+//         }
+//     }
+
+//     if (month === 12 && chiDay === 'Sửu') {
+//         baseTruc = 1;  // 
+//     }else {
+//         for (let i = 1; i <= 12; i++) {
+//             if (i === baseTruc) {
+//                 const index = (date + baseTruc) % 12;
+//                 if (typeof kienTruData[index + 1] === 'object') {
+//                     return kienTruData[index + 1];  
+//                 }
+//                 return kienTruData[index + 1];
+//             }
+//         }
+//     }
+
+//     if (month === 1 && chiDay === 'Sửu') {
+//         baseTruc = 1;  // 
+//     }else {
+//         for (let i = 1; i <= 12; i++) {
+//             if (i === baseTruc) {
+//                 const index = (date + baseTruc) % 12;
+//                 if (typeof kienTruData[index + 1] === 'object') {
+//                     return kienTruData[index + 1];  
+//                 }
+//                 return kienTruData[index + 1];
+//             }
+//         }
+//     }
+//     return kienTruData[baseTruc];
+// };
+
 const thapNhiKienTruc = (ngayAmLich, nameDay) => {
     // Tách ngày và tháng âm lịch từ 'ngayAmLich'
-    const day = ngayAmLich.split('-');
-    const date = Number(day[0]);  // Ngày âm lịch
-    const month = Number(day[1]); // Tháng âm lịch
-
-    // Tách chi của ngày từ 'nameDay'
-    const name = nameDay.split('-');
-    const chiDay = name[1]; // Ví dụ: Tuất, Hợi, Dần,...
+    const [date, month] = ngayAmLich.split('-').map(Number);
+    const chiDay = nameDay.split('-')[1]; // Chi của ngày, ví dụ: Tuất, Hợi, Dần,...
     // Danh sách các Trực
     const kienTruData = {
-        1: {
-            name: 'Trực Kiến',
-            description1 : "Khai trương, nhậm chức, cưới hỏi, trồng cây, đền ơn đáp nghĩa. Xuất hành đặng lợi, sinh con rất tốt.",
-            description2 : "Động thổ, chôn cất, đào giếng, lợp nhà."
-        },
-        2: {
-            name: 'Trực Trừ',
-            description1 : " Động đất, ban nền đắp nền, thờ cúng Táo Thần, cầu thầy chữa bệnh bằng cách mổ xẻ hay châm cứu, bốc thuốc, xả tang, khởi công làm lò nhuộm lò gốm, nữ nhân khởi đầu uống thuốc chữa bệnh.",
-            description3 : "Đẻ con nhằm ngày này khó nuôi, nên làm Âm Đức cho con, nam nhân kỵ khởi đầu uống thuốc."
-        },
-        3: {
-            name: 'Trực Mãn',
-            description1 : "Xuất hành, đi đường thủy, cho vay, thu nợ, mua hàng, bán hàng, nhập kho, đặt táng, kê gác, sửa chữa, lắp đặt máy, thuê thêm người, vào học kỹ nghệ, làm chuồng gà ngỗng vịt.",
-            description3 : "Lên quan lãnh chức, uống thuốc, vào làm hành chính, dâng nộp đơn từ."
-        },
-        4: {
-            name: 'Trực Binh',
-            description1 : "Nhập vào kho, đặt táng, gắn cửa, kê gác, đặt yên chỗ máy, sửa chữa làm tàu, khai trương tàu thuyền, các việc bồi đắp thêm ( như bồi bùn, đắp đất, lót đá, xây bờ kè.) Lót giường đóng giường, thừa kế tước phong hay thừa kế sự nghiệp, các vụ làm cho khuyết thủng ( như đào mương, móc giếng, xả nước.)"
-        },
-        5: {
-            name: 'Trực Định',
-            description1 : "Động thổ, san nền, đắp nền, làm hay sửa phòng bếp, lắp đặt máy móc, nhập học, làm lễ cầu thân, nộp đơn dâng sớ, sửa hay làm tàu thuyền, khai trương tàu thuyền, khởi công làm lò. Mua nuôi thêm súc vật.",
-            description2 : "Thưa kiện, xuất hành đi xa"
-        },
-        6: {
-            name: 'Trực Chấp',
-            description1 : " Lập khế ước, giao dịch, động thổ san nền, cầu thầy chữa bệnh, đi săn thú cá, tìm bắt trộm cướp. Xây đắp nền-tường.",
-            description2 : "Dời nhà, đi chơi xa, mở cửa hiệu buôn bán, xuất tiền của."
-        },
-        7: {
-            name: 'Trực Phá',
-            description4 : "Là ngày Nhật Nguyệt tương xung. Ngày có trực Phá muôn việc làm vào ngày này đều bất lợi, chỉ nên phá dỡ nhà cửa."
-        },
-        8: {
-            name: 'Trực Nguy',
-            description4 : "Nói đến Trực Nguy là nói đến sự Nguy hiểm, suy thoái. Chính vì thế ngày có trực Nguy là ngày xấu, tiến hành muôn việc đều hung."
-        },
-        9: {
-            name: 'Trực Thành',
-            description1 : "Lập khế ước, giao dịch, cho vay, thu nợ, mua hàng, bán hàng, xuất hành, đi tàu thuyền, khởi tạo, động thổ, san nền đắp nền, gắn cửa, đặt táng, kê gác, dựng xây kho vựa, làm hay sửa chữa phòng bếp, thờ phụng Táo Thần, lắp đặt máy móc ( hay các loại máy ), gặt lúa, đào ao giếng, tháo nước, cầu thầy chữa bệnh, mua gia súc, các việc trong vụ chăn nuôi, nhập học, làm lễ cầu thân, cưới gả, kết hôn, thuê người, nộp đơn dâng sớ, học kỹ nghệ, làm hoặc sửa tàu thuyền, khai trương tàu thuyền, vẽ tranh, tu sửa cây cối.",
-            description2 : "Kiện tụng, tranh chấp."
-        },
-       10: {
-        name: 'Trực Thâu',
-        description1 : "Cấy lúa, gặt lúa, mua trâu, nuôi tằm, đi săn thú cá, tu sửa cây cối. Động thổ, san nền đắp nền, nữ nhân khởi ngày uống thuốc chưa bệnh, lên quan lãnh chức, thừa kế chức tước hay sự nghiệp, vào làm hành chính, nộp đơn dâng sớ.",
-        description2 : "Bắt đầu công việc mới, kỵ đi du  lịch, kỵ tang lễ."
-    },
-       11: {
-        name: 'Trực Khai',
-        description1 : "  Xuất hành, đi tàu thuyền, khởi tạo, động thổ, san nền đắp nền, dựng xây kho vựa, làm hay sửa phòng bếp, thờ cúng Táo Thần, đóng giường lót giường, may áo, lắp đặt cỗ máy dệt hay các loại máy, cấy lúa gặt lúa, đào ao giếng, tháo nước, các việc trong vụ chăn nuôi, mở thông hào rãnh, cầu thầy chữa bệnh, bốc thuốc, uống thuốc, mua trâu, làm rượu, nhập học, học kỹ nghệ, vẽ tranh, tu sửa cây cối.",
-        description2 : " Chôn cất"
-    },
-       12: {
-           name: 'Trực Bế',
-           description1 : " Xây đắp tường, đặt táng, gắn cửa, kê gác, làm cầu. Khởi công lò nhuộm lò gốm, uống thuốc, trị bệnh (nhưng chớ trị bệnh mắt), tu sửa cây cối.",
-           description2 : "Lên quan nhậm chức, thừa kế chức tước hay sự nghiệp, nhập học, chữa bệnh mắt."
-       }
+        0: { name: 'Trực Kiến', description1: "Khai trương, nhậm chức, cưới hỏi...", description2: "Động thổ, chôn cất..." },
+        1: { name: 'Trực Trừ', description1: "Động đất, ban nền đắp nền...", description3: "Đẻ con nhằm ngày này khó nuôi..." },
+        2: { name: 'Trực Mãn', description1: "Xuất hành, đi đường thủy...", description3: "Lên quan lãnh chức..." },
+        3: { name: 'Trực Binh', description1: "Nhập vào kho, đặt táng, gắn cửa..." },
+        4: { name: 'Trực Định', description1: "Động thổ, san nền, đắp nền...", description2: "Thưa kiện, xuất hành đi xa" },
+        6: { name: 'Trực Chấp', description1: "Lập khế ước, giao dịch...", description2: "Dời nhà, đi chơi xa..." },
+        5: { name: 'Trực Phá', description4: "Ngày có trực Phá, muôn việc đều bất lợi..." },
+        7: { name: 'Trực Nguy', description4: "Ngày có trực Nguy là ngày xấu, tiến hành muôn việc đều hung." },
+        8: { name: 'Trực Thành', description1: "Lập khế ước, giao dịch, cho vay...", description2: "Kiện tụng, tranh chấp." },
+        9: { name: 'Trực Thâu', description1: "Cấy lúa, gặt lúa, mua trâu...", description2: "Bắt đầu công việc mới, kỵ đi du lịch..." },
+        10: { name: 'Trực Khai', description1: "Xuất hành, đi tàu thuyền...", description2: "Chôn cất" },
+        11: { name: 'Trực Bế', description1: "Xây đắp tường, đặt táng...", description2: "Lên quan nhậm chức..." }
     };
 
-    let baseTruc = 1; 
-    if (month === 9 && chiDay === 'Tuất') {
-        baseTruc = 1;  
-    }else {
-        for (let i = 1; i <= 12; i++) {
-            if(baseTruc === 12){
-                baseTruc = 1;
-                return kienTruData[1]; 
-            }
-            if (i === baseTruc) {
-                const index = (date + baseTruc) % 12;
-                baseTruc = baseTruc + 1;
-                if (typeof kienTruData[index + 1] === 'object') {
-                    return kienTruData[index + 1];  
-                }
-                return kienTruData[index + 1];
-            }
-        }
-    }
-    if (month === 10 && chiDay === 'Tuất') {
-        baseTruc = 1;  // 
-    }else {
-        for (let i = 1; i <= 12; i++) {
-            if (i === baseTruc) {
-                if(baseTruc === 12){
-                    return kienTruData[1]; 
-                }
-                const index = (date + baseTruc) % 12;
-                baseTruc = baseTruc + 1;
-                if (typeof kienTruData[index + 1] === 'object') {
-                    return kienTruData[index + 1];  
-                }
-                return kienTruData[index + 1];
-            }
-        }
-    }
-
-    if (month === 11 && chiDay === 'Tý') {
-        baseTruc = 1;  // 
-    }else {
-        for (let i = 1; i <= 12; i++) {
-            if (i === baseTruc) {
-                if(baseTruc === 12){
-                    return kienTruData[1]; 
-                }
-                const index = (date + baseTruc) % 12
-                baseTruc = baseTruc + 1;
-                if (typeof kienTruData[index + 1] === 'object') {
-                    return kienTruData[index + 1];  
-                }
-                return kienTruData[index + 1];
-            }
-        }
-    }
-
-    if (month === 12 && chiDay === 'Sửu') {
-        baseTruc = 1;  // 
-    }else {
-        for (let i = 1; i <= 12; i++) {
-            if (i === baseTruc) {
-                const index = (date + baseTruc) % 12;
-                if (typeof kienTruData[index + 1] === 'object') {
-                    return kienTruData[index + 1];  
-                }
-                return kienTruData[index + 1];
-            }
-        }
-    }
-
-    if (month === 1 && chiDay === 'Sửu') {
-        baseTruc = 1;  // 
-    }else {
-        for (let i = 1; i <= 12; i++) {
-            if (i === baseTruc) {
-                const index = (date + baseTruc) % 12;
-                if (typeof kienTruData[index + 1] === 'object') {
-                    return kienTruData[index + 1];  
-                }
-                return kienTruData[index + 1];
-            }
-        }
-    }
-    return kienTruData[baseTruc];
+    // Tính toán Trực cho ngày cụ thể
+    const trucIndex = ((date + month) % 12);  
+    const kkkk = kienTruData[trucIndex];
+    return kienTruData[trucIndex];
 };
+
 
 const startInDay =(nameDay, ngayAm)=> {
     const day = nameDay.split(' ');
@@ -2839,10 +2890,10 @@ const nguHanh =(nameDay)=> {
 
 // Bảng sao Thập Nhị Bát Tú theo thứ và tuần
 const bangThapNhiBatTu = {
-    5: ["Giác", "Đẩu", "Khuê", "Tỉnh"],
-    6: ["Cang", "Ngưu", "Lâu", "Quỷ"],
-    7: ["Đê", "Nữ", "Vị", "Liễu"],
-    0: ["Phòng", "Hư", "Mão", "Tinh"],  // Chủ nhật là 0
+    4: ["Giác", "Đẩu", "Khuê", "Tỉnh"],
+    5: ["Cang", "Ngưu", "Lâu", "Quỷ"],
+    6: ["Đê", "Nữ", "Vị", "Liễu"],
+    0: ["Phòng", "Hư", "Mão", "Tinh"],
     1: ["Tâm", "Nguy", "Tất", "Trương"],
     2: ["Vĩ", "Thất", "Chủy", "Dực"],
     3: ["Cơ", "Bích", "Sâm", "Chẩn"]
@@ -2853,24 +2904,80 @@ const bangThapNhiBatTu = {
 }
 
 // Hàm tính sao Thập Nhị Bát Tú dựa vào ngày và thứ trong tuần
-function tinhThapNhiBatTu(ngay, thu) {
+const  tinhThapNhiBatTu =(ngay, thu)=> {
     const xxxxx = dayOfWeek.indexOf(thu);
     if (xxxxx === -1) {
         console.log("Thứ không hợp lệ!");
         return null;
     }
-    const dayParts = ngay.split('-'); 
-    const day = Number(dayParts[0]); 
+    const dayParts = ngay.split('-');
+    const day = Number(dayParts[0]);   
     const tuan = tinhTuanCuaNgay(day);
-    const datasss = bangThapNhiBatTu[xxxxx][tuan];
+    const datasss = bangThapNhiBatTu[xxxxx][tuan+1];
     const detailStart = thapNhiBatTu[datasss];
     return detailStart;
 }
+
+const ngayHoangDaoVaHacDao = (mm, yy) => {
+    let daysInMonth = [];
+    let informationDayInMonth = [];
+    let date = new Date(yy, mm - 1, 1);
+    const months = mm;
+    const years = yy;
+    // Lấy tất cả các ngày trong tháng
+    while (date.getMonth() === mm - 1) {
+        daysInMonth.push(date.getDate());
+        date.setDate(date.getDate() + 1);
+    }
+
+    const lengthMonth = daysInMonth.length;
+    const ngayHoangDaoHoachacDao = ngayHoangDaovaHacDao[mm-1];
+    
+    const  good = ngayHoangDaoHoachacDao.good;
+    const bad = ngayHoangDaoHoachacDao.bad;
+    // Lặp qua từng ngày và tính thông tin
+    for (let i = 0; i < lengthMonth; i++) {
+        const ngayDuong = daysInMonth[i];
+        const rank = rankOffWeek(ngayDuong, mm, yy);
+        const ngayAm = convertSolar2Lunar(ngayDuong, mm, yy, 7);
+        console.log(ngayAm);
+        
+        const getNgayAm = ngayAm.split('-');
+        const amLich = `${getNgayAm[0]}/${getNgayAm[1]}`;
+        const dayCanChi = getNameDay(ngayDuong, mm, yy);
+        const thangAm = ngayAm.split('-');
+        const getChi = dayCanChi.split(' ');
+        const nameChi = getChi[1];
+        let status;
+        if(good.includes(nameChi)){
+             status = 1;
+        }else if(bad.includes(nameChi)){
+            status = 2;
+        }else {
+            status = 0
+        }
+        informationDayInMonth.push({
+            ngayDuong,
+            rank,
+            amLich,
+            dayCanChi,
+            status
+        });
+    }
+    console.log(informationDayInMonth);
+    
+    return {
+        informationDayInMonth,
+        months,
+        years
+    }; 
+};
 
 export { canNgay, chiNgay, 
     jdFormDate, layGioHoangDao ,getNameDay,
     getNameMonth, getNameYear, convertSolar2Lunar,rankOffWeek,
     departureDirection, layGioHoangDaoChiTiet, layGioHacDao, departureTime,
     getInforDayCan, getInforDayChi, getKhongMinh, lichTietKhi, 
-    getKhongMinhLucDieu, cacNgayKy, thapNhiKienTruc, startInDay, startBadDay, nguHanh, tinhThapNhiBatTu
+    getKhongMinhLucDieu, cacNgayKy, thapNhiKienTruc, startInDay, startBadDay,
+     nguHanh, tinhThapNhiBatTu, ngayHoangDaoVaHacDao
 };

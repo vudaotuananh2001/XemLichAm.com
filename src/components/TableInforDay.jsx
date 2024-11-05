@@ -25,7 +25,7 @@ const TableInfoDay = ({negativeDay}) => {
                         <tbody>
                             <tr>
                                 <td>Tháng {day[1]} Năm {day[2]}</td> 
-                                <td>Tháng {negative[1]} Năm {negative[2]}</td>
+                                <td>Tháng {negative[1]} Năm {negative[2]} ({negativeDay.nameYear})</td>
                             </tr>
                             <tr>
                                 <td>

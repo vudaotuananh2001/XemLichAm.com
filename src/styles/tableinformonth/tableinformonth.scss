@@ -56,42 +56,37 @@
         border-top: 1px solid #758675;
     }
 
-    tbody {
+    .table-body {
         tr {
             td {
                 border: 1px solid #0B730B;
-
                 a {
                     text-decoration: none;
                     color: black;
-
                     .infors {
                         display: flex;
                         margin-top: 20px;
                         justify-content: space-around;
-
                         .day {
                             color: black;
                             font-weight: bold;
                         }
-
                         .circle {
                             width: 10px;
                             height: 10px;
-                            background-color: #0B730B;
                             border-radius: 10px;
                         }
                     }
-
                     .ngayam {
                         text-align: center;
                     }
-
                     .namedayam {
                         text-align: center;
                     }
                 }
-            }
+            } 
+        } :hover {
+            background-color: #6EC06E;
         }
     }
 }

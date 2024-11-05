@@ -26,7 +26,8 @@ import {
   startInDay,
   startBadDay, 
   nguHanh,
-  tinhThapNhiBatTu
+  tinhThapNhiBatTu,
+  ngayHoangDaoVaHacDao
 } from "../DataTime/FuntionTime.js";
 import "../styles/common.css";
 const Home = () => {
@@ -54,7 +55,8 @@ const Home = () => {
     startGood : [],
     startBad : [],
     nguHanhDay : {},
-    thapNhiBatTus : {}
+    thapNhiBatTus : {},
+    statusDay : []
     
   });
 
@@ -62,13 +64,11 @@ const Home = () => {
   const dd = day.getDate();
   const mm = day.getMonth() + 1;
   const yy = day.getFullYear();
-
+  
   useEffect(() => {
     // Tính toán giá trị 'chi' trước
     const chi = chiNgay(dd, mm, yy);
-
     const nameDay = getNameDay(dd, mm, yy);
-    
     const gioHoangDao = layGioHoangDao(chi);
     const departure_Time = departureTime(chi);
     const detailZodiacHour = layGioHoangDaoChiTiet(chi);
@@ -89,7 +89,7 @@ const Home = () => {
     const getInforNgayAm  = ngayam.split('-');
     const getGiant = getKhongMinh(Number(getInforNgayAm[0]), Number(getInforNgayAm[1]));
     
-    const tietKhi = lichTietKhi(day);
+    const tietKhi = lichTietKhi(ngayduong);
      const lucdieu = getKhongMinhLucDieu(chi);
     const ngayKy = cacNgayKy(ngayam, day);
     const thapNhi = thapNhiKienTruc(ngayam, nameDay);
@@ -97,6 +97,7 @@ const Home = () => {
     const startBadDays = startBadDay(nameDay, ngayam);
     const nguHanhs = nguHanh(nameDay);
     const dataThapNhiBatTu = tinhThapNhiBatTu(ngayduong, rank);
+    const statusDays = ngayHoangDaoVaHacDao(Number(12), Number(2024));
     
     setNegativeDay((prevState) => ({
       ...prevState,
@@ -120,19 +121,21 @@ const Home = () => {
       startGood : inforStart,
       startBad : startBadDays,
       nguHanhDay : nguHanhs,
-      thapNhiBatTus : dataThapNhiBatTu
+      thapNhiBatTus : dataThapNhiBatTu,
+      statusDay : statusDays
     }));
   }, [dd, mm, yy]);
 
   return (
     <>
       <Header />
-      <div className=" box-body-home">
+      <div className="box-body-home">
         <div className="container">
+        <h3>Lịch âm hôm nay</h3>
           {negativeDay.is_check_data ? <InformationDay negativeDay={negativeDay} /> : <></>}
           { negativeDay.is_check_data ?  <TableInfoDay negativeDay={negativeDay}/> : <></> }
           <div className="col-12 col-sm-12 col-md-12 col-lg-12">
-            <TableInforMonth />
+            <TableInforMonth  negativeDay = {negativeDay.statusDay}/>
           </div>
           {negativeDay.is_check_data ? (
             <DetailDays negativeDay={negativeDay} />

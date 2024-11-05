@@ -918,9 +918,58 @@ const thapNhiBatTu ={
     // đến Bích
 }
 
-
+const ngayHoangDaovaHacDao = {
+    9 : {
+        good : ['Ngọ', 'Mùi', 'Hơi', 'Sửu'],
+        bad : ['Tỵ', 'Dậu', 'Tý', 'Mão']
+    },
+    10 : {
+        good : ['Sửu', 'Mão', 'Thân', 'Dậu'],
+        bad: ['Hợi', 'Dần', 'Tỵ', 'Mùi']
+    },
+    11 : {
+        good : ['Tuất', 'Hợi', 'Mão', 'Tỵ'],
+        bad : ['Mùi', 'Dậu', 'Sửu', 'Thìn']
+    },
+    0 : {
+        good : ['Tý', 'Sửu', 'Tỵ', 'Mùi'],
+        bad : ['Mão', 'Ngọ', 'Dậu', 'Hợi']
+    },
+    1 : {
+        good : ['Mùi', 'Dậu', 'Dần', 'Mão'],
+        bad : ['Tỵ', 'Thân', 'Hợi', 'Sửu']
+    },
+    2 : {
+        good : ['Thìn', 'Tỵ', 'Dậu', 'Hợi'],
+        bad : ['Sửu', 'Ngọ', 'Mùi', 'Tuất']
+    },
+    3 : {
+        good : ['Ngọ', 'Mùi', 'Sửu', 'Hợi'],
+        bad : ['Dậu', 'Tý', 'Mão', 'Tỵ']
+    },
+    4 : {
+        good: ['Sửu', 'Mão', 'Thân', 'Dậu'],
+        bad : ['Dần', 'Tỵ', 'Mùi', 'Hợi']
+    },
+    5 : {
+        good : ['Tuất', 'Hợi', 'Mão Tỵ'],
+        bad : ['Mùi', 'Dậu', 'Sửu', 'Thìn']
+    },
+    6 : {
+        good : ['Tý', 'Sửu', 'Tỵ', 'Mùi'],
+        bad : ['Mão', 'Ngọ', 'Dậu', 'Hợi']
+    },
+    7 : {
+        good : ['Mùi', 'Dậu', 'Dần', 'Mão'],
+        bad : ['Thân', 'Hợi', 'Sửu', 'Tỵ']
+    },
+    8 : {
+        good : ['Hợi', 'Thìn', 'Tỵ', 'Dậu'],
+        bad : ['Sửu', 'Ngọ' , 'Mùi', 'Tuất ']
+    }
+}
 export {gioXuatHanh, timeData, gioHoangDao,
      gioHacDao, detailGioHoangDao, 
      nguHanhChi, nguHanhCan,
-     khongMinhLucDieu, thapNhiBatTu
+     khongMinhLucDieu, thapNhiBatTu, ngayHoangDaovaHacDao
     }

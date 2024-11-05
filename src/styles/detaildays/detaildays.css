@@ -12,9 +12,11 @@
 
 .table {
   width: 100%;
+  border: 1px solid #0B730B;
 }
 .table tbody tr td {
   font-family: "Inter", serif;
+  border-right: 1px solid #0B730B;
 }
 .table tbody tr td .title-row-table {
   width: 25px;
