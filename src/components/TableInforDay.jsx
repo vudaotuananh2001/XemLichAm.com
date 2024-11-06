@@ -34,7 +34,7 @@ const TableInfoDay = ({negativeDay}) => {
                                 <td>
                                     <h6 className="amlich">{negative[0]}</h6>
                                     <h6 className="detail-day">Ngày : <b>{negativeDay.nameDay}</b>, Tháng : <b>{negativeDay.nameMonth}</b></h6>
-                                    <h6 className="detail-day">Tiết khí <b>{negativeDay.tietKhi}</b></h6>
+                                    <h6 className="detail-day">Tiết khí :  <b>{negativeDay.tietKhi}</b></h6>
                                 </td>
 
                             </tr>

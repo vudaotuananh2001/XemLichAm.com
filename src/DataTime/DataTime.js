@@ -472,73 +472,73 @@ const nguHanhCan = {
 }
 
 const khongMinhLucDieu = {
-    "Sửu": {
+    "Hợi": {
         names : 'Tiểu Cát',
         detail : 'tức ngày Cát.',
         description : 'Trong này Tiểu Cát mọi việc đều tốt lành và ít gặp trở ngại. Mưu đại sự hanh thông, thuận lợi, cùng với đó âm phúc độ trì, che chở, được quý nhân nâng đỡ.',
         verse : 'Tiểu Cát gặp hội thanh long Cầu tài cầu lộc ở trong quẻ này Cầu tài toại ý vui vầy Bình an vô sự gặp thầy, gặp quen.'
     },
-    "Tý": {
+    "Tuất": {
         names: 'Xích Khẩu',
         detail: 'tức ngày Hung.',
         description: 'Nên đề phòng miệng lưỡi, mâu thuẫn hay tranh cãi. Ngày này là ngày xấu, mưu sự khó thành, dễ dẫn đến nội bộ xảy ra cãi vã, thị phi, mâu thuẫn, làm ơn nên oán hoặc khẩu thiệt.',
         verse: 'Xích Khẩu là quả bần cùng Sinh ra khẩu thiệt bàn cùng thị phi Chẳng thời mất của nó khi Không thì chó cắn phân ly vợ chồng.'
     },
-    "Dần" : { names: 'Không Vong',
-         detail: 'tức ngày Hung.',
-          description: 'Mọi việc dễ bất thành. Công việc đi vào thế bế tắc, tiến độ công việc bị trì trệ, trở ngại. Tiền bạc của cải thất thoát, danh vọng cũng uy tín bị giảm xuống. Là một ngày xấu về mọi mặt, nên tránh để hạn chế mưu sự khó thành công như ý.',
-           verse: 'Không Vong gặp quẻ khẩn cần Bệnh tật khẩn thiết chẳng làm được chi Không thì ôn tiểu thê nhi Không thì trộm cắp phân ly bất tường.' 
+    "Dậu" : { names: 'Tốc Hỷ',
+         detail: 'tức ngày Tốt vừa.',
+          description: 'Buổi sáng tốt, nhưng chiều xấu nên cần làm nhanh. Niềm vui nhanh chóng, nên dùng để mưu đại sự, sẽ thành công mau lẹ hơn. Tốt nhất là tiến hành công việc vào buổi sáng, càng sớm càng tốt.',
+           verse: 'Tốc Hỷ là bạn trùng phùng Gặp trùng gặp bạn vợ chồng sánh đôi Có tài có lộc hẳn hoi Cầu gì cũng được mừng vui thỏa lòng' 
     },
-    "Mão": {
+    "Thân": {
+        "names": "Lưu Liên",
+        "detail": "tức ngày Hung.",
+        "description": "Là ngày tốt, mọi việc đều được yên tâm, hành sự thành công.",
+        "verse": "Đại An gặp được quý nhân Có cơm có rượu tiền tiễn đưa Chẳng thời cũng được Đại An Bình an vô sự tấm thân thanh nhàn."
+      },
+      "Mùi": {
         "names": "Đại An",
         "detail": "tức ngày Cát.",
         "description": "Là ngày tốt, mọi việc đều được yên tâm, hành sự thành công.",
         "verse": "Đại An gặp được quý nhân Có cơm có rượu tiền tiễn đưa Chẳng thời cũng được Đại An Bình an vô sự tấm thân thanh nhàn."
       },
-      "Thìn": {
-        "names": "Lưu Liên",
+      "Ngọ": {
+        "names": "Không Vong",
         "detail": "tức ngày Hung.",
-        "description": "Ngày này mọi việc khó thành, dễ bị trễ nải hay gặp chuyện dây dưa nên rất khó hoàn thành. Hơn nữa, dễ gặp những chuyện thị phi hay khẩu thiệt. Về việc hành chính, luật pháp, giấy tờ, ký kết hợp đồng, dâng nộp đơn từ không nên vội vã.",
-        "verse": "Lưu Liên là chuyện bất tường Tìm bạn chẳng thấy nửa đường phân ly Không thì lưu lạc một khi Nhiều đường trắc trở nhiều khi nhọc nhằn."
-      },
-      "Tỵ": {
-        "names": "Tốc Hỷ",
-        "detail": "tức ngày Tốt vừa.",
-        "description": "Buổi sáng tốt, nhưng chiều xấu nên cần làm nhanh. Niềm vui nhanh chóng, nên dùng để mưu đại sự, sẽ thành công mau lẹ hơn. Tốt nhất là tiến hành công việc vào buổi sáng, càng sớm càng tốt.",
-        "verse": "Tốc Hỷ là bạn trùng phùng Gặp trùng gặp bạn vợ chồng sánh đôi Có tài có lộc hẳn hoi Cầu gì cũng được mừng vui thỏa lòng."
+        "description": "Mọi việc dễ bất thành. Công việc đi vào thế bế tắc, tiến độ công việc bị trì trệ, trở ngại. Tiền bạc của cải thất thoát, danh vọng cũng uy tín bị giảm xuống. Là một ngày xấu về mọi mặt, nên tránh để hạn chế mưu sự khó thành công như ý.",
+        "verse": "Không Vong gặp quẻ khẩn cần Bệnh tật khẩn thiết chẳng làm được chi Không thì ôn tiểu thê nhi Không thì trộm cắp phân ly bất tường."
     },
-    "Ngọ" : {
+    "Thìn" : {
         "names": "Xích Khẩu",
         "detail": "tức ngày Hung.",
         "description": "Nên đề phòng miệng lưỡi, mâu thuẫn hay tranh cãi. Ngày này là ngày xấu, mưu sự khó thành, dễ dẫn đến nội bộ xảy ra cãi vã, thị phi, mâu thuẫn, làm ơn nên oán hoặc khẩu thiệt.",
         "verse": "Xích Khẩu là quả bần cùng Sinh ra khẩu thiệt bàn cùng thị phi Chẳng thời mất của nó khi Không thì chó cắn phân ly vợ chồng."
     }
     ,
-    "Mùi": {
+    "Tỵ": {
         "names": "Tiểu Cát",
         "detail": "tức ngày Cát.",
         "description": "Trong này Tiểu Cát mọi việc đều tốt lành và ít gặp trở ngại. Mưu đại sự hanh thông, thuận lợi, cùng với đó âm phúc độ trì, che chở, được quý nhân nâng đỡ.",
         "verse": "Tiểu Cát gặp hội thanh long Cầu tài cầu lộc ở trong quẻ này Cầu tài toại ý vui vầy Bình an vô sự gặp thầy, gặp quen."
     },
-    "Thân" : {
+    "Tý" : {
         "names": "Không Vong",
         "detail": "tức ngày Hung.",
         "description": "Mọi việc dễ bất thành. Công việc đi vào thế bế tắc, tiến độ công việc bị trì trệ, trở ngại. Tiền bạc của cải thất thoát, danh vọng cũng uy tín bị giảm xuống. Là một ngày xấu về mọi mặt, nên tránh để hạn chế mưu sự khó thành công như ý.",
         "verse": "Không Vong gặp quẻ khẩn cần Bệnh tật khẩn thiết chẳng làm được chi Không thì ôn tiểu thê nhi Không thì trộm cắp phân ly bất tường."
     },
-    "Dậu" : {
+    "Sửu" : {
         "names": "Đại An",
         "detail": "tức ngày Cát.",
         "description": "Là ngày tốt, mọi việc đều được yên tâm, hành sự thành công.",
         "verse": "Đại An gặp được quý nhân Có cơm có rượu tiền tiễn đưa Chẳng thời cũng được Đại An Bình an vô sự tấm thân thanh nhàn."
     },
-    "Tuất" : {
+    "Dần" : {
         "names": "Lưu Liên",
         "detail": "tức ngày Hung.",
         "description": "Ngày này mọi việc khó thành, dễ bị trễ nải hay gặp chuyện dây dưa nên rất khó hoàn thành. Hơn nữa, dễ gặp những chuyện thị phi hay khẩu thiệt. Về việc hành chính, luật pháp, giấy tờ, ký kết hợp đồng, dâng nộp đơn từ không nên vội vã.",
         "verse": "Lưu Liên là chuyện bất tường Tìm bạn chẳng thấy nửa đường phân ly Không thì lưu lạc một khi Nhiều đường trắc trở nhiều khi nhọc nhằn."
     },
-    "Hợi" : {
+    "Mão" : {
         "names": "Tốc Hỷ",
         "detail": "tức ngày Tốt vừa.",
         "description": "Buổi sáng tốt, nhưng chiều xấu nên cần làm nhanh. Niềm vui nhanh chóng, nên dùng để mưu đại sự, sẽ thành công mau lẹ hơn. Tốt nhất là tiến hành công việc vào buổi sáng, càng sớm càng tốt.",
@@ -914,26 +914,12 @@ const thapNhiBatTu ={
         description4 : '',
         verse : 'Thất tinh tạo tác tiến điền ngưu Nhi tôn đại đại cận quân hầu Phú quý vinh hoa thiên thượng chỉ Thọ như Bành tổ nhập thiên thu Khai môn, phóng thủy chiêu tài bạc Hòa hợp hôn nhân sinh quý nhi Mai táng nhược năng y thử nhật Môn đình hưng vượng, Phúc vô ưu!'
     }
-
-    // đến Bích
 }
 
 const ngayHoangDaovaHacDao = {
-    9 : {
-        good : ['Ngọ', 'Mùi', 'Hơi', 'Sửu'],
-        bad : ['Tỵ', 'Dậu', 'Tý', 'Mão']
-    },
-    10 : {
-        good : ['Sửu', 'Mão', 'Thân', 'Dậu'],
-        bad: ['Hợi', 'Dần', 'Tỵ', 'Mùi']
-    },
-    11 : {
-        good : ['Tuất', 'Hợi', 'Mão', 'Tỵ'],
-        bad : ['Mùi', 'Dậu', 'Sửu', 'Thìn']
-    },
     0 : {
-        good : ['Tý', 'Sửu', 'Tỵ', 'Mùi'],
-        bad : ['Mão', 'Ngọ', 'Dậu', 'Hợi']
+        good : ['Tỵ', 'Mùi', 'Tý', 'Sửu'],
+        bad : ['Ngọ', 'Dậu', 'Hợi', 'Mão']
     },
     1 : {
         good : ['Mùi', 'Dậu', 'Dần', 'Mão'],
@@ -966,7 +952,20 @@ const ngayHoangDaovaHacDao = {
     8 : {
         good : ['Hợi', 'Thìn', 'Tỵ', 'Dậu'],
         bad : ['Sửu', 'Ngọ' , 'Mùi', 'Tuất ']
+    },
+    9 : {
+        good : ['Ngọ', 'Mùi', 'Hợi', 'Sửu'],
+        bad : ['Tỵ', 'Dậu', 'Tý', 'Mão']
+    },
+    10 : {
+        good : ['Sửu', 'Mão', 'Thân', 'Dậu'],
+        bad: ['Hợi', 'Dần', 'Tỵ', 'Mùi']
+    },
+    11 : {
+        good : ['Tuất', 'Hợi', 'Mão', 'Tỵ'],
+        bad : ['Mùi', 'Dậu', 'Sửu', 'Thìn']
     }
+    
 }
 export {gioXuatHanh, timeData, gioHoangDao,
      gioHacDao, detailGioHoangDao, 

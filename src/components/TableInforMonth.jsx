@@ -7,7 +7,6 @@ const TableInforMonth = ({ negativeDay }) => {
     const listDay = negativeDay.informationDayInMonth || [];
     const dayOfWeek = ['Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy', 'Chủ Nhật'];
     
-    // Function to calculate the weekday for a given date
     const getFirstDayOfWeek = (year, month) => {
         const date = new Date(year, month - 1, 1);
         return (date.getDay() + 6) % 7; 
@@ -40,7 +39,7 @@ const TableInforMonth = ({ negativeDay }) => {
 
     // Filter out rows that only contain null values
     const filteredCalendar = calendar.filter(week => week.some(day => day !== null));
-
+    
     return (
         <div className="mt-3">
             <div className="is_infor_day d-flex">
@@ -48,11 +47,11 @@ const TableInforMonth = ({ negativeDay }) => {
                 <span className="bad-day">MÀU TÍM : NGÀY XẤU</span>
             </div>
             <div className="title-month d-flex justify-content-around align-items-center">
-                <Link to={"/"}>
+                <Link to={`/am-lich/nam/${year}/thang/${month-1}`}>
                     <span className="triangle-left" aria-label="Previous Month"></span>
                 </Link>
                 <span>LỊCH ÂM {month} NĂM {year}</span>
-                <Link to={"/"}>
+                <Link to={`/am-lich/nam/${year}/thang/${month+1}`}>
                     <span className="triangle-right" aria-label="Next Month"></span>
                 </Link>
             </div>
@@ -67,40 +66,50 @@ const TableInforMonth = ({ negativeDay }) => {
                 <tbody className="table-body">
                     {filteredCalendar.map((week, weekIndex) => (
                         <tr key={weekIndex}>
-                            {week.map((day, dayIndex) => (
-                                <td key={dayIndex}>
-                                    {day ? (
-                                        <Link to={`/am-lich/nam/${year}/thang/${month}/ngay/${day}`}>
-                                            <div className="infors">
-                                                <span className="day">{day}</span>
-                                                <span 
-                                                    className="circle" 
-                                                    style={{
-                                                        backgroundColor: listDay.find(d => d.ngayDuong === day)?.status === 1 
-                                                            ? 'red' 
-                                                            : listDay.find(d => d.ngayDuong === day)?.status === 2 
-                                                            ? '#95149a' 
-                                                            : 'white'
-                                                    }}
-                                                ></span>
-                                            </div>
-                                            <h6 className="ngayam">
-                                                {listDay.find(d => d.ngayDuong === day)?.amLich || ''}
-                                            </h6>
-                                            <h6 className="namedayam">
-                                                {listDay.find(d => d.ngayDuong === day)?.dayCanChi || ''}
-                                            </h6>
-                                        </Link>
-                                    ) : (
-                                        // Empty slot with green background
-                                        <span></span>
-                                    )}
-                                </td>
-                            ))}
+                            {week.map((day, dayIndex) => {
+                                const currentDayData = listDay.find(d => d.ngayDuong === day);
+                                const dayOfWeekIndex = (firstDayOfWeek + day - 1) % 7;
+                                const isSaturday = dayOfWeekIndex === 5; 
+                                const isSunday = dayOfWeekIndex === 6; 
+                                return (
+                                    <td key={dayIndex}>
+                                        {day ? (
+                                            <Link to={`/am-lich/nam/${year}/thang/${month}/ngay/${day}`}>
+                                                <div className="infors">
+                                                    <span 
+                                                        className="day"
+                                                        style={{ color: isSunday ? 'red' : isSaturday ? 'green' : 'inherit' }}
+                                                    >
+                                                        {day}
+                                                    </span>
+                                                    <span 
+                                                        className="circle" 
+                                                        style={{
+                                                            backgroundColor: currentDayData?.status === 1 
+                                                                ? 'red' 
+                                                                : currentDayData?.status === 2 
+                                                                ? '#95149a' 
+                                                                : 'white'
+                                                        }}
+                                                    ></span>
+                                                </div>
+                                                <h6 className="ngayam">
+                                                    {currentDayData?.amLich || ''}
+                                                </h6>
+                                                <h6 className="namedayam">
+                                                    {currentDayData?.dayCanChi || ''}
+                                                </h6>
+                                            </Link>
+                                        ) : (
+                                            // Ô trống
+                                            <span></span>
+                                        )}
+                                    </td>
+                                );
+                            })}
                         </tr>
                     ))}
                 </tbody>
-
             </table>
         </div>
     );

@@ -7,10 +7,9 @@ import '../styles/inforday/inforday.css';
 
 const InformationDay = ({ negativeDay }) => {   
     const dataKhongMinh =  negativeDay.giant;
-    
     return (
         <div className="container pt-3 is-inforday">
-            
+            {/* <h3>Lịch âm hôm nay</h3> */}
             <span className="banner">xem lịch âm hôm nay</span>
             <div className="row mt-3 detail-day">
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 detail-days">

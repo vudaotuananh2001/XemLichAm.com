@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "../components/Header";
@@ -74,30 +75,26 @@ const Home = () => {
     const detailZodiacHour = layGioHoangDaoChiTiet(chi);
     const blackHour = layGioHacDao(chi);
     const datas = departureDirection(nameDay);
-
     const nameMonth = getNameMonth(dd, mm, yy);
     const nameYear = getNameYear(yy);
-
     // Chuyển đổi ngày âm
     const ngayam = convertSolar2Lunar(dd, mm, yy, 7);
-    
     // Ngày dương lịch
     const ngayduong = `${dd}-${mm}-${yy}`;
-
     // Tính toán thứ trong tuần của ngày
     const rank = rankOffWeek(dd, mm, yy);
     const getInforNgayAm  = ngayam.split('-');
     const getGiant = getKhongMinh(Number(getInforNgayAm[0]), Number(getInforNgayAm[1]));
-    
     const tietKhi = lichTietKhi(ngayduong);
-     const lucdieu = getKhongMinhLucDieu(chi);
-    const ngayKy = cacNgayKy(ngayam, day);
+    const lucdieu = getKhongMinhLucDieu(chi);  
+    const ngayKy = cacNgayKy(ngayam, ngayduong);
     const thapNhi = thapNhiKienTruc(ngayam, nameDay);
     const  inforStart = startInDay(nameDay, ngayam);
     const startBadDays = startBadDay(nameDay, ngayam);
     const nguHanhs = nguHanh(nameDay);
     const dataThapNhiBatTu = tinhThapNhiBatTu(ngayduong, rank);
-    const statusDays = ngayHoangDaoVaHacDao(Number(12), Number(2024));
+    const thangAm = ngayam.split('-');
+    const statusDays = ngayHoangDaoVaHacDao(Number(mm), Number(yy));
     
     setNegativeDay((prevState) => ({
       ...prevState,
@@ -131,18 +128,21 @@ const Home = () => {
       <Header />
       <div className="box-body-home">
         <div className="container">
-        <h3>Lịch âm hôm nay</h3>
-          {negativeDay.is_check_data ? <InformationDay negativeDay={negativeDay} /> : <></>}
-          { negativeDay.is_check_data ?  <TableInfoDay negativeDay={negativeDay}/> : <></> }
-          <div className="col-12 col-sm-12 col-md-12 col-lg-12">
-            <TableInforMonth  negativeDay = {negativeDay.statusDay}/>
-          </div>
-          {negativeDay.is_check_data ? (
-            <DetailDays negativeDay={negativeDay} />
-          ) : (
-            <>...nodata</>
-          )}
-          <Footer />
+            <h3>Lịch âm hôm nay</h3>
+              {negativeDay.is_check_data ? <InformationDay negativeDay={negativeDay} /> : <>...Loading</>}
+              { negativeDay.is_check_data ?  <TableInfoDay negativeDay={negativeDay}/> : <>...Loading</> }
+              <div className="row">
+                <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                  <TableInforMonth  negativeDay = {negativeDay.statusDay}/>
+                </div>
+              </div>
+              
+              {negativeDay.is_check_data ? (
+                <DetailDays negativeDay={negativeDay} />
+              ) : (
+                <>...Loading</>
+              )}
+              <Footer />
         </div>
       </div>
     </>

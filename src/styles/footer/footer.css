@@ -1,23 +1,24 @@
-p {
+footer {
+  background-color: #EEEEEE;
+}
+footer p {
   font-size: 18px;
   line-height: 1.8em;
   font-family: roboto, Arial, sans-serif;
   text-align: justify;
   font-family: "Inter", serif;
 }
-
-a {
+footer a {
   text-decoration: none;
   color: #1e9253;
   font-family: "Inter", serif;
 }
-
-.is-infor-company {
+footer .is-infor-company {
   padding-top: 30px;
   background-color: #0C5F33;
   font-family: "Inter", serif;
 }
-.is-infor-company h4 {
+footer .is-infor-company h4 {
   font-family: "Inter", serif;
   color: #79a85c;
   text-align: left;
@@ -26,12 +27,12 @@ a {
   border-bottom: 2px dotted black;
   padding-bottom: 20px;
 }
-.is-infor-company a {
+footer .is-infor-company a {
   color: #fff;
   font-size: 16px;
   font-family: "Inter", serif;
 }
-.is-infor-company p {
+footer .is-infor-company p {
   margin-bottom: 0;
   font-family: "Inter", serif;
 }/*# sourceMappingURL=footer.css.map */

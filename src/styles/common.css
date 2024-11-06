@@ -3,4 +3,80 @@
   width: 100%;
   height: auto;
   background-color: #EEEEEE;
+}
+.box-body-home .doi-ngay-duong {
+  font-size: 26px;
+  font-size: 700;
+}
+.box-body-home .dercription {
+  font-size: 20px;
+  line-height: 30px;
+  font-family: "Inter", serif;
+}
+.box-body-home .dercription a {
+  text-decoration: none;
+  padding-left: 7px;
+  padding-right: 7px;
+  color: #1e9253;
+  font-weight: 700;
+}
+.box-body-home .sider-bar {
+  margin-top: 20px;
+}
+.box-body-home .sider-bar ul {
+  padding: 7px 0;
+  background-color: #F9F9F9;
+  display: flex;
+}
+.box-body-home .sider-bar ul li {
+  list-style: none;
+}
+.box-body-home .sider-bar ul li a {
+  color: #1e9253;
+  font-weight: 700;
+  padding: 0 7px;
+  border-right: 1px solid;
+  text-decoration: none;
+}
+.box-body-home .sider-bar ul li:last-child a {
+  border-right: none;
+}
+.box-body-home .form-search-date {
+  font-family: "Inter", serif;
+}
+.box-body-home .form-search-date h5 {
+  font-weight: 700;
+}
+.box-body-home .form-search-date form input {
+  padding-left: 10px;
+}
+.box-body-home .form-search-date form button {
+  margin-left: 10px;
+  background-color: #006E33;
+  color: white;
+}
+.box-body-home .form-search-date .ket-qua {
+  margin-top: 20px;
+}
+.box-body-home .form-search-date .information-date .the-label {
+  font-size: 20px;
+}
+.box-body-home .form-search-date .information-date .the-label a {
+  text-decoration: none;
+  color: #006E33;
+  padding-left: 10px;
+}
+.box-body-home .form-search-date .information-date .the-label .ngayDuong {
+  font-weight: 700;
+  padding: 7px 10px;
+  color: #FF6600;
+  border: 1px solid #BCCCC3;
+  border-radius: 5px;
+}
+.box-body-home .form-search-date .information-date .the-label .ngayAm {
+  font-weight: 700;
+  padding: 7px 10px;
+  color: #0B730B;
+  border: 1px solid #BCCCC3;
+  border-radius: 5px;
 }/*# sourceMappingURL=common.css.map */

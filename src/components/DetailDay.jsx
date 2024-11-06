@@ -51,10 +51,9 @@ const DetailDays = ({ negativeDay }) => {
     
         return lines;
     };
-    
-
+    const ngayDuong= negativeDay.positive_day;
+    const thongTinNgayDuong = ngayDuong.split('-');
     const data = negativeDay.departure_direction;
-    
     const dataDepartureTime  = negativeDay.departureTime;
     const nameDay = negativeDay.nameDay;
     const canChiNameDay = nameDay.split(' ')
@@ -115,13 +114,12 @@ const DetailDays = ({ negativeDay }) => {
     
         return lines;
     };
-    
     const result = splitString2(thapNhiBat.verse);
     return (
         <>
             <div className="mt-3">
                 <div className="title-detail-days">
-                    XEM NGÀY TỐT XẤU HÔM NAY
+                    THÔNG TIN NGÀY {thongTinNgayDuong[0]} THÁNG {thongTinNgayDuong[1]} NĂM {thongTinNgayDuong[2]}
                 </div>
                 <table className="table">
                     <tbody>
@@ -200,13 +198,12 @@ const DetailDays = ({ negativeDay }) => {
                         </tr>
                         <tr>
                             <td className="title-row-table"><b>Thập Nhị Kiến Trừ</b></td>
-                            {(thapNhi.description1 || thapNhi.description2 || thapNhi.description3 || thapNhi.description4) && (
+                            {(thapNhi.description1 || thapNhi.description2 || thapNhi.description3) && (
                                 <td>
                                     <p><b>{thapNhi.name}</b></p>
                                     {thapNhi.description1 && <p><b>Nên làm</b> : {thapNhi.description1}</p>}
                                     {thapNhi.description2 && <p><b>Không nên</b> : {thapNhi.description2}</p>}
                                     {thapNhi.description3 && <p><b>Chú ý</b> : {thapNhi.description3}</p>}
-                                    {thapNhi.description4 && <p><b>Chú ý</b> : {thapNhi.description4}</p>}
                                 </td>
                             )}
                         </tr>

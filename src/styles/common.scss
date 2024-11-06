@@ -3,4 +3,87 @@
     width: 100%;
     height: auto;
     background-color: #EEEEEE;
+
+    .doi-ngay-duong {
+        font-size: 26px;
+        font-size: 700;
+    }
+    .dercription {
+        font-size: 20px;
+        line-height: 30px;
+        font-family: "Inter", serif;
+        a {
+            text-decoration: none;
+            padding-left: 7px;
+            padding-right: 7px;
+            color: #1e9253;
+            font-weight: 700;
+        }
+    }
+    .sider-bar {
+        margin-top: 20px;
+        ul {
+            padding: 7px 0;
+            background-color: #F9F9F9;
+            display: flex;
+            li {
+                list-style: none;
+                a {
+                    color: #1e9253;
+                    font-weight: 700;
+                    padding: 0 7px;
+                    border-right: 1px solid;
+                    text-decoration: none;
+                }
+            }
+            li:last-child a {
+                border-right: none;
+            }
+        }
+    }
+    
+    .form-search-date {
+        font-family: "Inter", serif;
+        h5 {
+            font-weight: 700;
+        }
+        form {
+            input{
+                padding-left: 10px;
+            }
+            button {
+                margin-left: 10px;
+                background-color: #006E33;
+                color: white;
+            } 
+        }
+        .ket-qua {
+            margin-top: 20px;
+        }
+        .information-date {
+            .the-label {
+               font-size: 20px;
+               a {
+                text-decoration: none;
+                color: #006E33;
+                padding-left: 10px;
+               }
+               .ngayDuong {
+                font-weight: 700;
+                padding: 7px 10px;
+                color:#FF6600 ;
+                border: 1px solid #BCCCC3;
+                border-radius: 5px;
+               }
+               .ngayAm {
+                font-weight: 700;
+                padding: 7px 10px;
+                color:#0B730B ;
+                border: 1px solid #BCCCC3;
+                border-radius: 5px;
+               }
+            }
+        }
+    }
 }
+

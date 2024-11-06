@@ -63,10 +63,11 @@
 .table .table-body tr td a .infors .day {
   color: black;
   font-weight: bold;
+  font-size: 20px;
 }
 .table .table-body tr td a .infors .circle {
-  width: 10px;
-  height: 10px;
+  width: 7px;
+  height: 7px;
   border-radius: 10px;
 }
 .table .table-body tr td a .ngayam {
@@ -93,8 +94,11 @@
     font-size: 14px;
   }
 }
-@media only screen and (min-widrh: 321px) and (max-width: 375px) {
+@media only screen and (min-width: 321px) and (max-width: 375px) {
   .table thead th {
     font-size: 12px;
+  }
+  .table tbody tr td a .ngayam {
+    font-size: 10px;
   }
 }/*# sourceMappingURL=tableinformonth.css.map */
