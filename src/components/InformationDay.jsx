@@ -39,11 +39,11 @@ const InformationDay = ({ negativeDay }) => {
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 detail-days mt-2">
                     <li className="d-flex align-items-center">
                         <span>&#10022;</span>
-                        <p>Ngày <b>{dataKhongMinh.name}</b> : {dataKhongMinh.detail}</p>
+                        <p>Ngày <b>{dataKhongMinh.name}</b>: {dataKhongMinh.detail}</p>
                     </li>
                     <li className="d-flex align-items-center mt-4">
                         <span>&#10022;</span>
-                        <p>Giờ:<b>Hoàng Đạo</b> : {negativeDay.zodiac_hour}</p>    
+                        <p>Giờ:<b>Hoàng Đạo</b>: {negativeDay.zodiac_hour}</p>    
                     </li>
                 </div>
             </div>

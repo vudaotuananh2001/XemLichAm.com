@@ -13,19 +13,10 @@ import {
     getNameYear,
     convertSolar2Lunar,
     rankOffWeek,
-    departureDirection,
     layGioHoangDaoChiTiet,
-    layGioHacDao,
     departureTime,
     getKhongMinh,
     lichTietKhi,
-    getKhongMinhLucDieu,
-    cacNgayKy,
-    thapNhiKienTruc, 
-    startInDay,
-    startBadDay, 
-    nguHanh,
-    tinhThapNhiBatTu,
     ngayHoangDaoVaHacDao
   } from "../DataTime/FuntionTime.js";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -87,14 +78,13 @@ const Positive = () => {
         // Tính toán thứ trong tuần của ngày
         const rank = rankOffWeek(day, month, year);
         const tietKhi = lichTietKhi(ngayduong);
-        const nameMonth = getNameMonth(day, month, year);
+        const nameMonth = getNameMonth(month, year);
         const nameYear = getNameYear(year);
         const statusDays = ngayHoangDaoVaHacDao(Number(month), Number(year));
         const getInforNgayAm  = ngayam.split('-');
         const getGiant = getKhongMinh(Number(getInforNgayAm[0]), Number(getInforNgayAm[1]));
         const tenKhongMinh = getGiant.name;
         const motaKhongMinh = getGiant.detail;
-        
         setNegativeDay((prevState) => ({
             ...prevState,
             is_check_data: true,
@@ -120,7 +110,7 @@ const Positive = () => {
                 <div className="container">
                     <h4 className="doi-ngay-duong">Đổi ngày dương sang âm</h4>
                     <div className="dercription">
-                        Công cụ <b>Chuyển đổi ngày dương</b> <Link>
+                            Công cụ <b>Chuyển đổi ngày dương</b> <Link>
                                 <FontAwesomeIcon className="icon" icon={faMagnifyingGlass} />  lịch:
                             </Link>
                             <b>sang âm lịch</b> giúp bạn chuyển đổi nhanh <b>ngày dương lịch</b> bất kỳ sang <b>ngày âm lịch </b>

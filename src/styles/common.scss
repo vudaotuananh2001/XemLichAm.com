@@ -1,12 +1,17 @@
+.container {
+    max-width: 1200px;
+}
 .box-body-home {
     padding-top: 57px;
     width: 100%;
     height: auto;
     background-color: #EEEEEE;
-
+    font-family: "Inter", serif;
+    
     .doi-ngay-duong {
         font-size: 26px;
-        font-size: 700;
+        font-weight: 700;
+        font-family: "Inter", serif;
     }
     .dercription {
         font-size: 20px;
@@ -85,5 +90,200 @@
             }
         }
     }
+
+
+    // css của page FinDetailDay
+    .title-find-date {
+        font-weight: 700;
+    }
+
+    // css của page FinđetailMonth
+    .find-by-month {
+        font-family: "Inter", serif;
+        padding: 5px;
+        border: 1px solid;
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1;
+        border-radius: 7px;
+        color: white;
+        background-color: #999;
+        a{
+            text-decoration: none;
+            margin-right: 5px;
+            color: white;
+        }
+    }
+    .name-month {
+        margin-top: 15px;
+        font-family: "Inter", serif;
+        a{
+            text-decoration: none;
+            color: #1E9253;
+            font-weight:500;
+            .icon{
+                font-weight:500;
+            }
+        }
+    }
+    .detail-month {
+        font-size: 20px;
+        line-height: 28px;
+    }
+    .hashtag-month {
+        ul {
+            padding-left: 0;
+            display: flex;
+            li {
+                list-style: none;
+                margin-right: 10px;
+            }
+            li:not(:first-child) {
+                padding: 5px 10px;
+                border-radius: 15px;
+                background-color: #636463;
+                color: white;
+                font-size: 12px;
+                font-weight: 700;
+            }
+        }
+    }
+    .menu-iteam_link-year {
+        padding: 7px;
+        display: flex;
+        align-items: center;
+        background-color: #F9F9F9; 
+        ul {
+            padding: 0;
+            margin-left: 7px;
+            margin-bottom: 0;
+            display: flex;
+            li {
+                list-style: none;
+                a {
+                    text-decoration: none;
+                    border-left: 1px solid;
+                    margin-right: 10px;
+                    padding-left: 10px;
+                    color: #006e33;
+                    font-size: 14px;
+                    font-weight: 700;
+                }
+                 &:first-child a {
+                    border-left: none;
+                }
+            }
+        }
+    }
+    .ngay_xau_tot {
+        margin-bottom: 15px;
+        .ngay_tot{
+            text-transform: uppercase;
+            color: red;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .ngay_xau {
+            text-transform: uppercase;
+            color: #95149a;
+            font-size: 18px;
+            font-weight: 700;
+        }
+    }
+    .l_day_good {
+        h4{
+            font-weight: 700;
+        }
+        .chi_tiet_ngay_tot {
+            width: 100%;
+            text-align: center;
+            padding: 7px;
+            background-color: #EC5151;
+            border-radius: 7px;
+            a{
+                display: inline-block;
+                font-weight: 700;
+                width: 100%;
+                color: white;
+                text-decoration: none;
+            }
+        }
+        .chi_tiet_ngay_tot:not(:first-child) {
+            margin-top: 10px;
+        }
+    }
+    .l_day_bad {
+        h4{
+            font-weight: 700;
+        }
+        .chi_tiet_ngay_xau {
+            width: 100%;
+            text-align: center;
+            padding: 7px;
+            background-color: #673369;
+            border-radius: 7px;
+            a{
+                display: inline-block;
+                width: 100%;
+                color: white;
+                text-decoration: none;
+                font-weight: 700;
+            }
+        }
+        .chi_tiet_ngay_xau:not(:first-child) {
+            margin-top: 10px;
+        }
+    }
+    .event {
+        margin-top: 15px;
+      font-size: 22px;
+      font-weight: 700;  
+    }
+    .secction_event_duong {
+       .l_event_ngay_duong {
+        padding: 7px;
+        font-size: 18px;
+        background-color: #FFFFFF;
+        border-radius: 4px;
+            .icon_event_duong {
+               color: #006e33;
+               padding-right: 15px;
+            }
+       }
+       .l_event_ngay_duong:not(:first-child){
+        margin-top: 10px;
+       }
+    }
+
+    .menu_month_of_year {
+        margin-bottom: 15px;
+        .s_link {
+            width: 100%;
+            padding: 6px;
+            text-align: center;
+            display: inline-block;
+            background-color: #5CB85C;
+            border-radius: 6px;
+            
+            a {
+                display: inline-block;
+                width: 100%;
+                text-decoration: none;
+                color: white;
+                font-weight: 700;
+            }
+    
+            &:not(:first-child) {
+                margin-top: 10px;
+            }
+            
+        }:hover {
+            background-color: #0B730B;
+        }
+    }
+    
 }
+
+
 

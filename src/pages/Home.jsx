@@ -62,9 +62,9 @@ const Home = () => {
   });
 
   const day = new Date();
-  const dd = day.getDate();
-  const mm = day.getMonth() + 1;
-  const yy = day.getFullYear();
+  const dd =Number(day.getDate());
+  const mm = Number(day.getMonth() + 1);
+  const yy = Number(day.getFullYear());
   
   useEffect(() => {
     // Tính toán giá trị 'chi' trước
@@ -75,7 +75,7 @@ const Home = () => {
     const detailZodiacHour = layGioHoangDaoChiTiet(chi);
     const blackHour = layGioHacDao(chi);
     const datas = departureDirection(nameDay);
-    const nameMonth = getNameMonth(dd, mm, yy);
+    const nameMonth = getNameMonth(mm, yy);
     const nameYear = getNameYear(yy);
     // Chuyển đổi ngày âm
     const ngayam = convertSolar2Lunar(dd, mm, yy, 7);
@@ -89,7 +89,7 @@ const Home = () => {
     const lucdieu = getKhongMinhLucDieu(chi);  
     const ngayKy = cacNgayKy(ngayam, ngayduong);
     const thapNhi = thapNhiKienTruc(ngayam, nameDay);
-    const  inforStart = startInDay(nameDay, ngayam);
+    const inforStart = startInDay(nameDay, ngayam);
     const startBadDays = startBadDay(nameDay, ngayam);
     const nguHanhs = nguHanh(nameDay);
     const dataThapNhiBatTu = tinhThapNhiBatTu(ngayduong, rank);

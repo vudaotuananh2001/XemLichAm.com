@@ -1,6 +1,8 @@
 import { gioXuatHanh,
     gioHoangDao, gioHacDao, detailGioHoangDao, 
-    nguHanhChi, nguHanhCan, khongMinhLucDieu, thapNhiBatTu, ngayHoangDaovaHacDao
+    nguHanhChi, nguHanhCan, khongMinhLucDieu, 
+    thapNhiBatTu, ngayHoangDaovaHacDao, detailMonth, 
+    dataLeDuongLich, dataSuKienLichSu
 } from "./DataTime";
 
 const dayOfWeek = ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"];
@@ -163,7 +165,7 @@ const getNameDay =(dd, mm, yy)=> {
 }
 
 // lấy ra thông tin tên của tháng
-const getNameMonth =(dd, mm, yy)=> {
+const getNameMonth =(mm, yy)=> {
     const canNam = (yy + 6) % 10;
     const canMonth = (canNam * 2 + mm) % 10;
     const chiMonth = (mm ) % 12; 
@@ -289,7 +291,7 @@ const departureDirection =(name)=> {
  }
 
 // lấy thông tin ngày khổng minh
- const getKhongMinh =(dd, mm)=> { 
+ const getKhongMinh =(dd, mm)=> {
     if(mm === 1 || mm === 4 || mm===7 || mm === 10){
         if(dd ===6 || dd===12 || dd ===18 || dd ===24 || dd === 30){
             return {
@@ -407,7 +409,7 @@ const departureDirection =(name)=> {
                 detail :"Xuất hành, cầu tài đều xấu. Hay mất của, kiện cáo thua vì đuối lý. "
             }
         }
-         if(dd === 8 || dd === 16 || dd === 26 || dd ===30){
+         if(dd === 8 || dd === 16 || dd === 24  || dd === 26 || dd ===30){
             return {
                 name :"Thanh Long Túc",
                 detail :"Đi xa không nên, xuất hành xấu, tài lộc không có. Kiện cáo cũng đuối lý. "
@@ -684,7 +686,7 @@ const thapNhiKienTruc = (ngayAmLich, nameDay) => {
     };
     let indexThapNhiKienTruc = 0;
     // tý sử dần mão thìn tỵ ngọ mùi thân dậu tuất hợi
-    debugger
+  
     if(month === 1){
         if(chiDay === 'Dần'){
             indexThapNhiKienTruc = 1;
@@ -998,8 +1000,8 @@ const thapNhiKienTruc = (ngayAmLich, nameDay) => {
             indexThapNhiKienTruc = 12;
         }
     }
-    const index = (indexThapNhiKienTruc + 1) % 12;
-    return kienTruData[index];
+
+    return kienTruData[indexThapNhiKienTruc];
 };
 
 // lấy thông tin ngày tốt 
@@ -3205,11 +3207,57 @@ const ngayHoangDaoVaHacDao = (mm, yy) => {
     }; 
 };
 
+const titleOfMonth = (mm)=> {
+    return detailMonth[mm];
+}
+
+const ngayLeDuong = (mm)=> {
+    let leDuong = [];
+    leDuong = dataLeDuongLich[mm];
+    return leDuong;
+}
+
+const ngaySuKienLichSu = (mm)=> {
+    let suKienLichSu = [];
+    suKienLichSu = dataSuKienLichSu[mm];
+    return suKienLichSu;
+}
+
+const listKhongMinhLucDieuByMonth =(mm, yy)=> {
+    let daysInMonth = [];
+    let listKhongMinh = [];
+    let date = new Date(yy, mm - 1, 1);
+    const months = mm;
+    const years = yy;
+    // Lấy tất cả các ngày trong tháng
+    while (date.getMonth() === months - 1) {
+        daysInMonth.push(date.getDate());
+        date.setDate(date.getDate() + 1);
+    }
+    const lengthOfMonth = daysInMonth.length;
+    for(let i = 0;i<lengthOfMonth; i++){
+        const ngayAm = convertSolar2Lunar(daysInMonth[i], mm, yy, 7);
+        const date = ngayAm.split('-');
+        const day = `${date[0]}/${date[1]}`;
+        const getGiant = getKhongMinh(Number(date[0]), Number(date[1]));
+        const name = getGiant.name;
+        const detailKhongMinh = getGiant.detail;
+        listKhongMinh.push({
+            day,
+            name,
+            detailKhongMinh,
+        })
+    }
+    return listKhongMinh;
+    
+}
+
 export { canNgay, chiNgay, 
     jdFormDate, layGioHoangDao ,getNameDay,
     getNameMonth, getNameYear, convertSolar2Lunar,rankOffWeek,
     departureDirection, layGioHoangDaoChiTiet, layGioHacDao, departureTime,
     getInforDayCan, getInforDayChi, getKhongMinh, lichTietKhi, 
     getKhongMinhLucDieu, cacNgayKy, thapNhiKienTruc, startInDay, startBadDay,
-     nguHanh, tinhThapNhiBatTu, ngayHoangDaoVaHacDao
+     nguHanh, tinhThapNhiBatTu, ngayHoangDaoVaHacDao, titleOfMonth,
+     ngayLeDuong, ngaySuKienLichSu, listKhongMinhLucDieuByMonth
 };

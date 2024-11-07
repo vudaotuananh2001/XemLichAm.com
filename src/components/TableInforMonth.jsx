@@ -43,15 +43,15 @@ const TableInforMonth = ({ negativeDay }) => {
     return (
         <div className="mt-3">
             <div className="is_infor_day d-flex">
-                <span className="good-day">MÀU ĐỎ : NGÀY TỐT</span>,
-                <span className="bad-day">MÀU TÍM : NGÀY XẤU</span>
+                <span className="good-day">MÀU ĐỎ: NGÀY TỐT</span>,&nbsp;&nbsp;
+                <span className="bad-day">MÀU TÍM: NGÀY XẤU</span>
             </div>
             <div className="title-month d-flex justify-content-around align-items-center">
-                <Link to={`/am-lich/nam/${year}/thang/${month-1}`}>
+                <Link to={`/licham/nam/${year}/thang/${month-1}`}>
                     <span className="triangle-left" aria-label="Previous Month"></span>
                 </Link>
                 <span>LỊCH ÂM {month} NĂM {year}</span>
-                <Link to={`/am-lich/nam/${year}/thang/${month+1}`}>
+                <Link to={`/licham/nam/${year}/thang/${month+1}`}>
                     <span className="triangle-right" aria-label="Next Month"></span>
                 </Link>
             </div>

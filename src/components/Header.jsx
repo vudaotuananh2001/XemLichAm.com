@@ -7,7 +7,9 @@ import "../styles/header/header.css";
 
 const Header = () => {
   const [time, setTime] = useState(new Date());
+  const [year, setYear] = useState(new Date().getFullYear());
   useEffect(() => {
+    const date = new Date();
     const timer = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
@@ -73,17 +75,14 @@ const Header = () => {
                 </Link>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link
-                      className="dropdown-item"
-                      to="/licham/nam/2024/thang/1"
-                    >
+                    <Link className="dropdown-item" to={`licham/nam/${year}/thang/1`}>
                       LỊCH ÂM THÁNG 1
                     </Link>
                   </li>
                   <li>
                     <Link
                       className="dropdown-item"
-                      to="/licham/nam/2024/thang/2"
+                      to={`/licham/nam/${year}/thang/2`}
                     >
                       LỊCH ÂM THÁNG 2
                     </Link>
@@ -91,7 +90,7 @@ const Header = () => {
                   <li>
                     <Link
                       className="dropdown-item"
-                      to="/licham/nam/2024/thang/3"
+                      to={`/licham/nam/${year}/thang/3`}
                     >
                       LỊCH ÂM THÁNG 3
                     </Link>
@@ -99,7 +98,7 @@ const Header = () => {
                   <li>
                     <Link
                       className="dropdown-item"
-                      to="/licham/nam/2024/thang/4"
+                      to={`/licham/nam/${year}/thang/4`}
                     >
                       LỊCH ÂM THÁNG 4
                     </Link>
@@ -107,7 +106,7 @@ const Header = () => {
                   <li>
                     <Link
                       className="dropdown-item"
-                      to="/licham/nam/2024/thang/5"
+                      to={`/licham/nam/${year}/thang/5`}
                     >
                       LỊCH ÂM THÁNG 5
                     </Link>
@@ -115,7 +114,7 @@ const Header = () => {
                   <li>
                     <Link
                       className="dropdown-item"
-                      to="/licham/nam/2024/thang/6"
+                      to={`/licham/nam/${year}/thang/6`}
                     >
                       LỊCH ÂM THÁNG 6
                     </Link>
@@ -123,7 +122,7 @@ const Header = () => {
                   <li>
                     <Link
                       className="dropdown-item"
-                      to="/licham/nam/2024/thang/7"
+                      to={`/licham/nam/${year}/thang/7`}
                     >
                       LỊCH ÂM THÁNG 7
                     </Link>
@@ -131,7 +130,7 @@ const Header = () => {
                   <li>
                     <Link
                       className="dropdown-item"
-                      to="/licham/nam/2024/thang/8"
+                      to={`/licham/nam/${year}/thang/8`}
                     >
                       LỊCH ÂM THÁNG 8
                     </Link>
@@ -139,7 +138,7 @@ const Header = () => {
                   <li>
                     <Link
                       className="dropdown-item"
-                      to="/licham/nam/2024/thang/9"
+                      to={`/licham/nam/${year}/thang/9`}
                     >
                       LỊCH ÂM THÁNG 9
                     </Link>
@@ -147,7 +146,7 @@ const Header = () => {
                   <li>
                     <Link
                       className="dropdown-item"
-                      to="/licham/nam/2024/thang/10"
+                      to={`/licham/nam/${year}/thang/10`}
                     >
                       LỊCH ÂM THÁNG 10
                     </Link>
@@ -155,7 +154,7 @@ const Header = () => {
                   <li>
                     <Link
                       className="dropdown-item"
-                      to="/licham/nam/2024/thang/11"
+                      to={`/licham/nam/${year}/thang/11`}
                     >
                       LỊCH ÂM THÁNG 11
                     </Link>
@@ -163,7 +162,7 @@ const Header = () => {
                   <li>
                     <Link
                       className="dropdown-item"
-                      to="/licham/nam/2024/thang/12"
+                      to={`/licham/nam/${year}/thang/12`}
                     >
                       LỊCH ÂM THÁNG 12
                     </Link>

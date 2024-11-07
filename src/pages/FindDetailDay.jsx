@@ -127,7 +127,7 @@ const FinDetailDay = () => {
             <Header />
             <div className="box-body-home">
                 <div className="container">
-                    <h4 className="mt-2">Xem lịch âm ngày {dd} tháng {mm} năm {yy}</h4>
+                    <h4 className="mt-2 title-find-date">Xem lịch âm ngày {dd} tháng {mm} năm {yy}</h4>
                         <InformationDay  negativeDay={findByDay}/>
                         { findByDay.is_check_data ?  <TableInfoDay negativeDay={findByDay}/> : <>...Loading</> }
                         <div className="row">

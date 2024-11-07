@@ -5,7 +5,7 @@ import '../styles/footer/footer.css'
 const Footer = () => {
     return (
         <>
-            <div className="container px-0">
+            <div className="container">
                 <footer>
                     <h4>Nguồn gốc lịch âm</h4>
                     <p><b>Lịch âm</b> hay còn gọi là <b>lịch vạn niên</b> là loại lịch dựa

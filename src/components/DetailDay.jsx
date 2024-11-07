@@ -48,7 +48,6 @@ const DetailDays = ({ negativeDay }) => {
             // thêm dấu ngoặc kép đóng vào dòng cuối cùng
             lines[lines.length - 1] += '"';
         }
-    
         return lines;
     };
     const ngayDuong= negativeDay.positive_day;
@@ -151,7 +150,7 @@ const DetailDays = ({ negativeDay }) => {
                         <tr>
                             <td className="title-row-table"><b>Ngũ Hành</b></td>
                             <td>
-                                <p>Ngày : <b>{negativeDay.nameDay} </b>- {dataNguHanh.name}</p>
+                                <p>Ngày: <b>{negativeDay.nameDay} </b>- {dataNguHanh.name}</p>
                                 <p>- Nạp âm: {dataNguHanh.napAm}</p>
                                 <p>- {dataNguHanh.description}</p>
                                 <p>- {dataNguHanh.detail}</p>
@@ -161,8 +160,8 @@ const DetailDays = ({ negativeDay }) => {
                         <tr>
                             <td className="title-row-table"><b>Bành Tổ Bách Kỵ Nhật</b></td>
                             <td>
-                                <p>-<b> {canChiNameDay[0]}</b> : “{dataCan.names}” - {dataCan.detail}</p>
-                                <p>-<b> {canChiNameDay[1]}</b> : “{dataChi.names}” - {dataChi.detail} </p>
+                                <p>-<b> {canChiNameDay[0]}</b>: “{dataCan.names}” - {dataCan.detail}</p>
+                                <p>-<b> {canChiNameDay[1]}</b>: “{dataChi.names}” - {dataChi.detail} </p>
                             </td>
                         </tr>
                         <tr>
@@ -201,22 +200,22 @@ const DetailDays = ({ negativeDay }) => {
                             {(thapNhi.description1 || thapNhi.description2 || thapNhi.description3) && (
                                 <td>
                                     <p><b>{thapNhi.name}</b></p>
-                                    {thapNhi.description1 && <p><b>Nên làm</b> : {thapNhi.description1}</p>}
-                                    {thapNhi.description2 && <p><b>Không nên</b> : {thapNhi.description2}</p>}
-                                    {thapNhi.description3 && <p><b>Chú ý</b> : {thapNhi.description3}</p>}
+                                    {thapNhi.description1 && <p><b>Nên làm</b>: {thapNhi.description1}</p>}
+                                    {thapNhi.description2 && <p><b>Không nên</b>: {thapNhi.description2}</p>}
+                                    {thapNhi.description3 && <p><b>Chú ý</b>: {thapNhi.description3}</p>}
                                 </td>
                             )}
                         </tr>
                         <tr>
                             <td className="title-row-table"><b>Ngọc Hạp Thông Thư</b></td>
                             <td>
-                                <p><b>Sao tốt</b> : </p>
+                                <p><b>Sao tốt</b>:</p>
                                 {
                                     startGood.map((iteam, index) => (
                                         <p key ={index}> - {iteam} </p>
                                     ))
                                 }
-                                <p><b>Sao xấu</b> : </p>
+                                <p><b>Sao xấu</b>:</p>
                                 {
                                     startBad.map((iteams, indexs) => (
                                         <p key ={indexs}> - {iteams} </p>

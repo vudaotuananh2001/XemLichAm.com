@@ -3,10 +3,12 @@
   width: 100%;
   height: auto;
   background-color: #EEEEEE;
+  font-family: "Inter", serif;
 }
 .box-body-home .doi-ngay-duong {
   font-size: 26px;
-  font-size: 700;
+  font-weight: 700;
+  font-family: "Inter", serif;
 }
 .box-body-home .dercription {
   font-size: 20px;
@@ -79,4 +81,180 @@
   color: #0B730B;
   border: 1px solid #BCCCC3;
   border-radius: 5px;
+}
+.box-body-home .title-find-date {
+  font-weight: 700;
+}
+.box-body-home .find-by-month {
+  font-family: "Inter", serif;
+  padding: 5px;
+  border: 1px solid;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  border-radius: 7px;
+  color: white;
+  background-color: #999;
+}
+.box-body-home .find-by-month a {
+  text-decoration: none;
+  margin-right: 5px;
+  color: white;
+}
+.box-body-home .name-month {
+  margin-top: 15px;
+  font-family: "Inter", serif;
+}
+.box-body-home .name-month a {
+  text-decoration: none;
+  color: #1E9253;
+  font-weight: 500;
+}
+.box-body-home .name-month a .icon {
+  font-weight: 500;
+}
+.box-body-home .detail-month {
+  font-size: 20px;
+  line-height: 28px;
+}
+.box-body-home .hashtag-month ul {
+  padding-left: 0;
+  display: flex;
+}
+.box-body-home .hashtag-month ul li {
+  list-style: none;
+  margin-right: 10px;
+}
+.box-body-home .hashtag-month ul li:not(:first-child) {
+  padding: 5px 10px;
+  border-radius: 15px;
+  background-color: #636463;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+.box-body-home .menu-iteam_link-year {
+  padding: 7px;
+  display: flex;
+  align-items: center;
+  background-color: #F9F9F9;
+}
+.box-body-home .menu-iteam_link-year ul {
+  padding: 0;
+  margin-left: 7px;
+  margin-bottom: 0;
+  display: flex;
+}
+.box-body-home .menu-iteam_link-year ul li {
+  list-style: none;
+}
+.box-body-home .menu-iteam_link-year ul li a {
+  text-decoration: none;
+  border-left: 1px solid;
+  margin-right: 10px;
+  padding-left: 10px;
+  color: #006e33;
+  font-size: 14px;
+  font-weight: 700;
+}
+.box-body-home .menu-iteam_link-year ul li:first-child a {
+  border-left: none;
+}
+.box-body-home .ngay_xau_tot {
+  margin-bottom: 15px;
+}
+.box-body-home .ngay_xau_tot .ngay_tot {
+  text-transform: uppercase;
+  color: red;
+  font-size: 18px;
+  font-weight: 700;
+}
+.box-body-home .ngay_xau_tot .ngay_xau {
+  text-transform: uppercase;
+  color: #95149a;
+  font-size: 18px;
+  font-weight: 700;
+}
+.box-body-home .l_day_good h4 {
+  font-weight: 700;
+}
+.box-body-home .l_day_good .chi_tiet_ngay_tot {
+  width: 100%;
+  text-align: center;
+  padding: 7px;
+  background-color: #EC5151;
+  border-radius: 7px;
+}
+.box-body-home .l_day_good .chi_tiet_ngay_tot a {
+  display: inline-block;
+  font-weight: 700;
+  width: 100%;
+  color: white;
+  text-decoration: none;
+}
+.box-body-home .l_day_good .chi_tiet_ngay_tot:not(:first-child) {
+  margin-top: 10px;
+}
+.box-body-home .l_day_bad h4 {
+  font-weight: 700;
+}
+.box-body-home .l_day_bad .chi_tiet_ngay_xau {
+  width: 100%;
+  text-align: center;
+  padding: 7px;
+  background-color: #673369;
+  border-radius: 7px;
+}
+.box-body-home .l_day_bad .chi_tiet_ngay_xau a {
+  display: inline-block;
+  width: 100%;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+.box-body-home .l_day_bad .chi_tiet_ngay_xau:not(:first-child) {
+  margin-top: 10px;
+}
+.box-body-home .event {
+  margin-top: 15px;
+  font-size: 22px;
+  font-weight: 700;
+}
+.box-body-home .secction_event_duong .l_event_ngay_duong {
+  padding: 7px;
+  font-size: 18px;
+  background-color: #FFFFFF;
+  border-radius: 4px;
+}
+.box-body-home .secction_event_duong .l_event_ngay_duong .icon_event_duong {
+  color: #006e33;
+  padding-right: 15px;
+}
+.box-body-home .secction_event_duong .l_event_ngay_duong:not(:first-child) {
+  margin-top: 10px;
+}
+.box-body-home .menu_month_of_year {
+  margin-bottom: 15px;
+}
+.box-body-home .menu_month_of_year .s_link {
+  width: 100%;
+  padding: 6px;
+  text-align: center;
+  display: inline-block;
+  background-color: #5CB85C;
+  border-radius: 6px;
+}
+.box-body-home .menu_month_of_year .s_link a {
+  display: inline-block;
+  width: 100%;
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+}
+.box-body-home .menu_month_of_year .s_link:not(:first-child) {
+  margin-top: 10px;
+}
+.box-body-home .menu_month_of_year :hover {
+  background-color: #0B730B;
 }/*# sourceMappingURL=common.css.map */
