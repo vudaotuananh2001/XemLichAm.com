@@ -71,13 +71,12 @@ const FindDetailMonth =() => {
         const cacNgayLeDuong = findByMonth.ngayLeDuong;
         const suKienLichSu = findByMonth.ngaySuKienLichSu;
         const listKhongMinhs = findByMonth.khongMinh;
-        console.log(listKhongMinhs);
         
     return (
         <>
             <Header />
             <div className="box-body-home">
-                <div className="container">
+                <div className="container body_home_page mx-0">
                     <h4 className="doi-ngay-duong">Lịch âm tháng {month} năm {year}</h4>
                     <span className="find-by-month">
                         <Link to={`/#`}><FontAwesomeIcon className="icon" icon={faMagnifyingGlass} /> lịch</Link>
@@ -91,13 +90,14 @@ const FindDetailMonth =() => {
                         {desription}
                     </p>
                     <div className="hashtag-month">
-                        <ul>
-                            <li><FontAwesomeIcon className="icon" icon={faSlack} /></li>
-                            <li>lịch tháng {month} năm {year}</li>
-                            <li>lịch âm tháng {month}/{year}</li>
-                            <li>lịch dương tháng {month} năm {year}</li>
-                            <li>lich thang {month}/{year}</li>
-                        </ul>
+                        <p>
+                            <small><FontAwesomeIcon className="icon" icon={faSlack} /></small>
+                            <small>lịch tháng {month} năm {year}</small>
+                            <small>lịch âm tháng {month}/{year}</small>
+                            <small>lịch dương tháng {month} năm {year}</small>
+                            <small>lich thang {month}/{year}</small>
+                        </p>
+                            
                     </div>
                     <div className="menu-iteam_link-year">
                         <ul>
@@ -111,8 +111,8 @@ const FindDetailMonth =() => {
                             <TableInforMonth  negativeDay = {findByMonth.statusDay}/>
                         </div>
                         <div className="ngay_xau_tot">
-                             <span className="ngay_tot">Màu đỏ :  ngày tốt  </span>,
-                             <span className="ngay_xau">Màu tím : ngày xấu</span>
+                             <span className="ngay_tot">Màu đỏ:  ngày tốt  </span>,
+                             <span className="ngay_xau">Màu tím: ngày xấu</span>
                         </div>
                         <div className="col-12 col-sm-12 col-md-12 col-lg-6 l_day_good">
                             <h4>Ngày tốt tháng {month} (Hàng Đạo)</h4>
@@ -171,47 +171,48 @@ const FindDetailMonth =() => {
                         <h4 className="event">Xem lịch âm các tháng khác</h4>
                         <div className="col-12 col-sm-12 col-md-12 col-lg-6 menu_month_of_year">
                                 <div className="s_link">
-                                    <Link to={`#`}>Lịch âm tháng 1 năm {year}</Link>
+                                    <Link to={`/licham/nam/${year}/thang/1`}>Lịch âm tháng 1 năm {year}</Link>
                                 </div>
                                 <div className="s_link">
-                                    <Link to={`#`}>Lịch âm tháng 3 năm {year}</Link>
+                                    <Link to={`/licham/nam/${year}/thang/3`}>Lịch âm tháng 3 năm {year}</Link>
                                 </div>
                                 <div className="s_link">
-                                    <Link to={`#`}>Lịch âm tháng 5 năm {year}</Link>
+                                    <Link to={`/licham/nam/${year}/thang/5`}>Lịch âm tháng 5 năm {year}</Link>
                                 </div>
                                 <div className="s_link">
-                                    <Link to={`#`}>Lịch âm tháng 7 năm {year}</Link>
+                                    <Link to={`/licham/nam/${year}/thang/7`}>Lịch âm tháng 7 năm {year}</Link>
                                 </div>
                                 <div className="s_link">
-                                    <Link to={`#`}>Lịch âm tháng 9 năm {year}</Link>
+                                    <Link to={`/licham/nam/${year}/thang/9`}>Lịch âm tháng 9 năm {year}</Link>
                                 </div>
                                 <div className="s_link">
-                                    <Link to={`#`}>Lịch âm tháng 11 năm {year}</Link>
+                                    <Link to={`/licham/nam/${year}/thang/11`}>Lịch âm tháng 11 năm {year}</Link>
                                 </div>
                         </div>
                         <div className="col-12 col-sm-12 col-md-12 col-lg-6 menu_month_of_year">
                         <div className="s_link">
-                                    <Link to={`#`}>Lịch âm tháng 2 năm {year}</Link>
+                                    <Link to={`/licham/nam/${year}/thang/2`}>Lịch âm tháng 2 năm {year}</Link>
                                 </div>
                                 <div className="s_link">
-                                    <Link to={`#`}>Lịch âm tháng 4 năm {year}</Link>
+                                    <Link to={`/licham/nam/${year}/thang/4`}>Lịch âm tháng 4 năm {year}</Link>
                                 </div>
                                 <div className="s_link">
-                                    <Link to={`#`}>Lịch âm tháng 6 năm {year}</Link>
+                                    <Link to={`/licham/nam/${year}/thang/6`}>Lịch âm tháng 6 năm {year}</Link>
                                 </div>
                                 <div className="s_link">
-                                    <Link to={`#`}>Lịch âm tháng 8 năm {year}</Link>
+                                    <Link to={`/licham/nam/${year}/thang/8`}>Lịch âm tháng 8 năm {year}</Link>
                                 </div>
                                 <div className="s_link">
-                                    <Link to={`#`}>Lịch âm tháng 10 năm {year}</Link>
+                                    <Link to={`/licham/nam/${year}/thang/10`}>Lịch âm tháng 10 năm {year}</Link>
                                 </div>
                                 <div className="s_link">
-                                    <Link to={`#`}>Lịch âm tháng 12 năm {year}</Link>
+                                    <Link to={`/licham/nam/${year}/thang/12`}>Lịch âm tháng 12 năm {year}</Link>
                                 </div>
                         </div>
                     </div>
+                    <Footer />
                 </div>
-                <Footer />
+                <div className="quang_cao"></div>
             </div>
         </>
     );

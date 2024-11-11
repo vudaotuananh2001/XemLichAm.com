@@ -13,19 +13,10 @@ import {
     getNameYear,
     convertSolar2Lunar,
     rankOffWeek,
-    departureDirection,
     layGioHoangDaoChiTiet,
-    layGioHacDao,
     departureTime,
     getKhongMinh,
     lichTietKhi,
-    getKhongMinhLucDieu,
-    cacNgayKy,
-    thapNhiKienTruc, 
-    startInDay,
-    startBadDay, 
-    nguHanh,
-    tinhThapNhiBatTu,
     ngayHoangDaoVaHacDao
   } from "../DataTime/FuntionTime.js";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

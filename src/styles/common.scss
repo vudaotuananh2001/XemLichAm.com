@@ -1,13 +1,19 @@
-.container {
-    max-width: 1200px;
-}
+
 .box-body-home {
     padding-top: 57px;
     width: 100%;
     height: auto;
     background-color: #EEEEEE;
     font-family: "Inter", serif;
-    
+    display: flex;
+    justify-content: center;
+    .body_home_page {
+        max-width: 980px;
+    }
+    .quang_cao {
+        width: 300px;
+        background-color: #1e9253;
+    }
     .doi-ngay-duong {
         font-size: 26px;
         font-weight: 700;
@@ -132,20 +138,23 @@
         line-height: 28px;
     }
     .hashtag-month {
-        ul {
-            padding-left: 0;
-            display: flex;
-            li {
-                list-style: none;
-                margin-right: 10px;
+        p {
+            word-wrap: break-word;
+            small{ 
             }
-            li:not(:first-child) {
-                padding: 5px 10px;
-                border-radius: 15px;
-                background-color: #636463;
-                color: white;
+            small:not(:first-child) {
+                margin-left: 10px;
+                min-width: 10px;
+                padding: 3px 7px;
                 font-size: 12px;
-                font-weight: 700;
+                font-weight: bold;
+                line-height: 1;
+                color: #fff;
+                text-align: center;
+                white-space: nowrap;
+                vertical-align: baseline;
+                background-color: #636463;
+                border-radius: 10px;
             }
         }
     }
@@ -282,7 +291,12 @@
             background-color: #0B730B;
         }
     }
-    
+
+    @media only screen and (max-width: 768px) {
+        .quang_cao {
+            display: none;
+        }
+      }
 }
 
 

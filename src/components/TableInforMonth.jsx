@@ -2,6 +2,8 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
 import '../styles/tableinformonth/tableinformonth.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowsTurnRight } from '@fortawesome/free-solid-svg-icons';
 
 const TableInforMonth = ({ negativeDay }) => {
     const listDay = negativeDay.informationDayInMonth || [];
@@ -39,7 +41,7 @@ const TableInforMonth = ({ negativeDay }) => {
 
     // Filter out rows that only contain null values
     const filteredCalendar = calendar.filter(week => week.some(day => day !== null));
-    
+
     return (
         <div className="mt-3">
             <div className="is_infor_day d-flex">
@@ -99,6 +101,10 @@ const TableInforMonth = ({ negativeDay }) => {
                                                 <h6 className="namedayam">
                                                     {currentDayData?.dayCanChi || ''}
                                                 </h6>
+                                                <div className="h_event_day">
+                                                    <FontAwesomeIcon className="icon_hover" icon={faArrowsTurnRight} />
+                                                    <p>{currentDayData.sukien || 'Không có sự kiện'}</p>
+                                                </div>
                                             </Link>
                                         ) : (
                                             // Ô trống

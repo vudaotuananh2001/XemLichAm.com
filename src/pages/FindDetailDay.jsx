@@ -38,7 +38,7 @@ const FinDetailDay = () => {
     const yy = getInformationUrlDate[3];
     const mm = getInformationUrlDate[5];
     const dd = getInformationUrlDate[7]; 
-   const fullInformationDate = `${dd}-${mm}-${yy}`;
+    const fullInformationDate = `${dd}-${mm}-${yy}`;
     
     // Khởi tạo state bằng useState
     const [findByDay, setFindByDay] = useState({
@@ -59,7 +59,6 @@ const FinDetailDay = () => {
         lucdieu :{},
         detailZodiacHour: "",
         blackHour: "",
-        lucdieu :{},
         ngayKy : [],
         thapNhi: {}, 
         startGood : [],
@@ -120,13 +119,13 @@ const FinDetailDay = () => {
             statusDay : statusDays,
             departure_direction: datas
         }));
-    }, [dd, mm, yy]); // Mảng phụ thuộc để chạy lại khi các giá trị này thay đổi
+    }, [dd, mm, yy]); 
 
     return (
         <>
             <Header />
             <div className="box-body-home">
-                <div className="container">
+                <div className="container body_home_page mx-0">
                     <h4 className="mt-2 title-find-date">Xem lịch âm ngày {dd} tháng {mm} năm {yy}</h4>
                         <InformationDay  negativeDay={findByDay}/>
                         { findByDay.is_check_data ?  <TableInfoDay negativeDay={findByDay}/> : <>...Loading</> }
@@ -142,8 +141,9 @@ const FinDetailDay = () => {
                                 )}
                             </div>
                         </div>
-                        <Footer />
+                        <Footer /> 
                 </div>
+                <div className="quang_cao"></div>
             </div>
                 
             

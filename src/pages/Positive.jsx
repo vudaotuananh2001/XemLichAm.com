@@ -1,10 +1,10 @@
 import React, { useEffect, useState} from "react";
 import { Link } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from '../components/Header';
 import Footer from "../components/Footer";
 import TableInfoDay from "../components/TableInforDay";
 import TableInforMonth from "../components/TableInforMonth";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {
     chiNgay,
     layGioHoangDao,
@@ -107,7 +107,7 @@ const Positive = () => {
         <>
             <Header />
             <div className="box-body-home">
-                <div className="container">
+                <div className="container container mx-0 body_home_page">
                     <h4 className="doi-ngay-duong">Đổi ngày dương sang âm</h4>
                     <div className="dercription">
                             Công cụ <b>Chuyển đổi ngày dương</b> <Link>
@@ -166,8 +166,10 @@ const Positive = () => {
                             <TableInforMonth  negativeDay = {negativeDay.statusDay}/>
                         </div>
                     </div>
+                    <Footer />
                 </div>
-                <Footer />
+                <div className="quang_cao"></div>
+               
             </div>
         </>
 

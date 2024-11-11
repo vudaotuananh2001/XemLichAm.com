@@ -4,6 +4,15 @@
   height: auto;
   background-color: #EEEEEE;
   font-family: "Inter", serif;
+  display: flex;
+  justify-content: center;
+}
+.box-body-home .body_home_page {
+  max-width: 980px;
+}
+.box-body-home .quang_cao {
+  width: 300px;
+  background-color: #1e9253;
 }
 .box-body-home .doi-ngay-duong {
   font-size: 26px;
@@ -118,21 +127,22 @@
   font-size: 20px;
   line-height: 28px;
 }
-.box-body-home .hashtag-month ul {
-  padding-left: 0;
-  display: flex;
+.box-body-home .hashtag-month p {
+  word-wrap: break-word;
 }
-.box-body-home .hashtag-month ul li {
-  list-style: none;
-  margin-right: 10px;
-}
-.box-body-home .hashtag-month ul li:not(:first-child) {
-  padding: 5px 10px;
-  border-radius: 15px;
-  background-color: #636463;
-  color: white;
+.box-body-home .hashtag-month p small:not(:first-child) {
+  margin-left: 10px;
+  min-width: 10px;
+  padding: 3px 7px;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  background-color: #636463;
+  border-radius: 10px;
 }
 .box-body-home .menu-iteam_link-year {
   padding: 7px;
@@ -257,4 +267,9 @@
 }
 .box-body-home .menu_month_of_year :hover {
   background-color: #0B730B;
+}
+@media only screen and (max-width: 768px) {
+  .box-body-home .quang_cao {
+    display: none;
+  }
 }/*# sourceMappingURL=common.css.map */

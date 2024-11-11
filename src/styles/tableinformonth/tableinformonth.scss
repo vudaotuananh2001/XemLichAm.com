@@ -61,11 +61,12 @@
             td {
                 border: 1px solid #0B730B;
                 a {
+                    position: relative;
                     text-decoration: none;
                     color: black;
                     .infors {
+                        margin-top: 10px;
                         display: flex;
-                        margin-top: 20px;
                         justify-content: space-around;
                         .day {
                             color: black;
@@ -82,28 +83,78 @@
                         text-align: center;
                     }
                     .namedayam {
-                        text-align: center;
+                        display: flex;
+                        justify-content: center;
+                        margin-bottom:10px ;
+                        span {
+                            margin-right: 7px;
+                        }
+                    }
+
+                    .h_event_day{
+                         position: absolute;
+                         top: -22px;
+                         display: none;
+                         background-color: #FFEDED;
+                         border-radius: 7px;
+                         box-shadow: -1px 5px #888888;
+                         p{
+                            background-color: #FFEDED;
+                            border-radius: 7px;
+                            margin-bottom: 0;
+                            margin-top: -25px;
+                            margin-left: 17px;
+                            font-weight: 400;
+                         }
+                         .icon_hover {
+                            margin-left: -3px;
+                            color: red !important;
+                         }
+                    }
+                } :hover {
+                    .h_event_day {
+                        display: block;
                     }
                 }
             } 
         } :hover {
             background-color: #6EC06E;
+            
+        }
+    }
+}
+@media screen and (min-width: 426px) and (max-width: 768px) {
+    tr {
+        td {
+            padding: 0;
+            a {
+                .namedayam {
+                    .dayAms {
+                        font-size: 10px;
+                    }
+                    .nameDayChi {
+                        display: none;
+                    }
+                }
+            }
         }
     }
 }
 
-@media only screen and (max-width: 425px) {
+@media screen and (min-width: 321px) and (max-width: 425px) {
     .table {
         thead {
             th {
                 font-size: 10px;
             }
         }
-        tbody {
-            td {
-                a {
-                    .namedayam{
-                        display: none;
+        .table-body {
+            tr {
+                td {
+                    a {
+                        .namedayam {
+                            display: none;
+                        }
                     }
                 }
             }
@@ -111,34 +162,35 @@
     }
 
     .is_infor_day {
-        .good-day {
+        .good-day, .bad-day {
             font-size: 14px;
         }
-
-        .bad-day {
-            font-size: 14px;
-        }
-
     }
 }
 
-@media only screen and (min-width: 321px) and (max-width: 375px) {
-    .table {
-        thead {
-            th {
-                font-size: 12px;
-            }
-        }
-        tbody {
-            tr {
-                td {
-                    a {
-                        .ngayam {
-                            font-size: 10px;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
+// @media screen and (min-width: 321px) and (max-width: 375px) {
+//     .table {
+//         thead {
+//             th {
+//                 font-size: 12px;
+//             }
+//         }
+//         .table-body {
+//             tr {
+//                 td {
+//                     padding: 0;
+//                     a {
+//                         .namedayam {
+//                             .dayAms {
+//                                 font-size: 10px;
+//                             }
+//                             .nameDayChi {
+//                                 display: none;
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }

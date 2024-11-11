@@ -75,15 +75,36 @@
         }
     }
 
-    .hagtag {
-        .banners {
-            margin-right: 10px;
-            padding: 0px 5px 3px 5px;
-            background-color: #636463;
-            color: white;
-            border-radius: 10px;
-            font-weight: bold;
-            font-size: 12px;
+    // .hagtag {
+    //     .banners {
+    //         margin-right: 10px;
+    //         padding: 0px 5px 3px 5px;
+    //         background-color: #636463;
+    //         color: white;
+    //         border-radius: 10px;
+    //         font-weight: bold;
+    //         font-size: 12px;
+    //     }
+    // }
+    .hashtag-month {
+        p {
+            word-wrap: break-word;
+            small{ 
+            }
+            small:not(:first-child) {
+                margin-left: 10px;
+                min-width: 10px;
+                padding: 3px 7px;
+                font-size: 12px;
+                font-weight: bold;
+                line-height: 1;
+                color: #fff;
+                text-align: center;
+                white-space: nowrap;
+                vertical-align: baseline;
+                background-color: #636463;
+                border-radius: 10px;
+            }
         }
     }
 

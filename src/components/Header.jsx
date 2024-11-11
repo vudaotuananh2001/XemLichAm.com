@@ -9,7 +9,6 @@ const Header = () => {
   const [time, setTime] = useState(new Date());
   const [year, setYear] = useState(new Date().getFullYear());
   useEffect(() => {
-    const date = new Date();
     const timer = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
@@ -75,7 +74,7 @@ const Header = () => {
                 </Link>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link className="dropdown-item" to={`licham/nam/${year}/thang/1`}>
+                    <Link className="dropdown-item" to={`/licham/nam/${year}/thang/1`}>
                       LỊCH ÂM THÁNG 1
                     </Link>
                   </li>

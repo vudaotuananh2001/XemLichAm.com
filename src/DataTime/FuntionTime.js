@@ -2,7 +2,7 @@ import { gioXuatHanh,
     gioHoangDao, gioHacDao, detailGioHoangDao, 
     nguHanhChi, nguHanhCan, khongMinhLucDieu, 
     thapNhiBatTu, ngayHoangDaovaHacDao, detailMonth, 
-    dataLeDuongLich, dataSuKienLichSu
+    dataLeDuongLich, dataSuKienLichSu, detailYear
 } from "./DataTime";
 
 const dayOfWeek = ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"];
@@ -3191,9 +3191,15 @@ const ngayHoangDaoVaHacDao = (mm, yy) => {
         }else {
             status = 0
         }
+        let sukien ='';
+        sukien = suKienDuongLich(daysInMonth[i], months);
+        if(sukien === undefined){
+            sukien = '';
+        }
         informationDayInMonth.push({
             ngayDuong,
             rank,
+            sukien,
             amLich,
             dayCanChi,
             status
@@ -3207,8 +3213,116 @@ const ngayHoangDaoVaHacDao = (mm, yy) => {
     }; 
 };
 
+const suKienDuongLich = (dd, mm) => {
+    if(mm === 1){
+        if(dd === 1) {
+            return 'Tết Dương Lịch';
+        }
+    }else if(mm === 2){
+        if(dd === 3) {
+            return 'Thành lập Đảng Cộng sản Việt Nam'
+        }else if(dd === 14){
+            return 'Lễ tình nhân';
+        }else if(dd === 27){
+            return 'Ngày thầy thuốc Việt Nam';
+        }
+    }else if(mm === 3){
+        if(dd === 8) {
+            return 'Ngày Quốc tế Phụ nữ'
+        }else if(dd === 20){
+            return 'Ngày Quốc tế Hạnh Phúc';
+        }else if(dd === 26){
+            return 'Ngày thành lập Đoàn TNCS Hồ Chí Minh';
+        }
+    }else if(mm === 4){
+        if(dd === 1) {
+            return 'Ngày Cá tháng Tư'
+        }else if(dd === 22){
+            return 'Ngày Trái Đất';
+        }else if(dd === 30){
+            return 'Ngày giải phóng miền Nam';
+        }
+    }else if(mm === 5){
+        if(dd === 1) {
+            return 'Ngày Quốc tế Lao động'
+        }else if(dd === 7){
+            return 'Ngày chiến thắng Điện Biên Phủ';
+        }else if(dd === 13){
+            return 'Ngày của Mẹ';
+        }else if(dd === 19){
+            return 'Ngày sinh chủ tịch Hồ Chí Minh';
+        }
+    }else if(mm === 6){
+        if(dd === 1) {
+            return 'Ngày Quốc tế thiếu nhi'
+        }else if(dd === 17){
+            return 'Ngày của Cha';
+        }else if(dd === 21){
+            return 'Ngày báo chí Việt Nam';
+        }else if(dd === 28){
+            return 'Ngày gia đình Việt Nam';
+        }
+    }else if(mm === 7){
+        if(dd === 11) {
+            return 'Ngày dân số thế giới'
+        }else if(dd === 27){
+            return 'Ngày Thương binh liệt sĩ';
+        }else if(dd === 28){
+            return 'Ngày thành lập công đoàn Việt Nam';
+        }
+    }else if(mm === 8){
+        if(dd === 18) {
+            return 'Ngày Cách mạng tháng Tám thành công'
+        }
+    }else if(mm === 9){
+        if(dd === 2) {
+            return 'Ngày Quốc Khánh.'
+        }else if(dd === 7){
+            return 'Ngày thành lập Đài Truyền hình Việt Nam';
+        }else if(dd === 10){
+            return 'Ngày thành lập Mặt trận Tổ quốc Việt Nam';
+        }
+    }else if(mm === 10){
+        if(dd === 1) {
+            return 'Ngày quốc tế người cao tuổi'
+        }else if(dd === 10){
+            return 'Ngày giải phóng thủ đô.';
+        }else if(dd === 13){
+            return 'Ngày doanh nhân Việt Nam';
+        }else if(dd === 14){
+            return 'Ngày thành lập Hội Nông dân Việt Nam';
+        }else if(dd === 20){
+            return 'Ngày Phụ nữ Việt Nam';
+        }else if(dd === 31){
+            return 'Ngày lễ Hallowen';
+        }
+    }else if(mm === 11){
+        if(dd === 9) {
+            return 'Ngày pháp luật Việt Nam'
+        }else if(dd === 20){
+            return 'Ngày Nhà giáo Việt Nam';
+        }else if(dd === 23){
+            return 'Ngày thành lập Hội chữ thập đỏ Việt Nam';
+        }
+    }else{
+        if(dd === 1) {
+            return 'Ngày thế giới phòng chống AIDS'
+        }else if(dd === 19){
+            return 'Ngày toàn quốc kháng chiến';
+        }else if(dd === 24){
+            return 'Ngày lễ Giáng sinh';
+        }else if(dd === 22){
+            return 'Ngày thành lập quân đội nhân dân Việt Nam';
+        }
+    }
+}
+
 const titleOfMonth = (mm)=> {
     return detailMonth[mm];
+}
+
+const titleOfYear= (yy)=> {
+    return detailYear[yy];
 }
 
 const ngayLeDuong = (mm)=> {
@@ -3259,5 +3373,5 @@ export { canNgay, chiNgay,
     getInforDayCan, getInforDayChi, getKhongMinh, lichTietKhi, 
     getKhongMinhLucDieu, cacNgayKy, thapNhiKienTruc, startInDay, startBadDay,
      nguHanh, tinhThapNhiBatTu, ngayHoangDaoVaHacDao, titleOfMonth,
-     ngayLeDuong, ngaySuKienLichSu, listKhongMinhLucDieuByMonth
+     ngayLeDuong, ngaySuKienLichSu, listKhongMinhLucDieuByMonth, titleOfYear
 };

@@ -1,12 +1,11 @@
-
 import React, { useState, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "../components/Header";
 import InformationDay from "../components/InformationDay";
 import TableInfoDay from "../components/TableInforDay";
 import TableInforMonth from "../components/TableInforMonth";
 import DetailDays from "../components/DetailDay";
 import Footer from "../components/Footer";
+import "bootstrap/dist/css/bootstrap.min.css";
 import {
   chiNgay,
   layGioHoangDao,
@@ -93,7 +92,6 @@ const Home = () => {
     const startBadDays = startBadDay(nameDay, ngayam);
     const nguHanhs = nguHanh(nameDay);
     const dataThapNhiBatTu = tinhThapNhiBatTu(ngayduong, rank);
-    const thangAm = ngayam.split('-');
     const statusDays = ngayHoangDaoVaHacDao(Number(mm), Number(yy));
     
     setNegativeDay((prevState) => ({
@@ -127,7 +125,7 @@ const Home = () => {
     <>
       <Header />
       <div className="box-body-home">
-        <div className="container">
+        <div className="container body_home_page mx-0">
             <h3>Lịch âm hôm nay</h3>
               {negativeDay.is_check_data ? <InformationDay negativeDay={negativeDay} /> : <>...Loading</>}
               { negativeDay.is_check_data ?  <TableInfoDay negativeDay={negativeDay}/> : <>...Loading</> }
@@ -142,8 +140,9 @@ const Home = () => {
               ) : (
                 <>...Loading</>
               )}
-              <Footer />
+               <Footer /> 
         </div>
+        <div className="quang_cao"></div>
       </div>
     </>
   );
